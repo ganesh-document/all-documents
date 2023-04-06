@@ -43,5 +43,6 @@ jobs:
     - name: Publish docs
       if: github.ref == 'refs/heads/master'
       run: |
+        GHE_TOKEN
         git fetch
         mkdocs gh-deploy
