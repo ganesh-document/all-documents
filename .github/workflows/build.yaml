@@ -18,9 +18,9 @@ jobs:
       strategy:
         matrix:
           python_version: [3.9]
-      defaults:
-        run:
-          working-directory: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
+      #defaults:
+      #  run:
+      #    working-directory: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
       steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
