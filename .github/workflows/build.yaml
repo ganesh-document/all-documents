@@ -15,19 +15,7 @@ jobs:
   build:
     name: build
     runs-on: [ ubuntu-latest ]
-    strategy:
-      matrix:
-        python_version: [3.9]
-    defaults:
-      run:
-        working-directory: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-        path: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
-    - run: sudo chmod 0777 /opt/hostedtoolcache
     - name: Set up Python 3.x environment on the runner
       run: |
         sudo apt install python3.9
