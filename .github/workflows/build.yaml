@@ -48,5 +48,8 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/master' }}
       with:
-        github_token: ${{ secrets.GHE_TOKEN }}
-        publish_dir: ./public
+        run: |
+          git fetch
+          mkdocs gh-deploy
+          github_token: ${{ secrets.GHE_TOKEN }}
+          #publish_dir: ./Output
