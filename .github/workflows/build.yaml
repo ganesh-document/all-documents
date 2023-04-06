@@ -39,9 +39,15 @@ jobs:
         pip install mkdocs-material
         pip install mkdocs-git-revision-date-localized-plugin
         mkdocs build --verbose --clean
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
+    - name: Publish docs
+      if: github.ref == 'refs/heads/master'
+      run: |
         github_token: ${{ secrets.GHE_TOKEN }}
-        publish_branch: gh-pages
+        git fetch
+        mkdocs gh-deploy
+    #- name: Deploy
+    #  uses: peaceiris/actions-gh-pages@v3
+    #  with:
+    #    github_token: ${{ secrets.GHE_TOKEN }}
+    #    publish_branch: gh-pages
 
