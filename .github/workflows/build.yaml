@@ -28,10 +28,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -VV
-          python -m site
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install --upgrade coverage[toml] tox tox-gh-actions 
+          sudo apt install python3.9
       - name: Make docs
         run: |
           pip install jinja2==3.0.3
