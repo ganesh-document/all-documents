@@ -1,31 +1,66 @@
-name: all-documents
+name: documentation
 on:
-  repository_dispatch:
-    types: do-build
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
+
 env:
-  GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
-  #ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-  WORKSPACE_PATH: ${{ github.workspace }}
-  REPO: ${{ github.repository }}
+  PYTHON_VERSION: 3.x
+
+permissions:
+  contents: write
+
 jobs:
-  docs:
+  documentation:
+    name: Build documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v2
-      - run: |
-           pip install jinja2==3.0.3
-           pip install mkdocs
-           pip install mkdocs-material
-           pip install mkdocs-git-revision-date-localized-plugin
-           mkdocs build --verbose --clean
-           #pip install mkdocs mkdocs-gen-files
-      - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - name: Publish docs
-        run: mkdocs gh-deploy
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up build cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('.cache/**') }}
+          path: .cache
+
+      - name: Install dependencies
+        run: sudo apt-get install pngquant
+
+      - name: Install Python dependencies
+        run: |
+          pip install \
+            "cairosvg>=2.5" \
+            "mkdocs-git-committers-plugin-2>=1.1.1" \
+            "mkdocs-git-revision-date-localized-plugin>=1.0" \
+            "mkdocs-minify-plugin>=0.3" \
+            "mkdocs-rss-plugin>=1.2" \
+            "mkdocs-redirects>=1.0" \
+            "pillow<10"
+
+      - name: Install Insiders build
+        if: github.event.repository.fork == false
+        env:
+          GHE_TOKEN: ${{ secrets.GHE_TOKEN }}
+        run: |
+          git clone --depth 1 https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+          pip install -e mkdocs-material-insiders
+          cp mkdocs-material-insiders/mkdocs.yml mkdocs.yml
+          rm -rf material
+          cp -r mkdocs-material-insiders/material material
+
+      - name: Deploy documentation
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
