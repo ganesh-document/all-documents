@@ -16,9 +16,11 @@ jobs:
     name: build
     runs-on: [ ubuntu-latest ]
     steps:
-    - name: Set up Python 3.x environment on the runner
-      run: |
-        sudo apt install python3.9
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
+    - run: python my_script.py
     - name: Make docs
       run: |
         pip install jinja2==3.0.3
