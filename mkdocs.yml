@@ -1,0 +1,57 @@
+site_name: All the documents
+site_url: https://pages.github.com/ganesh-document/all-documents
+repo_url: https://github.com/ganesh-document/all-documents
+edit_uri: tree/main/all-documents
+repo_name: Ganesh All Documents
+site_author: Ganesh Kinkar Giri
+site_description: Ganesh all git docs
+use_directory_urls: True
+
+theme:
+    name: material
+nav:
+   - Overview: 
+     - Documents:
+       - Ganesh Documents: Ganesh-documents.md
+   - Cloud:
+       - Aws: aws.md
+       - Azure: azure.md
+       - Gcp: gcp.md
+       - Oci: oci.md
+       - Ibm: ibm.md
+   - Devops:
+       - poc: devops.md
+   - Securiy:
+       - poc: security.md
+   - Compliance:
+       - poc: compliance.md
+   - DevSecOps:
+       - poc: devsecops.md
+   - Micro Service:
+       - microservice.md
+
+#theme: readthedocs
+theme:
+    name: material
+    features:
+        - toc.integrate
+        - navigation.indexes
+        - content.tabs.link
+    icon:
+        repo: fontawesome/brands/github-alt
+
+extra_css: [css/extra.css]
+markdown_extensions:
+    - toc:
+        toc_depth: 3
+        permalink: "#"
+    - tables        
+use_directory_urls: false
+plugins:
+    - search
+    - git-revision-date-localized
+    #- mk2pdf-export
+    #- pdf-export:
+    #    #media_type: print
+    #    #enabled_if_env: ENABLE_PDF_EXPORT
+    #    theme_handler_path: htmltopdf.py
