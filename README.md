@@ -7,7 +7,7 @@ Documentation -> https://pages.github.com/ganesh-document/all-documents
 2. `pip install mkdocs-material`
 3. `pip install mkdocs-git-revision-date-localized-plugin`
 
-#### Authoring
+#### Authoring ####
 1. git clone all-documents
 2. update /docs with new .md files
 3. update mkdocs.yml with new items
