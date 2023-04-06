@@ -42,7 +42,7 @@ jobs:
         mkdocs build --verbose --clean
     - name: Publish docs
       if: github.ref == 'refs/heads/master'
-      run: |
-        GHE_TOKEN
-        git fetch
-        mkdocs gh-deploy
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+
