@@ -30,7 +30,7 @@ jobs:
     - run: sudo chmod 0777 /opt/hostedtoolcache
     - name: Set up Python 3.x environment on the runner
       run: |
-        sudo apt install python3.8
+        sudo apt install python3.9
     - name: Make docs
       run: |
         pip install jinja2==3.0.3
