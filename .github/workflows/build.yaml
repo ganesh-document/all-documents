@@ -1,4 +1,4 @@
-name: FE-Agents/docs
+name: Documents
 on:
   repository_dispatch:
     types: do-build
@@ -17,7 +17,7 @@ jobs:
     runs-on: [ ubuntu-latest ]
     strategy:
       matrix:
-        python_version: [3.9]
+        python_version: [3.10]
     defaults:
       run:
         working-directory: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
@@ -31,7 +31,7 @@ jobs:
     - run: sudo chmod 0777 /opt/hostedtoolcache
     - name: Set up Python 3.x environment on the runner
       run: |
-        sudo apt install python3.8
+        sudo apt install python3.10
     - name: Make docs
       run: |
         pip install jinja2==3.0.3
