@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+env:
+  GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
