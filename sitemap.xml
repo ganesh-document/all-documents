@@ -11,52 +11,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/aws.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Aws/aws.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/azure.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/azure.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/compliance.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Gcp/gcp.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/devops.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Ibm/ibm.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/devsecops.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Oci/oci.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/gcp.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Compliance/compliance.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/ibm.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/devsecops.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/microservice.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Devops/devops.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/oci.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/MicroService/microservice.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/security.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Securiy/security.html</loc>
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
