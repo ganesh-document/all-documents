@@ -1,6 +1,6 @@
 ##Welcome to Ganesh all documents
 
-Documentation -> https://pages.github.com/ganesh-document/all-documents
+Documentation -> https://ganesh-document.github.io/all-documents/
 
 #### Setup:
 1. `pip install mkdocs`

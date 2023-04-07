@@ -12,7 +12,7 @@ theme:
 nav:
    - Overview: 
      - Documents:
-       - Ganesh Documents: Ganesh-documents.md
+       - Documents details: Documentsdetails.md
    - Cloud:
        - Aws: aws.md
        - Azure: azure.md
