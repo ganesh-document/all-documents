@@ -28,7 +28,7 @@ jobs:
         fetch-depth: 1
         path: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
     # tmp due to generic issue from devops
-    #- run: sudo chmod 0777 /opt/hostedtoolcache
+    - run: sudo chmod 0777 /opt/hostedtoolcache
     - name: Set up Python 3.x environment on the runner
       run: |
         sudo apt install python3.10
