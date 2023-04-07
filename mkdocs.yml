@@ -14,21 +14,21 @@ nav:
      - Documents:
        - Documents details: Documentsdetails.md
    - Cloud:
-       - Aws: aws.md
-       - Azure: azure.md
-       - Gcp: gcp.md
-       - Oci: oci.md
-       - Ibm: ibm.md
+       - Aws: Cloud/Aws/aws.md
+       - Azure: Cloud/Azure/azure.md
+       - Gcp: Cloud/Gcp/gcp.md
+       - Oci: Cloud/Oci/oci.md
+       - Ibm: Cloud/Ibm/ibm.md
    - Devops:
-       - poc: devops.md
+       - poc: Devops/devops.md
    - Securiy:
-       - poc: security.md
+       - poc: Security/Sesecurity.md
    - Compliance:
-       - poc: compliance.md
+       - poc: Compliance/compliance.md
    - DevSecOps:
-       - poc: devsecops.md
+       - poc: DevSecOps/devsecops.md
    - Micro Service:
-       - microservice.md
+       - MicroService/microservice.md
 
 #theme: readthedocs
 theme:
