@@ -1005,6 +1005,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step-1-install-openjdk" class="md-nav__link">
+    Step #1: Install OpenJDK
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1267,15 +1274,25 @@
   <h1>SonarQube</h1>
 
 <h2 id="how-to-install-sonarqube-on-ubuntu-2004-lts">How to Install SonarQube on Ubuntu 20.04 LTS<a class="headerlink" href="#how-to-install-sonarqube-on-ubuntu-2004-lts" title="Permanent link">#</a></h2>
-<p>** Prerequisites:
-    * Ubuntu 20.04 LTS with minimum 2GB RAM and 1 CPU.
-    * PostgreSQL Version 9.3 or higher
-    * SSH access with sudo privileges
-    * Firewall Port: 9000</p>
-<p>** Hardware requirements:
-    * A small-scale (individual or small team) instance of the SonarQube server requires at least 2GB of RAM to run efficiently and 1GB of free RAM for the OS. If you are installing an instance for a large       team or an enterprise, please consider the additional recommendations below.
-    * The amount of disk space you need will depend on how much code you analyze with SonarQube.
-    * SonarQube must be installed on hard drives that have excellent read &amp; write performance. Most importantly, the "data" folder houses the Elasticsearch indices on which a huge amount of I/O will be done      when the server is up and running. Read and write hard drive performance will therefore have a big impact on the overall SonarQube server performance.</p>
+<ul>
+<li>
+<p>Prerequisites:</p>
+<ul>
+<li>Ubuntu 20.04 LTS with minimum 2GB RAM and 1 CPU.</li>
+<li>PostgreSQL Version 9.3 or higher</li>
+<li>SSH access with sudo privileges</li>
+<li>Firewall Port: 9000</li>
+</ul>
+</li>
+<li>
+<p>Hardware requirements:</p>
+<ol>
+<li>A small-scale (individual or small team) instance of the SonarQube server requires at least 2GB of RAM to run efficiently and 1GB of free RAM for the OS. If you are installing an instance for a large      team or an enterprise, please consider the additional recommendations below.</li>
+<li>The amount of disk space you need will depend on how much code you analyze with SonarQube.</li>
+<li>SonarQube must be installed on hard drives that have excellent read &amp; write performance. Most importantly, the "data" folder houses the Elasticsearch indices on which a huge amount of I/O will be               done when the server is up and running. Read and write hard drive performance will therefore have a big impact on the overall SonarQube server performance.</li>
+</ol>
+</li>
+</ul>
 <pre><code>sudo sysctl -w vm.max_map_count=262144
 </code></pre>
 <pre><code>sudo sysctl -w fs.file-max=65536
@@ -1290,6 +1307,43 @@
 <pre><code>sonarqube - nofile 65536
 </code></pre>
 <pre><code>sonarqube - nproc 4096
+</code></pre>
+<ul>
+<li>Enterprise hardware recommendations:
+For large teams or enterprise-scale installations of SonarQube, additional hardware is required. At the enterprise level, monitoring your SonarQube instance is essential and should guide further hardware upgrades as your instance grows. A starting configuration should include at least:<ul>
+<li>8 cores, to allow the main SonarQube platform to run with multiple compute engine workers</li>
+<li>16GB of RAM For additional requirements and recommendations relating to database and Elasticsearch.</li>
+</ul>
+</li>
+</ul>
+<p>Supported platforms:
+    1. Java: The SonarQube server requires Java version 17 and the SonarQube scanners require Java version 11 or 17.
+    2. Database: PostgreSQL version = 11,12,13,14,15
+    3. xxxxxx: xxxxx </p>
+<p>To Increase the vm.max_map_count kernal ,file discriptor and ulimit permanently . Open the below config file and Insert the below value as shown below,</p>
+<pre><code>sudo vi /etc/security/limits.conf
+</code></pre>
+<pre><code>sonarqube   -   nofile   65536
+sonarqube   -   nproc    4096
+</code></pre>
+<p>OR If you are using systemd to manage the sonarqube services then add below value in sonarqube unit file under [service] section.</p>
+<pre><code>[Service]
+...
+LimitNOFILE=65536
+LimitNPROC=4096
+...
+</code></pre>
+<p>Before installing, Lets update and upgrade System Packages</p>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+<p>Install wget and unzip package</p>
+<pre><code>sudo apt-get install wget unzip -y
+</code></pre>
+<h2 id="step-1-install-openjdk">Step #1: Install OpenJDK<a class="headerlink" href="#step-1-install-openjdk" title="Permanent link">#</a></h2>
+<p>Install OpenJDK and JRE 11 using following command,</p>
+<pre><code>sudo apt-get install openjdk-11-jdk -y
+sudo apt-get install openjdk-11-jre -y
 </code></pre>
 
   <hr>
