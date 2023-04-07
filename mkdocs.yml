@@ -1,5 +1,5 @@
 site_name: All the documents
-site_url: https://ganesh-document.github.io/
+site_url: https://ganesh-document.github.io/all-documents/
 repo_url: https://github.com/ganesh-document/all-documents
 edit_uri: tree/main/all-documents
 repo_name: Ganesh All Documents
@@ -50,8 +50,3 @@ use_directory_urls: false
 plugins:
     - search
     - git-revision-date-localized
-    #- mk2pdf-export
-    #- pdf-export:
-    #    #media_type: print
-    #    #enabled_if_env: ENABLE_PDF_EXPORT
-    #    theme_handler_path: htmltopdf.py
