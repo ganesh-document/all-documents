@@ -1,21 +1,47 @@
-name: build
+name: ganesh-document/all-documents
 on:
+  repository_dispatch:
+    types: do-build
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 env:
-  GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+  GHE_TOKEN: ${{ secrets.GHE_TOKEN }}
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  WORKSPACE_PATH: ${{ github.workspace }}
+  REPO: ${{ github.repository }}
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build:
+    name: build
+    runs-on: [ ubuntu-latest ]
+    strategy:
+      matrix:
+        python_version: [3.10]
+    defaults:
+      run:
+        working-directory: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - run: |
-           pip install jinja2==3.0.3
-           pip install mkdocs
-           pip install mkdocs-material
-           pip install mkdocs-git-revision-date-localized-plugin
-      - run: mkdocs gh-deploy --force --clean --verbose
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+        path: ${{ env.WORKSPACE_PATH }}/src/github.com/${{ github.repository }}
+    # tmp due to generic issue from devops
+    - run: sudo chmod 0777 /opt/hostedtoolcache
+    - name: Set up Python 3.x environment on the runner
+      run: |
+        sudo apt install python3.10
+    - name: Make docs
+      run: |
+        pip install jinja2==3.0.3
+        pip install mkdocs
+        pip install mkdocs-material
+        pip install mkdocs-git-revision-date-localized-plugin
+
+        mkdocs build --verbose --clean
+    - name: Publish docs
+      if: github.ref == 'refs/heads/master'
+      run: |
+        git fetch
+        mkdocs gh-deploy
