@@ -20,7 +20,31 @@ nav:
        - Oci: Cloud/Oci/oci.md
        - Ibm: Cloud/Ibm/ibm.md
    - Devops:
-       - poc: Devops/devops.md
+       - Overview: Devops/devopso-verview.md
+       - Tools:
+          - CI (Continuous Integration):
+            - Github Action: Devops/tools/CI/Github-action.md
+            - Jenkins: Devops/tools/CI/Jenkins.md
+            - TravisCI: Devops/tools/CI/TravisCI.md
+            - GitLab: Devops/tools/CI/Gitlab.md
+            - TeamCity: Devops/tools/CI/TeamCity.md
+            - CircleCI: Devops/tools/CI/CircleCI.md
+            - Bamboo: Devops/tools/CI/Bamboo.md
+            - Bitbucket: Devops/tools/CI/Bitbucket.md
+            - AWS CodePipeline: Devops/tools/CI/AWS-CodePipeline.md
+            - Azure Pipelines: Devops/tools/CI/Azure-Pipelines.md
+          - CD (Continuous Delivery):
+            - Jenkins: Devops/tools/CD/Jenkins.md
+            - ArgoCD: Devops/tools/CD/ArgoCD.md
+            - GoCD: Devops/tools/CD/GoCD.md
+            - Spinnaker: Devops/tools/CD/Spinnaker.md
+            - GitLab: Devops/tools/CD/GitLab.md
+          - CR (Container Registry):
+            - Jfrog artifactory: Devops/tools/CR/Jfrog-artifactory.md
+          - SCR (Source Code Repository):
+            - Github: Devops/tools/SCR/Github.md
+          - CQT (Code Quality Tools):
+            - SonarQube: Devops/tools/CQT/Sonarqube.md
    - Securiy:
        - poc: Security/Sesecurity.md
    - Compliance:
