@@ -1,29 +1,15 @@
-name: Documents
+name: build
 on:
-  repository_dispatch:
-    types: do-build
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-env:
-  GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+    branches:
+      - main
 jobs:
-  docs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v2
-      - run: |
-           pip install jinja2==3.0.3
-           pip install mkdocs
-           pip install mkdocs-material
-           pip install mkdocs-git-revision-date-localized-plugin
-           #mkdocs build --verbose --clean
-           #pip install mkdocs mkdocs-gen-files
-      - name: Publish docs
-        run: |
-           git fetch
-           mkdocs gh-deploy
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs
+      - run: mkdocs gh-deploy --force --clean --verbose
