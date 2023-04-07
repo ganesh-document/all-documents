@@ -1,7 +1,7 @@
 site_name: All the documents
-site_url: https://ganesh-document.github.io/all-documents/Documentsdetails.html
+site_url: https://ganesh-document.github.io/all-documents
 repo_url: https://github.com/ganesh-document/all-documents
-edit_uri: tree/main/all-documents
+edit_uri: /tree/main/all-documents
 repo_name: Ganesh All Documents
 site_author: Ganesh Kinkar Giri
 site_description: Ganesh all git docs
