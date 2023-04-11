@@ -90,3 +90,293 @@ Install OpenJDK and JRE 11 using following command,
 sudo apt-get install openjdk-11-jdk -y
 sudo apt-get install openjdk-11-jre -y
 ```
+
+## SET Default JDK
+
+```
+sudo update-alternatives --config java
+```
+
+## Check JAVA Version:
+
+```
+java -version
+```
+
+## Step #2: Install and Setup PostgreSQL 10 Database For SonarQube
+
+Add and download the PostgreSQL Repo
+
+```
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+```
+
+Install the PostgreSQL database Server by using following command,
+
+```
+sudo apt-get -y install postgresql postgresql-contrib
+```
+
+Start PostgreSQL Database server
+
+```
+sudo systemctl start postgresql
+```
+
+Enable it to start automatically at boot time.
+
+```
+sudo systemctl enable postgresql
+```
+
+Change the password for the default PostgreSQL user.
+
+```
+sudo passwd postgres
+```
+
+Switch to the postgres user.
+
+```
+su - postgres
+```
+
+Create a new user by typing:
+
+```
+createuser sonar
+```
+
+Switch to the PostgreSQL shell.
+
+```
+psql
+```
+
+Set a password for the newly created user for SonarQube database.
+
+```
+ALTER USER sonar WITH ENCRYPTED password 'sonar';
+```
+
+Create a new database for PostgreSQL database by running:
+
+```
+CREATE DATABASE sonarqube OWNER sonar;
+```
+
+grant all privileges to sonar user on sonarqube Database.
+
+```
+grant all privileges on DATABASE sonarqube to sonar;
+```
+
+Exit from the psql shell:
+
+```
+\q
+```
+
+Switch back to the sudo user by running the exit command.
+
+```
+exit
+```
+
+
+## Step #3: How to Install SonarQube on Ubuntu 20.04 LTS
+
+Download sonaqube installer files archieve To download latest version of visit SonarQube (https://www.sonarsource.com/products/sonarqube/downloads/)
+
+```
+cd /tmp
+sudo https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.1.44547.zip
+```
+
+Unzip the archeve setup to /opt directory
+
+```
+sudo unzip sonarqube-8.9.1.zip -d /opt
+```
+
+Move extracted setup to /opt/sonarqube directory
+
+```
+sudo mv /opt/sonarqube-8.9.1 /opt/sonarqube
+```
+
+## Step #4: Configure SonarQube
+
+We can’t run Sonarqube as a root user , if you run using root user it stops automatically. We have found solution on this to create saparate group and user to run sonarqube.
+
+## 1. Create Group and User:
+
+Create a group as sonar
+
+```
+sudo groupadd sonar
+```
+
+Now add the user with directory access
+
+```
+sudo useradd -c "user to run SonarQube" -d /opt/sonarqube -g sonar sonar 
+sudo chown sonar:sonar /opt/sonarqube -R
+```
+
+Open the SonarQube configuration file using your favorite text editor.
+
+```
+sudo nano /opt/sonarqube/conf/sonar.properties
+```
+
+Find the following lines.
+
+```
+#sonar.jdbc.username=
+#sonar.jdbc.password=
+```
+
+Uncomment and Type the PostgreSQL Database username and password which we have created in above steps and add the postgres connection string.
+
+```
+vi /opt/sonarqube/conf/sonar.properties
+
+#--------------------------------------------------------------------------------------------------
+
+# DATABASE
+
+#
+
+# IMPORTANT:
+
+# - The embedded H2 database is used by default. It is recommended for tests but not for
+
+#   production use. Supported databases are Oracle, PostgreSQL and Microsoft SQLServer.
+
+# - Changes to database connection URL (sonar.jdbc.url) can affect SonarSource licensed products.
+
+# User credentials.
+
+# Permissions to create tables, indices and triggers must be granted to JDBC user.
+
+# The schema must be created first.
+
+sonar.jdbc.username=sonar
+sonar.jdbc.password=sonar
+sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
+```
+
+## 2. Start SonarQube:
+
+Now to start SonarQube we need to do following: Switch to sonar user
+
+```
+sudo su sonar
+```
+
+Move to the script directory
+
+```
+cd /opt/sonarqube/bin/linux-x86-64/
+```
+
+Run the script to start SonarQube
+
+```
+./sonar.sh start
+```
+
+We can also add this in service and can run as a service.
+
+## 3. Check SonarQube Running Status:
+
+To check if sonaqube is running enter below command,
+
+```
+./sonar.sh status
+```
+
+### 4. SonarQube Logs:
+
+To check sonarqube logs, navigate to /opt/sonarqube/logs/sonar.log directory
+
+```
+tail /opt/sonarqube/logs/sonar.log
+```
+
+## Step #5: Configure Systemd service
+
+First stop the SonarQube service as we started manually using above steps Navigate to the SonarQube installed path
+
+```
+cd /opt/sonarqube/bin/linux-x86-64/
+```
+
+Run the script to start SonarQube
+
+```
+./sonar.sh stop
+```
+
+Create a systemd service file for SonarQube to run as System Startup.
+
+```
+sudo vi /etc/systemd/system/sonar.service
+
+Add the below lines,
+
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+User=sonar
+Group=sonar
+Restart=always
+
+LimitNOFILE=65536
+LimitNPROC=4096
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Save and close the file. Now stop the sonarqube script earlier we started to run using as daemon. Start the Sonarqube daemon by running:
+
+```
+sudo systemctl start sonar
+```
+
+Enable the SonarQube service to automatically  at boot time System Startup.
+
+```
+sudo systemctl enable sonar
+```
+
+check if the sonarqube service is running,
+
+```
+sudo systemctl status sonar
+```
+
+## Step #6: Access SonarQube
+
+To access the SonarQube using browser type server IP followed by port 9000.
+
+```
+http://server_IP:9000 OR http://localhost:9000
+```
+
+Login to SonarQube  with default administrator username and password is admin.
+
+## Ref:
+https://www.fosstechnix.com/how-to-install-sonarqube-on-ubuntu-20-04/
+
+
