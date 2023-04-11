@@ -1012,6 +1012,96 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#set-default-jdk" class="md-nav__link">
+    SET Default JDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-java-version" class="md-nav__link">
+    Check JAVA Version:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-install-and-setup-postgresql-10-database-for-sonarqube" class="md-nav__link">
+    Step #2: Install and Setup PostgreSQL 10 Database For SonarQube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-how-to-install-sonarqube-on-ubuntu-2004-lts" class="md-nav__link">
+    Step #3: How to Install SonarQube on Ubuntu 20.04 LTS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-configure-sonarqube" class="md-nav__link">
+    Step #4: Configure SonarQube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-group-and-user" class="md-nav__link">
+    1. Create Group and User:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-start-sonarqube" class="md-nav__link">
+    2. Start SonarQube:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-check-sonarqube-running-status" class="md-nav__link">
+    3. Check SonarQube Running Status:
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Check SonarQube Running Status:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-sonarqube-logs" class="md-nav__link">
+    4. SonarQube Logs:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-configure-systemd-service" class="md-nav__link">
+    Step #5: Configure Systemd service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-access-sonarqube" class="md-nav__link">
+    Step #6: Access SonarQube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ref" class="md-nav__link">
+    Ref:
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1345,13 +1435,182 @@ sudo apt-get upgrade
 <pre><code>sudo apt-get install openjdk-11-jdk -y
 sudo apt-get install openjdk-11-jre -y
 </code></pre>
+<h2 id="set-default-jdk">SET Default JDK<a class="headerlink" href="#set-default-jdk" title="Permanent link">#</a></h2>
+<pre><code>sudo update-alternatives --config java
+</code></pre>
+<h2 id="check-java-version">Check JAVA Version:<a class="headerlink" href="#check-java-version" title="Permanent link">#</a></h2>
+<pre><code>java -version
+</code></pre>
+<h2 id="step-2-install-and-setup-postgresql-10-database-for-sonarqube">Step #2: Install and Setup PostgreSQL 10 Database For SonarQube<a class="headerlink" href="#step-2-install-and-setup-postgresql-10-database-for-sonarqube" title="Permanent link">#</a></h2>
+<p>Add and download the PostgreSQL Repo</p>
+<pre><code>sudo sh -c 'echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main&quot; &gt;&gt; /etc/apt/sources.list.d/pgdg.list'
+wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+</code></pre>
+<p>Install the PostgreSQL database Server by using following command,</p>
+<pre><code>sudo apt-get -y install postgresql postgresql-contrib
+</code></pre>
+<p>Start PostgreSQL Database server</p>
+<pre><code>sudo systemctl start postgresql
+</code></pre>
+<p>Enable it to start automatically at boot time.</p>
+<pre><code>sudo systemctl enable postgresql
+</code></pre>
+<p>Change the password for the default PostgreSQL user.</p>
+<pre><code>sudo passwd postgres
+</code></pre>
+<p>Switch to the postgres user.</p>
+<pre><code>su - postgres
+</code></pre>
+<p>Create a new user by typing:</p>
+<pre><code>createuser sonar
+</code></pre>
+<p>Switch to the PostgreSQL shell.</p>
+<pre><code>psql
+</code></pre>
+<p>Set a password for the newly created user for SonarQube database.</p>
+<pre><code>ALTER USER sonar WITH ENCRYPTED password 'sonar';
+</code></pre>
+<p>Create a new database for PostgreSQL database by running:</p>
+<pre><code>CREATE DATABASE sonarqube OWNER sonar;
+</code></pre>
+<p>grant all privileges to sonar user on sonarqube Database.</p>
+<pre><code>grant all privileges on DATABASE sonarqube to sonar;
+</code></pre>
+<p>Exit from the psql shell:</p>
+<pre><code>\q
+</code></pre>
+<p>Switch back to the sudo user by running the exit command.</p>
+<pre><code>exit
+</code></pre>
+<h2 id="step-3-how-to-install-sonarqube-on-ubuntu-2004-lts">Step #3: How to Install SonarQube on Ubuntu 20.04 LTS<a class="headerlink" href="#step-3-how-to-install-sonarqube-on-ubuntu-2004-lts" title="Permanent link">#</a></h2>
+<p>Download sonaqube installer files archieve To download latest version of visit SonarQube (https://www.sonarsource.com/products/sonarqube/downloads/)</p>
+<pre><code>cd /tmp
+sudo https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.1.44547.zip
+</code></pre>
+<p>Unzip the archeve setup to /opt directory</p>
+<pre><code>sudo unzip sonarqube-8.9.1.zip -d /opt
+</code></pre>
+<p>Move extracted setup to /opt/sonarqube directory</p>
+<pre><code>sudo mv /opt/sonarqube-8.9.1 /opt/sonarqube
+</code></pre>
+<h2 id="step-4-configure-sonarqube">Step #4: Configure SonarQube<a class="headerlink" href="#step-4-configure-sonarqube" title="Permanent link">#</a></h2>
+<p>We can’t run Sonarqube as a root user , if you run using root user it stops automatically. We have found solution on this to create saparate group and user to run sonarqube.</p>
+<h2 id="1-create-group-and-user">1. Create Group and User:<a class="headerlink" href="#1-create-group-and-user" title="Permanent link">#</a></h2>
+<p>Create a group as sonar</p>
+<pre><code>sudo groupadd sonar
+</code></pre>
+<p>Now add the user with directory access</p>
+<pre><code>sudo useradd -c &quot;user to run SonarQube&quot; -d /opt/sonarqube -g sonar sonar 
+sudo chown sonar:sonar /opt/sonarqube -R
+</code></pre>
+<p>Open the SonarQube configuration file using your favorite text editor.</p>
+<pre><code>sudo nano /opt/sonarqube/conf/sonar.properties
+</code></pre>
+<p>Find the following lines.</p>
+<pre><code>#sonar.jdbc.username=
+#sonar.jdbc.password=
+</code></pre>
+<p>Uncomment and Type the PostgreSQL Database username and password which we have created in above steps and add the postgres connection string.</p>
+<pre><code>vi /opt/sonarqube/conf/sonar.properties
+
+#--------------------------------------------------------------------------------------------------
+
+# DATABASE
+
+#
+
+# IMPORTANT:
+
+# - The embedded H2 database is used by default. It is recommended for tests but not for
+
+#   production use. Supported databases are Oracle, PostgreSQL and Microsoft SQLServer.
+
+# - Changes to database connection URL (sonar.jdbc.url) can affect SonarSource licensed products.
+
+# User credentials.
+
+# Permissions to create tables, indices and triggers must be granted to JDBC user.
+
+# The schema must be created first.
+
+sonar.jdbc.username=sonar
+sonar.jdbc.password=sonar
+sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
+</code></pre>
+<h2 id="2-start-sonarqube">2. Start SonarQube:<a class="headerlink" href="#2-start-sonarqube" title="Permanent link">#</a></h2>
+<p>Now to start SonarQube we need to do following: Switch to sonar user</p>
+<pre><code>sudo su sonar
+</code></pre>
+<p>Move to the script directory</p>
+<pre><code>cd /opt/sonarqube/bin/linux-x86-64/
+</code></pre>
+<p>Run the script to start SonarQube</p>
+<pre><code>./sonar.sh start
+</code></pre>
+<p>We can also add this in service and can run as a service.</p>
+<h2 id="3-check-sonarqube-running-status">3. Check SonarQube Running Status:<a class="headerlink" href="#3-check-sonarqube-running-status" title="Permanent link">#</a></h2>
+<p>To check if sonaqube is running enter below command,</p>
+<pre><code>./sonar.sh status
+</code></pre>
+<h3 id="4-sonarqube-logs">4. SonarQube Logs:<a class="headerlink" href="#4-sonarqube-logs" title="Permanent link">#</a></h3>
+<p>To check sonarqube logs, navigate to /opt/sonarqube/logs/sonar.log directory</p>
+<pre><code>tail /opt/sonarqube/logs/sonar.log
+</code></pre>
+<h2 id="step-5-configure-systemd-service">Step #5: Configure Systemd service<a class="headerlink" href="#step-5-configure-systemd-service" title="Permanent link">#</a></h2>
+<p>First stop the SonarQube service as we started manually using above steps Navigate to the SonarQube installed path</p>
+<pre><code>cd /opt/sonarqube/bin/linux-x86-64/
+</code></pre>
+<p>Run the script to start SonarQube</p>
+<pre><code>./sonar.sh stop
+</code></pre>
+<p>Create a systemd service file for SonarQube to run as System Startup.</p>
+<pre><code>sudo vi /etc/systemd/system/sonar.service
+
+Add the below lines,
+
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+User=sonar
+Group=sonar
+Restart=always
+
+LimitNOFILE=65536
+LimitNPROC=4096
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Save and close the file. Now stop the sonarqube script earlier we started to run using as daemon. Start the Sonarqube daemon by running:</p>
+<pre><code>sudo systemctl start sonar
+</code></pre>
+<p>Enable the SonarQube service to automatically  at boot time System Startup.</p>
+<pre><code>sudo systemctl enable sonar
+</code></pre>
+<p>check if the sonarqube service is running,</p>
+<pre><code>sudo systemctl status sonar
+</code></pre>
+<h2 id="step-6-access-sonarqube">Step #6: Access SonarQube<a class="headerlink" href="#step-6-access-sonarqube" title="Permanent link">#</a></h2>
+<p>To access the SonarQube using browser type server IP followed by port 9000.</p>
+<pre><code>http://server_IP:9000 OR http://localhost:9000
+</code></pre>
+<p>Login to SonarQube  with default administrator username and password is admin.</p>
+<h2 id="ref">Ref:<a class="headerlink" href="#ref" title="Permanent link">#</a></h2>
+<p>https://www.fosstechnix.com/how-to-install-sonarqube-on-ubuntu-20-04/</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 11, 2023</span>
       
     
   </small>
