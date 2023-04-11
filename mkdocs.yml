@@ -50,7 +50,27 @@ nav:
    - Compliance:
        - poc: Compliance/compliance.md
    - DevSecOps:
-       - poc: DevSecOps/devsecops.md
+       - SAST: 
+         - SonarQube: DevSecOps/SAST/Tools/SonarQube.md
+         - snyk: DevSecOps/SAST/Tools/snyk.md
+         - Verracode: DevSecOps/SAST/Tools/Verracode.md
+         - HCLAppScan: DevSecOps/SAST/Tools/HCLAppScan.md
+         - Github: DevSecOps/SAST/Tools/Github.md
+         - GitLab: DevSecOps/SAST/Tools/GitLab.md
+         - GitGuardian: DevSecOps/SAST/Tools/GitGuardian.md
+         - Coverity: DevSecOps/SAST/Tools/Coverity.md
+         - Semgrep: DevSecOps/SAST/Tools/Semgrep.md
+         - Appknox: DevSecOps/SAST/Tools/SonarQube.md
+         - DeepSource: DevSecOps/SAST/Tools/SonarQube.md
+         - Checkmarx: DevSecOps/SAST/Tools/Checkmarx.md
+         - Fortify Static Code Analyzer: DevSecOps/SAST/Tools/Fortify.md
+         - Kiuwan Code Security Insights: DevSecOps/SAST/Tools/kiuwan.md
+
+       - DAST: DevSecOps/DAST/Tools/devsecops-dast.md
+       - SCA: DevSecOps/SCA/Tools/devsecops-sca.md
+       - Image scan: DevSecOps/CIS/Tools/devsecops-image.md
+       - IaC: DevSecOps/SCA/Tools/devsecops-iac.md
+       - Container scan: DevSecOps/SCA/Tools/devsecops-cs.md
    - Micro Service:
        - MicroService/microservice.md
 
