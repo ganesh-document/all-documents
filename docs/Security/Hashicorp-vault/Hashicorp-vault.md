@@ -5,5 +5,5 @@ A modern system requires access to a multitude of secrets, including database cr
 
 Vault validates and authorizes clients (users, machines, apps) before providing them access to secrets or stored sensitive data.
 
-![Image title](image/Vault-01.PNG){ loading=lazy }
+![Image title](image/Vault-01.png){ loading=lazy }
 
