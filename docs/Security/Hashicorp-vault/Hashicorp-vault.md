@@ -6,4 +6,4 @@ A modern system requires access to a multitude of secrets, including database cr
 Vault validates and authorizes clients (users, machines, apps) before providing them access to secrets or stored sensitive data.
 
 ![Image](Security/Hashicorp-vault/image/Vault-01.png)
-
+![Design Flow1](image/Vault-01.png)
