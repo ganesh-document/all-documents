@@ -16,12 +16,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/Security-az-500.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/azure.html</loc>
          <lastmod>2023-04-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/azure.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Implement-platform-protection.html</loc>
+         <lastmod>2023-04-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Manage-Identity-and-Access.html</loc>
+         <lastmod>2023-04-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Manage-security-operation.html</loc>
+         <lastmod>2023-04-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Secure-your-data-and-applications.html</loc>
          <lastmod>2023-04-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
