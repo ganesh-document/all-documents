@@ -15,7 +15,8 @@ nav:
        - Documents details: Documentsdetails.md
    - Cloud:
        - Aws: Cloud/Aws/aws.md
-       - Azure: Cloud/Azure/azure.md
+       - Azure:
+            - Azure Security AZ-500: Cloud/Azure/Security-az-500.md
        - Gcp: Cloud/Gcp/gcp.md
        - Oci: Cloud/Oci/oci.md
        - Ibm: Cloud/Ibm/ibm.md
