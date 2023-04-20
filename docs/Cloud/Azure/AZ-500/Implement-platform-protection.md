@@ -1,0 +1,62 @@
+# **AZ-500: Microsoft Certified: Azure Security Engineer Associate**
+## **Implement platform protection**
+1. **Implement perimeter security**
+    - Introduction
+    - Define defense in depth
+    - Explore virtual network security
+    - Enable Distributed Denial of Service (DDoS) Protection
+    - Configure a distributed denial of service protection implementation
+    - Explore Azure Firewall features
+    - Deploy an Azure Firewall implementation
+    - Configure VPN forced tunneling
+    - Create User Defined Routes and Network Virtual Appliances
+    - Explore hub and spoke topology
+    - Perform try-this exercises
+    - Knowledge check
+    - Summary
+2. **Configure network security**
+    - Introduction
+    - Explore Network Security Groups (NSG)
+    - Deploy a Network Security Groups implementation
+    - Create Application Security Groups
+    - Enable service endpoints
+    - Configure service endpoint services
+    - Deploy private links
+    - Implement an Azure application gateway
+    - Deploy a web application firewall
+    - Configure and manage Azure front door
+    - Review ExpressRoute
+    - Perform try-this exercises
+    - Knowledge check
+    - Summary
+3 **Configure and manage host security**
+    - Introduction
+    - Enable endpoint protection
+    - Define a privileged access device strategy
+    - Deploy privileged access workstations
+    - Create virtual machine templates
+    - Enable and secure remote access management
+    - Configure update management
+    - Deploy disk encryption
+    - Managed disk encryption options
+    - Deploy and configure Windows Defender
+    - Microsoft cloud security benchmark in Defender for Cloud
+    - Explore Microsoft Defender for Cloud recommendations
+    - Perform Try-This exercises
+    - Knowledge check
+    - Summary
+4 **Enable Containers security**
+    - Introduction
+    - Explore containers
+    - Configure Azure Container Instances security
+    - Manage security for Azure Container Instances (ACI)​
+    - Explore the Azure Container Registry (ACR)
+    - Enable Azure Container Registry authentication
+    - Review Azure Kubernetes Service (AKS)
+    - Implement an Azure Kubernetes Service architecture​
+    - Configure Azure Kubernetes Service networking
+    - Deploy Azure Kubernetes Service storage​
+    - Secure authentication to Azure Kubernetes Service with Active Directory
+    - Manage access to Azure Kubernetes Service using Azure role-based access controls
+    - Knowledge check
+    - Summary
