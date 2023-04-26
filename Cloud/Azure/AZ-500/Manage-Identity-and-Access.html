@@ -21,7 +21,7 @@
         <link rel="next" href="Implement-platform-protection.html">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -30,9 +30,6 @@
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -60,14 +57,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -2914,13 +2908,1400 @@ This task requires a user account, AZ500User1.
 Using AD Connect Health works by installing an agent on each of your on-premises sync servers.
 </code></pre>
 <h2 id="explore-authentication-options"><strong>Explore authentication options</strong><a class="headerlink" href="#explore-authentication-options" title="Permanent link">#</a></h2>
+<p>Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. Don't take this decision lightly, for the following reasons:</p>
+<ul>
+<li>It's the first decision for an organization that wants to move to the cloud.</li>
+<li>The authentication method is a critical component of an organization’s presence in the cloud. It controls access to all cloud data and resources.</li>
+<li>It's the foundation of all the other advanced security and user experience features in Azure AD.</li>
+</ul>
+<p>Identity is the new control plane of IT security, so authentication is an organization’s access guard to the new cloud world. Organizations need an identity control plane that strengthens their security and keeps their cloud apps safe from intruders.</p>
+<h2 id="authentication-methods"><strong>Authentication methods</strong><a class="headerlink" href="#authentication-methods" title="Permanent link">#</a></h2>
+<p>When the Azure AD hybrid identity solution is your new control plane, authentication is the foundation of cloud access. Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud.</p>
+<p>Azure AD supports the following authentication methods for hybrid identity solutions.</p>
+<h2 id="cloud-authentication"><strong>Cloud authentication</strong><a class="headerlink" href="#cloud-authentication" title="Permanent link">#</a></h2>
+<p>When you choose this authentication method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options:</p>
+<p><strong>Option 1: Azure AD password hash synchronization</strong>. The simplest way to enable authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection and Azure AD Domain Services, require password hash synchronization, no matter which authentication method you choose.</p>
+<p><strong>Option 2: Azure AD Pass-through Authentication</strong>. Provides a simple password validation for Azure AD authentication services by using a software agent that runs on one or more on-premises servers. The servers validate the users directly with your on-premises Active Directory, which ensures that the password validation doesn't happen in the cloud.</p>
+<p>Companies with a security requirement to immediately enforce on-premises user account states, password policies, and sign-in hours might use this authentication method.</p>
+<h2 id="federated-authentication"><strong>Federated authentication</strong><a class="headerlink" href="#federated-authentication" title="Permanent link">#</a></h2>
+<p>When you choose the Federated authentication method, Azure AD hands off the authentication process to a separate trusted authentication system, such as on-premises Active Directory Federation Services (AD FS), to validate the user’s password.</p>
+<p>The authentication system can provide additional advanced authentication requirements. Examples are smartcard-based authentication or third-party multifactor authentication.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-10.png" /></p>
+<h2 id="summary"><strong>Summary</strong><a class="headerlink" href="#summary" title="Permanent link">#</a></h2>
+<ul>
+<li>This lesson outlines various authentication options that organizations can configure and deploy to support access to cloud apps.</li>
+<li>To meet various business, security, and technical requirements, organizations can choose between password hash synchronization, Pass-through Authentication, and federation.</li>
+<li>Consider each authentication method. Does the effort to deploy the solution, and the user's experience of the sign-in process address your business requirements?</li>
+<li>Evaluate whether your organization needs the advanced scenarios and business continuity features of each authentication method.</li>
+<li>Finally, evaluate the considerations of each authentication method. Do any of them prevent you from implementing your choice?</li>
+</ul>
+<h1 id="configure-password-hash-synchronization-phs"><strong>Configure Password Hash Synchronization (PHS)</strong><a class="headerlink" href="#configure-password-hash-synchronization-phs" title="Permanent link">#</a></h1>
+<p>The probability that you're blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Questions and calls about password resets and other password-related issues demand the most helpdesk resources.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-11.png" /></p>
+<p><strong>Password hash synchronization</strong> (PHS) is a feature used to synchronize user passwords from an on-premises Active Directory instance to a cloud-based Azure AD instance. Use this feature to sign in to Azure AD services like Microsoft 365, Microsoft Intune, CRM Online, and Azure Active Directory Domain Services (Azure AD DS). You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance. Password hash synchronization helps you to:</p>
+<ul>
+<li>Improve the productivity of your users.</li>
+<li>Reduce your helpdesk costs.</li>
+</ul>
+<h2 id="how-does-this-work"><strong>How does this work?</strong><a class="headerlink" href="#how-does-this-work" title="Permanent link">#</a></h2>
+<p>In the background, the password synchronization component takes the user’s password hash from on-premises Active Directory, encrypts it, and passes it as a string to Azure. Azure decrypts the encrypted hash and stores the password hash as a user attribute in Azure AD.</p>
+<p>When the user signs in to an Azure service, the sign-in challenge dialog box generates a hash of the user’s password and passes that hash back to Azure. Azure then compares the hash with the one in that user’s account. If the two hashes match, then the two passwords must also match and the user receives access to the resource. The dialog box provides the facility to save the credentials so that the next time the user accesses the Azure resource, the user will not be prompted.</p>
+<pre><code>Important
+
+It is important to understand that this is same sign-in, not single sign-on. The user still authenticates against two separate directory services, albeit with the same user name and password. This solution provides a simple alternative to an AD FS implementation.
+</code></pre>
+<h1 id="implement-pass-through-authentication-pta"><strong>Implement Pass-through Authentication (PTA)</strong><a class="headerlink" href="#implement-pass-through-authentication-pta" title="Permanent link">#</a></h1>
+<p><strong>Azure AD Pass-through Authentication</strong> (PTA) is an alternative to Azure AD Password Hash Synchronization, and provides the same benefit of cloud authentication to organizations. PTA allows users to sign in to both on-premises and cloud-based applications using the same user account and passwords. When users sign-in using Azure AD, Pass-through authentication validates the users’ passwords directly against an organization's on-premise Active Directory.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-12.png" /></p>
+<h2 id="feature-benefits"><strong>Feature benefits</strong><a class="headerlink" href="#feature-benefits" title="Permanent link">#</a></h2>
+<ul>
+<li>Supports user sign-in into all web browser-based applications and into Microsoft Office client applications that use modern authentication.</li>
+<li>Sign-in usernames can be either the on-premises default username (userPrincipalName) or another attribute configured in Azure AD Connect (known as Alternate ID).</li>
+<li>Works seamlessly with conditional access features such as Azure Active Directory Multi-Factor Authentication to help secure your users.</li>
+<li>Integrated with cloud-based self-service password management, including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.</li>
+<li>Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.</li>
+<li>PTA is a free feature, and you don't need any paid editions of Azure AD to use it.</li>
+<li>PTA can be enabled via Azure AD Connect.</li>
+<li>PTA uses a lightweight on-premises agent that listens for and responds to password validation requests.</li>
+<li>Installing multiple agents provides high availability of sign-in requests.</li>
+<li>PTA protects your on-premises accounts against brute force password attacks in the cloud.</li>
+</ul>
+<pre><code>Important
+
+This feature can be configured without using a federation service so that any organization, regardless of size, can implement a hybrid identity solution. Pass-through authentication is not only for user sign-in but allows an organization to use other Azure AD features, such as password management, role-based access control, published applications, and conditional access policies.
+</code></pre>
+<h1 id="deploy-federation-with-azure-ad"><strong>Deploy Federation with Azure AD</strong><a class="headerlink" href="#deploy-federation-with-azure-ad" title="Permanent link">#</a></h1>
+<p>Federation is a collection of domains that have established trust. The level of trust may vary, but typically includes authentication and almost always includes authorization. A typical federation might include a number of organizations that have established trust for shared access to a set of resources.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-13.png" /></p>
+<p>You can federate your on-premises environment with Azure AD and use this federation for authentication and authorization. This sign-in method ensures that all user authentication occurs on-premises. This method allows administrators to implement more rigorous levels of access control.</p>
+<h1 id="explore-the-authentication-decision-tree"><strong>Explore the authentication decision tree</strong><a class="headerlink" href="#explore-the-authentication-decision-tree" title="Permanent link">#</a></h1>
+<p>Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. Don't take this decision lightly, for the following reasons:
+   - It's the first decision for an organization that wants to move to the cloud.
+   - The authentication method is a critical component of an organization’s presence in the cloud. It controls access to all cloud data and resources.
+   - It's the foundation of all the other advanced security and user experience features in Azure AD.</p>
+<p>Identity is the new control plane of IT security, so authentication is an organization’s access guard to the new cloud world. Organizations need an identity control plane that strengthens their security and keeps their cloud apps safe from intruders.</p>
+<h2 id="authentication-methods_1"><strong>Authentication methods</strong><a class="headerlink" href="#authentication-methods_1" title="Permanent link">#</a></h2>
+<p><strong>Cloud Authentication</strong> - When you choose this authentication method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options:</p>
+<pre><code>- Azure AD password hash Synchronization
+- Azure AD Pass-through Authentication
+</code></pre>
+<p><strong>Federated Authentication</strong> - When you choose this authentication method, Azure AD hands off the authentication process to a separate trusted authentication system, such as on-premises Active Directory Federation Services (AD FS), to validate the user’s password. The authentication system can provide additional advanced authentication requirements. Examples are smartcard-based authentication or third-party multifactor authentication.</p>
+<h2 id="decision-tree"><strong>Decision tree</strong><a class="headerlink" href="#decision-tree" title="Permanent link">#</a></h2>
+<p><img alt="Design Flow1" src="image/AZ-500-14.png" /></p>
+<p>Details on decision questions:</p>
+<ol>
+<li>Azure AD can handle sign-in for users without relying on on-premises components to verify passwords.</li>
+<li>Azure AD can hand off user sign-in to a trusted authentication provider such as Microsoft’s AD FS.</li>
+<li>If you need to apply user-level Active Directory security policies such as account expired, disabled account, password expired, account locked out, and sign-in hours on each user sign-in, Azure AD requires some on-premises components.</li>
+<li>Sign-in features not natively supported by Azure AD:<ul>
+<li>Sign-in using on-premises MFA Server.</li>
+<li>Sign-in using third-party authentication solution.</li>
+<li>Multi-site on-premises authentication solution.</li>
+<li>Azure AD Identity Protection requires Password Hash Sync, regardless of which sign-in method you choose, to provide the Users with leaked credentials report. Organizations can fail over to Password Hash Sync if their primary sign-in method fails and it was configured before the failure event.</li>
+</ul>
+</li>
+</ol>
+<pre><code>Important
+
+This decision tree is intended as a starting point to understand your options, but there can be others or even combinations of different options. For example, you can use Azure AD B2C and configure it to allow user sign-in for multi-tenant Azure AD tenants - with or without the traditional support for self-service sign-up and social identity providers.
+</code></pre>
+<h1 id="configure-password-writeback"><strong>Configure password writeback</strong><a class="headerlink" href="#configure-password-writeback" title="Permanent link">#</a></h1>
+<p>Having a cloud-based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory Domain Services (AD DS) in sync with password changes in the cloud?</p>
+<p><strong>Password writeback</strong> is a feature enabled with Azure AD Connect that allows password changes in the cloud to be written back to an existing on-premises directory in real time.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-15.png" /></p>
+<p>Password writeback provides:</p>
+<ul>
+<li><strong>Enforcement of on-premises Active Directory Domain Services password policies</strong>. When a user resets their password, it is checked to ensure it meets your on-premises Active Directory Domain Services policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory Domain Services.</li>
+<li><strong>Zero-delay feedback</strong>. Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.</li>
+<li><strong>Supports password changes from the access panel and Microsoft 365</strong>. When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to your local Active Directory Domain Services environment.</li>
+<li><strong>Supports password writeback when an admin resets them from the Azure portal</strong>. Whenever an admin resets a user’s password in the Azure portal, if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.</li>
+<li><strong>Doesn’t require any inbound firewall rules</strong>. Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.</li>
+</ul>
+<pre><code>Important
+
+To use self-service password reset (SSPR) you must have already configured Azure AD Connect in your environment.
+</code></pre>
+<h1 id="knowledge-check"><strong>Knowledge check</strong><a class="headerlink" href="#knowledge-check" title="Permanent link">#</a></h1>
+<p>Choose the best response for each of the questions below. Then select <strong>Check your answers</strong>.</p>
+<h2 id="check-your-knowledge"><strong>Check your knowledge</strong><a class="headerlink" href="#check-your-knowledge" title="Permanent link">#</a></h2>
+<ol>
+<li>The IT helpdesk wants to reduce password reset support tickets. You suggest having users sign-in to both on-premises and cloud-based applications using the same password. Your organization does not plan on using Azure AD Identity Protection, so which feature would be easiest to implement given the requirements?<ul>
+<li>Federation </li>
+<li>Pass-through authentication</li>
+<li>Password hash synchronization (<strong>Ans</strong>)</li>
+</ul>
+</li>
+<li>Which tool can you use to synchronize Azure AD passwords with on-premises Active Directory?<ul>
+<li>Azure AD Connect (<strong>Ans</strong>)</li>
+<li>Active Directory Federation Services</li>
+<li>Password writeback</li>
+</ul>
+</li>
+<li>Azure AD supports which of the following security protocols?<ul>
+<li>Kerberos</li>
+<li>OAuth (<strong>Ans</strong>)</li>
+<li>OpenID Connect</li>
+</ul>
+</li>
+<li>Which of the following is an authentication option that integrates with Azure Active Directory, requiring you to use several differing methods, like your phone, to confirm your identity?<ul>
+<li>FIDO2 security keys</li>
+<li>Microsoft Authenticator app</li>
+<li>Azure Active Directory Multi-Factor Authentication (<strong>Ans</strong>)</li>
+</ul>
+</li>
+</ol>
+<h1 id="deploy-azure-ad-identity-protection"><strong>Deploy Azure AD identity protection</strong><a class="headerlink" href="#deploy-azure-ad-identity-protection" title="Permanent link">#</a></h1>
+<p>Protect identities in Azure AD using Conditional Access, MFA, access reviews, and other capabilities.</p>
+<ul>
+<li>Deploy and configure Identity Protection</li>
+<li>Configure MFA for users, groups, and applications</li>
+<li>Create Conditional Access policies to ensure your security</li>
+<li>Create and follow an access review process</li>
+</ul>
+<h2 id="introduction_2"><strong>Introduction</strong><a class="headerlink" href="#introduction_2" title="Permanent link">#</a></h2>
+<p>Identity Protection is a tool that allows organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to third-party utilities for further analysis.</p>
+<h2 id="scenario_2"><strong>Scenario</strong><a class="headerlink" href="#scenario_2" title="Permanent link">#</a></h2>
+<p>A security engineer uses Azure AD Identity Protection to configure Azure features that monitor and protect identities in the tenant; you will work on such tasks as:</p>
+<ul>
+<li>Creating access reviews to check on how each identity is being used and that the correct rights are assigned.</li>
+<li>Configure policies to identify risky user behaviors and odd sign-in patterns.</li>
+<li>Control and manage access to resources with conditional access policies.</li>
+</ul>
+<h2 id="skills-measured_2"><strong>Skills measured</strong><a class="headerlink" href="#skills-measured_2" title="Permanent link">#</a></h2>
+<p><a href="https://learn.microsoft.com/en-us/certifications/exams/az-500/">Exam AZ-500: Microsoft Azure Security Engineer</a></p>
+<p>Manage identity and access (30-35%)
+- Configure secure access by using Azure and
+   - Configure Access Reviews
+   - Implement Conditional Access policies, including multi-factor authentication
+   - Configure Azure AD identity protection</p>
+<h2 id="learning-objectives_2"><strong>Learning objectives</strong><a class="headerlink" href="#learning-objectives_2" title="Permanent link">#</a></h2>
+<ul>
+<li>Deploy and configure Identity Protection</li>
+<li>Configure multi-factor authentication for users, groups, and applications</li>
+<li>Create Conditional Access policies to ensure your security</li>
+<li>Create and follow an access review process</li>
+</ul>
+<h1 id="explore-azure-ad-identity-protection"><strong>Explore Azure AD identity protection</strong><a class="headerlink" href="#explore-azure-ad-identity-protection" title="Permanent link">#</a></h1>
+<p>Identity Protection is a tool that allows organizations to accomplish three key tasks:</p>
+<ul>
+<li>Automate the detection and remediation of identity-based risks.</li>
+<li>Investigate risks using data in the portal.</li>
+<li>Export risk detection data to third-party utilities for further analysis.</li>
+</ul>
+<p>Identity Protection uses the learnings Microsoft has acquired from their position in organizations with Azure AD, the consumer space with Microsoft Accounts, and in gaming with Xbox to protect your users. Microsoft analyzes 6.5 trillion signals per day to identify and protect customers from threats.</p>
+<p>Risk detections in Azure AD Identity Protection include any identified suspicious actions related to user accounts in the directory. The signals generated that are fed to Identity Protection, can be further fed into tools like Conditional Access to make access decisions, or fed back to a security information and event management (SIEM) tool for further investigation based on your organization's enforced policies.</p>
+<p>Identity Protection provides organizations access to powerful resources so they can quickly respond to suspicious activities.</p>
+<h2 id="identity-protection-policies"><strong>Identity Protection policies</strong><a class="headerlink" href="#identity-protection-policies" title="Permanent link">#</a></h2>
+<p>Azure Active Directory Identity Protection includes three default policies that administrators can choose to enable. These policies include limited customization but are applicable to most organizations. All the policies allow for excluding users such as your emergency access or break-glass administrator accounts.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-16.png" /></p>
+<h2 id="azure-multi-factor-authentication-registration-policy"><strong>Azure Multi-Factor Authentication registration policy</strong><a class="headerlink" href="#azure-multi-factor-authentication-registration-policy" title="Permanent link">#</a></h2>
+<p>Identity Protection can help organizations roll out Azure Multi-Factor Authentication using a Conditional Access policy requiring registration at sign-in. Enabling this policy is a great way to ensure new users in your organization have registered for MFA on their first day. Multi-factor authentication is one of the self-remediation methods for risk events within Identity Protection. Self-remediation allows your users to act on their own to reduce helpdesk call volume.</p>
+<h2 id="sign-in-risk-policy"><strong>Sign-in risk policy</strong><a class="headerlink" href="#sign-in-risk-policy" title="Permanent link">#</a></h2>
+<p>Identity Protection analyzes signals from each sign-in, both real-time and offline, and calculates a risk score based on the probability that the sign-in wasn't performed by the user. Administrators can decide based on this risk score signal to enforce organizational requirements. Administrators can choose to block access, allow access, or allow access but require multi-factor authentication.</p>
+<p>If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.</p>
+<h2 id="custom-conditional-access-policy"><strong>Custom Conditional Access policy</strong><a class="headerlink" href="#custom-conditional-access-policy" title="Permanent link">#</a></h2>
+<p>Administrators can also choose to create a custom Conditional Access policy, including sign-in risk as an assignment condition.</p>
+<h1 id="configure-risk-event-detections"><strong>Configure risk event detections</strong><a class="headerlink" href="#configure-risk-event-detections" title="Permanent link">#</a></h1>
+<p>To protect your users, you can configure risk-based policies in Azure Active Directory (Azure AD) that automatically respond to risky behaviors. Azure AD Identity Protection policies can automatically block a sign-in attempt or require additional action, such as requiring a password change or prompt for Azure AD Multi-Factor Authentication. These policies work with existing Azure AD Conditional Access policies as an extra layer of protection for your organization. Users may never trigger a risky behavior in one of these policies, but your organization is protected if an attempt to compromise your security is made.</p>
+<p>Each day, Microsoft collects and analyses trillions of anonymized signals as part of user sign-in attempts. These signals help build patterns of good user sign-in behavior and identify potential risky sign-in attempts. Azure AD Identity Protection can review user sign-in attempts and take additional action if there's suspicious behavior:</p>
+<p>Some of the following actions may trigger Azure AD Identity Protection risk detection:
+   - Users with leaked credentials.
+   - Sign-ins from anonymous IP addresses.
+   - Impossible travel to atypical locations.
+   - Sign-ins from infected devices.
+   - Sign-ins from IP addresses with suspicious activity.</p>
+<p>The following three policies are available in Azure AD Identity Protection to protect users and respond to suspicious activity. You can choose to turn the policy enforcement on or off, select users or groups for the policy to apply to, and decide if you want to block access at sign-in or prompt for additional action.</p>
+<p>The insight you get for a detected risk detection is tied to your Azure AD subscription.</p>
+<ul>
+<li><strong>User risk policy</strong> - Identifies and responds to user accounts that may have compromised credentials. Can prompt the user to create a new password.</li>
+<li><strong>Sign-in risk policy</strong> - Identifies and responds to suspicious sign-in attempts. Can prompt the user to provide additional forms of verification using Azure AD Multi-Factor Authentication.</li>
+<li><strong>MFA registration policy</strong> - Makes sure users are registered for Azure AD Multi-Factor Authentication. If a sign-in risk policy prompts for MFA, the user must already be registered for Azure AD Multi-Factor Authentication.</li>
+</ul>
+<p>When you enable a policy user or sign-in risk policy, you can also choose the threshold for risk level - <strong>low and above</strong>, medium and above, or high. This flexibility lets you decide how aggressive you want to be in enforcing any controls for suspicious sign-in events.</p>
+<h1 id="implement-user-risk-policy"><strong>Implement user risk policy</strong><a class="headerlink" href="#implement-user-risk-policy" title="Permanent link">#</a></h1>
+<p>Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. Administrators can decide based on this risk score signal to enforce organizational requirements. Administrators can choose to block access, allow access, or allow access but require a password change using Azure AD self-service password reset.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-17.png" /></p>
+<p>The above image shows the configuration of <strong>User Risk Policy</strong> applied</p>
+<ul>
+<li>To user sign-ins</li>
+<li>Automatically respond based on a specific user’s risk level</li>
+<li>Provide the condition (risk level) and action (block or allow)</li>
+<li>Use a high threshold during policy roll out</li>
+<li>Use a low threshold for greater security</li>
+</ul>
+<h2 id="risky-users"><strong>Risky users</strong><a class="headerlink" href="#risky-users" title="Permanent link">#</a></h2>
+<p>With the information provided by the risky users report, administrators can find:</p>
+<ul>
+<li>Which users are at risk, have had risk remediated, or have had risk dismissed?</li>
+<li>Details about detections</li>
+<li>History of all risky sign-ins</li>
+<li>Risk history</li>
+</ul>
+<p>Administrators can then choose to act on these events. Administrators can choose to:</p>
+<ul>
+<li>Reset the user password</li>
+<li>Confirm user compromise</li>
+<li>Dismiss user risk</li>
+<li>Block user from signing in</li>
+<li>Investigate further using Azure ATP</li>
+</ul>
+<h1 id="implement-sign-in-risk-policy"><strong>Implement sign-in risk policy</strong><a class="headerlink" href="#implement-sign-in-risk-policy" title="Permanent link">#</a></h1>
+<p>Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. For users of Azure Identity Protection, sign-in risk can be evaluated as part of a Conditional Access policy. Sign-in Risk Policy supports the following conditions:</p>
+<h2 id="location"><strong>Location</strong><a class="headerlink" href="#location" title="Permanent link">#</a></h2>
+<p>When configuring location as a condition, organizations can choose to include or exclude locations. These named locations may include the public IPv4 network information, country or region, or even unknown areas that don't map to specific countries or regions. Only IP ranges can be marked as a trusted location. When including any location, this option includes any IP address on the internet not just configured named locations. When selecting any location, administrators can choose to exclude all trusted or selected locations.</p>
+<h2 id="client-apps"><strong>Client apps</strong><a class="headerlink" href="#client-apps" title="Permanent link">#</a></h2>
+<p>Conditional Access policies by default apply to browser-based applications and applications that utilize modern authentication protocols. In addition to these applications, administrators can choose to include Exchange ActiveSync clients and other clients that utilize legacy protocols.</p>
+<ul>
+<li><strong>Browser</strong> - These include web-based applications that use protocols like SAML, WS-Federation, OpenID Connect, or services registered as an OAuth confidential client.</li>
+<li><strong>Mobile apps and desktop clients</strong> - These access policies are commonly used when requiring a managed device, blocking legacy authentication, and blocking web applications but allowing mobile or desktop app.</li>
+</ul>
+<h2 id="risky-sign-ins"><strong>Risky sign-ins</strong><a class="headerlink" href="#risky-sign-ins" title="Permanent link">#</a></h2>
+<p>The risky sign-ins report contains filterable data for up to the past 30 days (1 month).</p>
+<p>With the information provided by the risky sign-ins report, administrators can find:</p>
+<ul>
+<li>Which sign-ins are classified as at risk, confirmed compromised, confirmed safe, dismissed, or remediated.</li>
+<li>Real-time and aggregate risk levels associated with sign-in attempts.</li>
+<li>Detection types triggered</li>
+<li>Conditional Access policies applied</li>
+<li>MFA details</li>
+<li>Device information</li>
+<li>Application information</li>
+<li>Location information</li>
+</ul>
+<p>Administrators can then choose to take action on these events. Administrators can choose to:</p>
+<ul>
+<li>Confirm sign-in compromise</li>
+<li>Confirm sign-in safe</li>
+</ul>
+<h1 id="deploy-multifactor-authentication-in-azure"><strong>Deploy multifactor authentication in Azure</strong><a class="headerlink" href="#deploy-multifactor-authentication-in-azure" title="Permanent link">#</a></h1>
+<p>Azure Active Directory Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication through a range of easy to use authentication methods.</p>
+<p>For organizations that need to be compliant with industry standards, such as the Payment Card Industry (PCI) Data Security Standard (DSS) version 3.2, MFA is a must have capability to authenticate users. Beyond being compliant with industry standards, enforcing MFA to authenticate users can also help organizations to mitigate credential theft attacks.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-18.png" /></p>
+<p>The security of MFA two-step verification lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the additional authentication method. Authentication methods include:</p>
+<ul>
+<li>Something you know (typically a password)</li>
+<li>Something you have (a trusted device that is not easily duplicated, like a phone)</li>
+<li>Something you are (biometrics)</li>
+</ul>
+<h2 id="multi-factor-authentication-features"><strong>Multi-Factor Authentication Features</strong><a class="headerlink" href="#multi-factor-authentication-features" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Get more security with less complexity</strong>. Azure MFA helps safeguard access to data and applications and helps to meet customer demand for a simple sign-in process. Get strong authentication with a range of easy verification options—phone call, text message, or mobile app notification—and allow customers to choose the method they prefer.</li>
+<li><strong>Mitigate threats with real-time monitoring and alerts</strong>. MFA helps protect your business with security monitoring and machine-learning-based reports that identify inconsistent sign-in patterns. To help mitigate potential threats, real-time alerts notify your IT department of suspicious account credentials.</li>
+<li><strong>Use with Microsoft 365, Salesforce, and more</strong>. MFA for Microsoft 365 helps secure access to Microsoft 365 applications at no additional cost. Multifactor authentication is also available with Azure Active Directory Premium and thousands of software-as-a-service (SaaS) applications, including Salesforce, Dropbox, and other popular services.</li>
+<li><strong>Add protection for Azure administrator accounts</strong>. MFA adds a layer of security to your Azure administrator account at no additional cost. When it's turned on, you need to confirm your identity to create a virtual machine, manage storage, or use other Azure services.</li>
+</ul>
+<h2 id="multi-factor-authentication-options"><strong>Multi-Factor Authentication Options</strong><a class="headerlink" href="#multi-factor-authentication-options" title="Permanent link">#</a></h2>
+<p><img alt="Design Flow1" src="image/AZ-500-19.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Description</td>
+</tr>
+<tr>
+<td>Call to phone</td>
+</tr>
+<tr>
+<td>Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. The phone number is not synchronized to on-premises Active Directory. A voice call to phone is important because it persists through a phone handset upgrade, allowing the user to register the mobile app on the new device.</td>
+</tr>
+<tr>
+<td>Text message to phone</td>
+</tr>
+<tr>
+<td>Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS is deprecated and not supported after November 14, 2018. Users who are configured for two-way SMS are automatically switched to call to phone verification at that time.</td>
+</tr>
+<tr>
+<td>Notification through mobile app</td>
+</tr>
+<tr>
+<td>Sends a push notification to your phone or registered device. The user views the notification and selects Approve to complete verification. The Microsoft Authenticator app is available for Windows Phone, Android, and iOS. Push notifications through the mobile app provide the best user experience.</td>
+</tr>
+<tr>
+<td>Verification code from mobile app</td>
+</tr>
+<tr>
+<td>The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for Windows Phone, Android, and iOS. Verification code from mobile app can be used when the phone has no data connection or cellular signal.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="explore-multifactor-authentication-settings"><strong>Explore multifactor authentication settings</strong><a class="headerlink" href="#explore-multifactor-authentication-settings" title="Permanent link">#</a></h2>
+<p><img alt="Design Flow1" src="image/AZ-500-20.png" /></p>
+<h2 id="account-lockout"><strong>Account lockout</strong><a class="headerlink" href="#account-lockout" title="Permanent link">#</a></h2>
+<p>To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are only applied when a pin code is entered for the MFA prompt. The following settings are available:</p>
+<ul>
+<li>Number of MFA denials to trigger account lockout</li>
+<li>Minutes until account lockout counter is reset</li>
+<li>Minutes until account is automatically unblocked</li>
+</ul>
+<h2 id="block-and-unblock-users"><strong>Block and unblock users</strong><a class="headerlink" href="#block-and-unblock-users" title="Permanent link">#</a></h2>
+<p>If a user's device has been lost or stolen, you can block authentication attempts for the associated account.</p>
+<h2 id="notifications"><strong>Notifications</strong><a class="headerlink" href="#notifications" title="Permanent link">#</a></h2>
+<p>Email notifications can be configured when users report fraud alerts. These notifications are typically sent to identity administrators, as the user's account credentials are likely compromised.</p>
+<h2 id="oath-tokens"><strong>OATH tokens</strong><a class="headerlink" href="#oath-tokens" title="Permanent link">#</a></h2>
+<p>Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice.</p>
+<h2 id="trusted-ips"><strong>Trusted IPs</strong><a class="headerlink" href="#trusted-ips" title="Permanent link">#</a></h2>
+<p>Trusted IPs is a feature to allow federated users or IP address ranges to bypass two-step authentication. Notice there are two selections in this screenshot.</p>
+<p>Which selections you can make depends on whether you have managed or federated tenants.</p>
+<ul>
+<li><strong>Managed tenants</strong>. For managed tenants, you can specify IP ranges that can skip MFA.</li>
+<li><strong>Federated tenants</strong>. For federated tenants, you can specify IP ranges and you can also exempt AD FS claims users.</li>
+</ul>
+<pre><code>Important
+
+The Trusted IPs bypass works only from inside of the company intranet. If you select the All Federated Users option and a user signs in from outside the company intranet, the user must authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim.
+</code></pre>
+<h1 id="enable-multifactor-authentication"><strong>Enable multifactor authentication</strong><a class="headerlink" href="#enable-multifactor-authentication" title="Permanent link">#</a></h1>
+<p>To enable MFA, go to the User Properties in Azure Active Directory, and then the Multi-Factor Authentication option. From there, you can select the users that you want to modify and enable for MFA. You can also bulk enable groups of users with PowerShell. User's states can be Enabled, Enforced, or Disabled.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-21.png" /></p>
+<pre><code>Note
+
+On first-time sign-in, after MFA has been enabled, users are prompted to configure their MFA settings. For example, if you enable MFA so that users must use a mobile device, users will be prompted to configure their mobile device for MFA. Users must complete those steps, or they will not be permitted to sign in, which they cannot do until they have validated that their mobile device is MFA-compliant.
+</code></pre>
+<p>All users start out Disabled. When you enroll users in per-user Azure AD Multi-Factor Authentication, their state changes to Enabled. When enabled users sign in and complete the registration process, their state changes to Enforced. Administrators may move users between states, including from Enforced to Enabled or Disabled.</p>
+<h2 id="enable-mfa-for-global-admins"><strong>Enable MFA for Global Admins</strong><a class="headerlink" href="#enable-mfa-for-global-admins" title="Permanent link">#</a></h2>
+<p>Azure AD Multi-Factor Authentication is included free of charge for global administrator security. Enabling MFA for global administrators provides an added level of security when managing and creating Azure resources like virtual machines, managing storage, or using other Azure services. Secondary authentication includes phone call, text message, and the authenticator app.</p>
+<pre><code>Important
+
+Remember, you can only enable MFA for organizational accounts stored in Azure Active Directory. These are also called work or school accounts.
+</code></pre>
+<h1 id="implement-azure-ad-conditional-access"><strong>Implement Azure AD conditional access</strong><a class="headerlink" href="#implement-azure-ad-conditional-access" title="Permanent link">#</a></h1>
+<p>The old world of security behind a corporate firewall, having your secure network perimeter just doesn’t work anymore, not with people wanting to work from anywhere, being able to connect to all sorts of cloud applications.</p>
+<p>Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies.</p>
+<p>Conditional Access is at the heart of the new identity driven control plane.</p>
+<p>Conditional access policy is really a next generation policy that’s built for the cloud. It’s able to consider massive amounts of data, as well as contextual data from a user sign-in flow and make sure that the right controls are enforced.</p>
+<h2 id="identity-as-a-servicethe-new-control-plane"><strong>Identity as a Service—the new control plane</strong><a class="headerlink" href="#identity-as-a-servicethe-new-control-plane" title="Permanent link">#</a></h2>
+<p>What is the basis for saying that identity management is the new control plane? First, what is the control plane? In a switch or router, the control plane is the part that controls where the traffic is to go, but it’s not responsible for the movement of the traffic. The control plane learns the routes, either static or dynamic. The part responsible for moving the traffic is the forwarding plane. The following figure depicts a simple switch diagram.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-22.png" /></p>
+<p>A user’s identity is like a control plane, because it controls which protocols the user will interact with, which organizational programs the user can access, and which devices the user can employ to access those programs. Identity is what helps protect user and corporate data. For example, should that data be encrypted, deleted, or ignored when an issue occurs?</p>
+<p>Now, everything pivots around that user identity. You know what their activities are, and where they are located. You know what devices they’re using. Then we leverage that information in conditional access policy to be able to enforce things like multifactor authentication or require a compliant device.</p>
+<p>There are the conditions, which indicate when the policy is going to apply. This can be, again, the location, type of application that you’re on, any detected risk. How is the risk determined? It is determined from all the analysis and intel that we have across organizations using Azure Active Directory, as well as Microsoft consumer identity offerings. Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access policies at their simplest are if-then statements, if a user wants to access a resource, then they must complete an action. Example: A payroll manager wants to access the payroll application and is required to perform multifactor authentication to access it.</p>
+<p>Administrators are faced with two primary goals:</p>
+<ul>
+<li>Empower users to be productive wherever and whenever</li>
+<li>Protect the organization's assets</li>
+</ul>
+<p>By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure and stay out of your user’s way when not needed.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-23.png" /></p>
+<p>Conditional Access policies are enforced after the first-factor authentication has been completed. Conditional Access is not intended as an organization's first line of defense for scenarios like denial-of-service (DoS) attacks but can use signals from these events to determine access.</p>
+<h2 id="configure-conditional-access-conditions"><strong>Configure conditional access conditions</strong><a class="headerlink" href="#configure-conditional-access-conditions" title="Permanent link">#</a></h2>
+<p>Conditional access is a capability of Azure AD (with an Azure AD Premium license) that enables you to enforce controls on the access to apps in your environment based on specific conditions from a central location. With Azure AD conditional access, you can factor how a resource is being accessed into an access control decision. By using conditional access policies, you can apply the correct access controls under the required conditions.</p>
+<p>Conditional access comes with six conditions: user/group, cloud application, device state, location (IP range), client application, and sign-in risk. You can use combinations of these conditions to get the exact conditional access policy you need. Notice on this image the conditions determine the access control from the previous topic.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-24.png" /></p>
+<p>With access controls, you can either Block Access altogether or Grant Access with more requirements by selecting the desired controls. You can have several options:</p>
+<ul>
+<li>Require MFA from Azure AD or an on-premises MFA (combined with AD FS).</li>
+<li>Grant access to only trusted devices.</li>
+<li>Require a domain-joined device.</li>
+<li>Require mobile devices to use Intune app protection policies.</li>
+</ul>
+<p>Requiring more account verification through MFA is a common conditional access scenario. While users may be able to sign in to most of your organization’s cloud apps, you may want more verification for things like your email system, or apps that contain personnel records or sensitive information. In Azure AD, you can accomplish this with a conditional access policy</p>
+<pre><code>Important
+
+The Users and Groups condition is mandatory in a conditional access policy. In your policy, you can either select All users or select specific users and groups.
+</code></pre>
+<h1 id="implement-access-reviews"><strong>Implement access reviews</strong><a class="headerlink" href="#implement-access-reviews" title="Permanent link">#</a></h1>
+<p>Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed on a regular basis to make sure only the right people have continued access.</p>
+<h2 id="why-are-access-reviews-important"><strong>Why are access reviews important?</strong><a class="headerlink" href="#why-are-access-reviews-important" title="Permanent link">#</a></h2>
+<p>Azure AD enables you to collaborate internally within your organization and with users from external organizations, such as partners. Users can join groups, invite guests, connect to cloud apps, and work remotely from their work or personal devices. The convenience of leveraging the power of self-service has led to a need for better access management capabilities.</p>
+<ul>
+<li>As new employees join, how do you ensure they have the right access to be productive?</li>
+<li>As people move teams or leave the company, how do you ensure their old access is removed, especially when it involves guests?</li>
+<li>Excessive access rights can lead to audit findings and compromises as they indicate a lack of control over access.</li>
+<li>You must proactively engage with resource owners to ensure they regularly review who has access to their resources.</li>
+</ul>
+<h2 id="use-access-reviews-in-the-following-cases"><strong>Use access reviews in the following cases</strong><a class="headerlink" href="#use-access-reviews-in-the-following-cases" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Too many users in privileged roles</strong>: It's a good idea to check how many users have administrative access, how many of them are Global Administrators, and if there are any invited guests or partners that have not been removed after being assigned to do an administrative task. You can recertify the role assignment users in Azure AD roles such as Global Administrators, or Azure resources roles such as User Access Administrator in the Azure AD Privileged Identity Management (PIM) experience.</li>
+<li><strong>When automation is infeasible</strong>: You can create rules for dynamic membership on security groups or Microsoft 365 Groups, but what if the HR data is not in Azure AD or if users still need access after leaving the group to train their replacement? You can then create a review on that group to ensure those who still need access should have continued access.</li>
+<li><strong>When a group is used for a new purpose</strong>: If you have a group that is going to be synced to Azure AD, or if you plan to enable a sales management application for everyone in the Sales team group, it would be useful to ask the group owner to review the group membership prior to the group being used in a different risk content.</li>
+<li><strong>Business critical data access</strong>: for certain resources, it might be required to ask people outside of IT to regularly sign out and give a justification on why they need access for auditing purposes.</li>
+<li><strong>To maintain a policy's exception list</strong>: In an ideal world, all users would follow the access policies to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. As the IT admin, you can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly.</li>
+<li><strong>Ask group owners to confirm they still need guests in their groups</strong>: Employee access might be automated with some on premises IAM, but not invited guests. If a group gives guests access to business sensitive content, then it's the group owner's responsibility to confirm the guests still have a legitimate business need for access.</li>
+<li><strong>Have reviews recur periodically</strong>: You can set up recurring access reviews of users at set frequencies such as weekly, monthly, quarterly or annually, and the reviewers will be notified at the start of each review. Reviewers can approve or deny access with a friendly interface and with the help of smart recommendations.</li>
+</ul>
+<p>Depending on what you want to review, you will create your access review in Azure AD access reviews, Azure AD enterprise apps (in preview), or Azure AD PIM. Using this feature requires an Azure AD Premium P2 license.</p>
+<pre><code>Important
+
+Azure AD Premium P2 licenses are not required for users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews.
+</code></pre>
+<h1 id="explore-try-this-exercises_1"><strong>Explore try-this exercises</strong><a class="headerlink" href="#explore-try-this-exercises_1" title="Permanent link">#</a></h1>
+<h2 id="task-1-configure-conditional-access-require-mfa"><strong>Task 1 - Configure conditional access (require MFA)</strong><a class="headerlink" href="#task-1-configure-conditional-access-require-mfa" title="Permanent link">#</a></h2>
+<pre><code>Note
+
+This task requires a user account, AZ500User1. If you want to show the MFA verification, the user account must have a phone number.
+</code></pre>
+<p>This task will review conditional access policy settings and create a policy that requires MFA when signing in to the Portal.</p>
+<h2 id="configure-the-policy"><strong>Configure the policy</strong><a class="headerlink" href="#configure-the-policy" title="Permanent link">#</a></h2>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Azure Active Directory</strong>.</li>
+<li>Under <strong>Manage</strong>, select <strong>Security</strong>.</li>
+<li>Under <strong>Protect</strong>, select <strong>Conditional access</strong>.</li>
+<li>
+<p>Click <strong>New Policy</strong>.</p>
+<ul>
+<li>Name: <strong>AZ500Policy1</strong></li>
+<li>Users and groups &gt; Select users and groups &gt; Users and Groups &gt; Select: <strong>AZ500User1</strong></li>
+<li>Cloud apps or actions &gt; Select apps &gt; Select: <strong>Microsoft Azure Management</strong></li>
+<li>Review the warning that this policy impacts Portal access.</li>
+<li>Conditions &gt; Sign-in risk &gt; Review the risk levels</li>
+<li>Device platforms &gt; Review the devices that can be included, such as Android and iOS.</li>
+<li>Locations &gt; Review the physical location selections.</li>
+<li>Under <strong>Access controls</strong> click <strong>Grant</strong>.</li>
+<li>Review the Grant options such as MFA. You may require one or more of the controls.</li>
+<li>Select <strong>Require multi-factor authentication</strong>.</li>
+<li>
+<p>For <strong>Enable policy</strong>, select <strong>On</strong>.</p>
+</li>
+<li>
+<p>Click Create.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="test-the-policy"><strong>Test the policy</strong><a class="headerlink" href="#test-the-policy" title="Permanent link">#</a></h2>
+<ol>
+<li>Sign in to the <strong>Portal</strong> as the <strong>AZ500User1</strong>.</li>
+<li>Before you can sign in, a second authentication is required.</li>
+<li>If you have a phone number associated with the user, provide and verify the text code. You should be able to sign in to the Portal successfully.</li>
+<li>If you do not have a phone number associated with the user, this demonstrates that MFA is in effect.</li>
+<li>You may want to return to the <strong>AZ500Policy1</strong> and turn the policy <strong>Off</strong>.</li>
+</ol>
+<h2 id="task-2-access-review"><strong>Task 2 - Access review</strong><a class="headerlink" href="#task-2-access-review" title="Permanent link">#</a></h2>
+<p>In this task, we will configure an access review.</p>
+<h2 id="configure-an-access-review"><strong>Configure an access review</strong><a class="headerlink" href="#configure-an-access-review" title="Permanent link">#</a></h2>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Identity Governance</strong>.</li>
+<li>Under <strong>Access Reviews</strong>, select <strong>Access Reviews</strong>.</li>
+<li>Click <strong>New Access Review</strong>.</li>
+<li>We will create an access review to ensure we validate the AZ500Admin group membership.</li>
+<li>
+<p>Complete the required information and discuss each setting. Configuration settings are added as you make your selections. For example, if you select a weekly access review, you will be prompted for the duration.</p>
+<ul>
+<li>Review name: <strong>AZ500Review</strong></li>
+<li>Start date: <strong>current date</strong></li>
+<li>Frequency: <strong>One-time</strong></li>
+<li>Users to review: <strong>Members of a group</strong></li>
+<li>Scope: <strong>Everyone</strong></li>
+<li>Select a group: <strong>AZ500Admins</strong></li>
+<li>Reviewers: <strong>Selected user</strong></li>
+<li>Select reviewers: <strong>add yourself as a reviewer</strong></li>
+<li>Review the <strong>Upon completion settings</strong>, specifically the action if a reviewer doesn't respond.</li>
+<li>
+<p>Review <strong>Advanced settings</strong>.</p>
+</li>
+<li>
+<p><strong>Start</strong> the access review.</p>
+</li>
+<li>On the <strong>Access review</strong> page, ensure the new access review is listed.</li>
+<li>The <strong>Status</strong> will change from <strong>Not started</strong> to <strong>Initializing</strong>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conduct-an-access-review"><strong>Conduct an access review</strong><a class="headerlink" href="#conduct-an-access-review" title="Permanent link">#</a></h2>
+<p>In this task, we will conduct an access review.</p>
+<ol>
+<li>When the access review is complete, you will receive an email. This is the email associated with your reviewer account.</li>
+<li>View the email and discuss the review instructions. Note when the review period will end.</li>
+<li>In the email, click <strong>Start review</strong>.</li>
+<li>On the <strong>Access reviews</strong> page, click the <strong>AZ500Review</strong>.</li>
+<li>Notice you are reviewing the AZ500Admin group members. There are two members.</li>
+<li>Use the <strong>Details</strong> link to view information about the user.</li>
+<li>Select <strong>Approve</strong> for one user and <strong>Deny</strong> for the other. Be sure to provide a <strong>Reason</strong>.</li>
+<li><strong>Submit</strong> your reviews.</li>
+</ol>
+<h2 id="review-the-access-review-results"><strong>Review the access review results</strong><a class="headerlink" href="#review-the-access-review-results" title="Permanent link">#</a></h2>
+<p>In this task, we will review the access review results.</p>
+<ol>
+<li>Return to the <strong>Portal</strong>.</li>
+<li>Click the <strong>AZ500Review</strong>.</li>
+<li>From the <strong>Overview</strong> blade, review the results.</li>
+<li>There should be one member <strong>approved</strong> and one member <strong>denied</strong>.</li>
+<li>Click <strong>Results</strong> for more detailed information about the reviewer and their reasons.</li>
+<li>From the <strong>Overview</strong> blade, click <strong>Stop</strong> and confirm you want to stop the review.</li>
+<li>The <strong>Review status</strong> should now be <strong>Complete</strong>.</li>
+</ol>
+<h2 id="apply-the-access-review"><strong>Apply the access review</strong><a class="headerlink" href="#apply-the-access-review" title="Permanent link">#</a></h2>
+<p>In this task, we will apply the review results.</p>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Azure Active Directory</strong>.</li>
+<li>Under <strong>Manage</strong>, select <strong>Groups</strong>.</li>
+<li>Locate the <strong>AZ500Admins</strong> group.</li>
+<li>Review the members of the group.-</li>
+<li>Confirm there are two members.</li>
+<li>Return to the <strong>AZ500Review</strong>.</li>
+<li>Click <strong>Apply</strong>.</li>
+<li>Confirm that you want to remove the denied member.</li>
+<li>The <strong>Review status</strong> will change from <strong>Applying</strong> to <strong>Result applied</strong>.</li>
+<li>Verify the <strong>AZ500Admins</strong> group now only has one member.</li>
+</ol>
+<h1 id="knowledge-check_1"><strong>Knowledge check</strong><a class="headerlink" href="#knowledge-check_1" title="Permanent link">#</a></h1>
+<p>Choose the best response for each of the questions below. Then select <strong>Check your answers</strong>.</p>
+<ol>
+<li>
+<p>The compliance auditors want to ensure as employees change jobs or leave the company that their privileges are also changed or revoked. They are especially concerned about the Administrator group. To address their concerns. you implement which of the following?</p>
+</li>
+<li>
+<p>Access reviews (<strong>Ans</strong>)</p>
+</li>
+<li>Azure time-based policies</li>
+<li>
+<p>JIT virtual machine access</p>
+</li>
+<li>
+<p>Identity Protection has reported that a user’s credentials have been leaked. According to policy, the user’s password must be reset. Which Azure AD role can reset the password?</p>
+<ul>
+<li>Global Administrator (<strong>Ans</strong>)</li>
+<li>Security Administrator</li>
+<li>Security Operator</li>
+</ul>
+</li>
+<li>
+<p>Identity Protection identifies risks in which of the following classifications?</p>
+<ul>
+<li>Specific IP address</li>
+<li>Atypical travel (<strong>Ans</strong>)</li>
+<li>Unregistered device</li>
+</ul>
+</li>
+<li>
+<p>You have implemented Identity Protection and are reviewing the Risky users report. For each reported event you can choose any of the following actions?</p>
+<ul>
+<li>Confirm user compromise (<strong>Ans</strong>)</li>
+<li>Delete the risk event</li>
+<li>Dismiss user account</li>
+</ul>
+</li>
+<li>
+<p>Conditional Access can be used to enable which of the actions listed below?</p>
+<ul>
+<li>Block or grant access from specific time of day.</li>
+<li>Designate privileged user accounts.</li>
+<li>Require multifactor authentication. (<strong>Ans</strong>)</li>
+</ul>
+</li>
+<li>
+<p>Which licensing plan supports Identity Protection?</p>
+<ul>
+<li>Azure Active Directory Free</li>
+<li>Azure Active Directory Premium P1</li>
+<li>Azure Active Directory Premium P2 (<strong>Ans</strong>)</li>
+</ul>
+</li>
+</ol>
+<h1 id="configure-azure-ad-privileged-identity-management"><strong>Configure Azure AD privileged identity management</strong><a class="headerlink" href="#configure-azure-ad-privileged-identity-management" title="Permanent link">#</a></h1>
+<p>Ensure that your privileged identities have extra protection and are accessed only with the least amount of access needed to do the job.</p>
+<h2 id="introduction_3"><strong>Introduction</strong><a class="headerlink" href="#introduction_3" title="Permanent link">#</a></h2>
+<p>Azure AD Privileged Identity Management (PIM) allows you to manage, control, and monitor access to the most important resources in your organization. You can give just-in-time access and just-enough-access to users to allow them to do their tasks.</p>
+<h2 id="scenario_3"><strong>Scenario</strong><a class="headerlink" href="#scenario_3" title="Permanent link">#</a></h2>
+<p>A security engineer uses Privileged Identity Management to protect administrator privileges and mitigate the risk of excessive or misused access rights; some common tasks are:</p>
+<ul>
+<li>Configuring the scope of users and roles based on zero trust.</li>
+<li>Setting up a PIM workflow to enforce approval for role usage, and monitor the access.</li>
+<li>Implement just-in-time access.</li>
+</ul>
+<h2 id="explore-the-zero-trust-model"><strong>Explore the zero trust model</strong><a class="headerlink" href="#explore-the-zero-trust-model" title="Permanent link">#</a></h2>
+<p>Cloud-based services and mobile computing have changed the technology landscape for the modern enterprise. Today’s workforce often requires access to applications and resources outside traditional corporate network boundaries, rendering security architectures that rely on firewalls and virtual private networks (VPNs) insufficient. Changes brought about by cloud migration and a more mobile workforce has led to the development of an access architecture called Zero Trust.</p>
+<h2 id="the-zero-trust-model"><strong>The Zero Trust model</strong><a class="headerlink" href="#the-zero-trust-model" title="Permanent link">#</a></h2>
+<p>Based on the principle of “never trust, always verify,” Zero Trust helps secure corporate resources by eliminating unknown and unmanaged devices and limiting lateral movement. Implementing a true Zero Trust model requires that all components—user identity, device, network, and applications—be validated and proven trustworthy. Zero Trust verifies identity and device health prior to granting access to corporate resources. When access is granted, applying the principle of least privilege limits user access to only those resources that are explicitly authorized for each user, thus reducing the risk of lateral movement within the environment. In an ideal Zero Trust environment, the following four elements are necessary:</p>
+<ul>
+<li>Strong identity authentication everywhere (user verification via authentication)</li>
+<li>Devices are enrolled in device management, and their health is validated</li>
+<li>Least-privilege user rights (access is limited to only what is needed)</li>
+<li>The health of services is verified (future goal)</li>
+</ul>
+<p>For Microsoft, Zero Trust establishes a strict boundary around corporate and customer data. For end users, Zero Trust delivers a simplified user experience that allows them to easily manage and find their content. And for customers, Zero Trust creates a unified access platform that they can use to enhance the overall security of their entire ecosystem.</p>
+<h2 id="zero-trust-architecture"><strong>Zero Trust architecture</strong><a class="headerlink" href="#zero-trust-architecture" title="Permanent link">#</a></h2>
+<p>A Zero Trust approach extends throughout the entire digital estate and serves as an integrated security philosophy and end-to-end strategy.</p>
+<p>The illustration below provides a representation of the primary elements that contribute to Zero Trust.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-25.png" /></p>
+<p>In the illustration above:</p>
+<p>Security policy enforcement is at the center of a Zero Trust architecture. This includes Multi-Factor authentication with conditional access that takes into account user account risk, device status, and other criteria and policies that you set.</p>
+<p>Identities, devices (also called endpoints), data, applications, network, and other infrastructure components are all configured with appropriate security. Policies that are configured for each of these components are coordinated with your overall Zero Trust strategy. For example, device policies determine the criteria for healthy devices and conditional access policies require healthy devices for access to specific apps and data.</p>
+<p>Threat protection and intelligence monitors the environment, surfaces current risks, and takes automated action to remediate attacks.</p>
+<h2 id="guiding-principles-of-zero-trust"><strong>Guiding principles of Zero Trust</strong><a class="headerlink" href="#guiding-principles-of-zero-trust" title="Permanent link">#</a></h2>
+<p>Today, organizations need a new security model that effectively adapts to the complexity of the modern environment, embraces the mobile workforce, and protects people, devices, applications, and data wherever they are located.</p>
+<p>To address this new world of computing, Microsoft highly recommends the Zero Trust security model, which is based on these guiding principles:</p>
+<ul>
+<li><strong>Verify explicitly</strong> - Always authenticate and authorize based on all available data points.</li>
+<li><strong>Use least privilege access</strong> - Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.</li>
+<li><strong>Assume breach</strong> - Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses.</li>
+</ul>
+<h2 id="microsofts-zero-trust-architecture"><strong>Microsoft's Zero Trust architecture</strong><a class="headerlink" href="#microsofts-zero-trust-architecture" title="Permanent link">#</a></h2>
+<p>Below is a simplified reference architecture for our approach to implementing Zero Trust. The primary components of this process are Intune for device management and device security policy configuration, Azure AD conditional access for device health validation, and Azure AD for user and device inventory.</p>
+<p>The system works with Intune, pushing device configuration requirements to the managed devices. The device then generates a statement of health, which is stored in Azure AD. When the device user requests access to a resource, the device health state is verified as part of the authentication exchange with Azure AD.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-26.png" /></p>
+<pre><code>Important
+
+The National Institute of Standards and Technology has a Zero Trust Architecture, NIST 800-207, publication.
+</code></pre>
+<h2 id="review-the-evolution-of-identity-management"><strong>Review the evolution of identity management</strong><a class="headerlink" href="#review-the-evolution-of-identity-management" title="Permanent link">#</a></h2>
+<p><strong>Microsoft Identity Manager</strong> or MIM helps organizations manage the users, credentials, policies, and access within their organizations and hybrid environments. With MIM, organizations can simplify identity lifecycle management with automated workflows, business rules, and easy integration with heterogenous platforms across the datacenter. MIM enables Active Directory Domain Services to have the right users and access rights for on-premises apps. Azure AD Connect can then make those users and permissions available in Azure AD for Microsoft 365 and cloud-hosted apps.</p>
+<p>On-premises Active Directory Domain Services, Azure Active Directory (Azure AD), or a hybrid combination of the two all offer services for user and device authentication, identity and role management, and provisioning.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-27.png" /></p>
+<p>Identity has become the common factor among many services, like Microsoft 365 and Xbox Live, where the person is the center of the services. Identity is now the security boundary, the new firewall, the control plane—whichever comparison you prefer. Your digital identity is the combination of who you are and what you’re allowed to do. That is:</p>
+<p><strong>Credentials + privileges = digital identity</strong></p>
+<p>First step, you need to help protect your privileged accounts.</p>
+<p>These identities have more than the normal user rights and, if compromised, allow a malicious hacker to access sensitive corporate assets. Helping secure these privileged identities is a critical step to establishing security assurances for business assets in a modern organization. Cybercriminals target these accounts and other privileged services in their kill chain to carry out their objectives.</p>
+<h2 id="evolution-of-identities"><strong>Evolution of identities</strong><a class="headerlink" href="#evolution-of-identities" title="Permanent link">#</a></h2>
+<p>Identity management approaches have evolved from traditional, to advanced, to optimal.</p>
+<p><strong>Traditional identity approaches</strong></p>
+<ul>
+<li>On-premises identity providers.</li>
+<li>No single sign-on is present between on-premises and cloud apps.</li>
+<li>Visibility into identity risk is very limited.</li>
+</ul>
+<p><strong>Advanced identity approaches</strong></p>
+<ul>
+<li>Conditional access policies gate access and provide remediation actions.</li>
+<li>Analytics improve visibility into identity risk.</li>
+</ul>
+<p><strong>Optimal identity approaches</strong></p>
+<ul>
+<li>Passwordless authentication is enabled.</li>
+<li>User, location, devices, and behavior are analyzed in real time.</li>
+<li>Continuous protection to identity risk.</li>
+</ul>
+<h2 id="steps-for-a-passwordless-world"><strong>Steps for a passwordless world</strong><a class="headerlink" href="#steps-for-a-passwordless-world" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Enforce MFA</strong> — Conform to the fast identity online (FIDO) 2.0 standard, so you can require a PIN and a biometric for authentication rather than a password. Windows Hello is one good example, but choose the MFA method that works for your organization.</li>
+<li><strong>Reduce legacy authentication workflows</strong> — Place apps that require passwords into a separate user access portal and migrate users to modern authentication flows most of the time. At Microsoft only 10 percent of our users enter a password on a given day.</li>
+<li><strong>Remove passwords</strong> — Create consistency across Active Directory Domain Services and Azure Active Directory (Azure AD) to enable administrators to remove passwords from identity directory.</li>
+</ul>
+<pre><code>Important
+
+We recommend Azure AD Privileged Identity Management as the service to help protect your privileged accounts.
+</code></pre>
+<h2 id="deploy-azure-ad-privileged-identity-management"><strong>Deploy Azure AD privileged identity management</strong><a class="headerlink" href="#deploy-azure-ad-privileged-identity-management" title="Permanent link">#</a></h2>
+<p>With the Azure AD Privileged Identity Management (PIM) service, you can manage, control, and monitor access to important resources in your organization. This includes access to resources in Azure AD; Azure; and other Microsoft Online Services, like Microsoft 365 and Microsoft Intune. This control does not eliminate the need for users to carry out privileged operations in Azure AD, Azure, Microsoft 365, and Software as a Service (SaaS) apps.</p>
+<p>Organizations can give users just-in-time (JIT) privileged access to Azure resources and Azure AD. Oversight is needed for what those users do with their administrator privileges. PIM helps mitigate the risk of excessive, unnecessary, or misused access rights.</p>
+<h2 id="key-pim-features"><strong>Key PIM features</strong><a class="headerlink" href="#key-pim-features" title="Permanent link">#</a></h2>
+<ul>
+<li>Providing <strong>just-in-time</strong> privileged access to Azure AD and Azure resources. IT administrators can pick an activation period between 0.5 and a role's maximum duration (max is 24 hours). They will only receive the privilege for that period of time. After the activation period admins will have to go through the activation process again.</li>
+<li>Assigning <strong>time-bound</strong> access to resources by using start and end dates. PIM allows you to set an end time for the role. This is particularly useful in a guest scenario. If your organization has guests that are working for a specific time the role privilege will expire automatically.</li>
+<li>Requiring <strong>approval</strong> to activate privileged roles. You can designate one or more approvers. These approvers will receive an email once a request is made. Approval is required to activate the privilege.</li>
+<li>Enforcing <strong>Azure Multi-Factor Authentication</strong> (MFA) to activate any role. If your organization already has MFA enabled, PIM will not ask the user to sign in again.</li>
+<li>Using <strong>justification</strong> to understand why users activate. This benefits both internal and external auditors understanding why the role was activated. You can also require a service ticket number from whatever service product you are using.</li>
+<li>Getting <strong>notifications</strong> when a user is assigned a privilege and when that privilege is activated.</li>
+<li>Conducting <strong>access reviews</strong> to know which users have privileged roles in the organization and if they still need them.</li>
+<li>Downloading an <strong>audit history</strong> for an internal or external audit. This keeps tracks of all PIM events.</li>
+</ul>
+<p><strong>Ways to use PIM</strong></p>
+<p>We use Azure AD PIM in the following ways:</p>
+<ul>
+<li>View which users are assigned privileged roles to manage Azure resources, as well as which users are assigned administrative roles in Azure AD.</li>
+<li>Enable on-demand, “just in time” administrative access to Microsoft Online Services like Microsoft 365 and Intune, and to Azure resources of subscriptions, resource groups, and individual resources such as Virtual Machines.</li>
+<li>Review a history of administrator activation, including what changes administrators made to Azure resources.</li>
+<li>Get alerts about changes in administrator assignments.</li>
+<li>Require approval to activate Azure AD privileged admin roles.</li>
+<li>Review membership of administrative roles and require users to provide a justification for continued membership.</li>
+</ul>
+<h2 id="configure-privileged-identity-management-scope"><strong>Configure privileged identity management scope</strong><a class="headerlink" href="#configure-privileged-identity-management-scope" title="Permanent link">#</a></h2>
+<p><img alt="Design Flow1" src="image/AZ-500-28.png" /></p>
+<ul>
+<li><strong>Azure AD roles</strong>. These roles are all in Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in Administrator role permissions in Azure Active Directory.</li>
+<li><strong>Azure resource roles</strong>. These roles are linked to an Azure resource, resource group, subscription, or management group. Privileged Identity Management provides just-in-time access to both built-in roles like Owner, User Access Administrator, and Contributor, as well as custom roles.</li>
+</ul>
+<h2 id="azure-ad-roles"><strong>Azure AD roles</strong><a class="headerlink" href="#azure-ad-roles" title="Permanent link">#</a></h2>
+<p>Users can be assigned to different administrative roles in Azure AD. These role assignments control which tasks, such as adding or removing users or changing service settings, the users are able to perform on Azure AD, Microsoft 365 and other Microsoft Online Services and connected applications.</p>
+<p>A global administrator can update which users are permanently assigned to roles in Azure AD, using PowerShell cmdlets such as Add-MsolRoleMember and Remove-MsolRoleMember, or through the Azure portal.</p>
+<p>Azure AD Privileged Identity Management (PIM) manages policies for privileged access for users in Azure AD. PIM assigns users to one or more roles in Azure AD, and you can assign someone to be permanently in the role, or eligible for the role. When a user is permanently assigned to a role, or activates an eligible role assignment, then they can manage Azure Active Directory, Microsoft 365, and other applications with the permissions assigned to their roles.</p>
+<p>There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. They are made eligible for the role, and can turn it on and off whenever they need to.</p>
+<h2 id="roles-managed-in-pim"><strong>Roles managed in PIM</strong><a class="headerlink" href="#roles-managed-in-pim" title="Permanent link">#</a></h2>
+<p>Privileged Identity Management lets you assign users to common administrator roles, including:</p>
+<ul>
+<li><strong>Global administrator</strong> (also known as a Company administrator) has access to all administrative features. You can have more than one global admin in your organization. The person who signs up to purchase Microsoft 365 automatically becomes a global admin.</li>
+<li><strong>Privileged role administrator</strong> manages Azure AD PIM and updates role assignments for other users.</li>
+<li><strong>Billing administrator</strong> makes purchases, manages subscriptions, manages support tickets, and monitors service health.</li>
+<li><strong>Password administrator</strong> users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the user's role.</li>
+<li><strong>Service administrator</strong> manages service requests and monitors service health.</li>
+<li><strong>User management administrator</strong> resets passwords, monitors service health, and manages user accounts, user groups, and service requests. The user management admin can’t delete a global admin, create other admin roles, or reset passwords for billing, global, and service admins.</li>
+<li><strong>Exchange administrator</strong> has administrative access to Exchange Online through the Exchange admin center (EAC), and can perform almost any task in Exchange Online.</li>
+<li><strong>SharePoint administrator</strong> has administrative access to SharePoint Online through the SharePoint Online admin center, and can perform almost any task in SharePoint Online.</li>
+<li><strong>Skype for Business administrator</strong> has administrative access to Skype for Business through the Skype for Business admin center, and can perform almost any task in Skype for Business Online.</li>
+</ul>
+<h2 id="roles-not-managed-in-pim"><strong>Roles not managed in PIM</strong><a class="headerlink" href="#roles-not-managed-in-pim" title="Permanent link">#</a></h2>
+<p>Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. Azure subscriptions and resource groups are also not represented in Azure AD.</p>
+<h2 id="azure-resources"><strong>Azure resources</strong><a class="headerlink" href="#azure-resources" title="Permanent link">#</a></h2>
+<p>When you first set up Privileged Identity Management for Azure resources, you need to discover and select the resources to protect with Privileged Identity Management. There's no limit to the number of resources that you can manage with Privileged Identity Management. However, we recommend starting with your most critical (production) resources.</p>
+<h2 id="implement-privileged-identity-management-onboarding"><strong>Implement privileged identity management onboarding</strong><a class="headerlink" href="#implement-privileged-identity-management-onboarding" title="Permanent link">#</a></h2>
+<p>To use PIM, you need one of the following paid or trial licenses: Azure AD Premium P2, Enterprise Mobility + Security (EMS) E5, or Microsoft 365 M5.</p>
+<p><strong>PIM Access</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-29.png" /></p>
+<p>The first Global Administrator to use PIM in your instance of Azure AD is automatically assigned the Security Administrator and Privileged Role Administrator roles in the directory. This person must be an eligible Azure AD user. Only privileged role administrators can manage the Azure AD directory role assignments of users. In addition, you can choose to run the security wizard that walks you through the initial discovery and assignment experience.</p>
+<p>Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD, are Resource Administrators. These administrators can assign roles, configure role settings, and review access by using PIM for Azure resources.</p>
+<p>No one else in your Azure Active Directory (Azure AD) organization gets write access by default, though, including other Global administrators. Other Global administrators, Security administrators, and Security readers have read-only access to Privileged Identity Management. To grant access to Privileged Identity Management, the first user can assign others to the Privileged Role Administrator role.</p>
+<pre><code>Important
+
+Make sure there are always at least two users in a Privileged Role Administrator role, in case one user is locked out or their account is deleted.
+</code></pre>
+<h2 id="explore-privileged-identity-management-configuration-settings"><strong>Explore privileged identity management configuration settings</strong><a class="headerlink" href="#explore-privileged-identity-management-configuration-settings" title="Permanent link">#</a></h2>
+<p><img alt="Design Flow1" src="image/AZ-500-30.png" /></p>
+<h2 id="activation-settings"><strong>Activation settings</strong><a class="headerlink" href="#activation-settings" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Activation duration</strong>. Set the maximum time, in hours, that a role stays active before it expires. This value can be from one to 24 hours.</li>
+<li><strong>Require multifactor authentication on activation</strong>. You can require users who are eligible for a role to prove who they are using Azure Active Directory Multi-Factor Authentication (MFA) before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.</li>
+<li><strong>Require justification</strong>. You can require that users enter a business justification when they activate.</li>
+<li><strong>Require approval to activate</strong>. If setting multiple approvers, approval completes as soon as one of them approves or denies. You can't require approval from at least two users.</li>
+</ul>
+<h2 id="assignment-settings"><strong>Assignment settings</strong><a class="headerlink" href="#assignment-settings" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Allow permanent eligible assignment</strong>. Global admins and Privileged role admins can assign permanent eligible assignment. They can also require that all eligible assignments have a specified start and end date.</li>
+<li><strong>Allow permanent active assignment</strong>. Global admins and Privileged role admins can assign active eligible assignment. They can also require that all active assignments have a specified start and end date.</li>
+</ul>
+<pre><code>Note
+
+In some cases, you might want to assign a user to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+</code></pre>
+<h2 id="notification-settings"><strong>Notification settings</strong><a class="headerlink" href="#notification-settings" title="Permanent link">#</a></h2>
+<ul>
+<li>Notifications can be sent when members are assigned as eligible in a role, assigned as active in a role, and when the role is activated.</li>
+<li>Notifications can be sent to Admins, Requestors, and Approvers.</li>
+</ul>
+<h2 id="implement-a-privileged-identity-management-workflow"><strong>Implement a privileged identity management workflow</strong><a class="headerlink" href="#implement-a-privileged-identity-management-workflow" title="Permanent link">#</a></h2>
+<p>By configuring Azure AD PIM to manage our elevated access roles in Azure AD, we now have JIT access for more than 28 configurable privileged roles. We can also monitor access, audit account elevations, and receive additional alerts through a management dashboard in the Azure portal.</p>
+<p>Elevated access includes job roles that need greater access, including support, resource administrators, resource owners, service administrators, and global administrators. We manage role-based access at the resource level. Because elevated access accounts could be misused if they’re compromised, we rationalize new requests for elevated access and perform regular re-attestation for elevated roles.</p>
+<p>The following diagram of the elevated access workflow.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-31.png" /></p>
+<h2 id="jit-administrator-access"><strong>JIT administrator access</strong><a class="headerlink" href="#jit-administrator-access" title="Permanent link">#</a></h2>
+<p>Historically, we could assign an employee to an administrative role through the Azure portal or through Windows PowerShell and that employee would be a permanent administrator; their elevated access would remain active in the assigned role.</p>
+<p>Azure AD PIM introduced the concept of permanent and eligible administrators in Azure AD and Azure. Permanent administrators have persistent elevated role connections; whereas eligible administrators have privileged access only when they need it. The eligible administrator role is inactive until the employee needs access, then they complete an activation process and become an active administrator for a set amount of time. We’ve stopped using permanent administrators for named individual accounts, although we do have some automated service accounts that still use the role.</p>
+<h2 id="role-activation-in-azure-active-directory"><strong>Role activation in Azure Active Directory</strong><a class="headerlink" href="#role-activation-in-azure-active-directory" title="Permanent link">#</a></h2>
+<p>Azure AD PIM uses administrative roles, such as tenant admin and global admin, to manage temporary access to various roles. With Azure AD PIM, you can manage the administrators by adding or removing permanent or eligible administrators to each role. Azure AD PIM includes several built-in Azure AD roles as well as Azure that we manage.</p>
+<p>To activate a role, an eligible admin will initialize Azure AD PIM in the Azure portal and request a time-limited role activation. The activation is requested using the Activate my role option in Azure AD PIM. Users requesting activation must satisfy conditional access policies to ensure that they are coming from authorized devices and locations, and their identities must be verified through multifactor authentication.</p>
+<p>To help secure transactions while enabling mobility, we use Azure AD PIM to customize role activation variables in Azure, including the number of sign-in attempts, the length of time the role is activated after sign-in, and the type of credentials required (such as single sign-in or multifactor authentication).</p>
+<p>At Microsoft, when an individual joins a team or changes teams, they might need administrative rights for their new business role. For example, someone might join a team in which their user account will require Exchange Online Administrator privileged access rights in the future. That user makes a request, then their manager validates that user’s request, as does a service owner. With those approvals, Core Services Engineering and Operations (CSEO, formerly Microsoft IT) administrators in the Privileged Role Administrator role are notified. A CSEO administrator uses Azure AD PIM via the Azure portal to make that user eligible for that role. The user can then use Azure AD PIM to activate that role.</p>
+<h2 id="tracking-the-use-of-privileged-roles-using-the-dashboard"><strong>Tracking the use of privileged roles using the dashboard</strong><a class="headerlink" href="#tracking-the-use-of-privileged-roles-using-the-dashboard" title="Permanent link">#</a></h2>
+<p>A dashboard through the Azure portal gives a centralized view of:</p>
+<ul>
+<li>Alerts that point out opportunities to improve security.</li>
+<li>The number of users who are assigned to each privileged role.</li>
+<li>The number of eligible and permanent admins.</li>
+<li>Ongoing access reviews.</li>
+</ul>
+<p>We can track how employees and admins are using their privileged roles by viewing the audit history or by setting up a regular access review. Both options are available through the PIM dashboard in the Azure portal.</p>
+<p>The PIM audit log tracks changes in privileged role assignments and role activation history. We use the audit log to view all user assignments and activations within a specified period. The audit history helps us determine, in real time, which accounts haven’t signed in recently, or if employees have changed roles.</p>
+<p>Access reviews can be performed by an assigned reviewer, or employees can review themselves. This is an effective way to monitor who still needs access, and who can be removed.</p>
+<p>We’re looking at the data that’s collected, and the monitoring team is assessing the best way to configure monitoring alerts to notify us about out-of-band changes—for example, if too many administrator roles are being created for an Azure resource. The information also helps us determine whether our current elevation time settings are appropriate for the various privileged admin roles.</p>
+<p>Like all organizations, we want to minimize the number of people who have access to our secure information or resources, because that reduces the chance of a malicious user getting access or an authorized user inadvertently impacting a sensitive resource. However, our people still need to carry out privileged operations in Azure AD, Azure, Microsoft 365, and SaaS apps. We can give users privileged access to Azure resources like Subscriptions, and Azure AD. Oversight is needed for what our users are doing with their admin privileges. We use Azure AD PIM to mitigate the risk of excessive, unnecessary, and misused access rights.</p>
+<p>In Azure AD, we use Azure AD PIM to manage the users we assign to built-in Azure AD organizational roles, such as Global Administrator. In Azure, we use Azure AD PIM to manage our users and groups that we assign via Azure RBAC roles, including Owner and Contributor.</p>
+<h2 id="explore-try-this-exercises_2"><strong>Explore Try-This exercises</strong><a class="headerlink" href="#explore-try-this-exercises_2" title="Permanent link">#</a></h2>
+<h2 id="task-1-azure-ad-pim-for-roles"><strong>Task 1: Azure AD PIM for roles</strong><a class="headerlink" href="#task-1-azure-ad-pim-for-roles" title="Permanent link">#</a></h2>
+<h2 id="configure-pim-settings"><strong>Configure PIM settings</strong><a class="headerlink" href="#configure-pim-settings" title="Permanent link">#</a></h2>
+<pre><code>Note
+
+This task requires a AZ500User1 account with no assigned roles.
+</code></pre>
+<p>In this task, we will review and configure the basic PIM settings.</p>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Azure AD Privileged Identity Management</strong>.</li>
+<li>Under <strong>Manage</strong> select <strong>Azure AD Roles</strong>.</li>
+<li>Under <strong>Manage</strong> select <strong>Settings</strong>.</li>
+<li>Select the <strong>Billing Administrator</strong> role.</li>
+<li>Click <strong>Edit</strong>.</li>
+<li>Notice the <strong>Activation, Assignment</strong>, and <strong>Notification</strong> tabs.</li>
+<li>By default, MFA is required on activation. For this demonstration, change the requirement to <strong>None</strong>.</li>
+<li>Check the box to <strong>Require approval to activate</strong>.</li>
+<li>Discuss the other possible settings including <strong>Activation maximum duration</strong> and <strong>Require approval to activate</strong>.</li>
+<li>Switch to the <strong>Assignment</strong> tab and require the settings. </li>
+<li>Notice the ability to expire eligible and active assignments.</li>
+<li>Switch to the <strong>Notifications</strong> tab and discuss the settings.</li>
+<li>Notice you can send notifications when members are assigned and activated.</li>
+<li>Click <strong>Update</strong>.</li>
+</ol>
+<h2 id="configure-pim-for-roles"><strong>Configure PIM for Roles</strong><a class="headerlink" href="#configure-pim-for-roles" title="Permanent link">#</a></h2>
+<p>In this task, we will add the Billing Administrator role to PIM.</p>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Azure AD Privileged Identity Management</strong>.</li>
+<li>Under <strong>Manage</strong> select <strong>Azure AD Roles</strong>.</li>
+<li>Under <strong>Manage</strong> select <strong>Roles</strong>.</li>
+<li>Review the list of roles.</li>
+<li>Select the <strong>Billing Administrator</strong> role.</li>
+<li>Review <strong>Eligible roles</strong> and <strong>Active roles</strong>.</li>
+<li>Click <strong>Add member</strong>.</li>
+<li>Click <strong>Select member</strong> and <strong>Select</strong> the <strong>AZ500User1</strong> user. You are now a Billing Administrator.</li>
+<li>
+<p>Select <strong>Set membership settings</strong>. Notice the settings can be permanent or limited in time.
+        - Assignment type: <strong>Eligible</strong>
+        - Permanently eligible: <strong>check the box</strong>.</p>
+<ol>
+<li><strong>Save</strong> your changes and <strong>Add</strong> the assignment.</li>
+<li>Verify the Billing Administrator is listed as an eligible role.</li>
+</ol>
+</li>
+</ol>
+<h2 id="activate-a-role"><strong>Activate a role</strong><a class="headerlink" href="#activate-a-role" title="Permanent link">#</a></h2>
+<p>In this task, we will activate the Billing Administrator role.</p>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Azure Active Directory</strong>.</li>
+<li>Under <strong>Manage</strong> click <strong>Users</strong>.</li>
+<li>Select <strong>AZ500User1</strong>.</li>
+<li>Under <strong>Manage</strong> click <strong>Assigned roles</strong>.</li>
+<li>Verify the user is not assigned to any roles.</li>
+<li>Sign in the <strong>Portal</strong> as <strong>AZ500User1</strong>.</li>
+<li>Search for and select <strong>Azure AD Privileged Identity Management</strong>.</li>
+<li>Under <strong>Tasks</strong> select <strong>My roles</strong>.</li>
+<li>Under <strong>Activate</strong> select <strong>Azure AD Roles</strong>.</li>
+<li>Select the <strong>Active roles</strong> and verify there are no roles listed.</li>
+<li>On the <strong>Eligible roles</strong> tab notice the <strong>Billing Administrator</strong> role.</li>
+<li>Under the <strong>Action</strong> column, select <strong>Activate</strong>.</li>
+<li><strong>Assignment details</strong> are shown in the Portal. This includes start and end times, and the ability to add a reason.</li>
+<li>Add a reason and then click <strong>Activate</strong>.</li>
+<li>The <strong>Activation status</strong> should show all the activation stages have been completed.</li>
+<li>Use the link to <strong>Sign out</strong>.</li>
+<li>You must sign out and log back in to start using your newly activated role.</li>
+</ol>
+<h2 id="test-the-role-access"><strong>Test the role access</strong><a class="headerlink" href="#test-the-role-access" title="Permanent link">#</a></h2>
+<p>In this task, test the Billing Administrator role.</p>
+<ol>
+<li>Sign in to the Portal as <strong>AZ500User1</strong>.</li>
+<li>Search for and select <strong>Azure AD Privileged Identity Management</strong>.</li>
+<li>Under <strong>Activate</strong> select <strong>Azure AD Roles</strong>.</li>
+<li>Select the <strong>Active roles</strong> tab and verify the <strong>Billing Administrator</strong> role has been activated.</li>
+<li>The role should show <strong>Activated</strong>.</li>
+<li>Notice the ability to <strong>Deactivate</strong> the role.</li>
+</ol>
+<h2 id="task-2-azure-ad-pim-for-resources"><strong>Task 2: Azure AD PIM for resources</strong><a class="headerlink" href="#task-2-azure-ad-pim-for-resources" title="Permanent link">#</a></h2>
+<p>In this task, we will configure PIM for Azure resources, activate the Virtual Machine Contributor role, and test the role access.</p>
+<h2 id="configure-pim-for-azure-resources"><strong>Configure PIM for Azure resources</strong><a class="headerlink" href="#configure-pim-for-azure-resources" title="Permanent link">#</a></h2>
+<p>In this task, we will add the subscription to PIM, then add the Virtual Machine Contributor role as an Active role.</p>
+<ol>
+<li>In the <strong>Portal</strong>, search for and select <strong>Azure AD Privileged Identity Management</strong>.</li>
+<li>Under <strong>Manage</strong> select <strong>Azure Resources</strong>.</li>
+<li>Click <strong>Discover resources</strong>.</li>
+<li>Notice the <strong>Resource state</strong> is <strong>Unmanaged</strong>.</li>
+<li>Select the subscription you want to manage.</li>
+<li>Click <strong>Manage resource</strong>.</li>
+<li>Click <strong>Yes</strong> to confirm that PIM will manage all child objects for the selected resource.</li>
+<li>Return to the <strong>Azure resources</strong> blade.</li>
+<li>Select your subscription.</li>
+<li>Under <strong>Manage</strong> click <strong>Roles</strong>.</li>
+<li>Search for and select the <strong>Virtual machine contributor</strong> role.</li>
+<li>Click <strong>Add assignments</strong>, then click <strong>Select member(s)</strong> and add the <strong>AZ500User1</strong> to the group.</li>
+<li>On the <strong>Membership settings</strong> page set the <strong>Assignment type</strong> is <strong>Active</strong>.</li>
+<li><strong>Add</strong> the role and <strong>Save</strong> your changes.</li>
+<li>Sign out of the Portal.</li>
+</ol>
+<h2 id="activate-the-role"><strong>Activate the role</strong><a class="headerlink" href="#activate-the-role" title="Permanent link">#</a></h2>
+<p>In this task, we will sign-in as a user and activate the role.</p>
+<ol>
+<li>Sign in to the Portal and AZ500User1.</li>
+<li>Search for and select Azure AD Privileged Identity Management.</li>
+<li>Under Tasks select My roles.</li>
+<li>Under Activate select Azure resources.</li>
+<li>On the Active roles tab notice you have no assigned roles.</li>
+<li>On the Eligible roles tab scroll to the right and Activate the role.</li>
+<li>Notice the Start time and Duration.</li>
+<li>Provide a reason for the activation. For example, 'Need to add a NIC'.</li>
+<li>Click Activate.</li>
+<li>The Activation status should show all the activation stages have been completed.</li>
+<li>Use the link to Sign out.</li>
+<li>You must sign out and log back in to start using your newly activated role.</li>
+</ol>
+<h2 id="test-the-role-access_1"><strong>Test the role access</strong><a class="headerlink" href="#test-the-role-access_1" title="Permanent link">#</a></h2>
+<p>In this task, we will check to ensure the role has been assigned.</p>
+<ol>
+<li>Sign in to the Portal as AZ500User1.</li>
+<li>Search for and select Azure AD Privileged Identity Management.</li>
+<li>Under Activate select Azure resources.</li>
+<li>Select the Active roles tab and verify the Virtual Machine Contributor role has been activated.</li>
+<li>Sign out of the Portal.</li>
+<li>Sign in to the Portal using a Global Admin account.</li>
+<li>Search for and select Azure Active Directory.</li>
+<li>Under Manage click Users.</li>
+<li>Select AZ500User1.</li>
+<li>Under Manage click Assigned roles.</li>
+<li>Verify there are no roles listed.</li>
+<li>Under Manage select Azure role assignments.</li>
+<li>Verify the Virtual machine contributor role is listed.</li>
+</ol>
+<h2 id="knowledge-check_2"><strong>Knowledge check</strong><a class="headerlink" href="#knowledge-check_2" title="Permanent link">#</a></h2>
+<p>Check your knowledge
+1. To enable Azure AD PIM for your directory, what Azure AD Role do you need to enable PIM?</p>
+<ul>
+<li>Office 365 Admin</li>
+<li>Co-Administrator</li>
+<li>
+<p>Global Admin (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>A company has implemented Azure AD PIM. There's a need to ensure a new hire's request elevation before they make any changes in Azure, what should you do?</p>
+</li>
+<li>
+<p>Activate the new hire.</p>
+</li>
+<li>Assign the new hire the Eligible role membership type. (<strong>Ans</strong>)</li>
+<li>
+<p>Include the new hire in an access review.</p>
+</li>
+<li>
+<p>Azure AD PIM is used to manage which of the following roles?</p>
+</li>
+<li>
+<p>Azure privileged users</p>
+</li>
+<li>Azure resource groups</li>
+<li>
+<p>Azure AD roles (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>An organization has enabled Azure AD PIM. The senior IT manager wants the role set up so no action is required, what should you do?</p>
+</li>
+<li>
+<p>Give the manager JIT access to the role.</p>
+</li>
+<li>Make the manager Permanent Active in the role. (<strong>Ans</strong>)</li>
+<li>Make the manager Assigned to a role.</li>
+</ul>
+<h1 id="design-an-enterprise-governance-strategy"><strong>Design an enterprise governance strategy</strong><a class="headerlink" href="#design-an-enterprise-governance-strategy" title="Permanent link">#</a></h1>
+<h2 id="introduction_4"><strong>Introduction</strong><a class="headerlink" href="#introduction_4" title="Permanent link">#</a></h2>
+<p>The first part of your organization's secure Azure tenant is set up, but you need to monitor and maintain it. Enterprise Governance is the process of setting strategic tools, systems, and process into motion to keep your systems secure and running well.</p>
+<h2 id="scenario_4"><strong>Scenario</strong><a class="headerlink" href="#scenario_4" title="Permanent link">#</a></h2>
+<p>A security engineer uses enterprise governance tools and policies to manage and maintain a secure Azure solution; some common tasks are:</p>
+<ul>
+<li>Designing an Azure secure access hierarchy.</li>
+<li>Using RBAC and Azure Policy to control and manage access.</li>
+<li>Creating blueprints of secure deployments that can be reused.</li>
+</ul>
+<h2 id="review-the-shared-responsibility-model"><strong>Review the shared responsibility model</strong><a class="headerlink" href="#review-the-shared-responsibility-model" title="Permanent link">#</a></h2>
+<p>Organizations face many challenges with securing their data centers, including recruiting and keeping security experts, using many security tools, and keeping pace with the volume and complexity of threats.</p>
+<p>As computing environments move from customer-controlled data centers to the cloud, the security responsibility also shifts. Security of the operational environment is now a concern shared by both cloud providers and customers. By shifting these responsibilities to a cloud service like Azure, organizations can reduce focus on activities that aren't core business competencies. Depending on the specific technology choices, some security protections will be built into the service, while others will remain the customer’s responsibility. To ensure that the proper security controls are provided, a careful evaluation of the services and technology choices becomes necessary.</p>
+<p>The first thing to understand about cloud security is that different scopes of responsibility exist depending on the kinds of services you use.</p>
+<p>For example, if you use virtual machines (VMs) in Azure, which provide Infrastructure as a Service (IaaS), Microsoft will be responsible for helping secure the physical network, physical storage, and virtualization platform, which includes updating the virtualization hosts. But you’ll need to take care of helping secure your virtual network and public endpoints and updating the guest operating system (OS) of your VMs.</p>
+<p>The following figure depicts the various responsibility zones.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-32.png" /></p>
+<p>For all cloud deployment types, you own your data and identities. You're responsible for helping secure your data and identities, your on-premises resources, and the cloud components you control (which vary by service type).</p>
+<p>Regardless of the deployment type, you always retain responsibility for the following:</p>
+<ul>
+<li>Data</li>
+<li>Endpoints</li>
+<li>Accounts</li>
+<li>Access management</li>
+</ul>
+<pre><code>Important
+
+It’s important to understand the division of responsibility between you and Microsoft in a Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS) deployment.
+</code></pre>
+<h2 id="explore-the-azure-cloud-security-advantages"><strong>Explore the Azure cloud security advantages</strong><a class="headerlink" href="#explore-the-azure-cloud-security-advantages" title="Permanent link">#</a></h2>
+<p>The cloud offers significant advantages for solving long standing information security challenges. In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers can exploit vulnerabilities at all layers.</p>
+<p>The following diagram shows a traditional approach where many security responsibilities are unmet due to limited resources. In the cloud-enabled approach, you can shift day-to-day security responsibilities to your cloud provider and reallocate your resources.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-33.png" /></p>
+<p>In the cloud-enabled approach, you are also able to leverage cloud-based security capabilities for more effectiveness and use cloud intelligence to improve your threat detection and response time. By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.</p>
+<pre><code> Important
+
+What security advantages are you expecting from leveraging the cloud?
+</code></pre>
+<h2 id="review-azure-hierarchy-of-systems"><strong>Review Azure hierarchy of systems</strong><a class="headerlink" href="#review-azure-hierarchy-of-systems" title="Permanent link">#</a></h2>
+<p><strong>Azure Resource Manager</strong> is the deployment and management service for Azure. It provides a consistent management layer that allows you to create, update, and delete resources in your Azure subscription. You can use its access control, auditing, and tagging features to help secure and organize your resources after deployment.</p>
+<p>When you take actions through the portal, Azure PowerShell, the Azure CLI, REST APIs, or client software development kits (SDKs), the Resource Manager API handles your request. Because the same API handles all requests, you get consistent results and capabilities from all the different tools. Functionality initially released through APIs should be represented in the portal within 180 days of the initial release.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-34.png" /></p>
+<h2 id="understand-scope"><strong>Understand Scope</strong><a class="headerlink" href="#understand-scope" title="Permanent link">#</a></h2>
+<p>Azure provides four levels of scope: management groups, subscriptions, resource groups, and resources. The following image shows an example of these layers. Though not labeled as such, the blue cubes are resources.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-35.png" /></p>
+<p>You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a policy to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied to the resource group and all its resources. However, another resource group doesn't have that policy assignment.</p>
+<p>You can deploy templates to management groups, subscriptions, or resource groups.</p>
+<h2 id="resource-groups"><strong>Resource Groups</strong><a class="headerlink" href="#resource-groups" title="Permanent link">#</a></h2>
+<p>There are some important factors to consider when defining your resource group:</p>
+<ul>
+<li>All the resources in your group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.</li>
+<li>Each resource can only exist in one resource group.</li>
+<li>You can add or remove a resource to a resource group at any time.</li>
+<li>You can move a resource from one resource group to another group.</li>
+<li>A resource group can contain resources that are located in different regions.</li>
+<li>A resource group can be used to scope access control for administrative actions.</li>
+<li>A resource can interact with resources in other resource groups. This interaction is common when the two resources are related but don't share the same lifecycle (for example, web apps connecting to a database).</li>
+</ul>
+<p>When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.</p>
+<p>If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them.</p>
+<h2 id="management-groups"><strong>Management Groups</strong><a class="headerlink" href="#management-groups" title="Permanent link">#</a></h2>
+<p>Management groups are an Azure resource to create flexible and very maintainable hierarchies within the structure of your environment. Management groups exist above the subscription level thus allowing subscriptions to be grouped together. This grouping facilitates applying policies and RBAC permissions to those management groups. Policies and RBAC permissions are inherited to all resources in the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have. All subscriptions within a single management group must trust the same Azure Active Directory tenant.</p>
+<p>Management group hierarchies can be up to six levels deep. This provides you with the flexibility to create a hierarchy that combines several of these strategies to meet your organizational needs. For example, the diagram below shows an organizational hierarchy that combines a business unit strategy with a geographic strategy.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-36.png" /></p>
+<h2 id="the-value-of-management-groups"><strong>The value of management groups</strong><a class="headerlink" href="#the-value-of-management-groups" title="Permanent link">#</a></h2>
+<p><strong>Group your subscriptions.</strong></p>
+<ul>
+<li>Provide user access to multiple subscriptions</li>
+<li>Allows for new organizational models and logically grouping of resources.</li>
+<li>Allows for single assignment of controls that applies to all subscriptions.</li>
+<li>Provides aggregated views above the subscription level.</li>
+</ul>
+<p><strong>Mirror your organization's structure.</strong></p>
+<ul>
+<li>Create a flexible hierarchy that can be updated quickly.</li>
+<li>The hierarchy does not need to model the organization's billing hierarchy.</li>
+<li>The structure can easily scale up or down depending on your needs.</li>
+</ul>
+<p><strong>Apply policies or access controls to any service.</strong></p>
+<ul>
+<li>Create one RBAC assignment on the management group, which will inherit that access to all the subscriptions.</li>
+<li>Use Azure Resource Manager integrations that allow integrations with other Azure services: Azure Cost Management, Privileged Identity Management, and Microsoft Defender for Cloud.</li>
+</ul>
+<pre><code>Important
+
+By using management groups, you can reduce your workload and reduce the risk of error by avoiding duplicate assignments. Instead of applying multiple assignments across numerous resources and subscriptions, you can apply the one assignment on the one management group that contains the target resources. This will save time in the application of assignments, creates one point for maintenance, and allows for better controls on who can control the assignment.
+</code></pre>
+<h2 id="configure-azure-policies"><strong>Configure Azure policies</strong><a class="headerlink" href="#configure-azure-policies" title="Permanent link">#</a></h2>
+<p>Azure Policy is a service you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources so that those resources stay compliant with your corporate standards and service level agreements. Azure Policy meets this need by evaluating your resources for noncompliance with assigned policies. For example, you might have a policy that allows virtual machines of only a certain size in your environment. After this policy is implemented, new and existing resources are evaluated for compliance. With the right type of policy, existing resources can be brought into compliance.</p>
+<p><strong>There are three main pillars in the functionalities of Azure policy.</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-37.png" /></p>
+<p>The first pillar is around real-time enforcement and compliance assessment. For example, a policy would block the creation of resources that are located outside of US regions. Each policy also provides compliance assessment on all your existing resources to bring a state of compliance for each resource. The data then powers the compliance view which aggregates results across all of the applied policies. Policies can be used to ensure that resource groups are getting tagged properly and automatically inheriting those tags from the resource group down to the resources.</p>
+<p>The second pillar of policy is applying policies at scale by leveraging Management Groups. By assigning policy to a management group one can impact hundreds of subscriptions and all its reach resources through a single policy assignment. There also is the concept called policy initiative that allows you to group policies together so that you can view the aggregated compliance result. At the initiative level there's also a concept called exclusion where one can exclude either the child management group subscription resource group or resources from the policy assignment.</p>
+<p>The third pillar of your policy is remediation by leveraging a remediation policy that will automatically remediate the non-compliant resource so that your environment always stays compliant. For existing resources, they will be flagged as non-compliant but they won't automatically be changed because there can be impact to the environment. For these cases you can create a remediation task to bring these resources to compliance. Azure policy is a free service to use.</p>
+<h2 id="policy-permissions-and-custom-policies"><strong>Policy permissions and custom policies</strong><a class="headerlink" href="#policy-permissions-and-custom-policies" title="Permanent link">#</a></h2>
+<p>Azure Policy has several permissions, known as operations, in two resource providers:</p>
+<ul>
+<li>Microsoft.Authorization</li>
+<li>Microsoft.PolicyInsights</li>
+</ul>
+<p>Many built-in roles grant permissions to Azure Policy resources. The Resource Policy Contributor role includes most Azure Policy operations. The Owner role has full rights. Both Contributor and Reader can use all Azure Policy read operations, but Contributor can also trigger remediation.</p>
+<p>If none of the built-in roles have the required permissions, create a custom role. Azure has by default, security policies that work across subscriptions or on management groups. If these policies need to be augmented with your own organizational policies, new policies can be created.</p>
+<p>Whatever the business driver for creating a custom policy, the steps are the same for defining the new custom policy. Before creating a custom policy, check the policy samples to determine if a policy that matches your needs already exists.</p>
+<p>The approach to creating a custom policy follows these steps:</p>
+<ul>
+<li>Identify your business requirements</li>
+<li>Map each requirement to an Azure resource property</li>
+<li>Map the property to an alias</li>
+<li>Determine which effect to use</li>
+<li>Compose the policy definition</li>
+</ul>
+<h2 id="composing-an-azure-policy"><strong>Composing an Azure Policy</strong><a class="headerlink" href="#composing-an-azure-policy" title="Permanent link">#</a></h2>
+<p>The steps for composing and implementing a policy in Azure Policy begins with creating:</p>
+<ul>
+<li><strong>Policy definition</strong> - Every policy definition has conditions under which it's enforced. And, it has a defined effect that takes place if the conditions are met.</li>
+<li><strong>Policy assignment</strong> - A policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to an individual resource. The term scope refers to all the resources, resource groups, subscriptions, or management groups that the policy definition is assigned to.</li>
+<li><strong>Policy parameters</strong> - They help simplify your policy management by reducing the number of policy definitions you must create. You can define parameters when creating a policy definition to make it more generic.</li>
+</ul>
+<h2 id="create-and-assign-an-initiative-definition"><strong>Create and assign an Initiative definition</strong><a class="headerlink" href="#create-and-assign-an-initiative-definition" title="Permanent link">#</a></h2>
+<p>In order to easily track compliance for multiple resources, create and assign an Initiative definition. With an initiative definition, you can group several policy definitions to achieve one overarching goal. An initiative evaluates resources within scope of the assignment for compliance to the included policies.</p>
+<p>To implement these policy definitions (both built-in and custom definitions), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.</p>
+<h2 id="enable-azure-role-based-access-control-rbac"><strong>Enable Azure role-based access control (RBAC)</strong><a class="headerlink" href="#enable-azure-role-based-access-control-rbac" title="Permanent link">#</a></h2>
+<p>When it comes to identity and access, most organizations that are considering using the public cloud are concerned about two things:</p>
+<ul>
+<li>Ensuring that when people leave the organization, they lose access to resources in the cloud.</li>
+<li>Striking the right balance between autonomy and central governance—for example, giving project teams the ability to create and manage virtual machines in the cloud while centrally controlling the networks to which those virtual machines connect.</li>
+</ul>
+<p>RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources. Azure AD and Role Based Access Control (RBAC) make it simple for you to carry out these goals. After you extend your on-premises Active Directory to the cloud by using Azure AD Connect, your employees can use and manage their Azure subscriptions by using their existing work identities. These Azure subscriptions automatically connect to Azure AD for SSO and access management. When you disable an on-premises Active Directory account, it automatically loses access to all Azure subscriptions connected with Azure AD.</p>
+<p>Additionally, synchronizing passwords to the cloud to support these checks also add resiliency during some attacks. Customers affected by (Not)Petya attacks were able to continue business operations when password hashes were synced to Azure AD (vs. near zero communications and IT services for customers affected organizations that had not synchronized passwords).</p>
+<p>RBAC enables fine-grained access management for Azure. Using RBAC, you can grant just the amount of access that users need to perform their jobs. For example, you can use RBAC to let one employee manage virtual machines in a subscription while another manages SQL databases within the same subscription.</p>
+<p><strong>Each Azure subscription is associated with one Azure AD directory</strong>. Users, groups, and applications in that directory can manage resources in the Azure subscription. Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the child scopes contained within it. For example, a user with access to a resource group can manage all the resources it contains, like websites, virtual machines, and subnets. The RBAC role that you assign dictates what resources the user, group, or application can manage within that scope.</p>
+<p>The following diagram depicts how the classic subscription administrator roles, RBAC roles, and Azure AD administrator roles are related at a high level. Roles assigned at a higher scope, like a subscription, are inherited by child scopes, like service instances.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-39.png" /></p>
+<pre><code>Important
+
+Note that a subscription is associated with only one Azure AD tenant. Also note that a resource group can have multiple resources but is associated with only one subscription. Lastly, a resource can be bound to only one resource group.
+</code></pre>
+<h2 id="compare-and-contrast-azure-rbac-vs-azure-policies"><strong>Compare and contrast Azure RBAC vs Azure policies</strong><a class="headerlink" href="#compare-and-contrast-azure-rbac-vs-azure-policies" title="Permanent link">#</a></h2>
+<p>There are a few key differences between Azure Policy and Azure role-based access control (Azure RBAC). Azure Policy evaluates the state by examining properties on resources that are represented in Resource Manager and properties of some Resource Providers. Azure Policy ensures that the resource state is compliant with your business rules without concern for who made the change or who has permission to make a change. Azure Policy, through the DenyAction effect, can also block specific actions on resources. Some Azure Policy resources, such as policy definitions, initiative definitions, and assignments, are visible to all users. This design enables transparency to all users and services regarding what policy rules are set in their environment.</p>
+<p>Azure RBAC focuses on managing user actions at different scopes. If control of an action is required based on user information, then Azure RBAC is the correct tool to use. Even if an individual has access to perform an action, if the result is a non-compliant resource, Azure Policy still blocks the create or update task.</p>
+<p>The combination of Azure role-based access control (Azure RBAC) and Azure Policy provides full-scope control in Azure.</p>
+<p>Azure Policy has several permissions, known as operations, in two Resource Providers:</p>
+<ol>
+<li>Microsoft.Authorization</li>
+<li>Microsoft.PolicyInsights</li>
+</ol>
+<p>Many built-in roles grant permission to Azure Policy resources. The Resource Policy Contributor role includes most Azure Policy operations. The owner has full rights. Both Contributor and Reader have access to all read Azure Policy operations.</p>
+<p>A contributor may trigger resource remediation but can't create or update definitions and assignments. User Access Administrator is necessary to grant the managed identity on deployIfNotExists or modify the assignment's necessary permissions.</p>
+<pre><code>Note
+
+All Policy objects, including definitions, initiatives, and assignments, will be readable to all roles over its scope. For example, a Policy assignment scoped to an Azure subscription will be readable by all role holders at the subscription scope and below.
+</code></pre>
+<p>If none of the built-in roles have the permissions required, create a custom role.</p>
+<p>Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of permissions necessary to perform a task should be assigned and these permissions should not be granted to users who do not need them.</p>
+<pre><code> Note
+
+The managed identity of a deployIfNotExists or modify policy assignment needs enough permissions to create or update targeted resources.
+</code></pre>
+<h2 id="example-role-based-access-control-rbac-vs-azure-policy"><strong>Example: Role-Based Access Control (RBAC) vs. Azure Policy</strong><a class="headerlink" href="#example-role-based-access-control-rbac-vs-azure-policy" title="Permanent link">#</a></h2>
+<p><img alt="Design Flow1" src="image/AZ-500-40.png" /></p>
+<pre><code>Important
+
+RBAC and Polices in Azure play a vital role in a governance strategy. While different, they both work together to ensure organizational business rules are followed by ensuring proper access and resource creation guidelines are met.
+</code></pre>
+<h2 id="configure-built-in-roles"><strong>Configure built-in roles</strong><a class="headerlink" href="#configure-built-in-roles" title="Permanent link">#</a></h2>
+<p>Azure role-based access control (RBAC) has several Azure built-in roles that you can assign to users, groups, service principals, and managed identities. Role assignments are the way you control access to Azure resources. If the built-in roles don't meet the specific needs of your organization, you can create your own Azure custom roles.</p>
+<p>The four general built-in roles are:</p>
+<table>
+<thead>
+<tr>
+<th>Built-in Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Description</td>
+</tr>
+<tr>
+<td>Contributor</td>
+</tr>
+<tr>
+<td>Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.</td>
+</tr>
+<tr>
+<td>Owner</td>
+</tr>
+<tr>
+<td>Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.</td>
+</tr>
+<tr>
+<td>Reader</td>
+</tr>
+<tr>
+<td>View all resources, but does not allow you to make any changes.</td>
+</tr>
+<tr>
+<td>User Access Administrator</td>
+</tr>
+<tr>
+<td>Lets you manage user access to Azure resources.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="custom-roles-for-azure-resources"><strong>Custom roles for Azure resources</strong><a class="headerlink" href="#custom-roles-for-azure-resources" title="Permanent link">#</a></h2>
+<p>If the built-in roles for Azure resources don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.</p>
+<p>Custom roles can be shared between subscriptions that trust the same Azure AD directory. There is a limit of 5,000 custom roles per directory. (For Azure Germany and Azure China 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.</p>
+<h2 id="custom-role-limits"><strong>Custom role limits</strong><a class="headerlink" href="#custom-role-limits" title="Permanent link">#</a></h2>
+<p>The following list describes the limits for custom roles.</p>
+<ul>
+<li>Each directory can have up to 5000 custom roles.</li>
+<li>Azure Germany and Azure China 21Vianet can have up to 2000 custom roles for each directory.</li>
+<li>You cannot set AssignableScopes to the root scope ("/").</li>
+<li>You can only define one management group in AssignableScopes of a custom role. Adding a management group to AssignableScopes is currently in preview.</li>
+<li>Custom roles with DataActions cannot be assigned at the management group scope.</li>
+<li>Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.</li>
+</ul>
+<h2 id="enable-resource-locks"><strong>Enable resource locks</strong><a class="headerlink" href="#enable-resource-locks" title="Permanent link">#</a></h2>
+<p>As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly. In the portal, the locks are called Delete and Read-only respectively.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-41.png" /></p>
+<ul>
+<li><strong>CanNotDelete</strong> means authorized users can still read and modify a resource, but they can't delete the resource.</li>
+<li><strong>ReadOnly</strong> means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the Reader role.</li>
+</ul>
+<h2 id="who-can-create-or-delete-locks"><strong>Who can create or delete locks</strong><a class="headerlink" href="#who-can-create-or-delete-locks" title="Permanent link">#</a></h2>
+<pre><code>To create or delete management locks, you must have access to **Microsoft.Authorization/***or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.
+</code></pre>
+<h2 id="deploy-azure-blueprints"><strong>Deploy Azure blueprints</strong><a class="headerlink" href="#deploy-azure-blueprints" title="Permanent link">#</a></h2>
+<p>Just as a blueprint allows an engineer or an architect to sketch a project's design parameters, Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints allows development teams to rapidly build and stand up new environments with the trust they're building within organizational compliance with a set of built-in components, such as networking, to speed up development and delivery.</p>
+<p>Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts, such as:</p>
+<ul>
+<li>Role Assignments</li>
+<li>Policy Assignments</li>
+<li>Azure Resource Manager templates</li>
+<li>Resource Groups</li>
+</ul>
+<p>The Azure Blueprints service is supported by the globally distributed Azure Cosmos Data Base. Blueprint objects are replicated in multiple Azure regions. This replication provides low latency, high availability, and consistent access to your blueprint objects, regardless of which region Blueprints deploys your resources to.</p>
+<h2 id="how-is-it-different-from-azure-resource-manager-templates"><strong>How is it different from Azure Resource Manager templates?</strong><a class="headerlink" href="#how-is-it-different-from-azure-resource-manager-templates" title="Permanent link">#</a></h2>
+<p>The service design helps with environment setup. This setup often includes resource groups, policies, role assignments, and Resource Manager template deployments assigned to a subscription in a single audited and tracked operation. A blueprint is a package to bring each artifact type together and allows you to compose and version that package into a continuous integration and pipeline.</p>
+<p>Nearly everything that you want to include for deployment in Blueprints is also with a Resource Manager template. However, a Resource Manager template is a document that doesn't exist natively in Azure – it's stored either locally or in source control. The template gets used for deployments of one or more Azure resources, but once those resources deploy, there's no active connection or relationship to the template.</p>
+<p>Blueprints save the relationship between the blueprint definition and the blueprint assignment. This connection supports improved tracking and auditing of deployments. Blueprints can upgrade several subscriptions governed by the exact blueprint.</p>
+<p>There's no need to choose between a Resource Manager template and a blueprint. Each blueprint can consist of zero or more Resource Manager template artifacts. This support means that previous efforts to develop and maintain a library of Resource Manager templates are reusable in Blueprints.</p>
+<h2 id="how-its-different-from-azure-policy"><strong>How it's different from Azure Policy</strong><a class="headerlink" href="#how-its-different-from-azure-policy" title="Permanent link">#</a></h2>
+<p>A blueprint is a package or container for composing focus-specific standards, patterns, and requirements for implementing Azure cloud services, security, and design reused to maintain consistency and compliance.</p>
+<p>An Azure policy is a default allow and explicit deny system focused on resource properties during deployment and for existing resources. It supports cloud governance by validating that help within a subscription adhere to requirements and standards.</p>
+<p>Including an Azure policy in a blueprint enables the creation of the correct pattern or design during the assignment of the blueprint. The policy inclusion ensures that only approved or expected changes can be made to the environment to protect ongoing compliance with the intent of the blueprint.</p>
+<p>An Azure policy is available as one of many artifacts in a blueprint definition. Blueprints also support using parameters with policies and initiatives.</p>
+<h2 id="blueprint-definition"><strong>Blueprint definition</strong><a class="headerlink" href="#blueprint-definition" title="Permanent link">#</a></h2>
+<p>A blueprint is composed of artifacts. Azure Blueprints currently supports the following resources as artifacts:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hierarchy options</td>
+</tr>
+<tr>
+<td>Description</td>
+</tr>
+<tr>
+<td>Resource Groups</td>
+</tr>
+<tr>
+<td>Subscription</td>
+</tr>
+<tr>
+<td>Create a new resource group for use by other artifacts within the blueprint. These placeholder resource groups enable you to organize resources exactly how you want them structured and provide a scope limiter for included policy and role assignment artifacts and ARM templates.</td>
+</tr>
+<tr>
+<td>ARM template</td>
+</tr>
+<tr>
+<td>Subscription, Resource Group</td>
+</tr>
+<tr>
+<td>Templates, including nested and linked templates, are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace.</td>
+</tr>
+<tr>
+<td>Policy Assignment</td>
+</tr>
+<tr>
+<td>Subscription, Resource Group</td>
+</tr>
+<tr>
+<td>Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint definition location. If the policy or initiative has parameters, these parameters are assigned at the creation of the blueprint or during blueprint assignment.</td>
+</tr>
+<tr>
+<td>Role Assignment</td>
+</tr>
+<tr>
+<td>Subscription, Resource Group</td>
+</tr>
+<tr>
+<td>Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="blueprint-definition-locations"><strong>Blueprint definition locations</strong><a class="headerlink" href="#blueprint-definition-locations" title="Permanent link">#</a></h2>
+<p>When creating a blueprint definition, you'll define where the blueprint is saved. Blueprints can be saved to a management group or subscription that you have Contributor access to. If the location is a management group, the blueprint is available to assign to any child subscription of that management group.</p>
+<h2 id="blueprint-parameters"><strong>Blueprint parameters</strong><a class="headerlink" href="#blueprint-parameters" title="Permanent link">#</a></h2>
+<p>Blueprints can pass parameters to either a policy/initiative or an ARM template. When adding either artifact to a blueprint, the author decides to provide a defined value for each blueprint assignment or to allow each blueprint assignment to provide a value at assignment time. This flexibility provides the option to define a pre-determined value for all uses of the blueprint or to enable that decision to be made at the time of assignment.</p>
+<pre><code>Note
+
+Assigning a blueprint definition to a management group means the assignment object exists in the management group. The deployment of artifacts still targets a subscription. To perform a management group assignment, the Create Or Update REST API must be used, and the request body must include a value for properties.scope to define the target subscription.
+</code></pre>
+<h2 id="design-an-azure-subscription-management-plan"><strong>Design an Azure subscription management plan</strong><a class="headerlink" href="#design-an-azure-subscription-management-plan" title="Permanent link">#</a></h2>
+<p>An Azure Active Directory (AD) tenant is created for you when you sign up for Azure. The tenant represents your account. You use the tenant to manage access to your subscriptions and resources.</p>
+<p>When you create a new subscription, it's hosted in your account's Azure AD tenant. If you want to give others access to your subscription or its resources, you need to invite them to join your tenant. Doing so helps you control access to your subscriptions and resources. You can create additional subscriptions for your account in Azure. You might want an additional subscription to avoid reaching subscription limits, to create separate environments for billing and security, or to isolate data for compliance reasons.</p>
+<p>If you want to create Azure subscriptions under your organization's Enterprise Agreement (EA), you need to have the Account Owner role for your organization.</p>
+<p>If you need to transfer billing ownership of your Azure subscription if you're leaving your organization, or you want your subscription to be billed to another account. Transferring billing ownership to another account provides the administrators in the new account permission for billing tasks. They can change the payment method, view charges, and cancel the subscription.</p>
+<h2 id="manage-api-access-to-azure-subscriptions-and-resources"><strong>Manage API access to Azure subscriptions and resources</strong><a class="headerlink" href="#manage-api-access-to-azure-subscriptions-and-resources" title="Permanent link">#</a></h2>
+<p>When you publish APIs through API Management, it's easy and common to gain access to those APIs by using subscription keys. Client applications that consume the published APIs need to include a valid subscription key in HTTP requests when they make calls to those APIs. To get a subscription key for accessing APIs, a subscription is required. A subscription is essentially a named container for a pair of subscription keys. Developers who need to consume the published APIs can get subscriptions, and they don't need approval from API publishers. API publishers can also directly create subscriptions for API consumers.</p>
+<p>API Management supports additional mechanisms for gaining access to APIs, including:</p>
+<ul>
+<li>OAuth 2.0</li>
+<li>Client certificates</li>
+<li>IP allowlists</li>
+</ul>
+<p>Azure policies encapsulate common API management functions, like those for access control, protection, transformation, and caching. You can chain these policies together into a pipeline that mutates a request’s context or changes the API behavior. You can apply these policies to a variety of scopes, trigger them on an error, and set them in the inbound and outbound directions.</p>
+<h2 id="who-can-transfer-a-subscription"><strong>Who can transfer a subscription?</strong><a class="headerlink" href="#who-can-transfer-a-subscription" title="Permanent link">#</a></h2>
+<p>A billing administrator or the account administrator is a person who has permission to manage billing for an account. They're authorized to access billing on the Azure portal and do various billing tasks like create subscriptions, view and pay invoices, or update payment methods. If you're an Enterprise Agreement (EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts.</p>
+<p>To identify accounts for which you're a billing administrator, use the following steps:</p>
+<ul>
+<li>Visit the Cost Management + Billing page in Azure portal.</li>
+<li>Select All billing scopes from the left-hand pane.</li>
+<li>The subscriptions page lists all subscriptions where you're a billing administrator.</li>
+</ul>
+<h2 id="explore-try-this-exercises_3"><strong>Explore Try-This exercises</strong><a class="headerlink" href="#explore-try-this-exercises_3" title="Permanent link">#</a></h2>
+<p>Use your own Azure subscription to perform these Try-This exercises - Enterprise Governance.</p>
+<h2 id="task-1-navigating-azure"><strong>Task 1 - Navigating Azure</strong><a class="headerlink" href="#task-1-navigating-azure" title="Permanent link">#</a></h2>
+<p>In this task, you'll learn how to access and use the Azure portal.</p>
+<p><strong>Locate the Azure portal</strong></p>
+<p>In this task, you'll access the lab environment and the Azure portal.</p>
+<ol>
+<li>Ask your instructor how to access the lab environment.</li>
+<li>After accessing the lab environment, navigate to the Azure portal.</li>
+<li>Bookmark this page. You'll use the Portal throughout the course labs and demonstrations.</li>
+<li>In the top right corner of the Portal, select your user account.</li>
+<li>Notice you can View account and Switch directory.</li>
+<li>Switch directory lets you view My permissions and View my bill.</li>
+<li>Select the Settings icon (top right menu bar - cog icon).</li>
+<li>Review the Portal settings including the General and Language &amp; region settings.</li>
+<li>Use the Search resources, services, and docs textbox to search for Virtual machines.</li>
+<li>You can search for not only general Azure resources but specifically but named resources.</li>
+<li>Select Use the Portal menu (left corner three bars icon).</li>
+<li>Notice you can Create a resource, view All services, and view All resources.</li>
+<li>Take some time to browse around the interface, search and explore different areas.</li>
+<li>Launch the Cloud Shell (first icon top menu bar).</li>
+<li>Notice the drop-down for PowerShell or Bash.</li>
+</ol>
+<h2 id="task-2-azure-rbac-role-assignments"><strong>Task 2 - Azure RBAC Role Assignments</strong><a class="headerlink" href="#task-2-azure-rbac-role-assignments" title="Permanent link">#</a></h2>
+<p>In this task, we'll learn about role assignments.</p>
+<p><strong>Locate Access Control blade</strong></p>
+<ol>
+<li>Access the Azure portal, and select a resource group. Make a note of what resource group you use.</li>
+<li>Select the Access Control (IAM) blade.</li>
+<li>This blade is available for many different resources so you can control access.</li>
+</ol>
+<p><strong>Review role permissions</strong></p>
+<ol>
+<li>Click the Roles tab (top).</li>
+<li>Select a desired role from the list by clicking the associated box next to the Role Name.</li>
+<li>Click the View link under the Details column on the far right of the page.</li>
+<li>The Permissions view is displayed including three columns from left to right that is (i.e., Other, Read, Write, and Delete) Permissions, and Description.</li>
+<li>Return to the Access Control (IAM) blade.</li>
+</ol>
+<h2 id="task-3-manage-resource-locks"><strong>Task 3 - Manage resource locks</strong><a class="headerlink" href="#task-3-manage-resource-locks" title="Permanent link">#</a></h2>
+<p>Note: This task requires a resource group.</p>
+<p>In this task, we'll create resource locks.</p>
+<ol>
+<li>In the Portal navigate to a resource group.</li>
+<li>In the Settings section, click Locks, and then click + Add.</li>
+<li>Discuss the different types of locks and applying the locks at different levels.</li>
+<li>Create a new lock with a Lock type of Delete.</li>
+<li>From the Overview blade, click Delete resource group. Type the name of the resource group and click OK.</li>
+<li>You should receive an error message stating the resource group is locked and can't be deleted.</li>
+<li>Add a Storage Account to the resource group.</li>
+<li>After the storage account is created, try to delete the storage account.</li>
+<li>You receive an error message stating the resource or its parent has a delete lock.</li>
+<li>Review how the storage account inherits the lock from the parent and can't be deleted.</li>
+<li>Return to the resource group blade and, in the Settings section, click Locks.</li>
+<li>Scroll all the way to the right, then click the Delete link to the right of the lock.</li>
+<li>Return to the storage account and confirm you can now delete the resource.</li>
+</ol>
+<h2 id="knowledge-check_3"><strong>Knowledge check</strong><a class="headerlink" href="#knowledge-check_3" title="Permanent link">#</a></h2>
+<p>Choose the best response for each of the questions below. Then select Check your answers.</p>
+<h2 id="check-your-knowledge_1"><strong>Check your knowledge</strong><a class="headerlink" href="#check-your-knowledge_1" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>The company hires a new administrator and needs to create a new Azure AD user account for them. The new hire must be able to: - Read/write resource deployments they're responsible for. - Read Azure AD access permissions They shouldn't be able to view Azure subscription information. What should be configured to make this work?</p>
+</li>
+<li>
+<p>Assign the user the Contributor role at the resource group level. (<strong>Ans</strong>)</p>
+</li>
+<li>Assign the user the Owner role at the resource level.</li>
+<li>
+<p>Assign the user the Global Administrator role.</p>
+</li>
+<li>
+<p>Which of the following would be good example of when to use a resource lock?</p>
+</li>
+<li>
+<p>An ExpressRoute circuit with connectivity back to your on-premises network. (<strong>Ans</strong>)</p>
+</li>
+<li>A virtual machine used to test occasional application builds.</li>
+<li>
+<p>A storage account used to store images processed in a development environment.</p>
+</li>
+<li>
+<p>A company has three virtual machines (VM1, VM2, and VM3) in a resource group. The Helpdesk hires a new employee. The new employee must be able to modify the settings on VM3, but not on VM1 and VM2. Your solution must minimize administrative overhead. What should be set up?</p>
+</li>
+<li>
+<p>Assign the user to the Contributor role on the resource group.</p>
+</li>
+<li>Assign the user to the Contributor role on VM3. (<strong>Ans</strong>)</li>
+<li>
+<p>Move VM3 to a new resource group and assign the user to the Contributor role on VM3.</p>
+</li>
+<li>
+<p>You need to target policies and review spend budgets across several subscriptions you manage. What should be created for the subscriptions?</p>
+</li>
+<li>
+<p>A billing group</p>
+</li>
+<li>A management group (<strong>Ans</strong>)</li>
+<li>
+<p>A nested resource group</p>
+</li>
+<li>
+<p>A manager asks for an explanation of how Azure uses resource groups. Which of the following capabilities is a feature of how Azure uses resource groups?</p>
+</li>
+<li>
+<p>Resources can be in multiple resource groups.</p>
+</li>
+<li>Resources can be moved from one resource group to another resource group. (<strong>Ans</strong>)</li>
+<li>Resource groups can be nested.</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2023</span>
       
     
   </small>
