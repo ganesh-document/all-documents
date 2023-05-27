@@ -414,6 +414,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
@@ -427,6 +429,20 @@
           Azure Security AZ-500
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure-Security-Technologies.html" class="md-nav__link">
+        Azure Security Technologies
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1765,13 +1781,1209 @@
 </ul>
 </li>
 </ol>
+<h1 id="configure-and-manage-azure-monitor"><strong>Configure and manage Azure Monitor</strong><a class="headerlink" href="#configure-and-manage-azure-monitor" title="Permanent link">#</a></h1>
+<p><strong>Introduction</strong></p>
+<p>Azure Monitor is a key resource to keep watch on how all your Azure resources are performing, and to trigger alerts if there is any sort of problem. Monitoring your systems and updating them as needed is as important as your initial secure setup.</p>
+<p><strong>Explore Azure Monitor</strong></p>
+<p>Earlier, this course discussed Microsoft Azure Monitor. The following high-level diagram depicts the two fundamental data types that Azure Monitor uses, Metrics and Logs.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-132.png" /></p>
+<p>On the left side of the figure are the sources of monitoring data that populate these data stores. On the right side are the different functions that Azure Monitor performs with this collected data, such as analysis, alerting, and streaming to external systems.</p>
+<p>For many Azure resources, you’ll find the data that Azure Monitor collects right in the resource’s Overview page in the Azure portal. Check out any virtual machine (VM). for example, and you'll notice several charts displaying performance metrics. Select any of the graphs to open the data in Metrics Explorer, which allows you to chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-133.png" /></p>
+<p><strong>Exporting data to a SIEM</strong></p>
+<p>Processed events that Microsoft Defender for Cloud produces are published to the Azure activity log, one of the log types available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. This is done by streaming that data to an event hub, where it can then be pulled into a partner tool.</p>
+<p>This pipe uses the Azure Monitor single pipeline for getting access to the monitoring data from your Azure environment. This allows you to easily set up SIEMs and monitoring tools to consume the data. Currently, the exposed security data from Microsoft Defender for Cloud to a SIEM consists of security alerts.</p>
+<p><strong>Microsoft Defender for Cloud security alerts</strong></p>
+<p>Microsoft Defender for Cloud automatically collects, analyzes, and integrates log data from your Azure resources; the network; and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. Microsoft Defender for Cloud displays a list of prioritized security alerts along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.</p>
+<p>The following sections describe how you can configure data to be streamed to an event hub. The steps assume that you already have Microsoft Defender for Cloud configured in your Azure subscription.</p>
+<p><strong>Azure Event Hubs</strong></p>
+<p>Azure Event Hubs is a streaming platform and event ingestion service that can transform and store data by using any real-time analytics provider or batching/storage adapters. Use Event Hubs to stream log data from Azure Monitor to a Microsoft Sentinel or a partner SIEM and monitoring tools.</p>
+<p><strong>What data can be sent into an event hub?</strong></p>
+<p>Within your Azure environment, there are several 'tiers' of monitoring data, and the method of accessing data from each tier varies slightly. Typically, these tiers can be described as:</p>
+<ul>
+<li>Application monitoring data - Data about the performance and functionality of the code you have written and are running on Azure. Examples of application monitoring data include performance traces, application logs, and user telemetry. Application monitoring data is usually collected in one of the following ways:<ul>
+<li>By instrumenting your code with an SDK such as the Application Insights SDK.</li>
+<li>By running a monitoring agent that listens for new application logs on the machine running your application, such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent.</li>
+</ul>
+</li>
+<li>Guest OS monitoring data - Data about the operating system on which your application is running. Examples of guest OS monitoring data would be Linux syslog or Windows system events. To collect this type of data, you need to install an agent such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent.</li>
+<li>Azure resource monitoring data - Data about the operation of an Azure resource. For some Azure resource types, such as virtual machines, there is a guest OS and application(s) to monitor inside of that Azure service. For other Azure resources, such as Network Security Groups, the resource monitoring data is the highest tier of data available (since there is no guest OS or application running in those resources). This data can be collected using resource diagnostic settings.</li>
+<li>Azure subscription monitoring data - Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. The activity log contains most subscription monitoring data, such as service health incidents and Azure Resource Manager audits. You can collect this data using a Log Profile.</li>
+<li>Azure tenant monitoring data - Data about the operation of tenant-level Azure services, such as Azure Active Directory. The Azure Active Directory audits and sign-ins are examples of tenant monitoring data. This data can be collected using a tenant diagnostic setting.</li>
+</ul>
+<p>Data from any tier can be sent into an event hub, where it can be pulled into a tool. Some sources can be configured to send data directly to an event hub while another process such as a Logic App may be required to retrieve the required data.</p>
+<p><strong>Connecting to Microsoft Sentinel</strong></p>
+<p>Microsoft Sentinel is now generally available. With Microsoft Sentinel, enterprises worldwide can now keep pace with the exponential growth in security data, improve security outcomes without adding analyst resources, and reduce hardware and operational costs. Microsoft Sentinel brings together the power of Azure and AI to enable Security Operations Centers to achieve more.</p>
+<p>Some of the features of Microsoft Sentinel are:</p>
+<ul>
+<li>More than 100 built-in alert rules<ul>
+<li>Sentinel's alert rule wizard to create your own.</li>
+<li>Alerts can be triggered by a single event or based on a threshold, or by correlating different datasets or by using built-in machine learning algorithms.</li>
+</ul>
+</li>
+<li>Jupyter Notebooks that use a growing collection of hunting queries, exploratory queries, and python libraries.</li>
+<li>Investigation graph for visualizing and traversing the connections between entities like users, assets, applications, or URLs and related activities like logins, data transfers, or application usage to rapidly understand the scope and impact of an incident.</li>
+</ul>
+<p>The Microsoft Sentinel GitHub repository has grown to over 400 detection, exploratory, and hunting queries, plus Azure Notebooks samples and related Python libraries, playbooks samples, and parsers. The bulk of these were developed by Microsoft's security researchers based on their vast global security experience and threat intelligence.</p>
+<p>To on-board Microsoft Sentinel, you first need to enable Microsoft Sentinel, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, Microsoft 365 sources, including Microsoft 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel.</p>
+<p>After you connect your data sources, choose from a gallery of expertly created dashboards that surface insights based on your data. These dashboards can be easily customized to your needs.</p>
+<p><strong>Configure and monitor metrics and logs</strong></p>
+<p>All data that Azure Monitor collects fits into one of two fundamental types: metrics or logs.</p>
+<p><strong>Azure Monitor Metrics</strong></p>
+<p>Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data from monitored resources into a time series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time.</p>
+<p><strong>Azure Monitor Metrics - Navigation Example</strong></p>
+<p>Use Metrics Explorer to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the Azure monitoring REST API.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-134.png" /></p>
+<p>Behind the scene, log-based metrics translate into log queries. Their retention matches the retention of events in underlying logs. For Application Insights resources, logs are stored for 90 days.</p>
+<p><strong>Types of metrics</strong></p>
+<p>There are multiple types of metrics supported by Azure Monitor Metrics:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-135.png" /></p>
+<ul>
+<li>Native metrics use tools in Azure Monitor for analysis and alerting.<ul>
+<li>Platform metrics are collected from Azure resources. They require no configuration and have no cost.</li>
+<li>Custom metrics are collected from different sources that you configure, including applications and agents running on virtual machines.</li>
+</ul>
+</li>
+<li>Prometheus metrics (preview) are collected from Kubernetes clusters, including Azure Kubernetes Service (AKS), and use industry-standard tools for analyzing and alerting, such as PromQL and Grafana.</li>
+</ul>
+<p><strong>Additional Background and Information</strong></p>
+<p>What is Prometheus? Prometheus is an open-source toolkit that collects data for monitoring and alerting.</p>
+<p><strong>Prometheus Features:</strong></p>
+<ul>
+<li>A multi-dimensional data model with time series data identified by metric name and key/value pairs</li>
+<li>PromQL (PromQL component called Prom Kubernetes - an extension to support Prometheus) provides a flexible query language to use this dimensionality.</li>
+<li>Time series collection happens via a pull model over Hypertext Transfer Protocol (HTTP)</li>
+<li>Pushing time series is supported via an intermediary gateway</li>
+<li>Targets are discovered via service discovery or static configuration</li>
+</ul>
+<p><strong>What is Azure Managed Grafana?</strong></p>
+<p>Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. It's built as a fully managed Azure service operated and supported by Microsoft. Grafana helps you combine metrics, logs, and traces into a single user interface. With its extensive support for data sources and graphing capabilities, you can view and analyze your application and infrastructure telemetry data in real-time.</p>
+<p>Azure Managed Grafana is optimized for the Azure environment. It works seamlessly with many Azure services. Specifically, for the current preview, it provides with the following integration features:</p>
+<ul>
+<li>Built-in support for Azure Monitor and Azure Data Explorer</li>
+<li>User authentication and access control using Azure Active Directory identities</li>
+<li>Direct import of existing charts from the Azure portal</li>
+</ul>
+<p><strong>Why use Azure Managed Grafana?</strong></p>
+<p>Managed Grafana lets you bring together all your telemetry data into one place. It can access various data sources supported, including your data stores in Azure and elsewhere. By combining charts, logs, and alerts into one view, you can get a holistic view of your application and infrastructure and correlate information across multiple datasets.</p>
+<p>As a fully managed service, Azure Managed Grafana lets you deploy Grafana without having to deal with setup. The service provides high availability, service level agreement (SLA) guarantees, and automatic software updates.</p>
+<p>You can share Grafana dashboards with people inside and outside your organization and allow others to join in for monitoring or troubleshooting.</p>
+<p>Managed Grafana uses Azure Active Directory (Azure AD)’s centralized identity management, which allows you to control which users can use a Grafana instance, and you can use managed identities to access Azure data stores, such as Azure Monitor.</p>
+<p>You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.</p>
+<p>The differences between each of the metrics are summarized in the following table.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Native platform metrics</th>
+<th>Native custom metrics</th>
+<th>Prometheus metrics (preview)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sources</td>
+<td>Azure resources</td>
+<td>Azure Monitor agent Application Insights Representational State Transfer (REST) Application Programming Interface (API)</td>
+<td>Azure Kubernetes Service (AKS) cluster Any Kubernetes cluster through remote-write</td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>None</td>
+<td>Varies by source</td>
+<td>Enable Azure Monitor managed service for Prometheus</td>
+</tr>
+<tr>
+<td>Stored</td>
+<td>Subscription</td>
+<td>Subscription</td>
+<td>Azure Monitor workspace</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes (free during preview)</td>
+</tr>
+<tr>
+<td>Aggregation</td>
+<td>pre-aggregated</td>
+<td>pre-aggregated</td>
+<td>raw data</td>
+</tr>
+<tr>
+<td>Analyze</td>
+<td>Metrics Explorer</td>
+<td>Metrics Explorer</td>
+<td>Prometheus Querying (PromQL) LanguageGrafana dashboards</td>
+</tr>
+<tr>
+<td>Alert</td>
+<td>metrics alert rule</td>
+<td>metrics alert rule</td>
+<td>Prometheus alert rule</td>
+</tr>
+<tr>
+<td>Visualize</td>
+<td>WorkbooksAzure dashboardGrafana</td>
+<td>WorkbooksAzure dashboardGrafana</td>
+<td>Grafana</td>
+</tr>
+<tr>
+<td>Retrieve</td>
+<td>Azure Command-Line Interface (CLI) Azure PowerShell cmdletsRepresentational State Transfer (REST) Application Programming Interface (API) or client library.NETGoJavaJavaScriptPython</td>
+<td>Azure Command-Line Interface (CLI) Azure PowerShell cmdletsRepresentational State Transfer (REST) Application Programming Interface (API) or client library.NETGoJavaJavaScriptPython</td>
+<td>Grafana</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data collection</strong></p>
+<p>Azure Monitor collects metrics from the following sources. After these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source:</p>
+<ul>
+<li>Azure resources: Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a distinct set of metrics without any configuration required. Platform metrics are collected from Azure resources at a one-minute frequency unless specified otherwise in the metric's definition.</li>
+<li>Applications: Application Insights creates metrics for your monitored applications to help you detect performance issues and track trends in how your application is used. Values include Server response time and Browser exceptions.</li>
+<li>Virtual machine agents: Metrics are collected from the guest operating system of a virtual machine. You can enable guest operating system (OS) metrics for Windows virtual machines using the Windows diagnostic extension and Linux virtual machines by using the InfluxData Telegraf agent.</li>
+<li>Custom metrics: You can define metrics in addition to the standard metrics that are automatically available. You can define custom metrics in your application that are monitored by Application Insights. You can also create custom metrics for an Azure service by using the custom metrics Application Programming Interface (API).</li>
+<li>Kubernetes clusters: Kubernetes clusters typically send metric data to a local Prometheus server that you must maintain. Azure Monitor managed service for Prometheus provides a managed service that collects metrics from Kubernetes clusters and stores them in Azure Monitor Metrics.</li>
+</ul>
+<p>A common type of log entry is an event, which is collected sporadically. Events are created by an application or service and typically include enough information to provide complete context on their own. For example, an event can indicate that a particular resource was created or modified, a new host started in response to increased traffic, or an error was detected in an application.</p>
+<p>Because the format of the data can vary, applications can create custom logs by using the structure that they need. Metric data can even be stored in Logs to combine them with other monitoring data for trending and other data analysis.</p>
+<p>The following is a list of the different ways that you can use Logs in Azure Monitor.</p>
+<ul>
+<li>Analyze - Use Log Analytics in the Azure portal to write log queries and interactively analyze log data using the powerful Data Explorer analysis engine. Use the Application Insights analytics console in the Azure portal to write log queries and interactively analyze log data from Application Insights.</li>
+<li>Visualize - Pin query results rendered as tables or charts to an Azure dashboard. Create a workbook to combine with multiple sets of data in an interactive report. Export the results of a query to Power BI to use different visualizations and share with users outside of Azure. Export the results of a query to Grafana to use its dashboarding and combine with other data sources.</li>
+<li>Alert - Configure a log alert rule that sends a notification or takes automated action when the results of the query match a particular result. Configure a metric alert rule on certain log data logs extracted as metrics.</li>
+<li>Retrieve - Access log query results from a command line using Azure command-line interface (CLI). Access log query results from a command line using PowerShell cmdlets. Access log query results from a custom application using Representational State Transfer (REST) Application Programming Interface (API).</li>
+<li>Export - Build a workflow to retrieve log data and copy it to an external location using Logic Apps.</li>
+</ul>
+<p><strong>Log queries</strong></p>
+<p>Data in Azure Monitor Logs is retrieved using a log query written with the Kusto query language, which allows you to quickly retrieve, consolidate, and analyze collected data. Use Log Analytics to write and test log queries in the Azure portal. It allows you to work with results interactively or pin them to a dashboard to view them with other visualizations.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-136.png" /></p>
+<p><strong>Security tools use of Monitor logs</strong></p>
+<ul>
+<li>Microsoft Defender for Cloud stores data that it collects in a Log Analytics workspace where it can be analyzed with other log data.</li>
+<li>Azure Sentinel stores data from data sources into a Log Analytics workspace.</li>
+</ul>
+<p><strong>Enable Log Analytics</strong></p>
+<p>Log Analytics is part of Microsoft Azure's overall monitoring solution. Log Analytics helps you monitors cloud and on-premises environments to maintain availability and performance.</p>
+<p>Log Analytics is the primary tool in the Azure portal for writing log queries and interactively analyzing their results. Even if a log query is used elsewhere in Azure Monitor, you'll typically write and test the query first using Log Analytics.</p>
+<p>You can start Log Analytics from several places in the Azure portal. The scope of the data available to Log Analytics is determined by how you start it.</p>
+<ul>
+<li>Select Logs from the Azure Monitor menu or Log Analytics workspaces menu.</li>
+<li>Select Analytics from the Overview page of an Application Insights application.</li>
+<li>Select Logs from the menu of an Azure resource.</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-137.png" /></p>
+<p>In addition to interactively working with log queries and their results in Log Analytics, areas in Azure Monitor where you will use queries include the following:</p>
+<ul>
+<li>Alert rules. Alert rules proactively identify issues from data in your workspace. Each alert rule is based on a log search that is automatically run at regular intervals. The results are inspected to determine if an alert should be created.</li>
+<li>Dashboards. You can pin the results of any query into an Azure dashboard which allow you to visualize log and metric data together and optionally share with other Azure users.</li>
+<li>Views. You can create visualizations of data to be included in user dashboards with View Designer. Log queries provide the data used by tiles and visualization parts in each view.</li>
+<li>Export. When you import log data from Azure Monitor into Excel or Power BI, you create a log query to define the data to export.</li>
+<li>PowerShell. Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses Invoke-AzOperationalInsightsQuery.</li>
+<li>Azure Monitor Logs API. The Azure Monitor Logs API allows any REST API client to retrieve log data from the workspace. The API request includes a query that is run against Azure Monitor to determine the data to retrieve.</li>
+</ul>
+<p>At the center of Log Analytics is the Log Analytics workspace, which is hosted in Azure. Log Analytics collects data in the workspace from connected sources by configuring data sources and adding solutions to your subscription. Data sources and solutions each create different record types, each with its own set of properties. But you can still analyze sources and solutions together in queries to the workspace. This capability allows you to use the same tools and methods to work with a variety of data collected by a variety of sources.</p>
+<p>Use the Log Analytics workspaces menu to create a Log Analytics workspace using the Azure portal. A Log Analytics workspace is a unique environment for Azure Monitor log data. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace. You require a Log Analytics workspace if you intend on collecting data from the following sources:</p>
+<ul>
+<li>Azure resources in your subscription</li>
+<li>On-premises computers monitored by System Center Operations Manager</li>
+<li>Device collections from Configuration Manager</li>
+<li>Diagnostics or log data from Azure storage</li>
+</ul>
+<p><strong>Manage connected sources for log analytics</strong></p>
+<p>The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by System Center Operations Manager. The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as Azure Monitor for VMs, Microsoft Defender for Cloud, and Azure Automation.</p>
+<p><strong>Comparison to Azure diagnostics extension</strong></p>
+<p>The Azure diagnostics extension in Azure Monitor can also be used to collect monitoring data from the guest operating system of Azure virtual machines. You may choose to use either or both depending on your requirements.</p>
+<p>The key differences to consider are:</p>
+<ul>
+<li>Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.</li>
+<li>Azure Diagnostics extension sends data to Azure Storage, Azure Monitor Metrics (Windows only) and Event Hubs. The Log Analytics agent collects data to Azure Monitor Logs.</li>
+<li>The Log Analytics agent is required for solutions, Azure Monitor for VMs, and other services such as Microsoft Defender for Cloud.</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-138.png" /></p>
+<p><strong>Data destinations</strong></p>
+<p>The Log Analytics agent sends data to a Log Analytics workspace in Azure Monitor. The Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination.</p>
+<p><strong>Other services</strong></p>
+<p>The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as Change Tracking, Update Management, and Microsoft Defender for Cloud.</p>
+<p><strong>Enable Azure monitor Alerts</strong></p>
+<p>As discussed already, Azure monitor has metrics, logging, and analytics features. Another feature is Monitor Alerts.</p>
+<p><strong>Responding to critical situations</strong></p>
+<p>In addition to allowing you to interactively analyze monitoring data, an effective monitoring solution must be able to proactively respond to critical conditions identified in the data that it collects. This could be sending a text or mail to an administrator responsible for investigating an issue. Or you could launch an automated process that attempts to correct an error condition.</p>
+<p><strong>Alerts</strong></p>
+<p>Alerts in Azure Monitor proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on metrics provide near real time alerting based on numeric values, while rules based on logs allow for complex logic across data from multiple sources.</p>
+<p>Alert rules in Azure Monitor use action groups, which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.</p>
+<p>The unified alert experience in Azure Monitor includes alerts that were previously managed by Log Analytics and Application Insights. In the past, Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Over time, Azure improved and combined both the user interface and different methods of alerting. The consolidation is still in process.</p>
+<p><strong>Overview of Alerts in Azure</strong></p>
+<p>The diagram below represents the flow of alerts.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-139.png" /></p>
+<p>Alert rules are separated from alerts and the actions taken when an alert fires. The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled.</p>
+<p>The following are key attributes of an alert rule as shown:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-140.png" /></p>
+<ul>
+<li>Target Resource: Defines the scope and signals available for alerting. A target can be any Azure resource. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (like virtual machines), you can specify multiple resources as the target of the alert rule.</li>
+<li>Signal: Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.</li>
+<li>Criteria: A combination of signal and logic applied on a target resource. Examples:<ul>
+<li>Percentage CPU &gt; 70%</li>
+<li>Server Response Time &gt; 4 ms</li>
+<li>Result count of a log query &gt; 100</li>
+</ul>
+</li>
+<li>Alert Name: A specific name for the alert rule configured by the user.</li>
+<li>Alert Description: A description for the alert rule configured by the user.</li>
+<li>Severity: The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.<ul>
+<li>Sev 0 = Critical</li>
+<li>Sev 1 = Error</li>
+<li>Sev 2 = Warning</li>
+<li>Sev 3 = Informational</li>
+<li>Sev 4 = Verbose</li>
+</ul>
+</li>
+<li>Action: A specific action taken when the alert is fired.</li>
+</ul>
+<p><strong>What You Can Alert On</strong></p>
+<p>You can alert on metrics and logs. These include but are not limited to:
+   - Metric values
+   - Log search queries
+   - Activity log events
+   - Health of the underlying Azure platform
+   - Tests for website availability</p>
+<p>With the consolidation of alerting services still in process, there are some alerting capabilities that are not yet in the new alerts system.</p>
+<table>
+<thead>
+<tr>
+<th>Monitor source</th>
+<th>Signal type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service health</td>
+<td>Activity log</td>
+<td>Not supported. View Create activity log alerts on service notifications.</td>
+</tr>
+<tr>
+<td>Application Insights</td>
+<td>Web availability tests</td>
+<td>Not supported. View Web test alerts. Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Configure properties for diagnostic logging</strong></p>
+<p>Azure Monitor diagnostic logs are logs produced by an Azure service that provide rich, frequently collected data about the operation of that service. Azure Monitor makes two types of diagnostic logs available:</p>
+<ul>
+<li>Tenant logs. These logs come from tenant-level services that exist outside an Azure subscription, such as Azure Active Directory (Azure AD).</li>
+<li>Resource logs. These logs come from Azure services that deploy resources within an Azure subscription, such as Network Security Groups (NSGs) or storage accounts.</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-141.png" /></p>
+<p>The content of these logs varies by Azure service and resource type. For example, NSG rule counters and Azure Key Vault audits are two types of diagnostic logs.</p>
+<p>These logs differ from the activity log. The activity log provides insight into the operations, such as creating a VM or deleting a logic app, that Azure Resource Manager performed on resources in your subscription using. The activity log is a subscription-level log. Resource-level diagnostic logs provide insight into operations that were performed within that resource itself, such as getting a secret from a key vault.</p>
+<p>These logs also differ from guest operating system (OS)–level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside a VM or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, whereas guest OS–level diagnostic logs capture data from the OS and applications running on a VM.</p>
+<p><strong>Create diagnostic settings in Azure portal</strong></p>
+<p>You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-142.png" /></p>
+<p><strong>Uses for diagnostic logs</strong></p>
+<p>Here are some of the things you can do with diagnostic logs:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-143.png" /></p>
+<ul>
+<li>Save them to a storage account for auditing or manual inspection. You can specify the retention time (in days) by using resource diagnostic settings.</li>
+<li>Stream them to event hubs for ingestion by a third-party service or custom analytics solution, such as Power BI.</li>
+<li>Analyze them with Azure Monitor, such that the data is immediately written to Azure Monitor with no need to first write the data to storage.</li>
+</ul>
+<p>Streaming of diagnostic logs can be enabled programmatically, via the portal, or using the Azure Monitor REST APIs. Either way, you create a diagnostic setting in which you specify an Event Hubs namespace and the log categories and metrics you want to send in to the namespace. An event hub is created in the namespace for each log category you enable. A diagnostic log category is a type of log that a resource may collect.</p>
+<p><strong>Perform try-this exercises</strong></p>
+<p><strong>Task 1 - Activity Logs and Alerts</strong></p>
+<p>In this task, we will configure an alert.</p>
+<ol>
+<li>Sign into the Portal.</li>
+<li>Search for and launch Monitor.</li>
+<li>Review the capabilities of Monitor: Monitor &amp; Visualize Metrics, Query &amp; Analyze Logs, and Setup Alerts &amp; Actions.</li>
+<li>Select Activity log.</li>
+<li>Under the filters, click Timespan and review the drop-down choices.</li>
+<li>Open an event and discuss.</li>
+<li>Back in the Monitor main page, click Alerts then click + New alert rule.</li>
+<li>Under Resource click Select.</li>
+<li>Discuss how alerts can be scoped by subscription, resource type, and location.</li>
+<li>Select a resource for the alert and then click Done.</li>
+<li>Under Condition click Add.</li>
+<li>Select a signal, such as All Administrative operations, and then click Done.</li>
+<li>Under Action group, click Create. Review how action groups are used.</li>
+<li>Under Select an action type review the various ways the action group can be alerted.</li>
+<li>Select Email/SMS/Push/Voice.</li>
+<li>Review the configuration choices and finish creating your action group.</li>
+<li>Complete the Alert details and click Create alert rule.</li>
+<li>On the Alerts page, review how you can search your alerts by resource and time range.</li>
+</ol>
+<p><strong>Task 2 - Log Analytics</strong></p>
+<p>This lab requires a virtual machine in a running state.</p>
+<p>In this task, we will configure Log Analytics and run a query.</p>
+<ol>
+<li>Sign into the Portal.</li>
+<li>Search for and launch Log Analytics workspaces.</li>
+<li>Click Add or Create.</li>
+<li>On the Basics tab, review and complete the required information.</li>
+<li>Under the Essentials view, review the Pricing tier detail (example: Pricing tier: Pay-as-you-go)</li>
+<li>Finish creating the workspace and wait for it to deploy.</li>
+<li>Go to resource and discuss how Log Analytics is used and configured.</li>
+<li>Under Workspace Data Sources select Virtual machines.</li>
+<li>Select a virtual machine and click Connect.</li>
+<li>While you wait for the connection, under Settings click Advanced settings.</li>
+<li>Click Connected sources. Discuss the possible sources like virtual machines and storage accounts.</li>
+<li>Click Data. Review the different data sources.</li>
+<li>Show how Windows event logs can be collected.</li>
+<li>Save any changes you make.</li>
+<li>Back at the Log Analytics workspace, Under General select Logs.</li>
+<li>Review how log data is stored in tables and can be queried.</li>
+<li>Select the Event table and then click Run.</li>
+<li>Review the results.</li>
+</ol>
+<p><strong>Knowledge check</strong></p>
+<ol>
+<li>
+<p>Data collected by Azure Monitor collects fits into which two fundamental types. What are those types of data?</p>
+</li>
+<li>
+<p>Events and Alerts</p>
+</li>
+<li>Logs and Metrics (<strong>Ans</strong>)</li>
+<li>
+<p>Records and Triggers</p>
+</li>
+<li>
+<p>When running a query of the Log Analytics workspace, which query language is used?</p>
+</li>
+<li>
+<p>Contextual Query Language</p>
+</li>
+<li>Embedded SQL</li>
+<li>
+<p>Kusto Query Language (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>To be notified when any virtual machine in the production resource group is deleted, what should be configured?</p>
+</li>
+<li>
+<p>Activity log alert (<strong>Ans</strong>)</p>
+</li>
+<li>Application alert</li>
+<li>
+<p>Log alert</p>
+</li>
+<li>
+<p>The IT managers would like to use a visualization tool for the Azure Monitor results. Each of the following is available, but there is a need to pick the one that will allow for insights and investigation of the data; which should be used?</p>
+</li>
+<li>
+<p>Dashboard</p>
+</li>
+<li>Monitor Metrics (<strong>Ans</strong>)</li>
+<li>Power BI</li>
+</ol>
+<p><strong>Enable and manage Microsoft Defender for Cloud</strong></p>
+<p><strong>Introduction</strong>
+Microsoft Defender for Cloud is your central location for setting and monitoring your organization's security posture. You can see which solutions adhere to security measures and which systems need to be secured.</p>
+<p><strong>Scenario</strong>
+A security engineer uses Microsoft Defender for Cloud to track, maintain and improve an organization's security posture, you'll work on such tasks as:</p>
+<ul>
+<li>Implement security recommendations from Microsoft Defender for Cloud.</li>
+<li>Review your secure score and respond to it.</li>
+<li>Prevent attacks with Microsoft Defender for Cloud.</li>
+</ul>
+<p><strong>MITRE Attack matrix</strong></p>
+<p>The MITRE ATT&amp;CK matrix is a publicly accessible knowledge base for understanding the various tactics and techniques used by attackers during a cyberattack.</p>
+<p>The knowledge base is organized into several categories: pre-attack, initial access, execution, persistence, privilege escalation, defense evasion, credential access, discovery, lateral movement, collection, exfiltration, and command and control.</p>
+<p>Tactics (T) represent the "why" of an ATT&amp;CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.</p>
+<p>Techniques (T) represent "how'" an adversary achieves a tactical goal by performing an action. For example, an adversary may dump credentials to achieve credential access.</p>
+<p>Common Knowledge (CK) in ATT&amp;CK stands for common knowledge, essentially the documented modus operandi of tactics and techniques executed by adversaries.</p>
+<p>Defender for Cloud uses the MITRE Attack matrix to associate alerts with their perceived intent, helping formalize security domain knowledge.</p>
+<p>Example: Pre-Attack</p>
+<table>
+<thead>
+<tr>
+<th>MITRE Attack Tactic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-Attack</td>
+<td>Pre-Attack could be either an attempt to access a certain resource regardless of a malicious intent, or a failed attempt to gain access to a target system to gather information prior to exploitation. This step is detected as an attempt, originating from outside the network, to scan the target system and identify an entry point.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Design Flow1" src="image/AZ-500-144.png" /></p>
+<p>Example: Initial Access</p>
+<table>
+<thead>
+<tr>
+<th>MITRE Attack Tactic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial Access</td>
+<td>Initial Access is the stage where an attacker manages to get a foothold on the attacked resource. This stage is relevant for compute hosts and resources such as user accounts, certificates etc. Threat actors will often be able to control the resource after this stage.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Design Flow1" src="image/AZ-500-145.png" /></p>
+<p><strong>Implement Microsoft Defender for Cloud</strong></p>
+<p>Microsoft Defender for Cloud is a solution for cloud security posture management (CSPM) and cloud workload protection (CWP) that finds weak spots across your cloud configuration, helps strengthen the overall security posture of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.</p>
+<p>For an interactive overview of how to Manage your cloud security posture with Microsoft Defender for Cloud, click on the image below.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-146.png" /></p>
+<p>Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-147.png" /></p>
+<ol>
+<li>Defender for Cloud secure score continually assesses your security posture so you can track new security opportunities and precisely report on the progress of your security efforts.</li>
+<li>Defender for Cloud recommendations secures your workloads with step-by-step actions that protect your workloads from known security risks.</li>
+<li>Defender for Cloud alerts defends your workloads in real-time so you can react immediately and prevent security events from developing.</li>
+</ol>
+<p><strong>Strengthen the security posture of your cloud resources</strong></p>
+<ul>
+<li>Get a continuous assessment of the security of your cloud resources running in Azure, AWS, and Google Cloud.</li>
+<li>Use built-in policies and prioritized recommendations that are aligned to key industry and regulatory standards or build custom requirements that meet your organization's needs.</li>
+<li>Gather actionable insights by discovering your complete digital footprint and external attack surface signals and use them to automate recommendations and help ensure that resources are configured securely and meet your compliance needs.</li>
+</ul>
+<p><strong>Protect cloud and hybrid workloads against threats</strong></p>
+<p>Microsoft Defender for Cloud enables you to protect against evolving threats across multicloud and hybrid environments. You will be able to understand vulnerabilities with insights from industry-leading security research and secure your critical workloads across VMs, containers, databases, storage, app services, and more. Use many options to automate and streamline your security administration from a single place.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-148.png" /></p>
+<p><strong>Protect your resources and track your security progress</strong></p>
+<p>Microsoft Defender for Cloud's features covers the two broad pillars of cloud security:</p>
+<ol>
+<li>Cloud Security Posture Management (CSPM) - Remediate security issues and watch your security posture improve</li>
+<li>Cloud Workload Protection (CWP) - Identify unique workload security requirements</li>
+</ol>
+<p><strong>Protect all of your resources under one roof</strong></p>
+<p>Because Defender for Cloud is an Azure-native service, many Azure services are monitored and protected without needing any deployment, but you can also add resources that are on-premises or in other public clouds.</p>
+<p>When necessary, Defender for Cloud can automatically deploy a Log Analytics agent to gather security-related data. For Azure machines, deployment is handled directly. For hybrid and multicloud environments, Microsoft Defender plans are extended to non-Azure machines with the help of Azure Arc. Cloud Security Posture Management (CSPM) features are extended to multicloud machines without the need for any agents.</p>
+<p><strong>Defend your Azure-native resources</strong></p>
+<p>Defender for Cloud helps you detect threats across:</p>
+<ul>
+<li>Azure Platform as a Service (PaaS) services - Detect threats targeting Azure services, including Azure App Service, Azure SQL, Azure Storage Account, and more data services. You can also perform anomaly detection on your Azure activity logs using the native integration with Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).</li>
+<li>Azure data services - Defender for Cloud includes capabilities that help you automatically classify your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services and recommendations for how to mitigate them.</li>
+<li>Networks - Defender for Cloud helps you limit exposure to brute force attacks. By reducing access to virtual machine ports and using just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports for only authorized users, allowed source IP address ranges or IP addresses, and for a limited amount of time.</li>
+</ul>
+<p><strong>Defend your on-premises resources</strong></p>
+<p>In addition to defending your Azure environment, you can add Defender for Cloud capabilities to your hybrid cloud environment to protect your non-Azure servers. To help you focus on what matters the most, you'll get customized threat intelligence and prioritized alerts according to your specific environment.</p>
+<p>To extend protection to on-premises machines, deploy Azure Arc and enable Defender for Cloud's enhanced security features.</p>
+<p><strong>Defend resources running on other clouds</strong></p>
+<p>Defender for Cloud can protect resources in other clouds (such as Amazon Web Services AWS and Google Cloud Platform GCP).</p>
+<p>For example, if you've connected an Amazon Web Services (AWS) account to an Azure subscription, you can enable any of these protections:</p>
+<ul>
+<li>Defender for Cloud's CSPM features extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations, and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS Center for Internet Security (CIS), AWS Payment Card Industry (PCI) Data Security Standards (DSS), and AWS Foundational Security Best Practices). Defender for Cloud's asset inventory page is a multicloud enabled feature helping you manage your AWS resources alongside your Azure resources.</li>
+<li>Microsoft Defender for Kubernetes extends its container threat detection and advanced defenses to your Amazon Elastic Kubernetes Service (EKS) Linux clusters.</li>
+<li>Microsoft Defender for Servers brings threat detection and advanced defenses to your Windows and Linux Elastic Compute Cloud 2 (EC2) instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines, and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.</li>
+</ul>
+<p><strong>Close vulnerabilities before they get exploited</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-149.png" /></p>
+<p>Defender for Cloud includes vulnerability assessment solutions for virtual machines, container registries, and SQL servers as part of the enhanced security features. Some of the scanners are powered by Qualys. But you don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud.</p>
+<p>Microsoft Defender for Servers includes automatic, native integration with Microsoft Defender for Endpoint. With this integration enabled, you'll have access to the vulnerability findings from Microsoft Defender Vulnerability Management.</p>
+<p>Review the findings from these vulnerability scanners and respond to them all from within Defender for Cloud. This broad approach brings Defender for Cloud closer to being the single pane of glass for all of your cloud security efforts.</p>
+<p><strong>Enforce your security policy from the top down</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-150.png" /></p>
+<p>It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because policies in Defender for Cloud are built on top of Azure Policy controls, you're getting the full range and flexibility of a world-class policy solution. In Defender for Cloud, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.</p>
+<p>Defender for Cloud continuously discovers new resources that are being deployed across your workloads and assesses whether they're configured according to security best practices. If not, they're flagged, and you get a prioritized list of recommendations for what you need to fix. Recommendations help you reduce the attack surface across each of your resources.</p>
+<p>The list of recommendations is enabled and supported by the Microsoft cloud security benchmark. This Microsoft-authored benchmark, based on common compliance frameworks, began with Azure and now provides a set of guidelines for security and compliance best practices for multiple cloud environments.</p>
+<p>In this way, Defender for Cloud enables you not just to set security policies but to apply secure configuration standards across your resources.</p>
+<p><strong>Extend Defender for Cloud with Defender plans and external monitoring</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-151.png" /></p>
+<p>You can extend the Defender for Cloud protection with the following:</p>
+<ul>
+<li>Advanced threat protection features for virtual machines, Structured Query Language SQL databases, containers, web applications, your network, and more - Protections include securing the management ports of your VMs with just-in-time access and adaptive application controls to create allowlists for what apps should and shouldn't run on your machines.</li>
+</ul>
+<p>The Defender plans of Microsoft Defender for Cloud offer comprehensive defenses for the compute, data, and service layers of your environment:</p>
+<ul>
+<li>Microsoft Defender for Servers</li>
+<li>Microsoft Defender for Storage</li>
+<li>Microsoft Defender for Structured Query Language (SQL)</li>
+<li>Microsoft Defender for Containers</li>
+<li>Microsoft Defender for App Service</li>
+<li>Microsoft Defender for Key Vault</li>
+<li>Microsoft Defender for Resource Manager</li>
+<li>Microsoft Defender for Domain Name System (DNS)</li>
+<li>Microsoft Defender for open-source relational databases</li>
+<li>Microsoft Defender for Azure Cosmos Database (DB)</li>
+<li>Defender Cloud Security Posture Management (CSPM)<ul>
+<li>Security governance and regulatory compliance</li>
+<li>Cloud security explorer</li>
+<li>Attack path analysis</li>
+<li>Agentless scanning for machines</li>
+</ul>
+</li>
+<li>Defender for DevOps</li>
+</ul>
+<p>Use the advanced protection tiles in the workload protections Azure dashboard to monitor and configure each of these protections.</p>
+<pre><code>Microsoft Defender for the Internet of Things (IoT) is a separate product.
+</code></pre>
+<ul>
+<li>Security alerts - When Defender for Cloud detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases, an option to trigger a logic app in response. Whether an alert is generated by Defender for Cloud or received by Defender for Cloud from an integrated security product, you can export it. To export your alerts to Microsoft Sentinel, any third-party Security information and event management (SIEM), or any other external tool, follow the instructions in Stream alerts to a SIEM, Security orchestration, automation and response (SOAR), or IT Service Management solution. Defender for Cloud's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started, and what kind of impact it had on your resources. Defender for Cloud's supported kill chain intents are based on version 9 of the MITRE ATT&amp;CK matrix.</li>
+</ul>
+<p><strong>Security posture</strong></p>
+<p><strong>Cloud Security Posture Management (CSPM) - Remediate security issues and watch your security posture improve</strong></p>
+<p>In Defender for Cloud, the posture management features provide the following:</p>
+<ol>
+<li>Hardening guidance - to help you efficiently and effectively improve your security</li>
+<li>Visibility - to help you understand your current security situation</li>
+</ol>
+<p><img alt="Design Flow1" src="image/AZ-500-152.png" /></p>
+<p>Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues and shows your security posture in the secure score, an aggregated score of the security findings that tells you, at a glance, your current security situation: the higher the score, the lower the identified risk level.</p>
+<p>As soon as you open Defender for Cloud for the first time, Defender for Cloud:</p>
+<ul>
+<li>Generates a secure score for your subscriptions based on an assessment of your connected resources compared with the guidance in the Microsoft cloud security benchmark. Use the score to understand your security posture and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance and add other regulations, such as the National Institute of Standards and Technology (NIST) and Azure Center for Internet Security (CIS) or organization-specific security requirements. You can also apply recommendations and score based on the AWS Foundational Security Best practices standards.</li>
+<li>Provides hardening recommendations based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multicloud resources.</li>
+<li>Analyzes and secure's your attack paths through the cloud security graph, which is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to the internet, permissions, network connections, vulnerabilities, and more. The data collected is then used to build a graph representing your multicloud environment.</li>
+</ul>
+<p>Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes those attack paths and suggests recommendations as to how best to remediate the issues that will break the attack path and prevent a successful breach.</p>
+<p>By taking your environment's contextual information into account, such as internet exposure, permissions, lateral movement, and more. Attack path analysis identifies issues that may lead to a breach in your environment and helps you to remediate the highest risk ones first.</p>
+<p><strong>Additional background and details</strong></p>
+<p><strong>National Institute of Standards and Technology (NIST)</strong></p>
+<p>The National Institute of Standards and Technology (NIST) promotes and maintains measurement standards and guidance to help organizations assess risk. In response to Executive Order 13636 on strengthening the cybersecurity of federal networks and critical infrastructure, NIST released the Framework for Improving Critical Infrastructure Cybersecurity (FICIC) in February 2014.</p>
+<p>The main priorities of the FICIC were to establish a set of standards and practices to help organizations manage cybersecurity risk, while enabling business efficiency. The NIST Framework addresses cybersecurity risk without imposing additional regulatory requirements for both government and private sector organizations.</p>
+<p>The FICIC references globally recognized standards including NIST Special Publication 800-53 found in Appendix A of the NIST's Framework for Improving Critical Infrastructure Cybersecurity. Each control within the FICIC framework is mapped to corresponding NIST 800-53 controls within the FedRAMP Moderate Baseline.</p>
+<p><strong>Center for Internet Security (CIS)</strong></p>
+<p>The Center for Internet Security is a nonprofit entity whose mission is to identify, develop, validate, promote, and sustain best practice solutions for cyberdefense. It draws on the expertise of cybersecurity and IT professionals from government, business, and academia from around the world. To develop standards and best practices, including CIS benchmarks, controls, and hardened images, they follow a consensus decision-making model.</p>
+<p>CIS benchmarks are configuration baselines and best practices for securely configuring a system. Each of the guidance recommendations references one or more CIS controls that were developed to help organizations improve their cyberdefense capabilities. CIS controls map to many established standards and regulatory frameworks, including the NIST Cybersecurity Framework (CSF) and NIST SP 800-53, the International Organization for Standardization (ISO) 27000 series of standards, Payment Card Industry (PCI) Data Security Standards (DSS), Health Insurance Portability and Accountability Act of 1996 (HIPAA), and others.</p>
+<p>Each benchmark undergoes two phases of consensus review. The first occurs during initial development when experts convene to discuss, create, and test working drafts until they reach consensus on the benchmark. During the second phase, after the benchmark has been published, the consensus team reviews the feedback from the internet community for incorporation into the benchmark.</p>
+<p>The Center for Internet Security (CIS) benchmarks provide two levels of security settings:</p>
+<ul>
+<li>Level 1 recommends essential basic security requirements that can be configured on any system and should cause little or no interruption of service or reduced functionality.</li>
+<li>Level 2 recommends security settings for environments requiring greater security that could result in some reduced functionality.</li>
+</ul>
+<p>CIS Hardened Images are securely configured virtual machine images based on CIS Benchmarks hardened to either a Level 1 or Level 2 CIS benchmark profile. Hardening is a process that helps protect against unauthorized access, denial of service, and other cyberthreats by limiting potential weaknesses that make systems vulnerable to cyberattacks.</p>
+<p><strong>Workload protections</strong></p>
+<p>Defender for Cloud offers security alerts that are powered by Microsoft Threat Intelligence. It also includes a range of advanced, intelligent protections for your workloads. The workload protections are provided through Microsoft Defender plans specific to the types of resources in your subscriptions. For example, you can enable Microsoft Defender for Storage to get alerted about suspicious activities related to your storage resources.</p>
+<p>The Cloud workload dashboard includes the following sections:</p>
+<ol>
+<li>Microsoft Defender for Cloud coverage - Here you can see the resources types in your subscription that are eligible for protection by Defender for Cloud. Wherever relevant, you can upgrade here as well. If you want to upgrade all possible eligible resources, select Upgrade all.</li>
+<li>Security alerts - When Defender for Cloud detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response. Selecting anywhere in this graph opens the Security alerts page.</li>
+<li>Advanced protection - Defender for Cloud includes many advanced threat protection capabilities for virtual machines, Structured Query Language (SQL) databases, containers, web applications, your network, and more. In this advanced protection section, you can see the status of the resources in your selected subscriptions for each of these protections. Select any of them to go directly to the configuration area for that protection type.</li>
+<li>Insights - This rolling pane of news, suggested reading, and high priority alerts gives Defender for Cloud's insights into pressing security matters that are relevant to you and your subscription. Whether it's a list of high severity Common Vulnerabilities and Exposures (CVEs) discovered on your VMs by a vulnerability analysis tool, or a new blog post by a member of the Defender for Cloud team, you'll find it here in the Insights panel.</li>
+</ol>
+<p><img alt="Design Flow1" src="image/AZ-500-153.png" /></p>
+<p><strong>Deploy Microsoft Defender for Cloud</strong></p>
+<p><strong>Basic and enhanced security features</strong></p>
+<p><strong>Basic features</strong></p>
+<p>When you open Defender for Cloud in the Azure portal for the first time or if you enable it through the Application Programming Interface (API), Defender for Cloud is enabled for free on all your Azure subscriptions. Defender for Cloud provides foundational cloud security and posture management (CSPM) features by default. The foundational CSPM includes a secure score, security policy and basic recommendations, and network security assessment to help you protect your Azure resources.</p>
+<p><strong>Defender Cloud Security Posture Management (CSPM) plan options</strong></p>
+<p>Defender for cloud offers foundational multicloud CSPM capabilities for free. These capabilities are automatically enabled by default on any subscription or account that has been onboarded to Defender for Cloud. The foundational CSPM includes asset discovery, continuous assessment and security recommendations for posture hardening, compliance with Microsoft Cloud Security Benchmark (MCSB), and a Secure score which measure the current status of your organization’s posture.</p>
+<p>The optional Defender CSPM plan provides advanced posture management capabilities such as Attack path analysis, Cloud security explorer, advanced threat hunting, security governance capabilities, and also tools to assess your security compliance with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, or region.</p>
+<p>The following table summarizes each plan and its cloud availability.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-154.png" /></p>
+<p><strong>Enhanced features</strong></p>
+<p>If you want to try out the enhanced security features, enable enhanced security features for free for the first 30 days. At the end of 30 days, if you decide to continue using the service, we'll automatically start charging for usage.</p>
+<p><strong>Prerequisites</strong></p>
+<p>To get started with Defender for Cloud, you'll need a Microsoft Azure subscription with Defender for Cloud enabled. If you don't have an Azure subscription, you can sign up for a free subscription.</p>
+<ul>
+<li>You can enable Microsoft Defender for Storage accounts at either the subscription level or resource level.</li>
+<li>You can enable Microsoft Defender for SQL (Structured Query Language) at either the subscription level or resource level.</li>
+<li>You can enable Microsoft Defender for open-source relational databases at the resource level only.</li>
+<li>The Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.</li>
+</ul>
+<p>When you enabled Defender plans on an entire Azure subscription, the protections are inherited by all resources in the subscription.</p>
+<p>Microsoft Defender for Cloud uses monitoring components to collect data from your resources. These extensions are automatically deployed when you turn on a Defender plan. Each Defender plan has its own requirements for monitoring components, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan.</p>
+<p>The Defender plans show you the monitoring coverage for each Defender plan. If the monitoring coverage is Full, all of the necessary extensions are installed. If the monitoring coverage is Partial, the information tooltip tells you what extensions are missing. For some plans, you can configure specific monitoring settings.</p>
+<p><strong>Enhanced features</strong></p>
+<p>When you enable the enhanced security features (paid), Defender for Cloud can provide unified security management and threat protection across your hybrid cloud workloads, including:</p>
+<ul>
+<li>Microsoft Defender for Endpoint - Microsoft Defender for Servers includes Microsoft Defender for Endpoint for comprehensive endpoint detection and response (EDR).</li>
+<li>Vulnerability assessment for virtual machines, container registries, and SQL resources - Easily enable vulnerability assessment solutions to discover, manage, and resolve vulnerabilities. View, investigate, and remediate the findings directly from within Defender for Cloud.</li>
+<li>Multicloud security - Connect your accounts from Amazon Web Services (AWS) and Google Cloud Platform (GCP) to protect resources and workloads on those platforms with a range of Microsoft Defender for Cloud security features.</li>
+<li>Hybrid security – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from multiple sources, including firewalls and other partner solutions.</li>
+<li>Threat protection alerts - Advanced behavioral analytics and the Microsoft Intelligent Security Graph provide an edge over evolving cyber-attacks. Built-in behavioral analytics and machine learning can identify attacks and zero-day exploits. Monitor networks, machines, data stores (SQL servers hosted inside and outside Azure, Azure SQL databases, Azure SQL Managed Instance, and Azure Storage), and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.</li>
+<li>Track compliance with a range of standards - Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the Microsoft cloud security benchmark. When you enable enhanced security features, you can apply a range of other industry standards, regulatory standards, and benchmarks according to your organization's needs. Add standards and track your compliance with them from the regulatory compliance dashboard.</li>
+<li>Access and application controls - Block malware and other unwanted applications by applying machine learning-powered recommendations adapted to your specific workloads to create allowlists and blocklists. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs. Access and application control drastically reduce exposure to brute force and other network attacks.</li>
+<li>Container security features - Benefit from vulnerability management and real-time threat protection in your containerized environments. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, you won't be charged for it again unless it's modified and pushed once more.</li>
+<li>Breadth threat protection for resources connected to Azure - Cloud-native threat protection for the Azure services common to all of your resources: Azure Resource Manager, Azure Domain Name System (DNS), Azure network layer, and Azure Key Vault. Defender for Cloud has unique visibility into the Azure management layer and the Azure DNS layer and can therefore protect cloud resources that are connected to those layers.</li>
+<li>Manage your Cloud Security Posture Management (CSPM) - CSPM offers you the ability to remediate security issues and review your security posture through the tools provided.</li>
+</ul>
+<p>These tools include:
+      - <strong>Security governance and regulatory compliance</strong>
+         - What is Security governance and regulatory compliance? Security governance and regulatory compliance refer to the policies and processes which organizations have in place to ensure that they comply with laws, rules, and regulations put in place by external bodies (government) that control activity in a given jurisdiction. Defender for Cloud allows you to view your regulatory compliance through the regulatory compliance dashboard. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
+      - <strong>Cloud security graph</strong>
+         - What is a cloud security graph? The cloud security graph is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to the internet, permissions, network connections, vulnerabilities, and more. The data collected is then used to build a graph representing your multicloud environment. Defender for Cloud then uses the generated graph to perform an attack path analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the cloud security explorer.
+      - <strong>Attack path analysis</strong>
+         - What is Attack path analysis? Attack path analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate the issue.
+      - <strong>Agentless scanning for machines</strong>
+         - What is agentless scanning for machines? Microsoft Defender for Cloud maximizes coverage on OS posture issues and extends beyond the reach of agent-based assessments. With agentless scanning for VMs, you can get frictionless, wide, and instant visibility on actionable posture issues without installed agents, network connectivity requirements, or machine performance impact. Agentless scanning for VMs provides vulnerability assessment and software inventory powered by Defender vulnerability management in Azure and Amazon AWS environments. Agentless scanning is available in Defender Cloud Security Posture Management (CSPM) and Defender for Servers.</p>
+<p><strong>Azure Arc</strong></p>
+<p>Today, companies struggle to control and govern increasingly complex environments that extend across data centers, multiple clouds, and edge. Each environment and cloud possesses its own set of management tools, and new DevOps and IT operations (ITOps) operational models can be hard to implement across resources.</p>
+<p>Azure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform.</p>
+<p>Azure Arc provides a centralized, unified way to:</p>
+<ul>
+<li>Manage your entire environment together by projecting your existing non-Azure and/or on-premises resources into Azure Resource Manager.</li>
+<li>Manage virtual machines, Kubernetes clusters, and databases as if they are running in Azure.</li>
+<li>Use familiar Azure services and management capabilities, regardless of where they live.</li>
+<li>Continue using traditional IT operations (ITOps) while introducing DevOps practices to support new cloud-native patterns in your environment.</li>
+<li>Configure custom locations as an abstraction layer on top of Azure Arc-enabled Kubernetes clusters and cluster extensions.</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-155.png" /></p>
+<p><strong>Azure Arc capabilities</strong></p>
+<p>Currently, Azure Arc allows you to manage the following resource types hosted outside of Azure:</p>
+<ul>
+<li>Servers: Manage Windows and Linux physical servers and virtual machines hosted outside of Azure.</li>
+<li>Kubernetes clusters: Attach and configure Kubernetes clusters running anywhere with multiple supported distributions.</li>
+<li>Azure data services: Run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. SQL Managed Instance and PostgreSQL server (preview) services are currently available.</li>
+<li>SQL Server: Extend Azure services to SQL Server instances hosted outside of Azure.</li>
+<li>Virtual machines (preview): Provision, resize, delete, and manage virtual machines based on VMware vSphere or Azure Stack hyper-converged infrastructure (HCI) and enable VM self-service through role-based access.</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-156.png" /></p>
+<p><strong>Key features and benefits</strong></p>
+<p>Some of the key scenarios that Azure Arc supports are:</p>
+<ul>
+<li>Implement consistent inventory, management, governance, and security for servers across your environment.</li>
+<li>Configure Azure VM extensions to use Azure management services to monitor, secure, and update your servers.</li>
+<li>Manage and govern Kubernetes clusters at scale.</li>
+<li>Use GitOps to deploy configuration across one or more clusters from Git repositories.</li>
+<li>Zero-touch compliance and configuration for Kubernetes clusters using Azure Policy.</li>
+<li>Run Azure data services on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL server, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure.</li>
+<li>Create custom locations on top of your Azure Arc-enabled Kubernetes clusters, using them as target locations for deploying Azure services instances. Deploy your Azure service cluster extensions for Azure Arc-enabled data services, App services on Azure Arc (including web, function, and logic apps), and Event Grid on Kubernetes.</li>
+<li>Perform virtual machine lifecycle and management operations for VMware vSphere and Azure Stack hyper-converged infrastructure (HCI) environments.</li>
+<li>A unified experience viewing your Azure Arc-enabled resources, whether you are using the Azure portal, the Azure CLI, Azure PowerShell, or Azure REST API.</li>
+</ul>
+<p><strong>Microsoft cloud security benchmark</strong></p>
+<p>The Microsoft cloud security benchmark (MCSB) provides prescriptive best practices and recommendations to help improve the security of workloads, data, and services on Azure and your multi-cloud environment, focusing on cloud-centric control areas with input from a set of holistic Microsoft and industry security guidance that includes:</p>
+<ul>
+<li>Cloud Adoption Framework: Guidance on security, including strategy, roles and responsibilities, Azure Top 10 Security Best Practices, and reference implementation.</li>
+<li>Azure Well-Architected Framework: Guidance on securing your workloads on Azure.</li>
+<li>The Chief Information Security Officer (CISO) Workshop: Program guidance and reference strategies to accelerate security modernization using Zero Trust principles.</li>
+<li>Other industry and cloud service provider's security best practice standards and framework: Examples include the Amazon Web Services (AWS) Well-Architected Framework, Center for Internet Security (CIS) Controls, National Institute of Standards and Technology (NIST), and Payment Card Industry Data Security Standard (PCI-DSS).</li>
+</ul>
+<p><strong>Microsoft cloud security benchmark features</strong></p>
+<p>Comprehensive multi-cloud security framework: Organizations often have to build an internal security standard to reconcile security controls across multiple cloud platforms to meet security and compliance requirements on each of them. This often requires security teams to repeat the same implementation, monitoring, and assessment across the different cloud environments (often for different compliance standards). This creates unnecessary overhead, cost, and effort. To address this concern, we enhanced the Azure Security Benchmark (ASB) to the Microsoft cloud security benchmark (MCSB) to help you quickly work with different clouds by:</p>
+<ul>
+<li>Providing a single control framework to easily meet the security controls across clouds</li>
+<li>Providing consistent user experience for monitoring and enforcing the multi-cloud security benchmark in Defender for Cloud</li>
+<li>Staying aligned with Industry Standards (e.g., Center for Internet Security, National Institute of Standards and Technology, Payment Card Industry)</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-157.png" /></p>
+<p>Automated control monitoring for AWS in Microsoft Defender for Cloud: You can use Microsoft Defender for Cloud Regulatory Compliance Dashboard to monitor your AWS environment against Microsoft cloud security benchmark (MCSB), just like how you monitor your Azure environment. We developed approximately 180 AWS checks for the new AWS security guidance in MCSB, allowing you to monitor your AWS environment and resources in Microsoft Defender for Cloud.</p>
+<p>Example: Microsoft Defender for Cloud - Regulatory compliance dashboard</p>
+<p><img alt="Design Flow1" src="image/AZ-500-158.png" /></p>
+<p>Azure guidance and security principles: Azure security guidance, security principles, features, and capabilities.</p>
+<p><strong>Controls</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control Domains</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network security (NS)</td>
+<td>Network Security covers controls to secure and protect networks, including securing virtual networks, establishing private connections, preventing and mitigating external attacks, and securing Domain Name System (DNS).</td>
+</tr>
+<tr>
+<td>Identity Management (IM)</td>
+<td>Identity Management covers controls to establish a secure identity and access controls using identity and access management systems, including the use of single sign-on, strong authentications, managed identities (and service principals) for applications, conditional access, and account anomalies monitoring.</td>
+</tr>
+<tr>
+<td>Privileged Access (PA)</td>
+<td>Privileged Access covers controls to protect privileged access to your tenant and resources, including a range of controls to protect your administrative model, administrative accounts, and privileged access workstations against deliberate and inadvertent risk.</td>
+</tr>
+<tr>
+<td>Data Protection (DP)</td>
+<td>Data Protection covers control of data protection at rest, in transit, and via authorized access mechanisms, including discover, classify, protect, and monitoring sensitive data assets using access control, encryption, key management, and certificate management.</td>
+</tr>
+<tr>
+<td>Asset Management (AM)</td>
+<td>Asset Management covers controls to ensure security visibility and governance over your resources, including recommendations on permissions for security personnel, security access to asset inventory and managing approvals for services and resources (inventory, track, and correct).</td>
+</tr>
+<tr>
+<td>Logging and Threat Detection (LT)</td>
+<td>Logging and Threat Detection covers controls for detecting threats on the cloud and enabling, collecting, and storing audit logs for cloud services, including enabling detection, investigation, and remediation processes with controls to generate high-quality alerts with native threat detection in cloud services; it also includes collecting logs with a cloud monitoring service, centralizing security analysis with a security event management (SEM), time synchronization, and log retention.</td>
+</tr>
+<tr>
+<td>Incident Response (IR)</td>
+<td>Incident Response covers controls in the incident response life cycle - preparation, detection and analysis, containment, and post-incident activities, including using Azure services (such as Microsoft Defender for Cloud and Sentinel) and/or other cloud services to automate the incident response process.</td>
+</tr>
+<tr>
+<td>Posture and Vulnerability Management (PV)</td>
+<td>Posture and Vulnerability Management focuses on controls for assessing and improving the cloud security posture, including vulnerability scanning, penetration testing, and remediation, as well as security configuration tracking, reporting, and correction in cloud resources.</td>
+</tr>
+<tr>
+<td>Endpoint Security (ES)</td>
+<td>Endpoint Security covers controls in endpoint detection and response, including the use of endpoint detection and response (EDR) and anti-malware service for endpoints in cloud environments.</td>
+</tr>
+<tr>
+<td>Backup and Recovery (BR)</td>
+<td>Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected.</td>
+</tr>
+<tr>
+<td>DevOps Security (DS)</td>
+<td>DevOps Security covers the controls related to the security engineering and operations in the DevOps processes, including deployment of critical security checks (such as static application security testing and vulnerability management) prior to the deployment phase to ensure the security throughout the DevOps process; it also includes common topics such as threat modeling and software supply security.</td>
+</tr>
+<tr>
+<td>Governance and Strategy (GS)</td>
+<td>Governance and Strategy provides guidance for ensuring a coherent security strategy and documented governance approach to guide and sustain security assurance, including establishing roles and responsibilities for the different cloud security functions, unified technical strategy, and supporting policies and standards.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Configure Microsoft Defender for Cloud policies</strong></p>
+<p><strong>What are security policies, initiatives</strong></p>
+<p>Microsoft Defender for Cloud applies security initiatives to your subscriptions. These initiatives contain one or more security policies. Each of those policies results in a security recommendation for improving your security posture.</p>
+<p><strong>What is a security initiative?</strong></p>
+<p>A security initiative is a collection of Azure Policy definitions or rules that are grouped together towards a specific goal or purpose. Security initiatives simplify the management of your policies by grouping a set of policies together, logically, as a single item.</p>
+<p>A security initiative defines the desired configuration of your workloads and helps ensure you comply with the security requirements of your company or regulators.</p>
+<p>Like security policies, Defender for Cloud initiatives are also created in Azure Policy. You can use Azure Policy to manage your policies, build initiatives, and assign initiatives to multiple subscriptions or entire management groups.</p>
+<p>The default initiative automatically assigned to every subscription in Microsoft Defender for Cloud is the Microsoft cloud security benchmark. This benchmark is the Microsoft-authored set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the Center for Internet Security (CIS) and the National Institute of Standards and Technology (NIST) with a focus on cloud-centric security.</p>
+<p>Defender for Cloud offers the following options for working with security initiatives and policies:</p>
+<ul>
+<li>View and edit the built-in default initiative - When you enable Defender for Cloud, the initiative named 'Microsoft cloud security benchmark' is automatically assigned to all Defender for Cloud registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters.</li>
+<li>Add your own custom initiatives - If you want to customize the security initiatives applied to your subscription, you can do so within Defender for Cloud. You'll then receive recommendations if your machines don't follow the policies you create.</li>
+<li>Add regulatory compliance standards as initiatives - Defender for Cloud's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure Center for Internet Security (CIS), National Institute of Standards and Technology (NIST) Special Publications (SP) SP 800-53 Rev.4, Swift’s Customer Security Program (CSP) Call Session Control Function (CSCF) v2020).</li>
+</ul>
+<p>Example: Builtin security initiative</p>
+<p><img alt="Design Flow1" src="image/AZ-500-159.png" /></p>
+<p><strong>What is a security policy?</strong></p>
+<p>An Azure Policy definition, created in Azure Policy, is a rule about specific security conditions you want to be controlled. Built-in definitions include things like controlling what type of resources can be deployed or enforcing the use of tags on all resources. You can also create your own custom policy definitions.</p>
+<p>To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. Policies can be disabled or enabled from Azure Policy.</p>
+<p>There are different types of policies in Azure Policy. Defender for Cloud mainly uses 'Audit' policies that check specific conditions and configurations and then report on compliance. There are also "Enforce' policies that can be used to apply security settings.</p>
+<p>Example: Built-in security policy</p>
+<p><img alt="Design Flow1" src="image/AZ-500-160.png" /></p>
+<p><strong>View and edit security policies</strong></p>
+<p>Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Users are assigned the owner, contributor, or reader role to the resource's subscription.</p>
+<p>There are two specific roles for Defender for Cloud:</p>
+<ol>
+<li>Security Administrator: Has the same view rights as security reader. Can also update the security policy and dismiss alerts.</li>
+<li>Security reader: Has rights to view Defender for Cloud items such as recommendations, alerts, policy, and health. Can't make changes.</li>
+</ol>
+<p><img alt="Design Flow1" src="image/AZ-500-161.png" /></p>
+<p>You can edit security policies through the Azure Policy portal via Representational State Transfer Application Programming Interface (REST API) or using Windows PowerShell.</p>
+<p>The Security Policy screen reflects the action taken by the policies assigned to the subscription or management group you selected.</p>
+<ul>
+<li>Use the links at the top to open a policy assignment that applies to the subscription or management group. These links let you access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, use the link to edit or disable the policy.</li>
+<li>In the list of policies, you can see the effective application of the policy on your subscription or management group. The settings of each policy that apply to the scope are taken into consideration, and the cumulative outcome of actions taken by the policy is shown. For example, if one assignment of the policy is disabled, but in another, it's set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.</li>
+<li>The policies' effect can be: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, or Disabled.</li>
+</ul>
+<p><strong>Manage and implement Microsoft Defender for Cloud recommendations</strong></p>
+<p><strong>What is a security recommendation?</strong></p>
+<p>Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations result from assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.</p>
+<p>Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that isn't compliant, it's presented as a recommendation in Defender for Cloud.</p>
+<p>Example: Microsoft Defender for Cloud - All recommendations</p>
+<p><img alt="Design Flow1" src="image/AZ-500-162.png" /></p>
+<p>Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:</p>
+<ul>
+<li>A short description of the issue</li>
+<li>The remediation steps to carry out in order to implement the recommendation</li>
+<li>The affected resources</li>
+</ul>
+<p>In practice, it works like this:</p>
+<ol>
+<li>
+<p>Microsoft Cloud security benchmark is an initiative that contains requirements.
+      For example, Azure Storage accounts must restrict network access to reduce their attack surface.</p>
+</li>
+<li>
+<p>The initiative includes multiple policies, each requiring a specific resource type. These policies enforce the requirements in the initiative.
+      To continue the example, the storage requirement is enforced with the policy "Storage accounts should restrict network access using virtual network rules."</p>
+</li>
+<li>Microsoft Defender for Cloud continually assesses your connected subscriptions. If it finds a resource that doesn't satisfy a policy, it displays a recommendation to fix that situation and harden the security of resources that aren't meeting your security requirements.
+      For example, if an Azure Storage account on your protected subscriptions isn't protected with virtual network rules, you see the recommendation to harden those resources.</li>
+</ol>
+<p>So, (1) an initiative includes (2) policies that generate (3) environment-specific recommendations.</p>
+<p><strong>Security recommendation details</strong></p>
+<p>Security recommendations contain details that help you understand its significance and how to handle it.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-163.png" /></p>
+<p>The recommendation details shown are:</p>
+<ol>
+<li>For supported recommendations, the top toolbar shows any or all of the following buttons:<ul>
+<li>Enforce and Deny</li>
+<li>View the policy definition to go directly to the Azure Policy entry for the underlying policy.</li>
+<li>Open query - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.</li>
+</ul>
+</li>
+<li>Severity indicator</li>
+<li>Freshness interval</li>
+<li>Count of exempted resources if exemptions exist for a recommendation; this shows the number of resources that have been exempted with a link to view the specific resources.</li>
+<li>
+<p>Mapping to MITRE ATT&amp;CK tactics and techniques if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure-scored recommendations.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-164.png" />
+   6. Description - A short description of the security issue.
+   7. When relevant, the details page also includes a table of related recommendations:
+ The relationship types are:
+    - Prerequisite - A recommendation that must be completed before the selected recommendation
+    - Alternative - A different recommendation that provides another way of achieving the goals of the selected recommendation
+    - Dependent - A recommendation for which the selected recommendation is a prerequisite
+  For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+   8. Remediation steps - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the Fix option, you can select View remediation logic before applying the suggested fix to your resources.
+   9. Affected resources - Your resources are grouped into tabs:
+  - Healthy resources – Relevant resources that either aren't impacted or on which you have already remediated the issue.
+  - Unhealthy resources – Resources that are still impacted by the identified issue.
+  - Not applicable resources – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
+  10. Action buttons to remediate the recommendation or trigger a logic app.
+  <img alt="Design Flow1" src="image/AZ-500-165.png" /></p>
+</li>
+</ol>
+<p><strong>Viewing the relationship between a recommendation and a policy</strong></p>
+<p>As mentioned above, Defender for Cloud's built-in recommendations are based on the Microsoft cloud security benchmark. Almost every recommendation has an underlying policy that is derived from a requirement in the benchmark.</p>
+<p>When you're reviewing the details of a recommendation, it's often helpful to be able to see the underlying policy. For every recommendation supported by a policy, use the View policy definition link from the recommendation details page to go directly to the Azure Policy entry for the relevant policy:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-166.png" /></p>
+<p>Use this link to view the policy definition and review the evaluation logic.</p>
+<p>If you're reviewing the list of recommendations on our Security recommendations reference guide, you'll also see links to the policy definition pages:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-167.png" /></p>
+<p><strong>Explore secure score</strong></p>
+<p><strong>Overview of secure score</strong></p>
+<p>Microsoft Defender for Cloud has two main goals:</p>
+<ol>
+<li>to help you understand your current security situation</li>
+<li>to help you efficiently and effectively improve your security</li>
+</ol>
+<p>The central feature in Defender for Cloud that enables you to achieve those goals is the secure score.</p>
+<p>Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.</p>
+<ul>
+<li>In the Azure portal pages, the secure score is shown as a percentage value, and the underlying values are also clearly presented:</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-168.png" /></p>
+<ul>
+<li>In the Azure mobile app, the secure score is shown as a percentage value, and you can tap the secure score to see the details that explain the score:</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-169.png" /></p>
+<p>To increase your security, review Defender for Cloud's recommendations page and remediate the recommendation by implementing the remediation instructions for each issue. Recommendations are grouped into security controls. Each control is a logical group of related security recommendations and reflects your vulnerable attack surfaces. Your score only improves when you remediate all of the recommendations for a single resource within a control. To see how well your organization is securing each individual attack surface, review the scores for each security control.</p>
+<p><strong>How your secure score is calculated</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-170.png" /></p>
+<p>To get all the possible points for security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.</p>
+<p><strong>Example scores for a control</strong></p>
+<p><img alt="Design Flow1" src="image/AZ-500-171.png" /></p>
+<p>In this example:</p>
+<ul>
+<li>Remediate vulnerabilities security control - This control group has multiple recommendations related to discovering and resolving known vulnerabilities.</li>
+<li>Max score - The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.</li>
+<li>Current score - The current score for this control.
+     Current score = [Score per resource] * [Number of healthy resources]
+     Each control contributes towards the total score. In this example, the control is contributing 2.00 points to the current total secure score.</li>
+<li>Potential score increase - The remaining points available to you are within your control. If you remediate all the recommendations in this control, your score will increase by 9%.
+     Potential score increase = [Score per resource] * [Number of unhealthy resources]</li>
+<li>Insights - Gives you extra details for each recommendation, such as:<ul>
+<li>Preview recommendation - This recommendation won't affect your secure score until it's GA.</li>
+<li>Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue.</li>
+<li>Enforce - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.</li>
+<li>Deny - From within the recommendation details page, you can prevent new resources from being created with this issue.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Which recommendations are included in the secure score calculations?</strong></p>
+<ul>
+<li>Only built-in recommendations have an impact on the secure score.</li>
+<li>Recommendations flagged as Preview aren't included in the calculations of your secure score. They should still be remediated wherever possible so that when the preview period ends, they'll contribute towards your score.</li>
+<li>Preview recommendations are marked with:</li>
+</ul>
+<p><strong>Improve your secure score</strong></p>
+<p>To improve your secure score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource or use the Fix option (when available) to resolve an issue on multiple resources quickly.</p>
+<p>You can also configure the Enforce and Deny options on the relevant recommendations to improve your score and make sure your users don't create resources that negatively impact your score.</p>
+<p><strong>Frequently asked questions (FAQ) Secure score</strong></p>
+<p><strong>If I address only three out of four recommendations in security control, will my secure score change?</strong></p>
+<p>No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations for all resources.</p>
+<p><strong>If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?</strong></p>
+<p>Yes. We recommend disabling recommendations when they're inapplicable in your environment.</p>
+<p><strong>If a security control offers me zero points toward my secure score, should I ignore it?</strong></p>
+<p>In some cases, you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations because they still bring security improvements. The only exception is the "Additional Best Practice" control. Remediating these recommendations won't increase your score, but it will enhance your overall security.</p>
+<p><strong>Define brute force attacks</strong></p>
+<p><strong>Brute force attacks</strong></p>
+<p>A brute force attack is a type of hacking technique in which an attacker tries to gain access to a network or system by guessing the username and password combination through an automated process. The attacker typically uses a program that generates a large number of login attempts in a short period of time to try every possible combination of characters until the correct one is discovered. This type of attack can be very effective against weak passwords and security systems with no protection against brute force attacks, but it is time-consuming and can be detected by security measures such as account lockouts after a certain number of failed login attempts.</p>
+<p><strong>Management services, ports, and protocols</strong></p>
+<p>Adversaries without prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts. Without knowledge of the password for an account, an adversary may opt to systematically guess the password using a repetitive or iterative mechanism. An adversary may guess login credentials without prior knowledge of system or environment passwords during an operation by using a list of common passwords. Password guessing may or may not take into account the target's policies on password complexity or use policies that may lock accounts out after a number of failed attempts.</p>
+<p>Typically, management services over commonly used ports are used when guessing passwords. Commonly targeted services include the following:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-172.png" /></p>
+<p><strong>Brute force attack programs and use cases</strong></p>
+<p>These programs can be used individually or in combination to launch a successful brute force attack on a target network or system. There are several types of brute force attack programs used by attackers, including:</p>
+<p><img alt="Design Flow1" src="image/AZ-500-173.png" /></p>
+<p><strong>Indications of an attack</strong></p>
+<ul>
+<li>Extreme counts of failed sign-ins from many unknown usernames</li>
+<li>Never previously successfully authenticated from multiple remote desktop protocol (RDP) connections or from new source IP addresses</li>
+</ul>
+<p>Example: Potential SQL Brute Force attempt alert</p>
+<p><img alt="Design Flow1" src="image/AZ-500-174.png" /></p>
+<p><strong>Practices to blunt a Brute Force Attacks</strong></p>
+<p>To counteract brute-force attacks, you can take multiple measures such as:</p>
+<ul>
+<li>Disable the public IP address and use one of these connection methods:<ul>
+<li>Use a point-to-site virtual private network (VPN)</li>
+<li>Create a site-to-site VPN</li>
+<li>Use Azure ExpressRoute to create secure links from your on-premises network to Azure.</li>
+</ul>
+</li>
+<li>Require two-factor authentication</li>
+<li>Increase password length and complexity</li>
+<li>Limit login attempts</li>
+<li>Implement Captcha<ul>
+<li>About CAPTCHAs - Any time you let people register on your site or even enter a name and URL (like for a blog comment), you might get a flood of fake names. These are often left by automated programs (bots) that try to leave URLs on every website they can find. (A common motivation is to post the URLs of products for sale.) You can help make sure that a user is a real person and not a computer program by using a CAPTCHA to validate users when they register or otherwise enter their name and site.</li>
+<li>CAPTCHA stands for Completely Automated Public Turing test to tell Computers and Humans Apart. A CAPTCHA is a challenge-response test in which the user is asked to do something that is easy for a person to do but hard for an automated program to do. The most common type of CAPTCHA is one where you see distorted letters and are asked to type them. (The distortion is supposed to make it hard for bots to decipher the letters.)</li>
+</ul>
+</li>
+<li>Limit the amount of time that the ports are open.</li>
+</ul>
+<p><strong>Understand just-in-time VM access</strong></p>
+<p><strong>The risk of open management ports on a virtual machine</strong></p>
+<p>Threat actors actively hunt accessible machines with open management ports, like remote desktop protocol (RDP) or secure shell protocol (SSH). All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.</p>
+<p><strong>Why JIT VM access is the solution</strong></p>
+<p>As with all cybersecurity prevention techniques, your goal should be to reduce the attack surface. In this case, that means having fewer open ports, especially management ports. Your legitimate users also use these ports, so it's not practical to keep them closed. To solve this dilemma, Microsoft Defender for Cloud offers JIT. With JIT, you can lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.</p>
+<p><strong>How JIT operates with network resources in Azure and AWS</strong></p>
+<p>In Azure, you can block inbound traffic on specific ports, by enabling just-in-time VM access. Defender for Cloud ensures "deny all inbound traffic" rules exist for your selected ports in the network security group (NSG) and Azure Firewall rules. These rules restrict access to your Azure VMs’ management ports and defend them from attack.</p>
+<p>If other rules already exist for the selected ports, then those existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new rules take top priority in the NSG and Azure Firewall.</p>
+<p>In AWS, by enabling JIT-access the relevant rules in the attached Amazon Elastic Compute Cloud (Amazon EC2) security groups, for the selected ports, are revoked which blocks inbound traffic on those specific ports.</p>
+<p>When a user requests access to a VM, Defender for Cloud checks that the user has Azure role-based access control (Azure RBAC) permissions for that VM. If the request is approved, Defender for Cloud configures the NSGs and Azure Firewall to allow inbound traffic to the selected ports from the relevant IP address (or range), for the amount of time that was specified. In AWS, Defender for Cloud creates a new EC2 security group that allows inbound traffic to the specified ports. After the time has expired, Defender for Cloud restores the NSGs to their previous states. Connections that are already established are not interrupted.</p>
+<p><strong>Just-in-time VM enabled on an Azure Virtual Machine.</strong></p>
+<p>Example: Azure virtual machine</p>
+<p>The diagram shows the logic that Defender for Cloud applies when deciding how to categorize your supported VMs (i.e., Azure Virtual Machine)</p>
+<p><img alt="Design Flow1" src="image/AZ-500-175.png" /></p>
+<p><strong>Just-in-time VM enabled on an AWS EC2 Instance.</strong></p>
+<p>The diagram shows the logic that Defender for Cloud applies when deciding how to categorize your supported VMs (i.e., AWS EC2 instance)</p>
+<p>Example: AWS EC2 Instance</p>
+<p><img alt="Design Flow1" src="image/AZ-500-176.png" /></p>
+<p><strong>Added to the recommendation’s Unhealthy resources tab</strong></p>
+<p>The diagram shows the logic Defender for Cloud applies when deciding how to categorize your supported VM. When Defender for Cloud finds a machine that can benefit from JIT, it adds that machine to the recommendation's Unhealthy resources tab.</p>
+<p>Example: Affected resources</p>
+<p><img alt="Design Flow1" src="image/AZ-500-177.png" /></p>
+<p><strong>Implement just-in-time VM access</strong></p>
+<p>Just-in-time (JIT) virtual machine (VM) access is used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.</p>
+<p>When you enable JIT VM Access for your VMs, you next create a policy that determines the ports to help protect, how long ports should remain open, and the approved IP addresses that can access these ports. The policy helps you stay in control of what users can do when they request access. Requests are logged in the Azure activity log, so you can easily monitor and audit access. The policy will also help you quickly identify the existing VMs that have JIT VM Access enabled and the VMs where JIT VM Access is recommended.</p>
+<p><strong>How JIT VM Access works</strong></p>
+<p>To use Just-in-Time VM access, you must enable Microsoft Defender for Cloud.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-178.png" /></p>
+<p>After you enable Defender, you can view which virtual machines have JIT configured. Enable JIT on any virtual machine that is not Healthy.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-179.png" /></p>
+<p>For each virtual machine, you are recommended specific ports and access.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-180.png" /></p>
+<p>You can accept the recommendations or Add other ports of your choosing.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-181.png" /></p>
+<p>Once everything is in place, users must request access to the virtual machine. You can also monitor the usage of each virtual machine.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-182.png" /></p>
+<p><strong>Perform try-this exercises</strong></p>
+<p><strong>Task 1: Microsoft Defender for Cloud overview and recommendations</strong></p>
+<p>In this task, you will review Microsoft Defender for Cloud.</p>
+<ol>
+<li>In the Portal, navigate to Microsoft Defender for Cloud.</li>
+<li>Under General, select Overview.</li>
+<li>Discuss the Overview page.</li>
+<li>Under Management, select Environment settings.</li>
+<li>Select your subscription, and then review the Microsoft Defender for Cloud features.</li>
+<li>Return to the main Microsoft Defender for Cloud blade.</li>
+<li>Under General, select Recommendations.</li>
+<li>Review Secure Score, Recommendations status, and Resource Health.</li>
+<li>From the main Microsoft Defender for Cloud blade, under Cloud Security, select Regulatory compliance.</li>
+<li>Review the compliance assessment and available compliance controls.</li>
+<li>Scroll down and, under Microsoft cloud security benchmark, expand each compliance control to review several recommendations. For example, NS. Network Security, DP. Data Protection, and ES. Endpoint Security.</li>
+<li>From the main Microsoft Defender for Cloud blade, under Cloud Security, select Workload protections.</li>
+<li>Review the Defender for Cloud coverage, Security alerts, and Advanced protection features.</li>
+</ol>
+<p><strong>Knowledge check</strong></p>
+<ol>
+<li>Which tasks are not included in the Microsoft Defender for Cloud free tier?</li>
+<li>Monitor IoT hubs and resources</li>
+<li>Monitor network access and endpoint security</li>
+<li>
+<p>Monitor non-Azure resources (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>An organization compliance group requires client authentication using Azure AD and Key Vault diagnostic logs. What is the easiest way to implement the requirement for client authentication?</p>
+</li>
+<li>Configure management groups</li>
+<li>Implement Microsoft Defender for Cloud policies (<strong>Ans</strong>)</li>
+<li>
+<p>Create Desired Configuration State scripts</p>
+</li>
+<li>
+<p>An organization is working with an outside agency that needs to access a virtual machine. There's a real concern about brute-force login attacks targeted at virtual machine management ports. Which of the following components would open the management ports for a defined time range? Select one.</p>
+</li>
+<li>Azure Firewall</li>
+<li>Bastion service</li>
+<li>
+<p>Just-in-Time virtual machine access (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>When using Microsoft Defender for Cloud to provide visibility into virtual machine security settings, the monitoring system will notify administrators as issues arise. Which incident below would require a different monitoring tool to discover it?</p>
+</li>
+<li>A newer operating system version is available. (<strong>Ans</strong>)</li>
+<li>System security updates and critical updates that are missing.</li>
+<li>Disk encryption is applied on virtual machines.</li>
+</ol>
+<p>Summary</p>
+<p>Microsoft Defender for Cloud and Secure Score is the keys to keeping your solutions and data secure.</p>
+<p>You should be able to:</p>
+<pre><code>- Define the most common types of cyber-attacks
+- Configure Microsoft Defender for Cloud based on your security posture
+- Review Secure Score and raise it
+- Lock down your solutions using Microsoft Defender for Cloud recommendations
+</code></pre>
+<p><strong>Configure and monitor Microsoft Sentinel</strong></p>
+<p><strong>Introduction</strong></p>
+<p>In the world we live in today, there is always the chance that your system may be hacked. What do you do at this point to find and evaluate a breach? Microsoft Sentinel is a tool to help you locate a breach and track what the intruder did while on your systems.</p>
+<p><strong>Scenario</strong></p>
+<p>A security engineer uses Microsoft Sentinel to discover and track a breach, you will work on such tasks as:</p>
+<ul>
+<li>Configure Microsoft Sentinel.</li>
+<li>Build queries to find breaches.</li>
+<li>Track incidents with investigation and hunting.</li>
+</ul>
+<p><strong>Enable Azure Sentinel</strong></p>
+<p>Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.</p>
+<p><strong>Value of a security information and event management tool</strong></p>
+<p>Security Operations (SecOps) teams are inundated with a high volume of alerts and spend far too much time in tasks like infrastructure setup and maintenance. As a result, many legitimate threats go unnoticed. According to the “Cybersecurity Jobs Report, 2018-2021” by Cybersecurity Ventures, An expected shortfall of 3.5M security professionals by 2021 will further increase the challenges for security operations teams. Alert fatigue is real. Security analysts face a huge burden of triage as they not only have to sift through a sea of alerts but also correlate alerts from different products manually or using a traditional correlation engine.</p>
+<p><strong>Microsoft Azure Sentinel</strong></p>
+<p>Microsoft Sentinel offers nearly limitless cloud scale and speed to address your security needs. Think of Microsoft Sentinel as the first SIEM-as-a-service that brings the power of the cloud and artificial intelligence to help security operations teams efficiently identify and stop cyber-attacks before they cause harm. Microsoft Sentinel enriches your investigation and detection by providing both Microsoft's threat intelligence stream and external threat intelligence streams.</p>
+<p>Microsoft Sentinel integrates with Microsoft 365 solution and correlates millions of signals from different products such as Azure Identity Protection, Microsoft Cloud App Security, and soon Azure Advanced Threat Protection, Windows Advanced Threat Protection, M365 Advanced Threat Protection, Intune, and Azure Information Protection. It enables the following services:
+   - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
+   - Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
+   - Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of cyber security work at Microsoft.
+   - Respond to incidents rapidly with built-in orchestration and automation of common tasks</p>
+<p><img alt="Design Flow1" src="image/AZ-500-183.png" /></p>
+<p>Building on the full range of existing Azure services, Microsoft Sentinel natively incorporates proven foundations, like Log Analytics, and Logic Apps. Microsoft Sentinel enriches your investigation and detection with AI, and provides Microsoft's threat intelligence stream, and enables you to bring your own threat intelligence.</p>
+<p><strong>Configure data connections to Sentinel</strong></p>
+<p>To onboard Microsoft Sentinel, you first need to connect to your security sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, and Microsoft 365 sources, including Microsoft 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Microsoft Sentinel as well.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-184.png" /></p>
+<p><strong>Data connection methods</strong></p>
+<p>The following data connection methods are supported by Microsoft Sentinel:</p>
+<ul>
+<li>Service to service integration: Some services are connected natively, such as AWS and Microsoft services, these services leverage the Azure foundation for out-of-the-box integration, the following solutions can be connected in a few clicks:</li>
+<li>Amazon Web Services - CloudTrail</li>
+<li>Azure Activity</li>
+<li>Azure AD audit logs and sign-ins</li>
+<li>Azure AD Identity Protection</li>
+<li>Azure Advanced Threat Protection</li>
+<li>Azure Information Protection</li>
+<li>Microsoft Defender for Cloud</li>
+<li>Cloud App SecurityCloud App Security</li>
+<li>Domain name server</li>
+<li>Microsoft 365</li>
+<li>Microsoft Defender ATP</li>
+<li>Microsoft web application firewall</li>
+<li>Windows firewall</li>
+<li>Windows security events</li>
+</ul>
+<p><strong>External solutions via API</strong></p>
+<p>Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved. The APIs connect to Microsoft Sentinel and gather specific data types and send them to Azure Log Analytics</p>
+<p><strong>External solutions via an agen</strong></p>
+<p>Microsoft Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. The Microsoft Sentinel agent, which is based on the Log Analytics agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server.</p>
+<p><strong>Agent connection options</strong></p>
+<p>To connect your external appliance to Microsoft Sentinel, the agent must be deployed on a dedicated machine (VM or on-premises) to support the communication between the appliance and Microsoft Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-185.png" /></p>
+<p>Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.</p>
+<p><strong>Global prerequisites</strong></p>
+<ul>
+<li>Active Azure Subscription</li>
+<li>Log Analytics workspace.</li>
+<li>To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides.</li>
+<li>To use Microsoft Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.</li>
+<li>Additional permissions may be needed to connect specific data sources.</li>
+<li>Microsoft Sentinel is a paid service.</li>
+</ul>
+<p><strong>Create workbooks for explore Sentinel data</strong></p>
+<p>After you connect your data sources to Microsoft Sentinel, you can monitor the data using the Microsoft Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom workbooks. While Workbooks are displayed differently in Microsoft Sentinel, it may be helpful for you to determine how to create interactive reports with Azure Monitor Workbooks. Microsoft Sentinel allows you to create custom workbooks across your data and comes with built-in workbook templates to quickly gain insights across your data as soon as you connect a data source.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-186.png" /></p>
+<p>Workbooks combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Workbooks are editable by other team members who have access to the same Azure resources.</p>
+<p>Workbooks are helpful for scenarios like:</p>
+<ul>
+<li>Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, conversion rates, etc. Unlike other usage analytics tools, workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of free-form exploration.</li>
+<li>Explaining to your team how a newly released feature is performing by showing user counts for key interactions and other metrics.</li>
+<li>Sharing the results of an A/B experiment in your app with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and Analytics query used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.</li>
+<li>Reporting the impact of an outage on the usage of your app, combining data, text explanation, and a discussion of next steps to prevent outages in the future.</li>
+</ul>
+<p><strong>Saving and sharing workbooks with your team</strong></p>
+<p>Workbooks are saved within an Application Insights resource, either in the My Reports section that's private to you or in the Shared Reports section accessible to everyone with access to the Application Insights resource. A workbook can be shared with a link or via email. Keep in mind that recipients of the link need access to this resource in the Azure portal to view the workbook. To make edits, recipients need at least Contributor permissions for the resource.</p>
+<p><strong>Analytics</strong></p>
+<p>To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses analytics to correlate alerts into incidents. Incidents are groups of related alerts that together create a possible actionable threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Microsoft Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots by combining low-fidelity alerts about different entities into potential high-fidelity security incidents.</p>
+<p><strong>Enable rules to create incidents</strong></p>
+<p>Alerts triggered in Microsoft security solutions that are connected to Microsoft Sentinel, such as Microsoft Defender for Cloud Apps and Azure Advanced Threat Protection, do not automatically create incidents in Microsoft Sentinel. By default, when you connect a Microsoft solution to Microsoft Sentinel, any alert generated in that service will be stored as raw data in Microsoft Sentinel, in the Security Alert table in your Microsoft Sentinel workspace. You can then use that data like any other raw data you connect to Sentinel.</p>
+<p><strong>Prerequisites</strong></p>
+<p>You must connect Microsoft security solutions to enable incident creation from security service alerts.</p>
+<p><strong>Using Microsoft Security incident creation analytic rules</strong></p>
+<p>Use the built-in rules available in Microsoft Sentinel to choose which connected Microsoft security solutions should create Microsoft Sentinel incidents automatically in real-time. You can also edit the rules to define more specific options for filtering which of the alerts generated by the Microsoft security solution should create incidents in Microsoft Sentinel. For example, you can choose to create Microsoft Sentinel incidents automatically only from high-severity Microsoft Defender for Cloud alerts.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-187.png" /></p>
+<p>You can create more than one Microsoft Security analytic rule per Microsoft security service type. This action does not create duplicate incidents since each rule is used as a filter. Even if an alert matches more than one Microsoft Security analytic rule, it creates just one Microsoft Sentinel incident.</p>
+<p>When you connect a Microsoft security solution, you can select whether you want the alerts from the security solution to automatically generate incidents in Microsoft Sentinel automatically.</p>
+<p><strong>Configure playbooks</strong></p>
+<p>Security automation and orchestration lets you automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services as well as your existing tools. Built on the foundation of Azure Logic Apps, Azure Sentinel's automation and orchestration solution provides a highly-extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery of built-in playbooks. These include 200+ connectors for services such as Azure functions. The connectors allow you to apply any custom logic in code, ServiceNow, Jira, Zendesk, HTTP requests, Microsoft Teams, Slack, Windows Defender ATP, and Cloud App Security.</p>
+<p>For example, if you use the ServiceNow ticketing system, you can use the tools provided to use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular event is detected.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-188.png" /></p>
+<p><strong>Hunt and investigate potential breaches</strong></p>
+<p>Currently in preview, Microsoft Sentinel deep investigation tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat.</p>
+<p>An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytic rules that you created in the Analytics page. The properties related to the alerts, such as severity, and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.</p>
+<p><strong>Use the investigation graph to deep dive</strong></p>
+<p>The investigation graph enables analysts to ask the right questions for each investigation. The investigation graph helps you understand the scope, and identify the root cause, of a potential security threat by correlating relevant data with any involved entity. You can dive deeper and investigate any entity presented in the graph by selecting it and choosing between different expansion options.</p>
+<p>The investigation graph provides you with:
+   - Visual context from raw data: The live, visual graph displays entity relationships extracted automatically from the raw data. This enables you to easily view connections across different data sources.
+   - Full investigation scope discovery: Expand your investigation scope using built-in exploration queries to surface the full scope of a breach.
+   - Built-in investigation steps: Use predefined exploration options to make sure you are asking the right questions in the face of a threat.</p>
+<p><strong>To use the investigation graph:</strong></p>
+<p>Select an incident, then select Investigate. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.</p>
+<p><img alt="Design Flow1" src="image/AZ-500-189.png" /></p>
+<p>You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.</p>
+<p><strong>Hunting</strong></p>
+<p>Use Microsoft's Sentinel's powerful hunting search-and-query tools, based on the MITRE framework, which enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. After you discover which hunting query provides high-value insights into possible attacks, you can also create custom detection rules based on your query, and surface those insights as alerts to your security incident responders. While hunting, you can create bookmarks for interesting events, enabling you to return to them later, share them with others, and group them with other correlating events to create a compelling incident for investigation.</p>
+<p>For example, one built-in query provides data about the most uncommon processes running on your infrastructure. You may not want an alert each time they are run.</p>
+<p>With Microsoft Sentinel hunting, you can take advantage of the following capabilities:</p>
+<ul>
+<li>Built-in queries: To get you started, a starting page provides preloaded query examples designed to get you started and get you familiar with the tables and the query language. These built-in hunting queries are developed by Microsoft security researchers on a continuous basis, adding new queries, and fine-tuning existing queries to provide you with an entry point to look for new detections and figure out where to start hunting for the beginnings of new attacks.</li>
+<li>Powerful query language with IntelliSense: Built on top of a query language that gives you the flexibility you need to take hunting to the next level.</li>
+<li>Create your own bookmarks: During the hunting process, you may come across matches or findings, dashboards, or activities that look unusual or suspicious. In order to mark those items so you can come back to them in the future, use the bookmark functionality. Bookmarks let you save items for later, to be used to create an incident for investigation.</li>
+<li>Use notebooks to automate investigation: Notebooks are like step-by-step playbooks that you can build to walk through the steps of an investigation and hunt. Notebooks encapsulate all the hunting steps in a reusable playbook that can be shared with others in your organization.</li>
+<li>Query the stored data: The data is accessible in tables for you to query. For example, you can query process creation, DNS events, and many other event types.</li>
+<li>Links to the community: Leverage the power of the greater community to find additional queries and data sources.</li>
+</ul>
+<p><img alt="Design Flow1" src="image/AZ-500-190.png" /></p>
+<p><strong>Community</strong></p>
+<p>The Microsoft Sentinel community is a powerful resource for threat detection and automation. Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. You can download sample content from the private community GitHub repository to create custom workbooks, hunting queries, notebooks, and playbooks for Microsoft Sentinel.</p>
+<p><strong>Knowledge check</strong></p>
+<ol>
+<li>
+<p>Where can custom security alerts be created and managed?</p>
+</li>
+<li>
+<p>Azure Security Center</p>
+</li>
+<li>Azure Sentinel (<strong>Ans</strong>)</li>
+<li>
+<p>Azure Storage</p>
+</li>
+<li>
+<p>Which of the items below would exceed the capabilities of an Azure Sentinel playbook?</p>
+</li>
+<li>
+<p>A Sentinel playbook can help automate and orchestrate an incident response.</p>
+</li>
+<li>A Sentinel playbook be run manually or set to run automatically when specific alerts are triggered.</li>
+<li>
+<p>A Sentinel playbook be created to handle several subscriptions at once. (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>Sentinel is being used to investigate an incident. When viewing the incident detailed information, which value has to be assigned, instead of being included in the data?</p>
+</li>
+<li>
+<p>Incident ID</p>
+</li>
+<li>Incident owner (<strong>Ans</strong>)</li>
+<li>
+<p>Number of entities involved</p>
+</li>
+<li>
+<p>When creating roles within a security operations team to grant appropriate access to Azure Sentinel. Which role below would have to be created versus being built-in?</p>
+</li>
+<li>
+<p>Azure Sentinel reader</p>
+</li>
+<li>Azure Sentinel responder</li>
+<li>
+<p>Azure Sentinel owner (<strong>Ans</strong>)</p>
+</li>
+<li>
+<p>An investigator wants to be proactive about looking for security threats. The security officer has read about Sentinel’s hunting capabilities and notebooks. What is an Azure Sentinel notebook?</p>
+</li>
+<li>
+<p>A step-by-step playbook that provides the ability to walk through the steps of an investigation and hunt. (<strong>Ans</strong>)</p>
+</li>
+<li>A table to query and locate actions like DNS events.</li>
+<li>A saved item for the creation of an incident for investigation.</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 27, 2023</span>
       
     
   </small>
