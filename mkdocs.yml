@@ -17,6 +17,7 @@ nav:
        - Aws: Cloud/Aws/aws.md
        - Azure:
             - Azure Security AZ-500: 
+                - Azure Security Technologies: Cloud/Azure/AZ-500/Azure-Security-Technologies.md
                 - Manage Identity and Access: Cloud/Azure/AZ-500/Manage-Identity-and-Access.md
                 - Implement platform protection: Cloud/Azure/AZ-500/Implement-platform-protection.md
                 - Secure your data and applications: Cloud/Azure/AZ-500/Secure-your-data-and-applications.md
