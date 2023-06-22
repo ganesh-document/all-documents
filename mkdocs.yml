@@ -16,6 +16,26 @@ nav:
    - Cloud:
        - Aws: Cloud/Aws/aws.md
        - Azure:
+            - Azure AZ-305:
+               - Azure All Services: Cloud/Azure/AZ-305/Azure-all-services.md 
+               - Compute: Cloud/Azure/AZ-305/Compute.md
+               - Containers: Cloud/Azure/AZ-305/Containers.md
+               - Analytics: Cloud/Azure/AZ-305/Analytics.md
+               - Databases: Cloud/Azure/AZ-305/Databases.md
+               - DevOps: Cloud/Azure/AZ-305/DevOps.md
+               - Hybrid & Multicloud: Cloud/Azure/AZ-305/Hybrid-Multicloud.md
+               - Identity: Cloud/Azure/AZ-305/Identity.md
+               - Integration: Cloud/Azure/AZ-305/Integration.md
+               - Internet of Things(IoT): Cloud/Azure/AZ-305/Internet-of-Things.md
+               - Management and governance: Cloud/Azure/AZ-305/Management-governance.md
+               - Migration: Cloud/Azure/AZ-305/Migration.md
+               - Mixed reality: Cloud/Azure/AZ-305/Mixed-reality.md
+               - Monitor: Cloud/Azure/AZ-305/Monitor.md
+               - Networking: Cloud/Azure/AZ-305/Networking.md
+               - Security: Cloud/Azure/AZ-305/Security.md
+               - Storage: Cloud/Azure/AZ-305/Storage.md
+               - Web & Mobile: Cloud/Azure/AZ-305/Web-Mobile.md
+               - General: Cloud/Azure/AZ-305/General.md
             - Azure Security AZ-500: 
                 - Azure Security Technologies: Cloud/Azure/AZ-500/Azure-Security-Technologies.md
                 - Manage Identity and Access: Cloud/Azure/AZ-500/Manage-Identity-and-Access.md
