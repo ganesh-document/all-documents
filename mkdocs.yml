@@ -42,7 +42,7 @@ nav:
                 - Implement platform protection: Cloud/Azure/AZ-500/Implement-platform-protection.md
                 - Secure your data and applications: Cloud/Azure/AZ-500/Secure-your-data-and-applications.md
                 - Manage security operation: Cloud/Azure/AZ-500/Manage-security-operation.md
-                - Certification Questions: /Cloud/Azure/AZ-500/Microsoft-Azure-Security-Engineer-Associate-Certification-Questions.md
+                - Certification Questions: Cloud/Azure/AZ-500/Microsoft-Azure-Security-Engineer-Associate-Certification-Questions.md
        - Gcp: Cloud/Gcp/gcp.md
        - Oci: Cloud/Oci/oci.md
        - Ibm: Cloud/Ibm/ibm.md
