@@ -131,3 +131,10 @@
 
 ![Design Flow1](image/AZ-500-Q-M2-56.png)
 
+![Design Flow1](image/AZ-500-Q-M2-57.png)
+
+![Design Flow1](image/AZ-500-Q-M2-58.png)
+
+![Design Flow1](image/AZ-500-Q-M2-59.png)
+
+![Design Flow1](image/AZ-500-Q-M2-60.png)
