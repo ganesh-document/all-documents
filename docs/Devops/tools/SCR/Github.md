@@ -48,18 +48,10 @@ curl -L \
 
 
 
-
-
-
-
-
-
-
-
 curl -L \
   -X POST \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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"\
+  -H "Authorization: Bearer xxxxxxxxxxxxxxxxxxxxxxxxx"\
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/ganesh-document/Hello-World/rulesets \
   -d '{"name":"super cool ruleset","target":"branch","enforcement":"active","bypass_mode":"repository","bypass_actors":[{"actor_id":234,"actor_type":"Team"}],"conditions":{"ref_name":{"include":["refs/heads/main","refs/heads/master"],"exclude":["refs/heads/dev*"]}},"rules":[{"type":"commit_author_email_pattern","parameters":{"operator":"contains","pattern":"github"}}]}, "rules":[{"type":"pull_request","parameters":{"required_approving_review_count":"1"}}]}, "rules":[{"type":"non_fast_forward","parameters":{"type":"non_fast_forward"}}]}'
