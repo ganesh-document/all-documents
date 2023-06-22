@@ -2,252 +2,352 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ganesh-document.github.io/all-documents/index.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Documentsdetails.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Aws/aws.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/azure.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Analytics.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Azure-all-services.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Compute.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Containers.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Databases.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/DevOps.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/General.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Hybrid-Multicloud.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Identity.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Integration.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Internet-of-Things.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Management-governance.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Migration.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Mixed-reality.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Monitor.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Networking.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Security.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Storage.html</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-305/Web-Mobile.html</loc>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Azure-Security-Technologies.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Implement-platform-protection.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Manage-Identity-and-Access.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Manage-security-operation.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Microsoft-Azure-Security-Engineer-Associate-Certification-Questions.html</loc>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Azure/AZ-500/Secure-your-data-and-applications.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Gcp/gcp.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Ibm/ibm.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Cloud/Oci/oci.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Compliance/compliance.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/devsecops.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Appknox.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Checkmarx.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/CodeScan.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Coverity.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/DeepSource.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Fortify-Static-Code-Analyzer.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/GitGuardian.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/GitLab.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Github.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/HCLAppScan.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Kiuwan-Code-Security-Insights.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Semgrep.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/SonarQube.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/snyk.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/devops.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CD/ArgoCD.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CD/GitLab.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CD/GoCD.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CD/Jenkins.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CD/Spinnaker.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/AWS-CodePipeline.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/Azure-Pipelines.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/Bamboo.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/Bitbucket.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/CircleCI.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/Github-action.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/Gitlab.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/Jenkins.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/TeamCity.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CI/TravisCI.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CQT/Sonarqube.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/CR/Jfrog-artifactory.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/tools/SCR/Github.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/MicroService/microservice.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Security/security.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Security/Hashicorp-vault/Hashicorp-vault.html</loc>
-         <lastmod>2023-06-09</lastmod>
+         <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
