@@ -42,7 +42,20 @@ nav:
                 - Implement platform protection: Cloud/Azure/AZ-500/Implement-platform-protection.md
                 - Secure your data and applications: Cloud/Azure/AZ-500/Secure-your-data-and-applications.md
                 - Manage security operation: Cloud/Azure/AZ-500/Manage-security-operation.md
-                - Certification Questions: Cloud/Azure/AZ-500/Microsoft-Azure-Security-Engineer-Associate-Certification-Questions.md
+                - Certification Questions 1: Cloud/Azure/AZ-500/Certification-Questions-module1.md
+                - Certification Questions 2: Cloud/Azure/AZ-500/Certification-Questions-module2.md
+                - Certification Questions 3: Cloud/Azure/AZ-500/Certification-Questions-module3.md
+                - Certification Questions 4: Cloud/Azure/AZ-500/Certification-Questions-module4.md
+                - Certification Questions 5: Cloud/Azure/AZ-500/Certification-Questions-module5.md
+                - Certification Questions 6: Cloud/Azure/AZ-500/Certification-Questions-module6.md
+                - Certification Questions 7: Cloud/Azure/AZ-500/Certification-Questions-module7.md
+                - Certification Questions 8: Cloud/Azure/AZ-500/Certification-Questions-module8.md
+                - Certification Questions 9: Cloud/Azure/AZ-500/Certification-Questions-module9.md
+                - Certification Questions 10: Cloud/Azure/AZ-500/Certification-Questions-module10.md
+                - Certification Questions 11: Cloud/Azure/AZ-500/Certification-Questions-module11.md
+                - Certification Questions 12: Cloud/Azure/AZ-500/Certification-Questions-module12.md
+                - Certification Questions 13: Cloud/Azure/AZ-500/Certification-Questions-module13.md
+                - Certification Questions 14: Cloud/Azure/AZ-500/Certification-Questions-module14.md
        - Gcp: Cloud/Gcp/gcp.md
        - Oci: Cloud/Oci/oci.md
        - Ibm: Cloud/Ibm/ibm.md
