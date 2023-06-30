@@ -84,34 +84,39 @@ nav:
           - SCR (Source Code Repository):
             - Github: Devops/tools/SCR/Github.md
           - CQT (Code Quality Tools):
-            - SonarQube: Devops/tools/CQT/Sonarqube.md
-   - Security:
-       - Hashicorp Vault: Security/Hashicorp-vault/Hashicorp-vault.md
-       - CCSP: Security/CCSP-2023.md
+            - SonarQube: Devops/tools/CQT/Sonarqube.md            
    - Compliance:
        - poc: Compliance/compliance.md
    - DevSecOps:
+       - DevSecOps: DevSecOps/DevSecOps.md
+   - Security:
+       - Hashicorp Vault: Security/Hashicorp-vault/Hashicorp-vault.md
+       - CCSP:
+           - CCSP-2023-1: Security/CCSP/CCSP-2023-1.md
+           - CCSP-2023-2: Security/CCSP/CCSP-2023-2.md
+           - CCSP-2023-3: Security/CCSP/CCSP-2023-3.md
        - SAST: 
-         - SonarQube: DevSecOps/SAST/Tools/SonarQube.md
-         - snyk: DevSecOps/SAST/Tools/snyk.md
-         - Verracode: DevSecOps/SAST/Tools/Verracode.md
-         - HCLAppScan: DevSecOps/SAST/Tools/HCLAppScan.md
-         - Github: DevSecOps/SAST/Tools/Github.md
-         - GitLab: DevSecOps/SAST/Tools/GitLab.md
-         - GitGuardian: DevSecOps/SAST/Tools/GitGuardian.md
-         - Coverity: DevSecOps/SAST/Tools/Coverity.md
-         - Semgrep: DevSecOps/SAST/Tools/Semgrep.md
-         - Appknox: DevSecOps/SAST/Tools/SonarQube.md
-         - DeepSource: DevSecOps/SAST/Tools/SonarQube.md
-         - Checkmarx: DevSecOps/SAST/Tools/Checkmarx.md
-         - Fortify Static Code Analyzer: DevSecOps/SAST/Tools/Fortify.md
-         - Kiuwan Code Security Insights: DevSecOps/SAST/Tools/kiuwan.md
-
-       - DAST: DevSecOps/DAST/Tools/devsecops-dast.md
-       - SCA: DevSecOps/SCA/Tools/devsecops-sca.md
-       - Image scan: DevSecOps/CIS/Tools/devsecops-image.md
-       - IaC: DevSecOps/SCA/Tools/devsecops-iac.md
-       - Container scan: DevSecOps/SCA/Tools/devsecops-cs.md
+         - SonarQube: Security/SAST/Tools/SonarQube.md
+         - snyk: Security/SAST/Tools/snyk.md
+         - Verracode: Security/SAST/Tools/Verracode.md
+         - HCLAppScan: Security/SAST/Tools/HCLAppScan.md
+         - Github: Security/SAST/Tools/Github.md
+         - GitLab: Security/SAST/Tools/GitLab.md
+         - GitGuardian: Security/SAST/Tools/GitGuardian.md
+         - Coverity: Security/SAST/Tools/Coverity.md
+         - Semgrep: Security/SAST/Tools/Semgrep.md
+         - Appknox: Security/SAST/Tools/SonarQube.md
+         - DeepSource: Security/SAST/Tools/SonarQube.md
+         - Checkmarx: Security/SAST/Tools/Checkmarx.md
+         - Fortify Static Code Analyzer: Security/SAST/Tools/Fortify.md
+         - Kiuwan Code Security Insights: Security/SAST/Tools/kiuwan.md
+       - DAST: Security/DAST/Tools/devsecops-dast.md
+       - SCA: Security/SCA/Tools/devsecops-sca.md
+       - Container image scan: Security/Container-image-scanning/Tools/devsecops-image.md
+       - IaC: Security/IaC/Tools/devsecops-iac.md
+       - OSSC: Security/OSSC/Tools/devsecops-cs.md
+       - Penetration Testing: Security/Penetration-Testing/Tools/devsecops-cs.md
+       - CyberArk: Security/CyberArk/Tools/devsecops-cs.md
    - Micro Service:
        - MicroService/microservice.md
 
