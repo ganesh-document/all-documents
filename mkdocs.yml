@@ -87,6 +87,7 @@ nav:
             - SonarQube: Devops/tools/CQT/Sonarqube.md
    - Security:
        - Hashicorp Vault: Security/Hashicorp-vault/Hashicorp-vault.md
+       - CCSP: Security/CCSP-2023.md
    - Compliance:
        - poc: Compliance/compliance.md
    - DevSecOps:
