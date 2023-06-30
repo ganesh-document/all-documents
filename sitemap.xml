@@ -236,76 +236,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Appknox.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Checkmarx.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/CodeScan.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Coverity.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/DeepSource.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Fortify-Static-Code-Analyzer.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/GitGuardian.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/GitLab.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Github.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/HCLAppScan.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Kiuwan-Code-Security-Insights.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/Semgrep.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/SonarQube.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ganesh-document.github.io/all-documents/DevSecOps/SAST/Tools/snyk.html</loc>
-         <lastmod>2023-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ganesh-document.github.io/all-documents/Devops/devops.html</loc>
          <lastmod>2023-06-30</lastmod>
          <changefreq>daily</changefreq>
@@ -406,12 +336,92 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ganesh-document.github.io/all-documents/Security/CCSP-2023.html</loc>
+         <loc>https://ganesh-document.github.io/all-documents/Security/CCSP/CCSP-2023-1.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/CCSP/CCSP-2023-2.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/CCSP/CCSP-2023-3.html</loc>
          <lastmod>2023-06-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ganesh-document.github.io/all-documents/Security/Hashicorp-vault/Hashicorp-vault.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Appknox.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Checkmarx.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/CodeScan.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Coverity.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/DeepSource.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Fortify-Static-Code-Analyzer.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/GitGuardian.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/GitLab.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Github.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/HCLAppScan.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Kiuwan-Code-Security-Insights.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/Semgrep.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/SonarQube.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ganesh-document.github.io/all-documents/Security/SAST/Tools/snyk.html</loc>
          <lastmod>2023-06-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
