@@ -95,22 +95,23 @@ nav:
            - CCSP-2023-1: Security/CCSP/CCSP-2023-1.md
            - CCSP-2023-2: Security/CCSP/CCSP-2023-2.md
            - CCSP-2023-3: Security/CCSP/CCSP-2023-3.md
-       - SAST: Security/SAST/SAST.md
+       - SAST:
+         - Overview: Security/SAST/SAST.md
          - Tools:
-         - SonarQube: Security/SAST/Tools/SonarQube.md
-         - snyk: Security/SAST/Tools/snyk.md
-         - Verracode: Security/SAST/Tools/Verracode.md
-         - HCLAppScan: Security/SAST/Tools/HCLAppScan.md
-         - Github: Security/SAST/Tools/Github.md
-         - GitLab: Security/SAST/Tools/GitLab.md
-         - GitGuardian: Security/SAST/Tools/GitGuardian.md
-         - Coverity: Security/SAST/Tools/Coverity.md
-         - Semgrep: Security/SAST/Tools/Semgrep.md
-         - Appknox: Security/SAST/Tools/SonarQube.md
-         - DeepSource: Security/SAST/Tools/SonarQube.md
-         - Checkmarx: Security/SAST/Tools/Checkmarx.md
-         - Fortify Static Code Analyzer: Security/SAST/Tools/Fortify.md
-         - Kiuwan Code Security Insights: Security/SAST/Tools/kiuwan.md
+           - SonarQube: Security/SAST/Tools/SonarQube.md
+           - snyk: Security/SAST/Tools/snyk.md
+           - Verracode: Security/SAST/Tools/Verracode.md
+           - HCLAppScan: Security/SAST/Tools/HCLAppScan.md
+           - Github: Security/SAST/Tools/Github.md
+           - GitLab: Security/SAST/Tools/GitLab.md
+           - GitGuardian: Security/SAST/Tools/GitGuardian.md
+           - Coverity: Security/SAST/Tools/Coverity.md
+           - Semgrep: Security/SAST/Tools/Semgrep.md
+           - Appknox: Security/SAST/Tools/SonarQube.md
+           - DeepSource: Security/SAST/Tools/SonarQube.md
+           - Checkmarx: Security/SAST/Tools/Checkmarx.md
+           - Fortify Static Code Analyzer: Security/SAST/Tools/Fortify.md
+           - Kiuwan Code Security Insights: Security/SAST/Tools/kiuwan.md
        - DAST: Security/DAST/Tools/devsecops-dast.md
        - SCA: Security/SCA/Tools/devsecops-sca.md
        - Container image scan: Security/Container-image-scanning/Tools/devsecops-image.md
