@@ -95,7 +95,8 @@ nav:
            - CCSP-2023-1: Security/CCSP/CCSP-2023-1.md
            - CCSP-2023-2: Security/CCSP/CCSP-2023-2.md
            - CCSP-2023-3: Security/CCSP/CCSP-2023-3.md
-       - SAST: 
+       - SAST: Security/SAST/SAST.md
+         - Tools:
          - SonarQube: Security/SAST/Tools/SonarQube.md
          - snyk: Security/SAST/Tools/snyk.md
          - Verracode: Security/SAST/Tools/Verracode.md
