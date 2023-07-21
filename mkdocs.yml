@@ -90,7 +90,10 @@ nav:
    - DevSecOps:
        - DevSecOps: DevSecOps/DevSecOps.md
    - Security:
-       - Hashicorp Vault: Security/Hashicorp-vault/Hashicorp-vault.md
+       - Hashicorp Vault: 
+          - Hashicorp Vault details: Security/Hashicorp-vault/Hashicorp-vault.md
+          - Hashicorp Vault instalation: Security/Hashicorp-vault/Hashicorp-vault-instalation.md
+          - Hashicorp Vault github auth: Security/Hashicorp-vault/hashicorp-vault-github-auth.md
        - CCSP:
            - CCSP-2023-1: Security/CCSP/CCSP-2023-1.md
            - CCSP-2023-2: Security/CCSP/CCSP-2023-2.md
