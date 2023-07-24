@@ -62,6 +62,21 @@ nav:
    - Devops:
        - Overview: Devops/devopso-verview.md
        - Tools:
+          - Kubernetes:
+             - Overview: Devops/tools/kubernetes/k8s-overview.md
+             - Kubernetes Images: Devops/tools/kubernetes/Kubernetes-Images.md
+             - Kubernetes Jobs: Devops/tools/kubernetes/Kubernetes-Jobs.md
+             - Kubernetes Labels & Selectors: Devops/tools/kubernetes/Kubernetes-Labels-and-Selectors.md
+             - Kubernetes Namespace.md: Devops/tools/kubernetes/Kubernetes-Namespace.md
+             - Kubernetes Node: Devops/tools/kubernetes/ Kubernetes-Node.md
+             - Kubernetes Service: Devops/tools/kubernetes/Kubernetes-Service.md
+             - Kubernetes Pod: Devops/tools/kubernetes/Kubernetes-Pod.md
+             - Kubernetes Replication Controller: Devops/tools/kubernetes/Kubernetes-Replication-Controller.md
+             - Kubernetes Replica Sets: Devops/tools/kubernetes/Kubernetes-Replica-Sets.md
+             - Kubernetes Deployments: Devops/tools/kubernetes/Kubernetes-Deployments.md
+             - Kubernetes Volumes: Devops/tools/kubernetes/Kubernetes-Volumes.md
+             - Kubernetes Secrets: Devops/tools/kubernetes/Kubernetes-Secrets.md
+             - Kubernetes Network Policy: Devops/tools/kubernetes/Kubernetes-Network-Policy.md
           - CI (Continuous Integration):
             - Github Action: Devops/tools/CI/Github-action.md
             - Jenkins: Devops/tools/CI/Jenkins.md

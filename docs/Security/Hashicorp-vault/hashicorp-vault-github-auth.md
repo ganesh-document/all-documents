@@ -5,11 +5,13 @@
 ```
 $ helm repo add hashicorp https://helm.releases.hashicorp.com
 "hashicorp" already exists with the same configuration, skipping
-
+```
+```
 $ helm search repo hashicorp/vault
 NAME           	CHART VERSION	APP VERSION	DESCRIPTION                   
 hashicorp/vault	0.23.0       	1.12.1     	Official HashiCorp Vault Chart
-
+```
+```
 $ helm install vault hashicorp/vault
 NAME: vault
 LAST DEPLOYED: Fri Jul 14 21:17:05 2023
@@ -23,13 +25,16 @@ Now that you have deployed Vault, you should look over the docs on using
 Vault with Kubernetes available here:
 
 https://www.vaultproject.io/docs/
+```
 
 
 Your release is named vault. To learn more about the release, try:
 
+```
   $ helm status vault
   $ helm get manifest vault
-
+```
+```
 $ kubectl get pod,svc -n default
 NAME                                        READY   STATUS    RESTARTS   AGE
 pod/vault-0                                 0/1     Running   0          35s
@@ -40,7 +45,8 @@ service/kubernetes                 ClusterIP   10.96.0.1      <none>        443/
 service/vault                      ClusterIP   10.106.6.9     <none>        8200/TCP,8201/TCP   36s
 service/vault-agent-injector-svc   ClusterIP   10.103.13.49   <none>        443/TCP             36s
 service/vault-internal             ClusterIP   None           <none>        8200/TCP,8201/TCP   36s
-
+```
+```
 $ minikube service vault
 |-----------|-------|-------------|--------------|
 | NAMESPACE | NAME  | TARGET PORT |     URL      |
@@ -66,7 +72,8 @@ http://127.0.0.1:56030]
 $ helm ls
 NAME 	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART       	APP VERSION
 vault	default  	1       	2023-07-14 21:23:11.745081 +0530 IST	deployed	vault-0.23.0	1.12.1     
-
+```
+```
 $ helm uninstall vault hashicorp/vault
 release "vault" uninstalled
 ```
@@ -145,8 +152,8 @@ identity_policies      []
 policies               ["default"]
 token_meta_org         ganesh-document
 token_meta_username    ganeshkinkar
-
-
+```
+```
 $ vault kv get -field=password github/dev1
 test123
 ```
