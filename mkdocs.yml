@@ -60,7 +60,7 @@ nav:
        - Oci: Cloud/Oci/oci.md
        - Ibm: Cloud/Ibm/ibm.md
    - Devops:
-       - Overview: Devops/devopso-verview.md
+       - Overview: Devops/devops-overview.md
        - Tools:
           - Kubernetes:
             - Overview: Devops/tools/kubernetes/Kubernetes-overview.md
