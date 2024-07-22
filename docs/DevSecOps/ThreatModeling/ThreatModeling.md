@@ -1,1 +1,1 @@
-[DevSecOps-Security.pptx](DevSecOps/ThreatModeling/DevSecOps-Security.pptx){:download}
+[Download File](../DevSecOps/ThreatModeling/ThreatModeling-doc.pptx)
