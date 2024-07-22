@@ -42,20 +42,6 @@ nav:
                 - Implement platform protection: Cloud/Azure/AZ-500/Implement-platform-protection.md
                 - Secure your data and applications: Cloud/Azure/AZ-500/Secure-your-data-and-applications.md
                 - Manage security operation: Cloud/Azure/AZ-500/Manage-security-operation.md
-                - Certification Questions 1: Cloud/Azure/AZ-500/Certification-Questions-module1.md
-                - Certification Questions 2: Cloud/Azure/AZ-500/Certification-Questions-module2.md
-                - Certification Questions 3: Cloud/Azure/AZ-500/Certification-Questions-module3.md
-                - Certification Questions 4: Cloud/Azure/AZ-500/Certification-Questions-module4.md
-                - Certification Questions 5: Cloud/Azure/AZ-500/Certification-Questions-module5.md
-                - Certification Questions 6: Cloud/Azure/AZ-500/Certification-Questions-module6.md
-                - Certification Questions 7: Cloud/Azure/AZ-500/Certification-Questions-module7.md
-                - Certification Questions 8: Cloud/Azure/AZ-500/Certification-Questions-module8.md
-                - Certification Questions 9: Cloud/Azure/AZ-500/Certification-Questions-module9.md
-                - Certification Questions 10: Cloud/Azure/AZ-500/Certification-Questions-module10.md
-                - Certification Questions 11: Cloud/Azure/AZ-500/Certification-Questions-module11.md
-                - Certification Questions 12: Cloud/Azure/AZ-500/Certification-Questions-module12.md
-                - Certification Questions 13: Cloud/Azure/AZ-500/Certification-Questions-module13.md
-                - Certification Questions 14: Cloud/Azure/AZ-500/Certification-Questions-module14.md
        - Gcp: Cloud/Gcp/gcp.md
        - Oci: Cloud/Oci/oci.md
        - Ibm: Cloud/Ibm/ibm.md
@@ -104,40 +90,41 @@ nav:
        - poc: Compliance/compliance.md
    - DevSecOps:
        - DevSecOps: DevSecOps/DevSecOps.md
+       - Hashicorp Vault:
+         - Hashicorp Vault details: Security/Hashicorp-vault/Hashicorp-vault.md
+         - Hashicorp Vault instalation: Security/Hashicorp-vault/Hashicorp-vault-instalation.md
+         - Hashicorp Vault github auth: Security/Hashicorp-vault/hashicorp-vault-github-auth.md
+       - Threat Modeling: DevSecOps/ThreatModeling/ThreatModeling.md
+       - SAST:
+         - Overview: DevSecOps/SAST/SAST.md
+         - Tools:
+           - SonarQube: DevSecOps/SAST/Tools/SonarQube.md
+           - snyk: DevSecOps/SAST/Tools/snyk.md
+           - Verracode: DevSecOps/SAST/Tools/Verracode.md
+           - HCLAppScan: DevSecOps/SAST/Tools/HCLAppScan.md
+           - Github: DevSecOps/SAST/Tools/Github.md
+           - GitLab: DevSecOps/SAST/Tools/GitLab.md
+           - GitGuardian: DevSecOps/SAST/Tools/GitGuardian.md
+           - Coverity: DevSecOps/SAST/Tools/Coverity.md
+           - Semgrep: DevSecOps/SAST/Tools/Semgrep.md
+           - Appknox: DevSecOps/SAST/Tools/SonarQube.md
+           - DeepSource: DevSecOps/SAST/Tools/SonarQube.md
+           - Checkmarx: DevSecOps/SAST/Tools/Checkmarx.md
+           - Fortify Static Code Analyzer: DevSecOps/SAST/Tools/Fortify.md
+           - Kiuwan Code Security Insights: DevSecOps/SAST/Tools/kiuwan.md
+       - DAST: DevSecOps/DAST/dast.md
+       - SCA: DevSecOps/SCA/sca.md
+       - Container image scan: DevSecOps/Containerimagescan/Containerimagescan.md
+       - IaC: DevSecOps/IaC/iac.md
+       - OSSC: DevSecOps/OSSC/ossc.md
+       - CyberArk: DevSecOps/CyberArk/CyberArk.md
    - Security:
-       - Hashicorp Vault: 
-          - Hashicorp Vault details: Security/Hashicorp-vault/Hashicorp-vault.md
-          - Hashicorp Vault instalation: Security/Hashicorp-vault/Hashicorp-vault-instalation.md
-          - Hashicorp Vault github auth: Security/Hashicorp-vault/hashicorp-vault-github-auth.md
        - CCSP:
            - CCSP-2023-1: Security/CCSP/CCSP-2023-1.md
            - CCSP-2023-2: Security/CCSP/CCSP-2023-2.md
            - CCSP-2023-3: Security/CCSP/CCSP-2023-3.md
-       - SAST:
-         - Overview: Security/SAST/SAST.md
-         - Tools:
-           - SonarQube: Security/SAST/Tools/SonarQube.md
-           - snyk: Security/SAST/Tools/snyk.md
-           - Verracode: Security/SAST/Tools/Verracode.md
-           - HCLAppScan: Security/SAST/Tools/HCLAppScan.md
-           - Github: Security/SAST/Tools/Github.md
-           - GitLab: Security/SAST/Tools/GitLab.md
-           - GitGuardian: Security/SAST/Tools/GitGuardian.md
-           - Coverity: Security/SAST/Tools/Coverity.md
-           - Semgrep: Security/SAST/Tools/Semgrep.md
-           - Appknox: Security/SAST/Tools/SonarQube.md
-           - DeepSource: Security/SAST/Tools/SonarQube.md
-           - Checkmarx: Security/SAST/Tools/Checkmarx.md
-           - Fortify Static Code Analyzer: Security/SAST/Tools/Fortify.md
-           - Kiuwan Code Security Insights: Security/SAST/Tools/kiuwan.md
-       - DAST: Security/DAST/Tools/devsecops-dast.md
-       - SCA: Security/SCA/Tools/devsecops-sca.md
-       - Container image scan: Security/Container-image-scanning/Tools/devsecops-image.md
-       - IaC: Security/IaC/Tools/devsecops-iac.md
-       - OSSC: Security/OSSC/Tools/devsecops-cs.md
        - Penetration Testing: Security/Penetration-Testing/Tools/devsecops-cs.md
-       - CyberArk: Security/CyberArk/Tools/devsecops-cs.md
-   - Micro Service:
+   - Microservice:
        - MicroService/microservice.md
 
 #theme: readthedocs
