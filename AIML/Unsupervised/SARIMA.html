@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Ganesh Kinkar Giri" /><link rel="canonical" href="https://ganesh-document.github.io/all-documents/AIML/Unsupervised/SARIMA.html" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>SARIMA - All the documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SARIMA";
+        var mkdocs_page_input_path = "AIML/Unsupervised/SARIMA.md";
+        var mkdocs_page_url = "/all-documents/AIML/Unsupervised/SARIMA.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> All the documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Overview</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Documents</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentsdetails.html">Documents details</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">AIML</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../aiml-overview.html">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Supervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Supervised/Supervised-overview.html">Supervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Regression</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../Supervised/Linear-Regression.md">Linear Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Decision-Tree.md">Decision Tree</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Random-Forest.md">Random Forest</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/SVM.md">SVM</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Naive-Bayes.md">Naive Bayes</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Gradient-Boosting.md">Gradient Boosting</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Classification</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../Supervised/Classification-overview.md">Classification Overview</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Logistic-Regression.md">Logistic Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/KNN.md">KNN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Unsupervised</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="Unsupervised-overview.html">Unsupervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="K-means.html">K-means</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="PCA.html">PCA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="SOM.html">SOM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ARIMA.html">ARIMA</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">SARIMA</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Deep Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/DeepLearning-overview.html">Deep Learning Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/DeepLearning-algorithms.html">Deep Learning Algorithms</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/Keras.html">Keras</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/Tensorflow.html">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/Pytorch.html">Pytorch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/LSTM.html">LSTM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/Autoencoder.html">Autoencoder</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/Reinforcement-Learning.html">Reinforcement Learning</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../DeepLearning/NLP.md">NLP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../DeepLearning/BERT.html">BERT</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../DeepLearning/GPT.md">GPT</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cloud</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Aws/aws.html">Aws</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Azure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Azure AZ-305</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Azure-all-services.html">Azure All Services</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Compute.html">Compute</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Containers.html">Containers</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Analytics.html">Analytics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Databases.html">Databases</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/DevOps.html">DevOps</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Hybrid-Multicloud.html">Hybrid & Multicloud</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Identity.html">Identity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Integration.html">Integration</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Internet-of-Things.html">Internet of Things(IoT)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Management-governance.html">Management and governance</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Migration.html">Migration</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Mixed-reality.html">Mixed reality</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Monitor.html">Monitor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Networking.html">Networking</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Security.html">Security</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Storage.html">Storage</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Web-Mobile.html">Web & Mobile</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/General.html">General</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Azure Security AZ-500</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Azure-Security-Technologies.html">Azure Security Technologies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Manage-Identity-and-Access.html">Manage Identity and Access</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Implement-platform-protection.html">Implement platform protection</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Secure-your-data-and-applications.html">Secure your data and applications</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Manage-security-operation.html">Manage security operation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Gcp/gcp.html">Gcp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Oci/oci.html">Oci</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Ibm/ibm.html">Ibm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Devops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../Devops/devops-overview.md">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Kubernetes</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-overview.md">Overview</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Images.md">Kubernetes Images</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Jobs.md">Kubernetes Jobs</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Labels-and-Selectors.md">Kubernetes Labels & Selectors</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Namespace.md">Kubernetes Namespace.md</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/ Kubernetes-Node.md">Kubernetes Node</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Service.md">Kubernetes Service</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Pod.md">Kubernetes Pod</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Replication-Controller.md">Kubernetes Replication Controller</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Replica-Sets.md">Kubernetes Replica Sets</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Deployments.md">Kubernetes Deployments</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Volumes.md">Kubernetes Volumes</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Secrets.md">Kubernetes Secrets</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Network-Policy.md">Kubernetes Network Policy</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CI (Continuous Integration)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Github-action.html">Github Action</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Jenkins.html">Jenkins</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/TravisCI.html">TravisCI</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Gitlab.html">GitLab</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/TeamCity.html">TeamCity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/CircleCI.html">CircleCI</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Bamboo.html">Bamboo</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Bitbucket.html">Bitbucket</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/AWS-CodePipeline.html">AWS CodePipeline</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Azure-Pipelines.html">Azure Pipelines</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CD (Continuous Delivery)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/Jenkins.html">Jenkins</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/ArgoCD.html">ArgoCD</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/GoCD.html">GoCD</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/Spinnaker.html">Spinnaker</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/GitLab.html">GitLab</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CR (Container Registry)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CR/Jfrog-artifactory.html">Jfrog artifactory</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >SCR (Source Code Repository)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/SCR/Github.html">Github</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CQT (Code Quality Tools)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CQT/Sonarqube.html">SonarQube</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compliance</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Compliance/compliance.html">poc</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevSecOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../DevSecOps/DevSecOps.md">DevSecOps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Hashicorp Vault</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Security/Hashicorp-vault/Hashicorp-vault.md">Hashicorp Vault details</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Security/Hashicorp-vault/Hashicorp-vault-instalation.md">Hashicorp Vault instalation</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Security/Hashicorp-vault/hashicorp-vault-github-auth.md">Hashicorp Vault github auth</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/ThreatModeling/ThreatModeling.html">Threat Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >SAST</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevSecOps/SAST/SAST.html">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/SonarQube.html">SonarQube</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/snyk.html">snyk</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../DevSecOps/SAST/Tools/Verracode.md">Verracode</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/HCLAppScan.html">HCLAppScan</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Github.html">Github</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/GitLab.html">GitLab</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/GitGuardian.html">GitGuardian</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Coverity.html">Coverity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Semgrep.html">Semgrep</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/SonarQube.html">SonarQube</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/SonarQube.html">SonarQube</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Checkmarx.html">Checkmarx</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../DevSecOps/SAST/Tools/Fortify.md">Fortify Static Code Analyzer</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../DevSecOps/SAST/Tools/kiuwan.md">Kiuwan Code Security Insights</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/DAST/dast.html">DAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/SCA/sca.html">SCA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/Containerimagescan/Containerimagescan.html">Container image scan</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/IaC/iac.html">IaC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/OSSC/ossc.html">OSSC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/CyberArk/CyberArk.html">CyberArk</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Security</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >CCSP</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Security/CCSP/CCSP-2023-1.html">CCSP-2023-1</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Security/CCSP/CCSP-2023-2.html">CCSP-2023-2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Security/CCSP/CCSP-2023-3.html">CCSP-2023-3</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../Security/Penetration-Testing/Tools/devsecops-cs.md">Penetration Testing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Microservice</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MicroService/microservice.html">Microservice</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">All the documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">AIML</li>
+          <li class="breadcrumb-item">Unsupervised</li>
+      <li class="breadcrumb-item active">SARIMA</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tree/main/all-documents/AIML/Unsupervised/SARIMA.md">Edit on Ganesh All Documents</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="ARIMA.html" class="btn btn-neutral float-left" title="ARIMA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../DeepLearning/DeepLearning-overview.html" class="btn btn-neutral float-right" title="Deep Learning Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ganesh-document/all-documents" class="fa fa-code-fork" style="color: #fcfcfc"> Ganesh All Documents</a>
+        </span>
+    
+    
+      <span><a href="ARIMA.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../DeepLearning/DeepLearning-overview.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

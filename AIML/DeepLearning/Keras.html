@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Ganesh Kinkar Giri" /><link rel="canonical" href="https://ganesh-document.github.io/all-documents/AIML/DeepLearning/Keras.html" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Keras - All the documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Keras";
+        var mkdocs_page_input_path = "AIML/DeepLearning/Keras.md";
+        var mkdocs_page_url = "/all-documents/AIML/DeepLearning/Keras.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> All the documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Overview</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Documents</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentsdetails.html">Documents details</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">AIML</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../aiml-overview.html">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Supervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Supervised/Supervised-overview.html">Supervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Regression</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../Supervised/Linear-Regression.md">Linear Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Decision-Tree.md">Decision Tree</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Random-Forest.md">Random Forest</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/SVM.md">SVM</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Naive-Bayes.md">Naive Bayes</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Gradient-Boosting.md">Gradient Boosting</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Classification</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../Supervised/Classification-overview.md">Classification Overview</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/Logistic-Regression.md">Logistic Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../Supervised/KNN.md">KNN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Unsupervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Unsupervised/Unsupervised-overview.html">Unsupervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Unsupervised/K-means.html">K-means</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Unsupervised/PCA.html">PCA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Unsupervised/SOM.html">SOM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Unsupervised/ARIMA.html">ARIMA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Unsupervised/SARIMA.html">SARIMA</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Deep Learning</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="DeepLearning-overview.html">Deep Learning Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="DeepLearning-algorithms.html">Deep Learning Algorithms</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Keras</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="Tensorflow.html">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="Pytorch.html">Pytorch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="LSTM.html">LSTM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="Autoencoder.html">Autoencoder</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="Reinforcement-Learning.html">Reinforcement Learning</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="NLP.md">NLP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="BERT.html">BERT</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="GPT.md">GPT</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cloud</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Aws/aws.html">Aws</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Azure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Azure AZ-305</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Azure-all-services.html">Azure All Services</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Compute.html">Compute</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Containers.html">Containers</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Analytics.html">Analytics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Databases.html">Databases</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/DevOps.html">DevOps</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Hybrid-Multicloud.html">Hybrid & Multicloud</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Identity.html">Identity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Integration.html">Integration</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Internet-of-Things.html">Internet of Things(IoT)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Management-governance.html">Management and governance</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Migration.html">Migration</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Mixed-reality.html">Mixed reality</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Monitor.html">Monitor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Networking.html">Networking</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Security.html">Security</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Storage.html">Storage</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/Web-Mobile.html">Web & Mobile</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-305/General.html">General</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Azure Security AZ-500</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Azure-Security-Technologies.html">Azure Security Technologies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Manage-Identity-and-Access.html">Manage Identity and Access</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Implement-platform-protection.html">Implement platform protection</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Secure-your-data-and-applications.html">Secure your data and applications</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Cloud/Azure/AZ-500/Manage-security-operation.html">Manage security operation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Gcp/gcp.html">Gcp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Oci/oci.html">Oci</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Cloud/Ibm/ibm.html">Ibm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Devops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../Devops/devops-overview.md">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Kubernetes</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-overview.md">Overview</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Images.md">Kubernetes Images</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Jobs.md">Kubernetes Jobs</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Labels-and-Selectors.md">Kubernetes Labels & Selectors</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Namespace.md">Kubernetes Namespace.md</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/ Kubernetes-Node.md">Kubernetes Node</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Service.md">Kubernetes Service</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Pod.md">Kubernetes Pod</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Replication-Controller.md">Kubernetes Replication Controller</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Replica-Sets.md">Kubernetes Replica Sets</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Deployments.md">Kubernetes Deployments</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Volumes.md">Kubernetes Volumes</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Secrets.md">Kubernetes Secrets</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../Devops/tools/kubernetes/Kubernetes-Network-Policy.md">Kubernetes Network Policy</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CI (Continuous Integration)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Github-action.html">Github Action</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Jenkins.html">Jenkins</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/TravisCI.html">TravisCI</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Gitlab.html">GitLab</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/TeamCity.html">TeamCity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/CircleCI.html">CircleCI</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Bamboo.html">Bamboo</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Bitbucket.html">Bitbucket</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/AWS-CodePipeline.html">AWS CodePipeline</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CI/Azure-Pipelines.html">Azure Pipelines</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CD (Continuous Delivery)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/Jenkins.html">Jenkins</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/ArgoCD.html">ArgoCD</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/GoCD.html">GoCD</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/Spinnaker.html">Spinnaker</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CD/GitLab.html">GitLab</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CR (Container Registry)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CR/Jfrog-artifactory.html">Jfrog artifactory</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >SCR (Source Code Repository)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/SCR/Github.html">Github</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >CQT (Code Quality Tools)</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devops/tools/CQT/Sonarqube.html">SonarQube</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compliance</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Compliance/compliance.html">poc</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevSecOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../DevSecOps/DevSecOps.md">DevSecOps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Hashicorp Vault</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Security/Hashicorp-vault/Hashicorp-vault.md">Hashicorp Vault details</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Security/Hashicorp-vault/Hashicorp-vault-instalation.md">Hashicorp Vault instalation</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Security/Hashicorp-vault/hashicorp-vault-github-auth.md">Hashicorp Vault github auth</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/ThreatModeling/ThreatModeling.html">Threat Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >SAST</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevSecOps/SAST/SAST.html">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/SonarQube.html">SonarQube</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/snyk.html">snyk</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../DevSecOps/SAST/Tools/Verracode.md">Verracode</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/HCLAppScan.html">HCLAppScan</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Github.html">Github</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/GitLab.html">GitLab</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/GitGuardian.html">GitGuardian</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Coverity.html">Coverity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Semgrep.html">Semgrep</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/SonarQube.html">SonarQube</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/SonarQube.html">SonarQube</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../DevSecOps/SAST/Tools/Checkmarx.html">Checkmarx</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../DevSecOps/SAST/Tools/Fortify.md">Fortify Static Code Analyzer</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../DevSecOps/SAST/Tools/kiuwan.md">Kiuwan Code Security Insights</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/DAST/dast.html">DAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/SCA/sca.html">SCA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/Containerimagescan/Containerimagescan.html">Container image scan</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/IaC/iac.html">IaC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/OSSC/ossc.html">OSSC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevSecOps/CyberArk/CyberArk.html">CyberArk</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Security</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >CCSP</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Security/CCSP/CCSP-2023-1.html">CCSP-2023-1</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Security/CCSP/CCSP-2023-2.html">CCSP-2023-2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Security/CCSP/CCSP-2023-3.html">CCSP-2023-3</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../Security/Penetration-Testing/Tools/devsecops-cs.md">Penetration Testing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Microservice</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MicroService/microservice.html">Microservice</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">All the documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">AIML</li>
+          <li class="breadcrumb-item">Deep Learning</li>
+      <li class="breadcrumb-item active">Keras</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tree/main/all-documents/AIML/DeepLearning/Keras.md">Edit on Ganesh All Documents</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="keras"><span style="color:red"><strong>Keras</strong></span><a class="headerlink" href="#keras" title="Permanent link">#</a></h2>
+<p><img alt="aiml" src="img/keras.png" /></p>
+<ul>
+<li>Keras is an open-source high-level Neural Network library, which is written in Python is capable enough to run on Theano, TensorFlow, or CNTK.</li>
+<li>It was developed by one of the Google engineers, Francois Chollet.</li>
+<li>It is made user-friendly, extensible, and modular for facilitating faster experimentation with deep neural networks.</li>
+<li>It not only supports Convolutional Networks and Recurrent Networks individually but also their combination.</li>
+<li>It cannot handle low-level computations, so it makes use of the Backend library to resolve it. The backend library act as a high-level API wrapper for the low-level API, which lets it run on TensorFlow, CNTK, or Theano.</li>
+</ul>
+<h2 id="what-makes-keras-special"><span style="color:red"><strong>What makes Keras special?</strong></span><a class="headerlink" href="#what-makes-keras-special" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>Focus on user experience has always been a major part of Keras.</p>
+</li>
+<li>
+<p>Large adoption in the industry.</p>
+</li>
+<li>
+<p>It is a multi backend and supports multi-platform, which helps all the encoders come together for coding.</p>
+</li>
+<li>
+<p>Research community present for Keras works amazingly with the production community.</p>
+</li>
+<li>
+<p>Easy to grasp all concepts.</p>
+</li>
+<li>
+<p>It supports fast prototyping.</p>
+</li>
+<li>
+<p>It seamlessly runs on CPU as well as GPU.</p>
+</li>
+<li>
+<p>It provides the freedom to design any architecture, which then later is utilized as an API for the project.</p>
+</li>
+<li>
+<p>It is really very simple to get started with.</p>
+</li>
+<li>
+<p>Easy production of models actually makes Keras special.</p>
+</li>
+</ul>
+<h2 id="how-keras-support-the-claim-of-being-multi-backend-and-multi-platform"><strong>How Keras support the claim of being multi-backend and multi-platform?</strong><a class="headerlink" href="#how-keras-support-the-claim-of-being-multi-backend-and-multi-platform" title="Permanent link">#</a></h2>
+<p>Keras can be developed in R as well as Python, such that the code can be run with TensorFlow, Theano, CNTK, or MXNet as per the requirement. Keras can be run on CPU, NVIDIA GPU, AMD GPU, TPU, etc. It ensures that producing models with Keras is really simple as it totally supports to run with TensorFlow serving, GPU acceleration (WebKeras, Keras.js), Android (TF, TF Lite), iOS (Native CoreML) and Raspberry Pi.</p>
+<h2 id="keras-backend"><strong>Keras Backend</strong><a class="headerlink" href="#keras-backend" title="Permanent link">#</a></h2>
+<p>Keras being a model-level library helps in developing deep learning models by offering high-level building blocks. All the low-level computations such as products of Tensor, convolutions, etc. are not handled by Keras itself, rather they depend on a specialized tensor manipulation library that is well optimized to serve as a backend engine. Keras has managed it so perfectly that instead of incorporating one single library of tensor and performing operations related to that particular library, it offers plugging of different backend engines into Keras.</p>
+<p>Keras consist of three backend engines, which are as follows:</p>
+<ul>
+<li><strong>TensorFlow</strong>
+TensorFlow is a Google product, which is one of the most famous deep learning tools widely used in the research area of machine learning and deep neural network. It came into the market on 9th November 2015 under the Apache License 2.0. It is built in such a way that it can easily run on multiple CPUs and GPUs as well as on mobile operating systems. It consists of various wrappers in distinct languages such as Java, C++, or Python.</li>
+</ul>
+<p><img alt="aiml" src="img/keras-backend1.png" /></p>
+<ul>
+<li><strong>Theano</strong>
+Theano was developed at the University of Montreal, Quebec, Canada, by the MILA group. It is an open-source python library that is widely used for performing mathematical operations on multi-dimensional arrays by incorporating scipy and numpy. It utilizes GPUs for faster computation and efficiently computes the gradients by building symbolic graphs automatically. It has come out to be very suitable for unstable expressions, as it first observes them numerically and then computes them with more stable algorithms.</li>
+</ul>
+<p><img alt="aiml" src="img/keras-backend2.png" /></p>
+<ul>
+<li><strong>CNTK</strong>
+Microsoft Cognitive Toolkit is deep learning's open-source framework. It consists of all the basic building blocks, which are required to form a neural network. The models are trained using C++ or Python, but it incorporates C# or Java to load the model for making predictions.</li>
+</ul>
+<p><img alt="aiml" src="img/keras-backend3.png" /></p>
+<h2 id="advantages-of-keras"><strong>Advantages of Keras</strong><a class="headerlink" href="#advantages-of-keras" title="Permanent link">#</a></h2>
+<p>Keras encompasses the following advantages, which are as follows:</p>
+<ul>
+<li>It is very easy to understand and incorporate the faster deployment of network models.</li>
+<li>It has huge community support in the market as most of the AI companies are keen on using it.</li>
+<li>It supports multi backend, which means you can use any one of them among TensorFlow, CNTK, and Theano with Keras as a backend according to your requirement.</li>
+<li>Since it has an easy deployment, it also holds support for cross-platform. Following are the devices on which Keras can be deployed:<ol>
+<li>iOS with CoreML</li>
+<li>Android with TensorFlow Android</li>
+<li>Web browser with .js support</li>
+<li>Cloud engine</li>
+<li>Raspberry pi</li>
+</ol>
+</li>
+<li>It supports Data parallelism, which means Keras can be trained on multiple GPU's at an instance for speeding up the training time and processing a huge amount of data.</li>
+</ul>
+<h2 id="disadvantages-of-keras"><strong>Disadvantages of Keras</strong><a class="headerlink" href="#disadvantages-of-keras" title="Permanent link">#</a></h2>
+<ul>
+<li>The only disadvantage is that Keras has its own pre-configured layers, and if you want to create an abstract layer, it won't let you because it cannot handle low-level APIs. It only supports high-level API running on the top of the backend engine (TensorFlow, Theano, and CNTK).</li>
+</ul>
+<pre><code>#Based on the extracted code from the notebook, I'll transform the script to use Keras for defining and training a neural network that learns the AND and OR logic gates. I'll ensure that the neural network is correctly set up and that the previous errors and syntax issues are fixed.
+
+#Here is the modified script using Keras:
+
+import numpy as np
+import pandas as pd
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Define the AND dataset
+AND = pd.DataFrame({'x1': [0, 0, 1, 1], 'x2': [0, 1, 0, 1], 'y': [0, 0, 0, 1]})
+inputs_and = AND[['x1', 'x2']]
+targets_and = AND['y']
+
+# Define the OR dataset
+OR = pd.DataFrame({'x1': [0, 0, 1, 1], 'x2': [0, 1, 0, 1], 'y': [0, 1, 1, 1]})
+inputs_or = OR[['x1', 'x2']]
+targets_or = OR['y']
+
+# Build the model
+def build_model():
+    model = Sequential()
+    model.add(Dense(2, input_dim=2, activation='relu'))  # 2 neurons for input layer
+    model.add(Dense(1, activation='sigmoid'))  # 1 neuron for output layer
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return model
+
+# Train and evaluate the model for AND logic gate
+model_and = build_model()
+model_and.fit(inputs_and, targets_and, epochs=100, verbose=0)
+loss_and, accuracy_and = model_and.evaluate(inputs_and, targets_and)
+print(f'AND Gate - Loss: {loss_and}, Accuracy: {accuracy_and}')
+
+# Train and evaluate the model for OR logic gate
+model_or = build_model()
+model_or.fit(inputs_or, targets_or, epochs=100, verbose=0)
+loss_or, accuracy_or = model_or.evaluate(inputs_or, targets_or)
+print(f'OR Gate - Loss: {loss_or}, Accuracy: {accuracy_or}')
+
+# Predict using the trained models
+predictions_and = model_and.predict(inputs_and)
+predictions_or = model_or.predict(inputs_or)
+
+print(&quot;AND Gate Predictions:&quot;)
+print(np.round(predictions_and))
+
+print(&quot;OR Gate Predictions:&quot;)
+print(np.round(predictions_or))
+
+
+### Explanation:
+#- **Data Preparation**: The AND and OR datasets are defined as pandas DataFrames.
+#- **Model Building**: A function `build_model` is created to define the neural network with Keras. The network consists of an input layer with 2 neurons (corresponding to the 2 input features) and an output layer with 1 neuron for binary classification.
+#- **Training and Evaluation**: The model is trained separately for the AND and OR datasets. The training process is silent (verbose=0), and after training, the model's loss and accuracy are printed.
+#- **Predictions**: The trained models are used to predict the outputs for the AND and OR datasets, and the predictions are printed.
+
+#This script ensures proper use of Keras for defining, training, and evaluating neural networks for the given logic gate tasks.
+</code></pre>
+<h2 id="example-2"><strong>Example-2</strong><a class="headerlink" href="#example-2" title="Permanent link">#</a></h2>
+<pre><code>import numpy as np
+
+# Sample data for linear regression
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([1, 3, 3, 2, 5])
+
+# Linear regression with numpy
+A = np.vstack([X.T, np.ones(len(X))]).T
+m, c = np.linalg.lstsq(A, y, rcond=None)[0]
+
+print(f&quot;Slope: {m}, Intercept: {c}&quot;)
+</code></pre>
+<pre><code>import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Sample data for linear regression
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([1, 3, 3, 2, 5])
+
+# Define the model
+model = Sequential()
+model.add(Dense(1, input_dim=1, kernel_initializer='normal', activation='linear'))
+
+# Compile the model
+model.compile(optimizer='adam', loss='mean_squared_error')
+
+# Train the model
+model.fit(X, y, epochs=100, verbose=0)
+
+# Get the model parameters (weights and biases)
+weights = model.layers[0].get_weights()
+slope = weights[0][0][0]
+intercept = weights[1][0]
+
+print(f&quot;Slope: {slope}, Intercept: {intercept}&quot;)
+</code></pre>
+<h2 id="example-3"><strong>Example-3</strong><a class="headerlink" href="#example-3" title="Permanent link">#</a></h2>
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+import sklearn.datasets
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
+from sklearn.model_selection import train_test_split
+
+# Generate a dataset and plot it
+np.random.seed(0)
+X, y = sklearn.datasets.make_moons(200, noise=0.20)
+
+# Split the data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# Build and compile a Keras model
+def build_keras_model(hidden_dim):
+    model = Sequential()
+    model.add(Dense(hidden_dim, input_dim=2, activation='tanh', kernel_regularizer=tf.keras.regularizers.l2(0.01)))
+    model.add(Dense(2, activation='softmax'))
+    model.compile(optimizer=Adam(learning_rate=0.01), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    return model
+
+# Train the model
+def train_keras_model(hidden_dim):
+    model = build_keras_model(hidden_dim)
+    model.fit(X_train, y_train, epochs=2000, batch_size=32, verbose=0)
+    return model
+
+# Plot decision boundary
+def plot_decision_boundary(model, X, y):
+    x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
+    y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
+    h = 0.01
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+    Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = np.argmax(Z, axis=1)
+    Z = Z.reshape(xx.shape)
+    plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm)
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.seismic)
+    plt.show()
+
+# Build a model with a 3-dimensional hidden layer and plot the decision boundary
+model = train_keras_model(3)
+plot_decision_boundary(model, X, y)
+
+# Visualize models with different hidden layer sizes
+plt.figure(figsize=(16, 32))
+hidden_layer_dimensions = [1, 2, 3, 4, 5, 20, 50]
+for i, nn_hdim in enumerate(hidden_layer_dimensions):
+    plt.subplot(5, 2, i+1)
+    plt.title(f'Hidden Layer size {nn_hdim}')
+    model = train_keras_model(nn_hdim)
+    plot_decision_boundary(model, X, y)
+plt.show()
+</code></pre>
+<h2 id="keras-version"><strong>Keras version</strong><a class="headerlink" href="#keras-version" title="Permanent link">#</a></h2>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_regression
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.losses import MeanSquaredError
+</code></pre>
+<pre><code># Generate synthetic data
+X, y = make_regression(n_samples=1000, n_features=10, noise=0.1)
+y = y.reshape(-1, 1)  # Reshape to match output dimensions
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Standardize the data
+scaler_X = StandardScaler()
+scaler_y = StandardScaler()
+
+X_train = scaler_X.fit_transform(X_train)
+X_test = scaler_X.transform(X_test)
+y_train = scaler_y.fit_transform(y_train)
+y_test = scaler_y.transform(y_test)
+</code></pre>
+<pre><code># Define the model
+model = Sequential()
+model.add(Dense(units=1, input_dim=X_train.shape[1], activation='linear'))
+
+# Compile the model
+model.compile(optimizer=SGD(learning_rate=0.01), loss=MeanSquaredError())
+</code></pre>
+<pre><code># Train the model
+history = model.fit(X_train, y_train, epochs=1000, batch_size=32, verbose=1)
+</code></pre>
+<pre><code># Evaluate the model
+y_pred = model.predict(X_test)
+y_pred = scaler_y.inverse_transform(y_pred)
+y_test_inverse = scaler_y.inverse_transform(y_test)
+
+# Plot predictions vs actual
+plt.scatter(y_test_inverse, y_pred, color='blue')
+plt.plot([y_test_inverse.min(), y_test_inverse.max()], [y_test_inverse.min(), y_test_inverse.max()], 'k--', lw=2)
+plt.xlabel('Actual')
+plt.ylabel('Predicted')
+plt.title('Predicted vs Actual')
+plt.show()
+</code></pre>
+<h2 id="keras-version_1"><strong>#Keras version</strong><a class="headerlink" href="#keras-version_1" title="Permanent link">#</a></h2>
+<pre><code>import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.losses import MeanSquaredError
+</code></pre>
+<pre><code># Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Standardize the data
+scaler_X = StandardScaler()
+scaler_y = StandardScaler()
+
+X_train = scaler_X.fit_transform(X_train)
+X_test = scaler_X.transform(X_test)
+y_train = scaler_y.fit_transform(y_train)
+y_test = scaler_y.transform(y_test)
+</code></pre>
+<pre><code>from tensorflow.keras.layers import Dense, Dropout
+</code></pre>
+<pre><code># Define the model
+model = Sequential()
+model.add(Dense(units=128, input_dim=X_train.shape[1], activation='sigmoid'))  # First hidden layer H1
+model.add(Dropout(0.2))  # Dropout layer with 20% rate
+model.add(Dense(units=64, activation='relu'))  # Second hidden layer H2
+model.add(Dropout(0.2))  # Dropout layer with 20% rate
+model.add(Dense(units=32, activation='sigmoid'))  # Third hidden layer H3
+#model.add(Dropout(0.2))  # Dropout layer with 20% rate
+model.add(Dense(units=16, activation='relu'))  # First hidden layer H4
+#model.add(Dropout(0.2))  # Dropout layer with 20% rate
+model.add(Dense(units=8, activation='sigmoid'))  # Second hidden layer H5
+#model.add(Dropout(0.2))  # Dropout layer with 20% rate
+model.add(Dense(units=5, activation='relu'))  # Third hidden layer H6
+#model.add(Dropout(0.2))  # Dropout layer with 20% rate
+
+model.add(Dense(units=1, activation='linear'))  # Output layer
+# Compile the model
+model.compile(optimizer=SGD(learning_rate=0.05), loss=MeanSquaredError())
+</code></pre>
+<pre><code>model.summary()
+</code></pre>
+<pre><code># Train the model
+history = model.fit(X_train, y_train, epochs=1000, batch_size=32, verbose=1)
+</code></pre>
+<pre><code># Evaluate the model on test set
+y_pred = model.predict(X_test)
+y_pred = scaler_y.inverse_transform(y_pred)
+y_test_inverse = scaler_y.inverse_transform(y_test)
+
+# Call the function
+mse, r2 = calculate_accuracy(y_test_inverse, y_pred)
+</code></pre>
+<pre><code># Evaluate the model on train set
+y_pred_train = model.predict(X_train)
+y_pred_train = scaler_y.inverse_transform(y_pred_train)
+y_train_inverse = scaler_y.inverse_transform(y_train)
+
+# Call the function
+mse, r2 = calculate_accuracy(y_train_inverse, y_pred_train)
+</code></pre>
+<pre><code>from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
+
+from sklearn.model_selection import GridSearchCV
+from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.optimizers import SGD
+
+
+# Define the model creation function
+def create_model(learning_rate=0.01, dropout_rate=0.0):
+    model = Sequential()
+    model.add(Dense(units=128, input_dim=X_train.shape[1], activation='sigmoid'))  # First hidden layer H1
+    model.add(Dropout(0.2))  # Dropout layer with 20% rate
+    model.add(Dense(units=64, activation='relu'))  # Second hidden layer H2
+    model.add(Dropout(0.2))  # Dropout layer with 20% rate
+    model.add(Dense(units=32, activation='sigmoid'))  # Third hidden layer H3
+    #model.add(Dropout(0.2))  # Dropout layer with 20% rate
+    model.add(Dense(units=16, activation='relu'))  # First hidden layer H4
+    #model.add(Dropout(0.2))  # Dropout layer with 20% rate
+    model.add(Dense(units=8, activation='sigmoid'))  # Second hidden layer H5
+    #model.add(Dropout(0.2))  # Dropout layer with 20% rate
+    model.add(Dense(units=5, activation='relu'))  # Third hidden layer H6
+    #model.add(Dropout(0.2))  # Dropout layer with 20% rate
+
+    optimizer = SGD(learning_rate=learning_rate)
+    model.compile(optimizer=optimizer, loss='mean_squared_error')
+    return model
+
+# Create the model using KerasRegressor
+model = KerasRegressor(build_fn=create_model, verbose=0)
+
+# Define the hyperparameters to tune
+param_grid = {
+    'learning_rate': [0.01, 0.05, 0.1],
+    'dropout_rate': [0.2, 0.5],
+    'batch_size': [16, 32],
+    'epochs': [100]
+}
+
+# Add early stopping and model checkpoint callbacks
+early_stopping = EarlyStopping(monitor='val_loss', patience=10, verbose=1, restore_best_weights=True)
+model_checkpoint = ModelCheckpoint('best_model.h5', monitor='val_loss', save_best_only=True, verbose=1)
+
+# Use grid search with callbacks
+grid = GridSearchCV(estimator=model, param_grid=param_grid, cv=3)
+grid_result = grid.fit(X_train, y_train, validation_data=(X_test, y_test),
+                       callbacks=[early_stopping, model_checkpoint])
+
+# Summarize the results
+print(f&quot;Best: {grid_result.best_score_} using {grid_result.best_params_}&quot;)
+</code></pre>
+<pre><code># Summarize the results
+print(f&quot;Best: {grid_result.best_score_} using {grid_result.best_params_}&quot;)
+</code></pre>
+<pre><code>import os
+os.getcwd()
+</code></pre>
+<pre><code>from tensorflow.keras.models import load_model
+checkpoint_filepath = '/Users/pradmishra/Documents/Deep Learning Contents/DL5/best_model.h5'
+</code></pre>
+<pre><code># Load the saved model checkpoint
+best_model = load_model(checkpoint_filepath)
+
+# Evaluate the loaded model on test data
+loss = best_model.evaluate(X_test, y_test)
+print(f'Loaded model loss on test data: {loss}')
+</code></pre>
+<pre><code># Evaluate the model
+y_pred = model.predict(X_test)
+y_pred = scaler_y.inverse_transform(y_pred)
+y_test_inverse = scaler_y.inverse_transform(y_test)
+
+# Plot predictions vs actual
+plt.scatter(y_test_inverse, y_pred, color='blue')
+plt.plot([y_test_inverse.min(), y_test_inverse.max()], [y_test_inverse.min(), y_test_inverse.max()], 'k--', lw=2)
+plt.xlabel('Actual')
+plt.ylabel('Predicted')
+plt.title('Predicted vs Actual')
+plt.show()
+</code></pre>
+<h2 id="using-keras"><strong>Using Keras</strong><a class="headerlink" href="#using-keras" title="Permanent link">#</a></h2>
+<pre><code># Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Standardize the data
+scaler_X = StandardScaler()
+scaler_y = StandardScaler()
+
+X_train = scaler_X.fit_transform(X_train)
+X_test = scaler_X.transform(X_test)
+y_train = scaler_y.fit_transform(y_train)
+y_test = scaler_y.transform(y_test)
+</code></pre>
+<pre><code>model = Sequential([
+    Dense(64, input_dim=X_train.shape[1], activation='relu'),
+    Dense(32, activation='relu'),
+    Dense(16, activation='relu'),
+    Dense(1, activation='linear')
+])
+</code></pre>
+<pre><code>model.compile(optimizer='adam', loss=MeanSquaredError())
+</code></pre>
+<pre><code>history = model.fit(X_train, y_train, epochs=100, batch_size=32, verbose=1)
+</code></pre>
+<pre><code>y_pred = model.predict(X_test)
+y_pred = scaler_y.inverse_transform(y_pred)
+y_test_inverse = scaler_y.inverse_transform(y_test)
+
+plt.scatter(y_test_inverse, y_pred, color='blue')
+plt.plot([y_test_inverse.min(), y_test_inverse.max()], [y_test_inverse.min(), y_test_inverse.max()], 'k--', lw=2)
+plt.xlabel('Actual')
+plt.ylabel('Predicted')
+plt.title('Predicted vs Actual')
+plt.show()
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="DeepLearning-algorithms.html" class="btn btn-neutral float-left" title="Deep Learning Algorithms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="Tensorflow.html" class="btn btn-neutral float-right" title="Tensorflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ganesh-document/all-documents" class="fa fa-code-fork" style="color: #fcfcfc"> Ganesh All Documents</a>
+        </span>
+    
+    
+      <span><a href="DeepLearning-algorithms.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="Tensorflow.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
