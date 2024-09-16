@@ -13,6 +13,41 @@ nav:
    - Overview: 
      - Documents:
        - Documents details: Documentsdetails.md
+   - AIML:
+      - Overview: AIML/aiml-overview.md
+      - Supervised:
+          - Supervised Overview: AIML/Supervised/Supervised-overview.md
+          - Regression:
+            - Linear Regression: AIML/Supervised/Linear-Regression.md
+            - Decision Tree: AIML/Supervised/Decision-Tree.md
+            - Random Forest: AIML/Supervised/Random-Forest.md
+            - SVM: AIML/Supervised/SVM.md
+            - Naive Bayes: AIML/Supervised/Naive-Bayes.md
+            - Gradient Boosting: AIML/Supervised/Gradient-Boosting.md
+          - Classification:
+            - Classification Overview: AIML/Supervised/Classification-overview.md
+            - Logistic Regression: AIML/Supervised/Logistic-Regression.md
+            - KNN: AIML/Supervised/KNN.md
+      - Unsupervised: 
+            - Unsupervised Overview: AIML/Unsupervised/Unsupervised-overview.md
+            - K-means: AIML/Unsupervised/K-means.md
+            - PCA: AIML/Unsupervised/PCA.md
+            - SOM: AIML/Unsupervised/SOM.md
+            - ARIMA: AIML/Unsupervised/ARIMA.md
+            - SARIMA: AIML/Unsupervised/SARIMA.md
+      - Deep Learning:
+        - Deep Learning Overview: AIML/DeepLearning/DeepLearning-overview.md
+        - Deep Learning Algorithms: AIML/DeepLearning/DeepLearning-algorithms.md
+        - Keras: AIML/DeepLearning/Keras.md
+        - Tensorflow: AIML/DeepLearning/Tensorflow.md
+        - Pytorch: AIML/DeepLearning/Pytorch.md
+        - LSTM: AIML/DeepLearning/LSTM.md
+        - Autoencoder: AIML/DeepLearning/Autoencoder.md
+        - Reinforcement Learning: AIML/DeepLearning/Reinforcement-Learning.md
+        - NLP: AIML/DeepLearning/NLP.md
+        - BERT: AIML/DeepLearning/BERT.md
+        - GPT: AIML/DeepLearning/GPT.md
+
    - Cloud:
        - Aws: Cloud/Aws/aws.md
        - Azure:
@@ -129,13 +164,14 @@ nav:
 
 #theme: readthedocs
 theme:
-    name: material
-    features:
-        - toc.integrate
-        - navigation.indexes
-        - content.tabs.link
-    icon:
-        repo: fontawesome/brands/github-alt
+    #name: material
+    name: readthedocs
+    #features:
+    #    - toc.integrate
+    #    - navigation.indexes
+    #    - content.tabs.link
+    #icon:
+    #    repo: fontawesome/brands/github-alt
 
 extra_css: [css/extra.css]
 markdown_extensions:
