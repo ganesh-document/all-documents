@@ -47,6 +47,9 @@ nav:
         - NLP: AIML/DeepLearning/NLP.md
         - BERT: AIML/DeepLearning/BERT.md
         - GPT: AIML/DeepLearning/GPT.md
+      - RAG:
+        - Vector Database: AIML/RAG/vector_database.md
+        - Retrieval augmented generation: AIML/RAG/Retrieval_augmented_generation.md
 
    - Cloud:
        - Aws: Cloud/Aws/aws.md
