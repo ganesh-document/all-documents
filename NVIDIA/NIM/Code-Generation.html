@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Ganesh Kinkar Giri" /><link rel="canonical" href="https://ganesh-document.github.io/all-documents/NVIDIA/NIM/Code-Generation.html" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Code Generation - All the documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Code Generation";
+        var mkdocs_page_input_path = "NVIDIA/NIM/Code-Generation.md";
+        var mkdocs_page_url = "/all-documents/NVIDIA/NIM/Code-Generation.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> All the documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Overview</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Documents</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentsdetails.html">Documents details</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">AIML</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../AIML/aiml-overview.html">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >NVIDIA</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >NIM</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Code Generation</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="digital_twin.html">Digital Twin</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="dna_sequencing.html">DNA Sequencing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="drug_discovery.html">Drug Discovery</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_classification.html">Image Classification</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_generation.html">Image Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_to_360.html">Image To 360</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_to_embedding.html">Image To Embedding</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_to_text.html">Image To Text</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="medical_imaging.html">Medical Imaging</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="object_detect.html">Object Detect</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="optical_character_recog.html">Optical Character Recognition</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="rag.html">Retrieval Augmented Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="speech_to_animation.html">Speech To Animation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="speech_to_text.html">Speech To Text</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="sdg.html">Synthetic Data Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_translation.html">Text Translation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_360.html">Text To 360</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_embedding.html">Text To Embedding</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_image.html">Text To Image</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_speech.html">Text To Speech</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="weather_simulation.html">Weather Simulation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Supervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Supervised/Supervised-overview.html">Supervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Regression</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Linear-Regression.md">Linear Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Decision-Tree.md">Decision Tree</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Random-Forest.md">Random Forest</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/SVM.md">SVM</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Naive-Bayes.md">Naive Bayes</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Gradient-Boosting.md">Gradient Boosting</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Classification</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Classification-overview.md">Classification Overview</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Logistic-Regression.md">Logistic Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/KNN.md">KNN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Unsupervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/Unsupervised-overview.html">Unsupervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/K-means.html">K-means</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/PCA.html">PCA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/SOM.html">SOM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/ARIMA.html">ARIMA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/SARIMA.html">SARIMA</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Deep Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/DeepLearning-overview.html">Deep Learning Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/DeepLearning-algorithms.html">Deep Learning Algorithms</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Keras.html">Keras</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Tensorflow.html">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Pytorch.html">Pytorch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/LSTM.html">LSTM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Autoencoder.html">Autoencoder</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Reinforcement-Learning.html">Reinforcement Learning</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../AIML/DeepLearning/NLP.md">NLP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/BERT.html">BERT</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../AIML/DeepLearning/GPT.md">GPT</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">All the documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">AIML</li>
+          <li class="breadcrumb-item">NVIDIA</li>
+          <li class="breadcrumb-item">NIM</li>
+      <li class="breadcrumb-item active">Code Generation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tree/main/all-documents/NVIDIA/NIM/Code-Generation.md">Edit on Ganesh All Documents</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="publisher-nvidia">Publisher: <strong>NVIDIA</strong><a class="headerlink" href="#publisher-nvidia" title="Permanent link">#</a></h2>
+<h2 id="1-model-nvidiallama-31-nemotron-70b-instruct"><span style="color:blue">1. Model: nvidia/llama-3.1-nemotron-70b-instruct</span><a class="headerlink" href="#1-model-nvidiallama-31-nemotron-70b-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-overview">Model Overview<a class="headerlink" href="#model-overview" title="Permanent link">#</a></h2>
+<p>Llama-3.1-Nemotron-70B-Instruct is a large language model customized by NVIDIA to improve the helpfulness of LLM generated responses to user queries.</p>
+<p>This model is ready for commercial use.</p>
+<h2 id="model-architecture">Model Architecture:<a class="headerlink" href="#model-architecture" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Architecture Type:</strong> Transformer</li>
+<li><strong>Network Architecture:</strong> Llama 3.1</li>
+</ul>
+<h2 id="input">Input:<a class="headerlink" href="#input" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Input Type(s):</strong> Text</li>
+<li><strong>Input Format:</strong> String</li>
+<li><strong>Input Parameters:</strong> One Dimensional (1D)</li>
+<li><strong>Other Properties Related to Input:</strong> Max of 128k tokens</li>
+</ul>
+<h2 id="output">Output:<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Output Type(s):</strong> Text</li>
+<li><strong>Output Format:</strong> String</li>
+<li><strong>Output Parameters:</strong> One Dimensional (1D)</li>
+<li><strong>Other Properties Related to Output:</strong> Max of 4k tokens</li>
+</ul>
+<h2 id="supported-hardware-microarchitecture-compatibility">Supported Hardware Microarchitecture Compatibility:<a class="headerlink" href="#supported-hardware-microarchitecture-compatibility" title="Permanent link">#</a></h2>
+<ul>
+<li>NVIDIA Ampere</li>
+<li>NVIDIA Hopper</li>
+<li>NVIDIA Turing</li>
+</ul>
+<p><strong>Supported Operating System(s):</strong> Linux</p>
+<h2 id="training-evaluation">Training &amp; Evaluation:<a class="headerlink" href="#training-evaluation" title="Permanent link">#</a></h2>
+<p><strong>Datasets:</strong>
+<strong>Data Collection Method by dataset</strong></p>
+<p>[Hybrid: Human, Synthetic]</p>
+<p><strong>Labeling Method by dataset</strong></p>
+<p>[Human]</p>
+<p><strong>Properties (Quantity, Dataset Descriptions, Sensor(s)):</strong></p>
+<p>21, 362 prompt-responses built to make more models more aligned with human preference - specifically more helpful, factually-correct, coherent, and customizable based on complexity and verbosity.
+20, 324 prompt-responses used for training and 1, 038 used for validation.</p>
+<h2 id="inference">Inference:<a class="headerlink" href="#inference" title="Permanent link">#</a></h2>
+<p><strong>Engine:</strong> Triton
+<strong>Test Hardware:</strong> H100, A100 80GB, A100 40GB</p>
+<p><strong>Ethical Considerations:</strong>
+NVIDIA believes Trustworthy AI is a shared responsibility and we have established policies and practices to enable development for a wide array of AI applications. When downloaded or used in accordance with our terms of service, developers should work with their supporting model team to ensure this model meets requirements for the relevant industry and use case and addresses unforeseen product misuse. For more detailed information on ethical considerations for this model, please see the Model Card++ Explainability, Bias, Safety &amp; Security, and Privacy Subcards. Please report security vulnerabilities or NVIDIA AI Concerns</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;nvidia/llama-3.1-nemotron-70b-instruct&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.5,
+  top_p=1,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;nvidia/llama-3.1-nemotron-70b-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;temperature&quot;: 0.5,   
+    &quot;top_p&quot;: 1,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<h2 id="publisher-nvidia_1">Publisher: <strong>NVIDIA</strong><a class="headerlink" href="#publisher-nvidia_1" title="Permanent link">#</a></h2>
+<h2 id="2-model-nvidiamistral-nemo-minitron-8b-8k-instruct"><span style="color:blue">2. Model: nvidia/mistral-nemo-minitron-8b-8k-instruct</span><a class="headerlink" href="#2-model-nvidiamistral-nemo-minitron-8b-8k-instruct" title="Permanent link">#</a></h2>
+<p><strong>Project</strong>
+Build a Customizable Hybrid RAG Chatbot</p>
+<h2 id="model-overview_1">Model Overview<a class="headerlink" href="#model-overview_1" title="Permanent link">#</a></h2>
+<p>Mistral-NeMo-Minitron-8B-Instruct is a model for generating responses for various text-generation tasks including roleplaying, retrieval augmented generation, and function calling. It is a fine-tuned version of nvidia/Mistral-NeMo-Minitron-8B-Base, which was pruned and distilled from Mistral-NeMo 12B using our LLM compression technique. The model was trained using a multi-stage SFT and preference-based alignment technique with NeMo Aligner. For details on the alignment technique, please refer to the Nemotron-4 340B Technical Report. The model supports a context length of 8,192 tokens.</p>
+<p><strong>License/Terms of Use:</strong>
+NVIDIA Open Model License</p>
+<h2 id="model-architecture_1">Model Architecture:<a class="headerlink" href="#model-architecture_1" title="Permanent link">#</a></h2>
+<p><strong>Architecture Type:</strong> Transformer
+<strong>Network Architecture:</strong> Decoder-only</p>
+<h2 id="input_1">Input:<a class="headerlink" href="#input_1" title="Permanent link">#</a></h2>
+<p><strong>Input Type(s):</strong> Text (Prompt)
+<strong>Input Format(s):</strong> String
+<strong>Input Parameters:</strong> One Dimensional (1D)
+<strong>Other Properties Related to Input:</strong> The model has a maximum of 8192 input tokens.</p>
+<h2 id="output_1">Output:<a class="headerlink" href="#output_1" title="Permanent link">#</a></h2>
+<p><strong>Output Type(s):</strong> Text (Response)
+<strong>Output Format:</strong> String
+<strong>Output Parameters:</strong> 1D
+<strong>Other Properties Related to Output:</strong> The model has a maximum of 8192 input tokens. Maximum output for both versions can be set apart from input.</p>
+<p><strong>Prompt Format:</strong>
+We recommend using the following prompt template, which was used to fine-tune the model. The model may not perform optimally without it.</p>
+<pre><code>&lt;extra_id_0&gt;System
+{system prompt}
+
+&lt;extra_id_1&gt;User
+{prompt}
+&lt;extra_id_1&gt;Assistant\n
+</code></pre>
+<p>Note that a newline character \n should be added at the end of the prompt.
+We recommend using <extra_id_1> as a stop token.</p>
+<p><strong>Evaluation Results</strong></p>
+<p><img alt="alt text" src="images/image1.png" /></p>
+<p><strong>Software Integration: (Cloud)</strong></p>
+<p><strong>Runtime Engine:</strong> NeMo Framework 24.09</p>
+<p>Supported Hardware Microarchitecture Compatibility:</p>
+<p>[NVIDIA Ampere]
+[NVIDIA Blackwell]
+[NVIDIA Hopper]
+[NVIDIA Lovelace]</p>
+<p>Model Version(s)
+Mistral-NeMo-Minitron 8B Instruct</p>
+<h2 id="training-evaluation_1">Training &amp; Evaluation:<a class="headerlink" href="#training-evaluation_1" title="Permanent link">#</a></h2>
+<p>Training Dataset:
+** Data Collection Method by dataset</p>
+<p>Hybrid: Automated, Human
+** Labeling Method by dataset</p>
+<p>Hybrid: Automated, Human</p>
+<h2 id="evaluation-dataset">Evaluation Dataset:<a class="headerlink" href="#evaluation-dataset" title="Permanent link">#</a></h2>
+<p>** Data Collection Method by dataset</p>
+<p>Hybrid: Automated, Human
+** Labeling Method by dataset</p>
+<p>Human</p>
+<h2 id="inference_1">Inference:<a class="headerlink" href="#inference_1" title="Permanent link">#</a></h2>
+<p>Engine: TRT-LLM
+Test Hardware:</p>
+<p>A100
+A10G
+H100
+L40S
+Supported Hardware Platform(s): L40S, A10G, A100, H100</p>
+<h2 id="ethical-considerations">Ethical Considerations:<a class="headerlink" href="#ethical-considerations" title="Permanent link">#</a></h2>
+<p>NVIDIA believes Trustworthy AI is a shared responsibility and we have established policies and practices to enable development for a wide array of AI applications. When downloaded or used in accordance with our terms of service, developers should work with their internal model team to ensure this model meets requirements for the relevant industry and use case and addresses unforeseen product misuse.</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;nvidia/mistral-nemo-minitron-8b-8k-instruct&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.5,
+  top_p=1,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;nvidia/mistral-nemo-minitron-8b-8k-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;temperature&quot;: 0.5,   
+    &quot;top_p&quot;: 1,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Docker</strong>
+Pull and run nvidia/mistral-nemo-minitron-8b-8k-instruct using Docker (this will download the full model and run it in your local environment)</p>
+<pre><code>$ docker login nvcr.io
+Username: $oauthtoken
+Password: &lt;PASTE_API_KEY_HERE&gt;
+</code></pre>
+<p>Pull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.</p>
+<pre><code>export NGC_API_KEY=&lt;PASTE_API_KEY_HERE&gt;
+export LOCAL_NIM_CACHE=~/.cache/nim
+mkdir -p &quot;$LOCAL_NIM_CACHE&quot;
+docker run -it --rm \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -v &quot;$LOCAL_NIM_CACHE:/opt/nim/.cache&quot; \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/nv-mistralai/mistral-nemo-minitron-8b-8k-instruct:latest
+</code></pre>
+<p>You can now make a local API call using this curl command:</p>
+<pre><code>curl -X 'POST' \
+'http://0.0.0.0:8000/v1/chat/completions' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+    &quot;model&quot;: &quot;nv-mistralai/mistral-nemo-minitron-8b-8k-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;, &quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;max_tokens&quot;: 64
+}'
+</code></pre>
+<h2 id="publisher-meta">Publisher: <strong>meta</strong><a class="headerlink" href="#publisher-meta" title="Permanent link">#</a></h2>
+<h2 id="3-model-metallama-32-3b-instruct"><span style="color:blue">3. Model: meta/llama-3.2-3b-instruct</span><a class="headerlink" href="#3-model-metallama-32-3b-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-information">Model Information<a class="headerlink" href="#model-information" title="Permanent link">#</a></h2>
+<p>The Meta Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pre-trained and instruction-tuned generative models in 1B and 3B sizes (text in/text out). The Llama 3.2 instruction-tuned text only models are optimized for multilingual dialogue use cases, including agentic retrieval and summarization tasks. They outperform many of the available open source and closed chat models on common industry benchmarks. Llama 3.2 models are ready for commercial use.</p>
+<p>Models are accelerated by TensorRT-LLM, a library for optimizing Large Language Model (LLM) inference on NVIDIA GPUs.</p>
+<p><strong>Models in this Collection:</strong></p>
+<p>Llama-3.2-1B
+Llama-3.2-1B-Instruct
+Llama-3.2-3B
+Llama-3.2-3B-Instruct</p>
+<p>Third-Party Community Consideration: This model is not owned or developed by NVIDIA. This model has been developed and built to a third-party’s requirements for this application and use case; see link to Non-NVIDIA Llama 3.2 Model Card.</p>
+<p><strong>License:</strong> Use of Llama 3.2 is governed by the Llama 3.2 Community License (a custom, commercial license agreement).</p>
+<p><strong>Model Architecture:</strong> Llama 3.2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety.</p>
+<p><img alt="alt text" src="images/image2.png" /></p>
+<p><strong>Supported Languages:</strong> English, German, French, Italian, Portuguese, Hindi, Spanish, and Thai are officially supported. Llama 3.2 has been trained on a broader collection of languages than these 8 supported languages. Developers may fine-tune Llama 3.2 models for languages beyond these supported languages, provided they comply with the Llama 3.2 Community License and the Acceptable Use Policy. Developers are always expected to ensure that their deployments, including those that involve additional languages, are completed safely and responsibly.</p>
+<p><strong>Intended Use</strong></p>
+<p><strong>Intended Use Cases:</strong> Llama 3.2 is intended for commercial and research use in multiple languages. Instruction tuned text only models are intended for assistant-like chat and agentic applications like knowledge retrieval and summarization, mobile AI powered writing assistants and query and prompt rewriting. Pre-trained models can be adapted for a variety of additional natural language generation tasks.</p>
+<p><strong>Out of Scope:</strong> Use in any manner that violates applicable laws or regulations (including trade compliance laws). Use in any other way that is prohibited by the Acceptable Use Policy and Llama 3.2 Community License. Use in languages beyond those explicitly referenced as supported in this model card.</p>
+<h2 id="hardware-and-software">Hardware and Software<a class="headerlink" href="#hardware-and-software" title="Permanent link">#</a></h2>
+<p><strong>Training Factors:</strong> We used custom training libraries, Meta's custom built GPU cluster, and production infrastructure for pre-training. Fine-tuning, annotation, and evaluation were also performed on production infrastructure.</p>
+<p><strong>Training Energy Use:</strong> Training utilized a cumulative of 916k GPU hours of computation on H100-80GB (TDP of 700W) type hardware, per the table below. Training time is the total GPU time required for training each model and power consumption is the peak power capacity per GPU device used, adjusted for power usage efficiency.</p>
+<p><strong>Training Greenhouse Gas Emissions:</strong> Estimated total location-based greenhouse gas emissions were 240 tons CO2eq for training. Since 2020, Meta has maintained net zero greenhouse gas emissions in its global operations and matched 100% of its electricity use with renewable energy; therefore, the total market-based greenhouse gas emissions for training were 0 tons CO2eq.</p>
+<p><img alt="alt text" src="images/image3.png" /></p>
+<h2 id="training-data">Training Data<a class="headerlink" href="#training-data" title="Permanent link">#</a></h2>
+<p><strong>Data Collection Method:</strong> Unknown
+<strong>Labeling Method:</strong> Unknown</p>
+<p><strong>Overview:</strong> Llama 3.2 was pre-trained on up to 9 trillion tokens of data from publicly available sources. For the 1B and 3B Llama 3.2 models, we incorporated logits from the Llama 3.1 8B and 70B models into the pre-training stage of the model development, where outputs (logits) from these larger models were used as token-level targets. Knowledge distillation was used after pruning to recover performance. In post-training we used a similar recipe as Llama 3.1 and produced final chat models by doing several rounds of alignment on top of the pre-trained model. Each round involved Supervised Fine-Tuning (SFT), Rejection Sampling (RS), and Direct Preference Optimization (DPO).</p>
+<p><strong>Data Freshness:</strong> The pre-training data has a cutoff of December 2023.</p>
+<h2 id="benchmarks-english-text">Benchmarks - English Text<a class="headerlink" href="#benchmarks-english-text" title="Permanent link">#</a></h2>
+<p>In this section, we report the results for Llama 3.2 models on standard automatic benchmarks. For all these evaluations, we used our internal evaluations library.</p>
+<p><strong>Base Pre-trained Models</strong></p>
+<p><img alt="alt text" src="images/image4.png" /></p>
+<p><strong>Inference</strong>
+<strong>Supported Hardware Microarchitecture Compatibility:</strong></p>
+<p>NVIDIA Ampere
+NVIDIA Hopper
+NVIDIA Lovelace
+NVIDIA Jetson</p>
+<p><strong>Supported Operating System(s):</strong></p>
+<p>Linux
+Windows</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;meta/llama-3.2-3b-instruct&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>LangChain</strong></p>
+<pre><code>from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+client = ChatNVIDIA(
+  model=&quot;meta/llama-3.2-3b-instruct&quot;,
+  api_key=&quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, 
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+)
+
+for chunk in client.stream([{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}]): 
+  print(chunk.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>invoke_url='https://integrate.api.nvidia.com/v1/chat/completions'
+
+authorization_header='Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC'
+accept_header='Accept: application/json'
+content_type_header='Content-Type: application/json'
+
+data=$'{
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Write a limerick about the wonders of GPU computing.&quot;
+    }
+  ],
+  &quot;stream&quot;: true,
+  &quot;model&quot;: &quot;meta/llama-3.2-3b-instruct&quot;,
+  &quot;max_tokens&quot;: 1024,
+  &quot;presence_penalty&quot;: 0,
+  &quot;frequency_penalty&quot;: 0,
+  &quot;top_p&quot;: 0.7,
+  &quot;temperature&quot;: 0.2
+}'
+
+response=$(curl --silent -i -w &quot;\n%{http_code}&quot; --request POST \
+  --url &quot;$invoke_url&quot; \
+  --header &quot;$authorization_header&quot; \
+  --header &quot;$accept_header&quot; \
+  --header &quot;$content_type_header&quot; \
+  --data &quot;$data&quot;
+)
+
+echo &quot;$response&quot;
+</code></pre>
+<p><strong>Ref Link:</strong>
+[meta/llama-3.2-3b-instruct] (https://build.nvidia.com/meta/llama-3.2-3b-instruct)</p>
+<h2 id="publisher-google">Publisher: <strong>google</strong><a class="headerlink" href="#publisher-google" title="Permanent link">#</a></h2>
+<h2 id="4-model-googlegemma-2-2b-it"><span style="color:blue">4. Model: google/gemma-2-2b-it</span><a class="headerlink" href="#4-model-googlegemma-2-2b-it" title="Permanent link">#</a></h2>
+<h2 id="model-information_1">Model Information<a class="headerlink" href="#model-information_1" title="Permanent link">#</a></h2>
+<p>Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. They are text-to-text, decoder-only large language models, available in English, with open weights for both pre-trained variants and instruction-tuned variants. Gemma models are well-suited for a variety of text generation tasks, including question answering, summarization, and reasoning. Their relatively small size makes it possible to deploy them in environments with limited resources such as a laptop, desktop or your own cloud infrastructure, democratizing access to state of the art AI models and helping foster innovation for everyone.</p>
+<p><strong>Model Information</strong>
+Summary description and brief definition of inputs and outputs.</p>
+<p><strong>Limitations</strong></p>
+<p><strong>Training Data</strong></p>
+<p>The quality and diversity of the training data significantly influence the model's capabilities. Biases or gaps in the training data can lead to limitations in the model's responses.
+The scope of the training dataset determines the subject areas the model can handle effectively.</p>
+<h2 id="model-architecture_2">Model Architecture:<a class="headerlink" href="#model-architecture_2" title="Permanent link">#</a></h2>
+<p><strong>Architecture Type:</strong> Transformer
+<strong>Network Architecture:</strong> Gemma-2
+Model Version: 0.1</p>
+<p><strong>Input:</strong>
+Input Type(s): Text
+Input Format(s): String
+Input Parameters: One-Dimensional (1D)
+Other Properties Related to Output: Text can be question, a prompt, or a document to be summarized.</p>
+<p><strong>Output:</strong>
+Output Type(s): Text
+Output Format(s): String
+Output Parameters: One-Dimensional (1D)
+Other Properties Related to Output: Generated English-language text in response to the input (e.g., an answer to the question, a summary of the document).</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;google/gemma-2-2b-it&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Langchain</strong></p>
+<pre><code>from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+client = ChatNVIDIA(
+  model=&quot;google/gemma-2-2b-it&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, 
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+)
+
+for chunk in client.stream([{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}]): 
+  print(chunk.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;google/gemma-2-2b-it&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;temperature&quot;: 0.2,   
+    &quot;top_p&quot;: 0.7,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Ref Link:</strong>
+[google/gemma-2-2b-it] (https://build.nvidia.com/google/gemma-2-2b-it)</p>
+<h2 id="publisher-nvidianim-microservice">Publisher: <strong>NVIDIA(NIM microservice)</strong><a class="headerlink" href="#publisher-nvidianim-microservice" title="Permanent link">#</a></h2>
+<h2 id="5-model-nvidiausdcode-llama3-70b-instruct"><span style="color:blue">5. Model: nvidia/usdcode-llama3-70b-instruct</span><a class="headerlink" href="#5-model-nvidiausdcode-llama3-70b-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-overview_2">Model Overview<a class="headerlink" href="#model-overview_2" title="Permanent link">#</a></h2>
+<p>USD Code (usdcode-llama3-70b-instruct) is an OpenUSD Python code generation and knowledge answering model that helps developers to write OpenUSD code and answer OpenUSD knowledge questions.</p>
+<p>This model is available for preview, demonstration, and non-production usage on the NVIDIA API Catalog.</p>
+<p><strong>References:</strong>
+Llama3 - https://ai.meta.com/blog/meta-llama-3/
+OpenUSD - https://www.openusd.org/</p>
+<p><strong>Model Architecture:</strong>
+<strong>Architecture Type:</strong> Transformer-Based Architecture</p>
+<p><strong>Network Architecture:</strong> Llama-3</p>
+<p><strong>Input</strong>
+Input Type(s): Text
+Input Format(s): String
+Other Properties Related to Input: Max context length of 8k tokens</p>
+<p><strong>Output</strong>
+Output Type(s): Text (Code, Python)
+Output Format: String
+Other Properties Related to Output: Max output length of 8k tokens</p>
+<p><strong>Software Integration:</strong>
+Runtime Engine(s):</p>
+<p>NIM 1.0.0
+<strong>Supported Hardware Microarchitecture Compatibility:</strong></p>
+<p>NVIDIA Hopper</p>
+<p><strong>Training, Testing, and Evaluation Datasets:</strong>
+Training Dataset:
+Data Collection Method by dataset</p>
+<p>Hybrid: Automated, Synthetic
+Labeling Method by dataset</p>
+<p>Unknown
+Properties (Quantity, Dataset Descriptions, Sensor(s)):</p>
+<p>59,729 question/answer pairs (text)</p>
+<p><strong>Evaluation Dataset:</strong>
+Data Collection Method by dataset</p>
+<p>Hybrid: Automated, Synthetic
+Labeling Method by dataset</p>
+<p>Not Applicable
+Properties (Quantity, Dataset Descriptions, Sensor(s)):</p>
+<p>100 question/answer pairs (text)</p>
+<p><strong>Inference:</strong>
+Engine:</p>
+<p>TensorRT
+<strong>Test Hardware:</strong></p>
+<p>H100</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;nvidia/usdcode-llama3-70b-instruct&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What is LIVRPS?&quot;}],
+  temperature=0.1,
+  top_p=1,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;nvidia/usdcode-llama3-70b-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What is LIVRPS?&quot;}],
+    &quot;temperature&quot;: 0.1,   
+    &quot;top_p&quot;: 1,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Ref Link:</strong>
+[nvidia/usdcode-llama3-70b-instruct] (https://build.nvidia.com/nvidia/usdcode-llama3-70b-instruct)</p>
+<h2 id="publisher-nvidianim-microservice_1">Publisher: <strong>NVIDIA(NIM microservice)</strong><a class="headerlink" href="#publisher-nvidianim-microservice_1" title="Permanent link">#</a></h2>
+<h2 id="6-model-nv-mistralaimistral-nemo-12b-instruct"><span style="color:blue">6. Model: nv-mistralai/mistral-nemo-12b-instruct</span><a class="headerlink" href="#6-model-nv-mistralaimistral-nemo-12b-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-overview_3">Model Overview<a class="headerlink" href="#model-overview_3" title="Permanent link">#</a></h2>
+<p>Mistral-NeMo is a Large Language Model (LLM) composed of 12B parameters. This model leads accuracy on popular benchmarks across common sense reasoning, coding, math, multilingual and multi-turn chat tasks; it significantly outperforms existing models smaller or similar in size.</p>
+<p><strong>Model Architecture:</strong>
+Architecture Type: Transformer
+Network Architecture: Mistral</p>
+<p>This transformer model has the following characteristics:</p>
+<p>Layers: 40
+Dim: 5,120
+Head dim: 128
+Hidden dim: 14,436
+Activation Function: SwiGLU
+Number of heads: 32
+Number of kv-heads: 8 (GQA)
+Rotary embeddings (theta = 1M)
+Vocabulary size: 2**17 ~= 128k</p>
+<p><strong>Input</strong></p>
+<p>Input Type: Text
+Input Format: String
+Input Parameters: max_tokens, temperature, top_p, stop, frequency_penalty, presence_penalty, seed</p>
+<p><strong>Output</strong></p>
+<p>Output Type: Text
+Output Format: String</p>
+<p><strong>Inference</strong>
+Engine: TensorRT-LLM
+Test Hardware: H100</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;nv-mistralai/mistral-nemo-12b-instruct&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>LangChain</strong></p>
+<pre><code>from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+client = ChatNVIDIA(
+  model=&quot;nv-mistralai/mistral-nemo-12b-instruct&quot;,
+  api_key=&quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, 
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+)
+
+for chunk in client.stream([{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}]): 
+  print(chunk.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;nv-mistralai/mistral-nemo-12b-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;temperature&quot;: 0.2,   
+    &quot;top_p&quot;: 0.7,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Docker</strong></p>
+<p>Pull and run nv-mistralai/mistral-nemo-12b-instruct using Docker (this will download the full model and run it in your local environment)</p>
+<pre><code>$ docker login nvcr.io
+Username: $oauthtoken
+Password: &lt;PASTE_API_KEY_HERE&gt;
+</code></pre>
+<p>Pull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.</p>
+<pre><code>export NGC_API_KEY=&lt;PASTE_API_KEY_HERE&gt;
+export LOCAL_NIM_CACHE=~/.cache/nim
+mkdir -p &quot;$LOCAL_NIM_CACHE&quot;
+docker run -it --rm \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -v &quot;$LOCAL_NIM_CACHE:/opt/nim/.cache&quot; \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/nv-mistralai/mistral-nemo-12b-instruct:latest
+</code></pre>
+<p>You can now make a local API call using this curl command:</p>
+<pre><code>curl -X 'POST' \
+'http://0.0.0.0:8000/v1/chat/completions' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+    &quot;model&quot;: &quot;mistral-nemo-12b-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;, &quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;max_tokens&quot;: 64
+}'
+</code></pre>
+<p><strong>Ref Link:</strong>
+[nv-mistralai/mistral-nemo-12b-instruct] (https://build.nvidia.com/nv-mistralai/mistral-nemo-12b-instruct)</p>
+<h2 id="publisher-nvidianim-microservice_2">Publisher: <strong>NVIDIA(NIM microservice)</strong><a class="headerlink" href="#publisher-nvidianim-microservice_2" title="Permanent link">#</a></h2>
+<h2 id="7-model-microsoftphi-3-small-8k-instruct"><span style="color:blue">7. Model: microsoft/phi-3-small-8k-instruct</span><a class="headerlink" href="#7-model-microsoftphi-3-small-8k-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-overview_4">Model Overview<a class="headerlink" href="#model-overview_4" title="Permanent link">#</a></h2>
+<p>Phi-3-Small is a lightweight, state-of-the-art open model built upon datasets used for Phi-2 - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data. The model belongs to the Phi-3 model family, and the small version comes in two variants 8K and 128K which is the context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. This model is ready for commercial and research use.</p>
+<p><strong>Loading the model locally</strong>
+The model requires tiktoken and Triton packages. After obtaining the Phi-3-Small-8K-Instruct model checkpoints, users can use this sample code for inference.</p>
+<pre><code>import torch
+
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+
+torch.random.manual_seed(0)
+
+model_id = &quot;microsoft/Phi-3-small-8k-instruct&quot;
+
+model = AutoModelForCausalLM.from_pretrained(
+
+model_id,
+
+device_map=&quot;cuda&quot;,
+
+torch_dtype=&quot;auto&quot;,
+
+trust_remote_code=True,
+
+)
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+messages = [
+
+{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Can you provide ways to eat combinations of bananas and dragonfruits?&quot;},
+
+{&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;Sure! Here are some ways to eat bananas and dragonfruits together: 1. Banana and dragonfruit smoothie: Blend bananas and dragonfruits together with some milk and honey. 2. Banana and dragonfruit salad: Mix sliced bananas and dragonfruits together with some lemon juice and honey.&quot;},
+
+{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What about solving an 2x + 3 = 7 equation?&quot;},
+
+]
+
+pipe = pipeline(
+
+&quot;text-generation&quot;,
+
+model=model,
+
+tokenizer=tokenizer,
+
+)
+
+generation_args = {
+
+&quot;max_new_tokens&quot;: 500,
+
+&quot;return_full_text&quot;: False,
+
+&quot;temperature&quot;: 0.0,
+
+&quot;do_sample&quot;: False,
+
+}
+
+output = pipe(messages, \*\*generation_args)
+
+print(output[0]['generated_text'])
+</code></pre>
+<p><strong>Cross Platform Support</strong>
+ONNX runtime now supports Phi3 small models across platforms and hardware.</p>
+<p>Optimized phi-3 models are also published here in ONNX format. The ONNX models provided run with ONNX Runtime on GPU across server platforms. Support for DML (for Windows GPU), CPU, and mobile variants will be added later.</p>
+<p>Here are some of the optimized configurations the authors have added:</p>
+<p>ONNX model for fp16 CUDA</p>
+<p>ONNX model for int4 CUDA: Quantized to int4 via RTN</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;microsoft/phi-3-small-8k-instruct&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>LangChain</strong></p>
+<pre><code>from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+client = ChatNVIDIA(
+  model=&quot;microsoft/phi-3-small-8k-instruct&quot;,
+  api_key=&quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, 
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+)
+
+for chunk in client.stream([{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}]): 
+  print(chunk.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;microsoft/phi-3-small-8k-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;temperature&quot;: 0.2,   
+    &quot;top_p&quot;: 0.7,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Ref Link:</strong>
+[microsoft/phi-3-small-8k-instruct] (https://build.nvidia.com/microsoft/phi-3-small-8k-instruct)</p>
+<h2 id="publisher-nvidianim-microservice_3">Publisher: <strong>NVIDIA(NIM microservice)</strong><a class="headerlink" href="#publisher-nvidianim-microservice_3" title="Permanent link">#</a></h2>
+<h2 id="8-model-mistralaimixtral-8x22b-instruct-v01"><span style="color:blue">8. Model: mistralai/mixtral-8x22b-instruct-v0.1</span><a class="headerlink" href="#8-model-mistralaimixtral-8x22b-instruct-v01" title="Permanent link">#</a></h2>
+<h2 id="model-overview_5">Model Overview<a class="headerlink" href="#model-overview_5" title="Permanent link">#</a></h2>
+<p>Mixtral 8x22B is MistralAI's latest open model. It sets a new standard for performance and efficiency within the AI community. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.</p>
+<p><strong>Model Architecture:</strong>
+Architecture Type: Transformer
+Network Architecture: Sparse Mixture of GPT-based experts</p>
+<p><strong>Inference:</strong>
+Engine: Triton</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;mistralai/mixtral-8x22b-instruct-v0.1&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+  temperature=0.5,
+  top_p=1,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Langchain</strong></p>
+<pre><code>from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+client = ChatNVIDIA(
+  model=&quot;mistralai/mixtral-8x22b-instruct-v0.1&quot;,
+  api_key=&quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, 
+  temperature=0.5,
+  top_p=1,
+  max_tokens=1024,
+)
+
+for chunk in client.stream([{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}]): 
+  print(chunk.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;mistralai/mixtral-8x22b-instruct-v0.1&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;temperature&quot;: 0.5,   
+    &quot;top_p&quot;: 1,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Docker</strong></p>
+<p>Pull and run mistralai/mixtral-8x22b-instruct using Docker (this will download the full model and run it in your local environment)</p>
+<pre><code>$ docker login nvcr.io
+Username: $oauthtoken
+Password: &lt;PASTE_API_KEY_HERE&gt;
+</code></pre>
+<p>Pull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.</p>
+<pre><code>export NGC_API_KEY=&lt;PASTE_API_KEY_HERE&gt;
+export LOCAL_NIM_CACHE=~/.cache/nim
+mkdir -p &quot;$LOCAL_NIM_CACHE&quot;
+docker run -it --rm \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -v &quot;$LOCAL_NIM_CACHE:/opt/nim/.cache&quot; \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/mistralai/mixtral-8x22b-instruct-v01:latest
+
+</code></pre>
+<p>You can now make a local API call using this curl command:</p>
+<pre><code>curl -X 'POST' \
+'http://0.0.0.0:8000/v1/chat/completions' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+    &quot;model&quot;: &quot;mistralai/mixtral-8x22b-instruct-v0.1&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;, &quot;content&quot;:&quot;Write a limerick about the wonders of GPU computing.&quot;}],
+    &quot;max_tokens&quot;: 64
+}'
+</code></pre>
+<p><strong>Ref Link:</strong>
+[mistralai/mixtral-8x22b-instruct-v0.1] (https://build.nvidia.com/mistralai/mixtral-8x22b-instruct)</p>
+<h2 id="publisher-nvidianim-microservice_4">Publisher: <strong>NVIDIA(NIM microservice)</strong><a class="headerlink" href="#publisher-nvidianim-microservice_4" title="Permanent link">#</a></h2>
+<h2 id="9-model-metacodellama-70b"><span style="color:blue">9. Model: meta/codellama-70b</span><a class="headerlink" href="#9-model-metacodellama-70b" title="Permanent link">#</a></h2>
+<h2 id="model-overview_6">Model Overview<a class="headerlink" href="#model-overview_6" title="Permanent link">#</a></h2>
+<p>Code Llama is a large language artificial intelligence (AI) model that generates code and natural language about code built from a collection of models based on Llama 2.</p>
+<p><strong>Inference:</strong>
+Engine: Triton</p>
+<p><strong>Python</strong></p>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(
+  base_url = &quot;https://integrate.api.nvidia.com/v1&quot;,
+  api_key = &quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;
+)
+
+completion = client.chat.completions.create(
+  model=&quot;meta/codellama-70b&quot;,
+  messages=[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a Python function to calculate the factorial of a number.&quot;}],
+  temperature=0.1,
+  top_p=1,
+  max_tokens=1024,
+  stream=True
+)
+
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    print(chunk.choices[0].delta.content, end=&quot;&quot;)
+
+</code></pre>
+<p><strong>LangChain</strong></p>
+<pre><code>from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+client = ChatNVIDIA(
+  model=&quot;meta/codellama-70b&quot;,
+  api_key=&quot;$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, 
+  temperature=0.1,
+  top_p=1,
+  max_tokens=1024,
+)
+
+for chunk in client.stream([{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a Python function to calculate the factorial of a number.&quot;}]): 
+  print(chunk.content, end=&quot;&quot;)
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -d '{
+    &quot;model&quot;: &quot;meta/codellama-70b&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Write a Python function to calculate the factorial of a number.&quot;}],
+    &quot;temperature&quot;: 0.1,   
+    &quot;top_p&quot;: 1,
+    &quot;max_tokens&quot;: 1024,
+    &quot;stream&quot;: true                
+  }'
+</code></pre>
+<p><strong>Docker</strong></p>
+<p>Pull and run meta/codellama-70b using Docker (this will download the full model and run it in your local environment)</p>
+<pre><code>$ docker login nvcr.io
+Username: $oauthtoken
+Password: &lt;PASTE_API_KEY_HERE&gt;
+</code></pre>
+<p>Pull and run the NVIDIA NIM with the command below. This will download the optimized model for your infrastructure.</p>
+<pre><code>export NGC_API_KEY=&lt;PASTE_API_KEY_HERE&gt;
+export LOCAL_NIM_CACHE=~/.cache/nim
+mkdir -p &quot;$LOCAL_NIM_CACHE&quot;
+docker run -it --rm \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -v &quot;$LOCAL_NIM_CACHE:/opt/nim/.cache&quot; \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/meta/codellama-70b-instruct:latest
+</code></pre>
+<p>You can now make a local API call using this curl command:</p>
+<pre><code>curl -X 'POST' \
+'http://0.0.0.0:8000/v1/chat/completions' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+    &quot;model&quot;: &quot;codellama/codellama-70b-instruct&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;, &quot;content&quot;:&quot;Write a Python function to calculate the factorial of a number.&quot;}],
+    &quot;max_tokens&quot;: 64
+}'
+</code></pre>
+<p><strong>Ref Link:</strong>
+[meta/codellama-70b] (https://build.nvidia.com/meta/codellama-70b)</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../AIML/aiml-overview.html" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="digital_twin.html" class="btn btn-neutral float-right" title="Digital Twin">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ganesh-document/all-documents" class="fa fa-code-fork" style="color: #fcfcfc"> Ganesh All Documents</a>
+        </span>
+    
+    
+      <span><a href="../../AIML/aiml-overview.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="digital_twin.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

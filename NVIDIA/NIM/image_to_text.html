@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Ganesh Kinkar Giri" /><link rel="canonical" href="https://ganesh-document.github.io/all-documents/NVIDIA/NIM/image_to_text.html" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Image To Text - All the documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Image To Text";
+        var mkdocs_page_input_path = "NVIDIA/NIM/image_to_text.md";
+        var mkdocs_page_url = "/all-documents/NVIDIA/NIM/image_to_text.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> All the documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Overview</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Documents</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentsdetails.html">Documents details</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">AIML</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../AIML/aiml-overview.html">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >NVIDIA</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >NIM</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="Code-Generation.html">Code Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="digital_twin.html">Digital Twin</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="dna_sequencing.html">DNA Sequencing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="drug_discovery.html">Drug Discovery</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_classification.html">Image Classification</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_generation.html">Image Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_to_360.html">Image To 360</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="image_to_embedding.html">Image To Embedding</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Image To Text</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="medical_imaging.html">Medical Imaging</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="object_detect.html">Object Detect</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="optical_character_recog.html">Optical Character Recognition</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="rag.html">Retrieval Augmented Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="speech_to_animation.html">Speech To Animation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="speech_to_text.html">Speech To Text</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="sdg.html">Synthetic Data Generation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_translation.html">Text Translation</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_360.html">Text To 360</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_embedding.html">Text To Embedding</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_image.html">Text To Image</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="text_to_speech.html">Text To Speech</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="weather_simulation.html">Weather Simulation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Supervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Supervised/Supervised-overview.html">Supervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Regression</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Linear-Regression.md">Linear Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Decision-Tree.md">Decision Tree</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Random-Forest.md">Random Forest</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/SVM.md">SVM</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Naive-Bayes.md">Naive Bayes</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Gradient-Boosting.md">Gradient Boosting</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Classification</a>
+    <ul>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Classification-overview.md">Classification Overview</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/Logistic-Regression.md">Logistic Regression</a>
+                </li>
+                <li class="toctree-l3"><a class="" href="../../AIML/Supervised/KNN.md">KNN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Unsupervised</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/Unsupervised-overview.html">Unsupervised Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/K-means.html">K-means</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/PCA.html">PCA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/SOM.html">SOM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/ARIMA.html">ARIMA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/Unsupervised/SARIMA.html">SARIMA</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Deep Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/DeepLearning-overview.html">Deep Learning Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/DeepLearning-algorithms.html">Deep Learning Algorithms</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Keras.html">Keras</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Tensorflow.html">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Pytorch.html">Pytorch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/LSTM.html">LSTM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Autoencoder.html">Autoencoder</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/Reinforcement-Learning.html">Reinforcement Learning</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../AIML/DeepLearning/NLP.md">NLP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../AIML/DeepLearning/BERT.html">BERT</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../AIML/DeepLearning/GPT.md">GPT</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">All the documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">AIML</li>
+          <li class="breadcrumb-item">NVIDIA</li>
+          <li class="breadcrumb-item">NIM</li>
+      <li class="breadcrumb-item active">Image To Text</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tree/main/all-documents/NVIDIA/NIM/image_to_text.md">Edit on Ganesh All Documents</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="publisher-meta">Publisher: <strong>meta</strong><a class="headerlink" href="#publisher-meta" title="Permanent link">#</a></h2>
+<h2 id="1-model-metallama-32-11b-vision-instruct"><span style="color:blue">1. Model: meta/llama-3.2-11b-vision-instruct</span><a class="headerlink" href="#1-model-metallama-32-11b-vision-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-information">Model Information<a class="headerlink" href="#model-information" title="Permanent link">#</a></h2>
+<p>The Meta Llama 3.2 Vision collection of multimodal large language models (LLMs) is a collection of pre-trained and instruction-tuned image reasoning generative models in 11B and 90B sizes (text + images in / text out). The Llama 3.2 Vision instruction-tuned models are optimized for visual recognition, image reasoning, captioning, and answering general questions about an image. The models outperform many of the available open source and closed multimodal models on common industry benchmarks. Llama 3.2 Vision models are ready for commercial use.</p>
+<p><strong>Python</strong></p>
+<pre><code>
+import requests, base64
+
+invoke_url = &quot;https://ai.api.nvidia.com/v1/gr/meta/llama-3.2-11b-vision-instruct/chat/completions&quot;
+stream = True
+
+with open(&quot;image.png&quot;, &quot;rb&quot;) as f:
+  image_b64 = base64.b64encode(f.read()).decode()
+
+assert len(image_b64) &lt; 180_000, \
+  &quot;To upload larger images, use the assets API (see docs)&quot;
+
+
+headers = {
+  &quot;Authorization&quot;: &quot;Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;,
+  &quot;Accept&quot;: &quot;text/event-stream&quot; if stream else &quot;application/json&quot;
+}
+
+payload = {
+  &quot;model&quot;: 'meta/llama-3.2-11b-vision-instruct',
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: f'What is in this image? &lt;img src=&quot;data:image/png;base64,{image_b64}&quot; /&gt;'
+    }
+  ],
+  &quot;max_tokens&quot;: 512,
+  &quot;temperature&quot;: 1.00,
+  &quot;top_p&quot;: 1.00,
+  &quot;stream&quot;: stream
+}
+
+response = requests.post(invoke_url, headers=headers, json=payload)
+
+if stream:
+    for line in response.iter_lines():
+        if line:
+            print(line.decode(&quot;utf-8&quot;))
+else:
+    print(response.json())
+
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>stream=true
+
+if [ &quot;$stream&quot; = true ]; then
+    accept_header='Accept: text/event-stream'
+else
+    accept_header='Accept: application/json'
+fi
+
+image_b64=$( base64 image.png )
+
+echo '{
+  &quot;model&quot;: &quot;meta/llama-3.2-11b-vision-instruct&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;What is in this image? &lt;img src=\&quot;data:image/png;base64,'&quot;$image_b64&quot;'\&quot; /&gt;&quot;
+    }
+  ],
+  &quot;max_tokens&quot;: 512,
+  &quot;temperature&quot;: 1.00,
+  &quot;top_p&quot;: 1.00,
+  &quot;stream&quot;: true
+}' &gt; payload.json
+
+curl https://ai.api.nvidia.com/v1/gr/meta/llama-3.2-11b-vision-instruct/chat/completions \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;$accept_header&quot; \
+  -d @payload.json
+</code></pre>
+<p><strong>Ref Link:</strong>
+[meta/llama-3.2-11b-vision-instruct] (https://build.nvidia.com/meta/llama-3.2-11b-vision-instruct)</p>
+<h2 id="publisher-meta_1">Publisher: <strong>meta</strong><a class="headerlink" href="#publisher-meta_1" title="Permanent link">#</a></h2>
+<h2 id="2-model-microsoftphi-35-vision-instruct"><span style="color:blue">2. Model: microsoft/phi-3.5-vision-instruct</span><a class="headerlink" href="#2-model-microsoftphi-35-vision-instruct" title="Permanent link">#</a></h2>
+<h2 id="model-information_1">Model Information<a class="headerlink" href="#model-information_1" title="Permanent link">#</a></h2>
+<p>Phi-3.5-vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. This model is ready for commercial and research use.</p>
+<p><strong>Loading the model locally</strong></p>
+<pre><code>from PIL import Image 
+import requests 
+from transformers import AutoModelForCausalLM 
+from transformers import AutoProcessor 
+
+model_id = &quot;microsoft/Phi-3.5-vision-instruct&quot; 
+
+model = AutoModelForCausalLM.from_pretrained(model_id, device_map=&quot;cuda&quot;, trust_remote_code=True, torch_dtype=&quot;auto&quot;, _attn_implementation='flash_attention_2')
+
+processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True, num_crops=4) 
+
+images = []
+placeholder = &quot;&quot;
+for i in range(1,20):
+    url = f&quot;https://image.slidesharecdn.com/azureintroduction-191206101932/75/Introduction-to-Microsoft-Azure-Cloud-{i}-2048.jpg&quot; 
+    images.append(Image.open(requests.get(url, stream=True).raw))
+    placeholder += f&quot;&lt;|image_{i}|&gt;\n&quot;
+
+messages = [
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: placeholder+&quot;Summarize the deck of slides.&quot;},
+]
+
+prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+inputs = processor(prompt, images, return_tensors=&quot;pt&quot;).to(&quot;cuda:0&quot;) 
+
+generation_args = { 
+    &quot;max_new_tokens&quot;: 1000, 
+    &quot;temperature&quot;: 0.0, 
+    &quot;do_sample&quot;: False, 
+} 
+
+generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) 
+
+# remove input tokens 
+generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
+response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0] 
+
+print(response)
+</code></pre>
+<p><strong>Python</strong></p>
+<pre><code>
+import requests, base64
+
+invoke_url = &quot;https://integrate.api.nvidia.com/v1/chat/completions&quot;
+stream = True
+
+
+with open(&quot;dog.jpeg&quot;, &quot;rb&quot;) as f:
+  image_b64 = base64.b64encode(f.read()).decode()
+
+assert len(image_b64) &lt; 180_000, \
+  &quot;To upload larger images, use the assets API (see docs)&quot;
+
+
+
+headers = {
+  &quot;Authorization&quot;: &quot;Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;,
+  &quot;Accept&quot;: &quot;text/event-stream&quot; if stream else &quot;application/json&quot;
+}
+
+payload = {
+  &quot;model&quot;: 'microsoft/phi-3.5-vision-instruct',
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: f'Describe the image. &lt;img src=&quot;data:image/jpeg;base64,{image_b64}&quot; /&gt;'
+    }
+  ],
+  &quot;max_tokens&quot;: 512,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.70,
+  &quot;stream&quot;: stream
+}
+
+response = requests.post(invoke_url, headers=headers, json=payload)
+
+if stream:
+    for line in response.iter_lines():
+        if line:
+            print(line.decode(&quot;utf-8&quot;))
+else:
+    print(response.json())
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>stream=true
+
+if [ &quot;$stream&quot; = true ]; then
+    accept_header='Accept: text/event-stream'
+else
+    accept_header='Accept: application/json'
+fi
+
+
+image_b64=$( base64 dog.jpeg )
+
+echo '{
+  &quot;model&quot;: &quot;microsoft/phi-3.5-vision-instruct&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Describe the image. &lt;img src=\&quot;data:image/jpeg;base64,'&quot;$image_b64&quot;'\&quot; /&gt;&quot;
+    }
+  ],
+  &quot;max_tokens&quot;: 512,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.70,
+  &quot;stream&quot;: true
+}' &gt; payload.json
+
+curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;$accept_header&quot; \
+  -d @payload.json
+
+</code></pre>
+<p><strong>Ref Link:</strong>
+[microsoft/phi-3.5-vision-instruct] (https://build.nvidia.com/microsoft/phi-3_5-vision-instruct)</p>
+<h2 id="publisher-microsoft">Publisher: <strong>microsoft</strong><a class="headerlink" href="#publisher-microsoft" title="Permanent link">#</a></h2>
+<h2 id="3-model-microsoftflorence-2"><span style="color:blue">3. Model: microsoft/florence-2</span><a class="headerlink" href="#3-model-microsoftflorence-2" title="Permanent link">#</a></h2>
+<h2 id="model-information_2">Model Information<a class="headerlink" href="#model-information_2" title="Permanent link">#</a></h2>
+<p>Florence-2 is an advanced vision foundation model using a prompt-based approach to handle a wide range of vision and vision-language tasks. It can interpret simple text prompts to perform tasks like captioning, object detection and segmentation.</p>
+<p><strong>Python</strong></p>
+<pre><code># The model can perform 14 different vision language model and computer vision tasks. The input ```content``` field should be formatted as ```&quot;&lt;TASK_PROMPT&gt;&lt;text_prompt (only when needed)&gt;&lt;img&gt;&quot;```.
+# Users need to specify the task type at the beginning. Image supports both base64 and NvCF asset id. Some tasks require a text prompt, and users need to provide that after image. Below are the examples for each task.
+# For &lt;CAPTION_TO_PHRASE_GROUNDING&gt;, &lt;REFERRING_EXPRESSION_SEGMENTATION&gt;, &lt;OPEN_VOCABULARY_DETECTION&gt;, users can change the text prompt as other descriptions.
+# For &lt;REGION_TO_SEGMENTATION&gt;, &lt;REGION_TO_CATEGORY&gt;, &lt;REGION_TO_DESCRIPTION&gt;, the text prompt is formatted as &lt;loc_x1&gt;&lt;loc_y1&gt;&lt;loc_x2&gt;&lt;loc_y2&gt;, which is the normalized coordinates from region of interest bbox. x1=int(top_left_x_coor/width*999), y1=int(top_left_y_coor/height*999), x2=int(bottom_right_x_coor/width*999), y2=int(bottom_right_y_coor/height*999).
+import os
+import sys
+import zipfile
+import requests
+
+nvai_url = &quot;https://ai.api.nvidia.com/v1/vlm/microsoft/florence-2&quot;
+header_auth = f'Bearer {os.getenv(&quot;API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, &quot;&quot;)}'
+prompts = [&quot;&lt;CAPTION&gt;&quot;,
+    &quot;&lt;DETAILED_CAPTION&gt;&quot;,
+    &quot;&lt;MORE_DETAILED_CAPTION&gt;&quot;,
+    &quot;&lt;OD&gt;&quot;,
+    &quot;&lt;DENSE_REGION_CAPTION&gt;&quot;,
+    &quot;&lt;REGION_PROPOSAL&gt;&quot;,
+    &quot;&lt;CAPTION_TO_PHRASE_GROUNDING&gt;A black and brown dog is laying on a grass field.&quot;,
+    &quot;&lt;REFERRING_EXPRESSION_SEGMENTATION&gt;a black and brown dog&quot;,
+    &quot;&lt;REGION_TO_SEGMENTATION&gt;&lt;loc_312&gt;&lt;loc_168&gt;&lt;loc_998&gt;&lt;loc_846&gt;&quot;,
+    &quot;&lt;OPEN_VOCABULARY_DETECTION&gt;a black and brown dog&quot;,
+    &quot;&lt;REGION_TO_CATEGORY&gt;&lt;loc_312&gt;&lt;loc_168&gt;&lt;loc_998&gt;&lt;loc_846&gt;&quot;,
+    &quot;&lt;REGION_TO_DESCRIPTION&gt;&lt;loc_312&gt;&lt;loc_168&gt;&lt;loc_998&gt;&lt;loc_846&gt;&quot;,
+    &quot;&lt;OCR&gt;&quot;,
+    &quot;&lt;OCR_WITH_REGION&gt;&quot;]
+
+
+def _upload_asset(input, description):
+    &quot;&quot;&quot;
+    Uploads an asset to the NVCF API.
+    :param input: The binary asset to upload
+    :param description: A description of the asset
+
+    &quot;&quot;&quot;
+
+    authorize = requests.post(
+        &quot;https://api.nvcf.nvidia.com/v2/nvcf/assets&quot;,
+        headers={
+            &quot;Authorization&quot;: header_auth,
+            &quot;Content-Type&quot;: &quot;application/json&quot;,
+            &quot;accept&quot;: &quot;application/json&quot;,
+        },
+        json={&quot;contentType&quot;: &quot;image/jpeg&quot;, &quot;description&quot;: description},
+        timeout=30,
+    )
+    authorize.raise_for_status()
+
+    response = requests.put(
+        authorize.json()[&quot;uploadUrl&quot;],
+        data=input,
+        headers={
+            &quot;x-amz-meta-nvcf-asset-description&quot;: description,
+            &quot;content-type&quot;: &quot;image/jpeg&quot;,
+        },
+        timeout=300,
+    )
+
+    response.raise_for_status()
+    return str(authorize.json()[&quot;assetId&quot;])
+
+def _generate_content(task_id, asset_id):
+    if task_id &lt; 0 or task_id &gt;= len(prompts):
+        print(f&quot;task_id should within [0, {len(prompts)-1}]&quot;)
+        exit(1)
+    prompt = prompts[task_id]
+    content = f'{prompt}&lt;img src=&quot;data:image/jpeg;asset_id,{asset_id}&quot; /&gt;'
+    return content
+
+if __name__ == &quot;__main__&quot;:
+    &quot;&quot;&quot;Uploads two images of your choosing to the NVCF API and sends a request
+    to the Visual ChangeNet model to compare them. The response is saved to
+    &lt;output_dir&gt;
+    &quot;&quot;&quot;
+
+    if len(sys.argv) != 4:
+        print(&quot;Usage: python test.py &lt;test_image&gt; &lt;result_dir&gt; &lt;task_id&gt;\n&quot;
+            &quot;For example: python test.py car.jpg result_dir 0&quot;)
+        sys.exit(1)
+
+    if len(os.getenv(&quot;API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;, &quot;&quot;)) == 0:
+        print(&quot;API_KEY not set. Please export API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC=&lt;Your API Key&gt; as environment variable.&quot;)
+        sys.exit(1)
+
+    # Local images
+    asset_id = _upload_asset(open(sys.argv[1], &quot;rb&quot;), &quot;Test Image&quot;)
+    content = _generate_content(int(sys.argv[3]), asset_id)
+    # Asset IDs returned by the _upload_asset function
+    inputs = {
+        &quot;messages&quot;: [{
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: content
+        }]
+    }
+    # asset_list = f&quot;{asset_id}&quot;
+    headers = {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;NVCF-INPUT-ASSET-REFERENCES&quot;: asset_id,
+        &quot;NVCF-FUNCTION-ASSET-IDS&quot;: asset_id,
+        &quot;Authorization&quot;: header_auth,
+        &quot;Accept&quot;: &quot;application/json&quot;
+    }
+
+    print(asset_id, inputs)
+
+    # Send the request to the NIM API.
+    response = requests.post(nvai_url, headers=headers, json=inputs)
+
+    with open(f&quot;{sys.argv[2]}.zip&quot;, &quot;wb&quot;) as out:
+        out.write(response.content)
+
+    with zipfile.ZipFile(f&quot;{sys.argv[2]}.zip&quot;, &quot;r&quot;) as z:
+        z.extractall(sys.argv[2])
+
+    print(f&quot;Response saved to path: {sys.argv[2]}. File list: {os.listdir(sys.argv[2])}&quot;)
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>#!/bin/bash
+# The model can perform 14 different vision language model and computer vision tasks. The input ```content``` field should be formatted as ```&quot;&lt;TASK_PROMPT&gt;&lt;text_prompt (only when needed)&gt;&lt;img&gt;&quot;```.
+# Users need to specify the task type at the beginning. Image supports both base64 and NvCF asset id. Some tasks require a text prompt, and users need to provide that after image. Below are the examples for each task.
+# For &lt;CAPTION_TO_PHRASE_GROUNDING&gt;, &lt;REFERRING_EXPRESSION_SEGMENTATION&gt;, &lt;OPEN_VOCABULARY_DETECTION&gt;, users can change the text prompt as other descriptions.
+# For &lt;REGION_TO_SEGMENTATION&gt;, &lt;REGION_TO_CATEGORY&gt;, &lt;REGION_TO_DESCRIPTION&gt;, the text prompt is formatted as &lt;loc_x1&gt;&lt;loc_y1&gt;&lt;loc_x2&gt;&lt;loc_y2&gt;, which is the normalized coordinates from region of interest bbox. x1=int(top_left_x_coor/width*999), y1=int(top_left_y_coor/height*999), x2=int(bottom_right_x_coor/width*999), y2=int(bottom_right_y_coor/height*999).
+
+set -e
+
+# Check arguments
+if [ &quot;$#&quot; -ne 3 ]; then
+    printf &quot;Usage: ./test.sh &lt;test_image&gt; &lt;result_dir&gt; &lt;task_id&gt;\nFor example: ./test.sh car.jpg result_dir 0\n&quot;
+    exit 1
+fi
+
+if [[ -z &quot;${API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC}&quot; ]]; then
+    echo &quot;API_KEY not set. Please export API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC=&lt;Your API Key&gt; as environment variable.&quot;
+    exit 1
+
+fi
+# Set variables
+nvai_url=&quot;https://ai.api.nvidia.com/v1/vlm/microsoft/florence-2&quot;
+api_key=$API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC
+assets_url=&quot;https://api.nvcf.nvidia.com/v2/nvcf/assets&quot;
+
+prompts=(
+    &quot;&lt;CAPTION&gt;&quot;
+    &quot;&lt;DETAILED_CAPTION&gt;&quot;
+    &quot;&lt;MORE_DETAILED_CAPTION&gt;&quot;
+    &quot;&lt;OD&gt;&quot;
+    &quot;&lt;DENSE_REGION_CAPTION&gt;&quot;
+    &quot;&lt;REGION_PROPOSAL&gt;&quot;
+    &quot;&lt;CAPTION_TO_PHRASE_GROUNDING&gt;A black and brown dog is laying on a grass field.&quot;
+    &quot;&lt;REFERRING_EXPRESSION_SEGMENTATION&gt;a black and brown dog&quot;
+    &quot;&lt;REGION_TO_SEGMENTATION&gt;&lt;loc_312&gt;&lt;loc_168&gt;&lt;loc_998&gt;&lt;loc_846&gt;&quot;
+    &quot;&lt;OPEN_VOCABULARY_DETECTION&gt;a black and brown dog&quot;
+    &quot;&lt;REGION_TO_CATEGORY&gt;&lt;loc_312&gt;&lt;loc_168&gt;&lt;loc_998&gt;&lt;loc_846&gt;&quot;
+    &quot;&lt;REGION_TO_DESCRIPTION&gt;&lt;loc_312&gt;&lt;loc_168&gt;&lt;loc_998&gt;&lt;loc_846&gt;&quot;
+    &quot;&lt;OCR&gt;&quot;
+    &quot;&lt;OCR_WITH_REGION&gt;&quot;
+)
+
+content_type=&quot;image/jpeg&quot;
+description=&quot;Test Image&quot;
+
+# Function to upload an asset
+upload_asset() {
+    local input=$1
+    local description=$2
+
+    # Authorize upload
+    authorize=$(curl -s -X POST $assets_url \
+        -H &quot;Authorization: Bearer $api_key&quot; \
+        -H &quot;Content-Type: application/json&quot; \
+        -H &quot;accept: application/json&quot; \
+        -d &quot;{\&quot;contentType\&quot;: \&quot;$content_type\&quot;, \&quot;description\&quot;: \&quot;$description\&quot;}&quot;)
+
+    # Get upload URL and asset ID
+    upload_url=$(echo $authorize | jq -r '.uploadUrl')
+    asset_id=$(echo $authorize | jq -r '.assetId')
+
+    # Upload asset
+    curl -s -X PUT $upload_url \
+        -H &quot;x-amz-meta-nvcf-asset-description: $description&quot; \
+        -H &quot;content-type: $content_type&quot; \
+        --upload-file $input
+
+    echo $asset_id
+}
+
+# Function to generate content
+generate_content() {
+    local task_id=$1
+    local asset_id=$2
+    prompt=${prompts[$task_id]}
+    content=&quot;$prompt&lt;img src=\\\&quot;data:image/jpeg;asset_id,$asset_id\\\&quot; /&gt;&quot;
+
+    echo $content
+}
+
+# Upload images
+asset_id=$(upload_asset $1 $description)
+content=$(generate_content $3 $asset_id)
+echo '{
+    &quot;messages&quot;:[{
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;'&quot;$content&quot;'&quot;
+        }]
+    }' &gt; payload.json
+
+mkdir -p $2
+# Compare images via microservice
+location_command=&quot;curl -D - -s -X POST $nvai_url \
+  -H \&quot;Content-Type: application/json\&quot; \
+  -H \&quot;NVCF-INPUT-ASSET-REFERENCES: $asset_id\&quot; \
+  -H \&quot;NVCF-FUNCTION-ASSET-IDS: $asset_id\&quot; \
+  -H \&quot;Authorization: Bearer $api_key\&quot; \
+  -d @payload.json \
+  | grep location | awk '{print \$2}'&quot;
+
+location=$(eval ${location_command} | tr -d '\n' | tr -d '\r' | tr -d ' ' | tr -d '&quot;' | tr -d ',')
+
+# The download command will download the file from the location header
+download_command=&quot;curl -s '${location}' &gt; $2.zip&quot;
+echo $location_command
+
+# Download the .zip file
+response=$(eval ${download_command})
+
+# Unzip the file
+unzip -q $2.zip -d $2
+
+echo &quot;Response saved to $2.zip&quot;
+echo $(ls $2)
+</code></pre>
+<p><strong>Ref Link:</strong>
+[microsoft/florence-2] (https://build.nvidia.com/microsoft/microsoft-florence-2)</p>
+<h2 id="publisher-google">Publisher: <strong>google</strong><a class="headerlink" href="#publisher-google" title="Permanent link">#</a></h2>
+<h2 id="4-model-googlepaligemma"><span style="color:blue">4. Model: google/paligemma</span><a class="headerlink" href="#4-model-googlepaligemma" title="Permanent link">#</a></h2>
+<h2 id="model-information_3">Model Information<a class="headerlink" href="#model-information_3" title="Permanent link">#</a></h2>
+<p>The Google PaLIGemma-3B-mix model is a one-shot visual language understanding solution for image-to-text generation. This model is ready for commercial use.</p>
+<p><strong>Python</strong></p>
+<pre><code>
+import requests, base64
+
+invoke_url = &quot;https://ai.api.nvidia.com/v1/vlm/google/paligemma&quot;
+stream = True
+
+with open(&quot;dog.jpeg&quot;, &quot;rb&quot;) as f:
+    image_b64 = base64.b64encode(f.read()).decode()
+
+assert len(image_b64) &lt; 180_000, \
+  &quot;To upload larger images, use the assets API (see docs)&quot;
+
+headers = {
+  &quot;Authorization&quot;: &quot;Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;,
+  &quot;Accept&quot;: &quot;text/event-stream&quot; if stream else &quot;application/json&quot;
+}
+
+payload = {
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: f'Describe the image. &lt;img src=&quot;data:image/jpeg;base64,{image_b64}&quot; /&gt;'
+    }
+  ],
+  &quot;max_tokens&quot;: 512,
+  &quot;temperature&quot;: 1.00,
+  &quot;top_p&quot;: 0.70,
+  &quot;stream&quot;: stream
+}
+
+response = requests.post(invoke_url, headers=headers, json=payload)
+
+if stream:
+    for line in response.iter_lines():
+        if line:
+            print(line.decode(&quot;utf-8&quot;))
+else:
+    print(response.json())
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>image_b64=$( base64 dog.jpeg )
+stream=true
+
+if [ &quot;$stream&quot; = true ]; then
+    accept_header='Accept: text/event-stream'
+else
+    accept_header='Accept: application/json'
+fi
+
+echo '{
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Describe the image. &lt;img src=\&quot;data:image/jpeg;base64,'&quot;$image_b64&quot;'\&quot; /&gt;&quot;
+    }
+  ],
+  &quot;max_tokens&quot;: 512,
+  &quot;temperature&quot;: 1.00,
+  &quot;top_p&quot;: 0.70,
+  &quot;stream&quot;: true
+}' &gt; payload.json
+
+curl https://ai.api.nvidia.com/v1/vlm/google/paligemma \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;$accept_header&quot; \
+  -d @payload.json
+</code></pre>
+<p><strong>Ref Link:</strong>
+[google/paligemma] (https://build.nvidia.com/google/google-paligemma)</p>
+<h2 id="publisher-nvidia">Publisher: <strong>nvidia</strong><a class="headerlink" href="#publisher-nvidia" title="Permanent link">#</a></h2>
+<h2 id="4-model-nvidianeva-22b"><span style="color:blue">4. Model: nvidia/neva-22b</span><a class="headerlink" href="#4-model-nvidianeva-22b" title="Permanent link">#</a></h2>
+<h2 id="model-information_4">Model Information<a class="headerlink" href="#model-information_4" title="Permanent link">#</a></h2>
+<p>NeVA is NVIDIA's version of the LLaVA model where the open source LLaMA model is replaced with a GPT model trained by NVIDIA. At a high level the image is encoded using a frozen hugging face CLIP model and projected to the text embedding dimensions. This is then concatenated with the embeddings of the prompt and passed in through the language model. Training happens in two stages:</p>
+<p>Pretraining: Here the language model is frozen and only the projection layer (that maps the image encoding to the embedding space) is trained. Here, image-caption pairs are used to pretrain the model.
+Finetuning: Here the language model is also trained along with the projection layer. To finetune the model synthetic instruction data generated using GPT4 is used.</p>
+<p><strong>Python</strong></p>
+<pre><code>
+import requests, base64
+
+invoke_url = &quot;https://ai.api.nvidia.com/v1/vlm/nvidia/neva-22b&quot;
+stream = True
+
+with open(&quot;dog.png&quot;, &quot;rb&quot;) as f:
+    image_b64 = base64.b64encode(f.read()).decode()
+
+assert len(image_b64) &lt; 180_000, \
+  &quot;To upload larger images, use the assets API (see docs)&quot;
+
+headers = {
+  &quot;Authorization&quot;: &quot;Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;,
+  &quot;Accept&quot;: &quot;text/event-stream&quot; if stream else &quot;application/json&quot;
+}
+
+payload = {
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: f'Describe what you see in this image. &lt;img src=&quot;data:image/png;base64,{image_b64}&quot; /&gt;'
+    }
+  ],
+  &quot;max_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.70,
+  &quot;seed&quot;: 0,
+  &quot;stream&quot;: stream
+}
+
+response = requests.post(invoke_url, headers=headers, json=payload)
+
+if stream:
+    for line in response.iter_lines():
+        if line:
+            print(line.decode(&quot;utf-8&quot;))
+else:
+    print(response.json())
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>image_b64=$( base64 dog.png )
+stream=true
+
+if [ &quot;$stream&quot; = true ]; then
+    accept_header='Accept: text/event-stream'
+else
+    accept_header='Accept: application/json'
+fi
+
+echo '{
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Describe what you see in this image. &lt;img src=\&quot;data:image/png;base64,'&quot;$image_b64&quot;'\&quot; /&gt;&quot;
+    }
+  ],
+  &quot;max_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.70,
+  &quot;seed&quot;: 0,
+  &quot;stream&quot;: true
+}' &gt; payload.json
+
+curl https://ai.api.nvidia.com/v1/vlm/nvidia/neva-22b \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;$accept_header&quot; \
+  -d @payload.json
+</code></pre>
+<p><strong>Ref Link:</strong>
+[nvidia/neva-22b] (https://build.nvidia.com/google/google-paligemma)</p>
+<h2 id="publisher-microsoft_1">Publisher: <strong>microsoft</strong><a class="headerlink" href="#publisher-microsoft_1" title="Permanent link">#</a></h2>
+<h2 id="5-model-microsoftkosmos-2"><span style="color:blue">5. Model: microsoft/kosmos-2</span><a class="headerlink" href="#5-model-microsoftkosmos-2" title="Permanent link">#</a></h2>
+<h2 id="model-information_5">Model Information<a class="headerlink" href="#model-information_5" title="Permanent link">#</a></h2>
+<p>Kosmos-2 model is a groundbreaking multimodal large language model (MLLM). Kosmos-2 is designed to ground text to the visual world, enabling it to understand and reason about visual elements in images.</p>
+<p><strong>Python</strong></p>
+<pre><code>import requests, base64
+
+invoke_url = &quot;https://ai.api.nvidia.com/v1/vlm/microsoft/kosmos-2&quot;
+
+with open(&quot;soccer.png&quot;, &quot;rb&quot;) as f:
+    image_b64 = base64.b64encode(f.read()).decode()
+
+assert len(image_b64) &lt; 180_000, \
+  &quot;To upload larger images, use the assets API (see docs)&quot;
+
+headers = {
+  &quot;Authorization&quot;: &quot;Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;,
+  &quot;Accept&quot;: &quot;application/json&quot;
+}
+
+payload = {
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: f'Who is in this photo? &lt;img src=&quot;data:image/png;base64,{image_b64}&quot; /&gt;'
+    }
+  ],
+  &quot;max_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.20
+}
+
+response = requests.post(invoke_url, headers=headers, json=payload)
+
+print(response.json())
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>image_b64=$( base64 soccer.png )
+
+echo '{
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Who is in this photo? &lt;img src=\&quot;data:image/png;base64,'&quot;$image_b64&quot;'\&quot; /&gt;&quot;
+    }
+  ],
+  &quot;max_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.20
+}' &gt; payload.json
+
+curl https://ai.api.nvidia.com/v1/vlm/microsoft/kosmos-2 \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Accept: application/json&quot; \
+  -d @payload.json
+</code></pre>
+<p><strong>Ref Link:</strong>
+[microsoft/kosmos-2] (https://build.nvidia.com/microsoft/microsoft-kosmos-2)</p>
+<h2 id="publisher-google_1">Publisher: <strong>google</strong><a class="headerlink" href="#publisher-google_1" title="Permanent link">#</a></h2>
+<h2 id="6-model-googledeplot"><span style="color:blue">6. Model: google/deplot</span><a class="headerlink" href="#6-model-googledeplot" title="Permanent link">#</a></h2>
+<h2 id="model-information_6">Model Information<a class="headerlink" href="#model-information_6" title="Permanent link">#</a></h2>
+<p>The Google DePlot model is a one-shot visual language understanding solution that translates images of plots or charts into linearized tables.</p>
+<p><strong>Python</strong></p>
+<pre><code>
+import requests, base64
+
+invoke_url = &quot;https://ai.api.nvidia.com/v1/vlm/google/deplot&quot;
+stream = True
+
+with open(&quot;economic-assistance-chart.png&quot;, &quot;rb&quot;) as f:
+    image_b64 = base64.b64encode(f.read()).decode()
+
+assert len(image_b64) &lt; 180_000, \
+  &quot;To upload larger images, use the assets API (see docs)&quot;
+
+headers = {
+  &quot;Authorization&quot;: &quot;Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot;,
+  &quot;Accept&quot;: &quot;text/event-stream&quot; if stream else &quot;application/json&quot;
+}
+
+payload = {
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: f'Generate underlying data table of the figure below: &lt;img src=&quot;data:image/png;base64,{image_b64}&quot; /&gt;'
+    }
+  ],
+  &quot;max_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.20,
+  &quot;stream&quot;: stream
+}
+
+response = requests.post(invoke_url, headers=headers, json=payload)
+
+if stream:
+    for line in response.iter_lines():
+        if line:
+            print(line.decode(&quot;utf-8&quot;))
+else:
+    print(response.json())
+</code></pre>
+<p><strong>Shell</strong></p>
+<pre><code>image_b64=$( base64 economic-assistance-chart.png )
+stream=true
+
+if [ &quot;$stream&quot; = true ]; then
+    accept_header='Accept: text/event-stream'
+else
+    accept_header='Accept: application/json'
+fi
+
+echo '{
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Generate underlying data table of the figure below: &lt;img src=\&quot;data:image/png;base64,'&quot;$image_b64&quot;'\&quot; /&gt;&quot;
+    }
+  ],
+  &quot;max_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.20,
+  &quot;top_p&quot;: 0.20,
+  &quot;stream&quot;: true
+}' &gt; payload.json
+
+curl https://ai.api.nvidia.com/v1/vlm/google/deplot \
+  -H &quot;Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;$accept_header&quot; \
+  -d @payload.json
+</code></pre>
+<p><strong>Ref Link:</strong>
+[google/deplot] (https://build.nvidia.com/google/google-deplot)</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="image_to_embedding.html" class="btn btn-neutral float-left" title="Image To Embedding"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="medical_imaging.html" class="btn btn-neutral float-right" title="Medical Imaging">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ganesh-document/all-documents" class="fa fa-code-fork" style="color: #fcfcfc"> Ganesh All Documents</a>
+        </span>
+    
+    
+      <span><a href="image_to_embedding.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="medical_imaging.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
