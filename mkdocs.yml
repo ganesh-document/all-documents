@@ -15,6 +15,30 @@ nav:
        - Documents details: Documentsdetails.md
    - AIML:
       - Overview: AIML/aiml-overview.md
+      - NVIDIA:
+        - NIM:
+          - Code Generation: NVIDIA/NIM/Code-Generation.md
+          - Digital Twin: NVIDIA/NIM/digital_twin.md
+          - DNA Sequencing: NVIDIA/NIM/dna_sequencing.md
+          - Drug Discovery: NVIDIA/NIM/drug_discovery.md
+          - Image Classification: NVIDIA/NIM/image_classification.md
+          - Image Generation: NVIDIA/NIM/image_generation.md
+          - Image To 360: NVIDIA/NIM/image_to_360.md
+          - Image To Embedding: NVIDIA/NIM/image_to_embedding.md
+          - Image To Text: NVIDIA/NIM/image_to_text.md
+          - Medical Imaging: NVIDIA/NIM/medical_imaging.md
+          - Object Detect: NVIDIA/NIM/object_detect.md
+          - Optical Character Recognition: NVIDIA/NIM/optical_character_recog.md
+          - Retrieval Augmented Generation: NVIDIA/NIM/rag.md
+          - Speech To Animation: NVIDIA/NIM/speech_to_animation.md
+          - Speech To Text: NVIDIA/NIM/speech_to_text.md
+          - Synthetic Data Generation: NVIDIA/NIM/sdg.md
+          - Text Translation: NVIDIA/NIM/text_translation.md
+          - Text To 360: NVIDIA/NIM/text_to_360.md
+          - Text To Embedding: NVIDIA/NIM/text_to_embedding.md
+          - Text To Image: NVIDIA/NIM/text_to_image.md
+          - Text To Speech: NVIDIA/NIM/text_to_speech.md
+          - Weather Simulation: NVIDIA/NIM/weather_simulation.md
       - Supervised:
           - Supervised Overview: AIML/Supervised/Supervised-overview.md
           - Regression:
@@ -47,123 +71,6 @@ nav:
         - NLP: AIML/DeepLearning/NLP.md
         - BERT: AIML/DeepLearning/BERT.md
         - GPT: AIML/DeepLearning/GPT.md
-      - RAG:
-        - Vector Database: AIML/RAG/vector_database.md
-        - Retrieval augmented generation: AIML/RAG/Retrieval_augmented_generation.md
-
-   - Cloud:
-       - Aws: Cloud/Aws/aws.md
-       - Azure:
-            - Azure AZ-305:
-               - Azure All Services: Cloud/Azure/AZ-305/Azure-all-services.md 
-               - Compute: Cloud/Azure/AZ-305/Compute.md
-               - Containers: Cloud/Azure/AZ-305/Containers.md
-               - Analytics: Cloud/Azure/AZ-305/Analytics.md
-               - Databases: Cloud/Azure/AZ-305/Databases.md
-               - DevOps: Cloud/Azure/AZ-305/DevOps.md
-               - Hybrid & Multicloud: Cloud/Azure/AZ-305/Hybrid-Multicloud.md
-               - Identity: Cloud/Azure/AZ-305/Identity.md
-               - Integration: Cloud/Azure/AZ-305/Integration.md
-               - Internet of Things(IoT): Cloud/Azure/AZ-305/Internet-of-Things.md
-               - Management and governance: Cloud/Azure/AZ-305/Management-governance.md
-               - Migration: Cloud/Azure/AZ-305/Migration.md
-               - Mixed reality: Cloud/Azure/AZ-305/Mixed-reality.md
-               - Monitor: Cloud/Azure/AZ-305/Monitor.md
-               - Networking: Cloud/Azure/AZ-305/Networking.md
-               - Security: Cloud/Azure/AZ-305/Security.md
-               - Storage: Cloud/Azure/AZ-305/Storage.md
-               - Web & Mobile: Cloud/Azure/AZ-305/Web-Mobile.md
-               - General: Cloud/Azure/AZ-305/General.md
-            - Azure Security AZ-500: 
-                - Azure Security Technologies: Cloud/Azure/AZ-500/Azure-Security-Technologies.md
-                - Manage Identity and Access: Cloud/Azure/AZ-500/Manage-Identity-and-Access.md
-                - Implement platform protection: Cloud/Azure/AZ-500/Implement-platform-protection.md
-                - Secure your data and applications: Cloud/Azure/AZ-500/Secure-your-data-and-applications.md
-                - Manage security operation: Cloud/Azure/AZ-500/Manage-security-operation.md
-       - Gcp: Cloud/Gcp/gcp.md
-       - Oci: Cloud/Oci/oci.md
-       - Ibm: Cloud/Ibm/ibm.md
-   - Devops:
-       - Overview: Devops/devops-overview.md
-       - Tools:
-          - Kubernetes:
-            - Overview: Devops/tools/kubernetes/Kubernetes-overview.md
-            - Kubernetes Images: Devops/tools/kubernetes/Kubernetes-Images.md
-            - Kubernetes Jobs: Devops/tools/kubernetes/Kubernetes-Jobs.md
-            - Kubernetes Labels & Selectors: Devops/tools/kubernetes/Kubernetes-Labels-and-Selectors.md
-            - Kubernetes Namespace.md: Devops/tools/kubernetes/Kubernetes-Namespace.md
-            - Kubernetes Node: Devops/tools/kubernetes/ Kubernetes-Node.md
-            - Kubernetes Service: Devops/tools/kubernetes/Kubernetes-Service.md
-            - Kubernetes Pod: Devops/tools/kubernetes/Kubernetes-Pod.md
-            - Kubernetes Replication Controller: Devops/tools/kubernetes/Kubernetes-Replication-Controller.md
-            - Kubernetes Replica Sets: Devops/tools/kubernetes/Kubernetes-Replica-Sets.md
-            - Kubernetes Deployments: Devops/tools/kubernetes/Kubernetes-Deployments.md
-            - Kubernetes Volumes: Devops/tools/kubernetes/Kubernetes-Volumes.md
-            - Kubernetes Secrets: Devops/tools/kubernetes/Kubernetes-Secrets.md
-            - Kubernetes Network Policy: Devops/tools/kubernetes/Kubernetes-Network-Policy.md
-          - CI (Continuous Integration):
-            - Github Action: Devops/tools/CI/Github-action.md
-            - Jenkins: Devops/tools/CI/Jenkins.md
-            - TravisCI: Devops/tools/CI/TravisCI.md
-            - GitLab: Devops/tools/CI/Gitlab.md
-            - TeamCity: Devops/tools/CI/TeamCity.md
-            - CircleCI: Devops/tools/CI/CircleCI.md
-            - Bamboo: Devops/tools/CI/Bamboo.md
-            - Bitbucket: Devops/tools/CI/Bitbucket.md
-            - AWS CodePipeline: Devops/tools/CI/AWS-CodePipeline.md
-            - Azure Pipelines: Devops/tools/CI/Azure-Pipelines.md
-          - CD (Continuous Delivery):
-            - Jenkins: Devops/tools/CD/Jenkins.md
-            - ArgoCD: Devops/tools/CD/ArgoCD.md
-            - GoCD: Devops/tools/CD/GoCD.md
-            - Spinnaker: Devops/tools/CD/Spinnaker.md
-            - GitLab: Devops/tools/CD/GitLab.md
-          - CR (Container Registry):
-            - Jfrog artifactory: Devops/tools/CR/Jfrog-artifactory.md
-          - SCR (Source Code Repository):
-            - Github: Devops/tools/SCR/Github.md
-          - CQT (Code Quality Tools):
-            - SonarQube: Devops/tools/CQT/Sonarqube.md            
-   - Compliance:
-       - poc: Compliance/compliance.md
-   - DevSecOps:
-       - DevSecOps: DevSecOps/DevSecOps.md
-       - Hashicorp Vault:
-         - Hashicorp Vault details: Security/Hashicorp-vault/Hashicorp-vault.md
-         - Hashicorp Vault instalation: Security/Hashicorp-vault/Hashicorp-vault-instalation.md
-         - Hashicorp Vault github auth: Security/Hashicorp-vault/hashicorp-vault-github-auth.md
-       - Threat Modeling: DevSecOps/ThreatModeling/ThreatModeling.md
-       - SAST:
-         - Overview: DevSecOps/SAST/SAST.md
-         - Tools:
-           - SonarQube: DevSecOps/SAST/Tools/SonarQube.md
-           - snyk: DevSecOps/SAST/Tools/snyk.md
-           - Verracode: DevSecOps/SAST/Tools/Verracode.md
-           - HCLAppScan: DevSecOps/SAST/Tools/HCLAppScan.md
-           - Github: DevSecOps/SAST/Tools/Github.md
-           - GitLab: DevSecOps/SAST/Tools/GitLab.md
-           - GitGuardian: DevSecOps/SAST/Tools/GitGuardian.md
-           - Coverity: DevSecOps/SAST/Tools/Coverity.md
-           - Semgrep: DevSecOps/SAST/Tools/Semgrep.md
-           - Appknox: DevSecOps/SAST/Tools/SonarQube.md
-           - DeepSource: DevSecOps/SAST/Tools/SonarQube.md
-           - Checkmarx: DevSecOps/SAST/Tools/Checkmarx.md
-           - Fortify Static Code Analyzer: DevSecOps/SAST/Tools/Fortify.md
-           - Kiuwan Code Security Insights: DevSecOps/SAST/Tools/kiuwan.md
-       - DAST: DevSecOps/DAST/dast.md
-       - SCA: DevSecOps/SCA/sca.md
-       - Container image scan: DevSecOps/Containerimagescan/Containerimagescan.md
-       - IaC: DevSecOps/IaC/iac.md
-       - OSSC: DevSecOps/OSSC/ossc.md
-       - CyberArk: DevSecOps/CyberArk/CyberArk.md
-   - Security:
-       - CCSP:
-           - CCSP-2023-1: Security/CCSP/CCSP-2023-1.md
-           - CCSP-2023-2: Security/CCSP/CCSP-2023-2.md
-           - CCSP-2023-3: Security/CCSP/CCSP-2023-3.md
-       - Penetration Testing: Security/Penetration-Testing/Tools/devsecops-cs.md
-   - Microservice:
-       - MicroService/microservice.md
 
 #theme: readthedocs
 theme:
