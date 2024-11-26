@@ -16,29 +16,50 @@ nav:
    - AIML:
       - Overview: AIML/aiml-overview.md
       - NVIDIA:
-        - NIM:
-          - Code Generation: NVIDIA/NIM/Code-Generation.md
-          - Digital Twin: NVIDIA/NIM/digital_twin.md
-          - DNA Sequencing: NVIDIA/NIM/dna_sequencing.md
-          - Drug Discovery: NVIDIA/NIM/drug_discovery.md
-          - Image Classification: NVIDIA/NIM/image_classification.md
-          - Image Generation: NVIDIA/NIM/image_generation.md
-          - Image To 360: NVIDIA/NIM/image_to_360.md
-          - Image To Embedding: NVIDIA/NIM/image_to_embedding.md
-          - Image To Text: NVIDIA/NIM/image_to_text.md
-          - Medical Imaging: NVIDIA/NIM/medical_imaging.md
-          - Object Detect: NVIDIA/NIM/object_detect.md
-          - Optical Character Recognition: NVIDIA/NIM/optical_character_recog.md
-          - Retrieval Augmented Generation: NVIDIA/NIM/rag.md
-          - Speech To Animation: NVIDIA/NIM/speech_to_animation.md
-          - Speech To Text: NVIDIA/NIM/speech_to_text.md
-          - Synthetic Data Generation: NVIDIA/NIM/sdg.md
-          - Text Translation: NVIDIA/NIM/text_translation.md
-          - Text To 360: NVIDIA/NIM/text_to_360.md
-          - Text To Embedding: NVIDIA/NIM/text_to_embedding.md
-          - Text To Image: NVIDIA/NIM/text_to_image.md
-          - Text To Speech: NVIDIA/NIM/text_to_speech.md
-          - Weather Simulation: NVIDIA/NIM/weather_simulation.md
+        - NIM Models:
+          - Large Language Models:
+            - 01-ai: NVIDIA/NIM/Models/LLM-Models/01-ai/01-ai-yi-large.md
+            - abacusai: NVIDIA/NIM/Models/LLM-Models/abacusai/abacusai.md
+            - aisingapore: NVIDIA/NIM/Models/LLM-Models/aisingapore/aisingapore.md
+            - bigcode: NVIDIA/NIM/Models/LLM-Models/bigcode/bigcode.md
+            - databricks: NVIDIA/NIM/Models/LLM-Models/databricks/databricks.md
+            - deepseek: NVIDIA/NIM/Models/LLM-Models/deepseek/deepseek.md
+            - google: NVIDIA/NIM/Models/LLM-Models/google/google.md
+            - ibm: NVIDIA/NIM/Models/LLM-Models/ibm/ibm.md
+            - mediatek: NVIDIA/NIM/Models/LLM-Models/mediatek/mediatek.md
+            - meta: NVIDIA/NIM/Models/LLM-Models/meta/meta.md
+            - microsoft: NVIDIA/NIM/Models/LLM-Models/microsoft/microsoft.md
+            - mistralai: NVIDIA/NIM/Models/LLM-Models/mistralai/mistralai.md
+            - nvidia: NVIDIA/NIM/Models/LLM-Models/nvidia/nvidia.md
+            - qwen: NVIDIA/NIM/Models/LLM-Models/qwen/qwen.md
+            - rakuten: NVIDIA/NIM/Models/LLM-Models/rakuten/rakuten.md
+            - seallms: NVIDIA/NIM/Models/LLM-Models/seallms/seallms.md
+            - snowflake: NVIDIA/NIM/Models/LLM-Models/snowflake/snowflake.md
+            - upstage: NVIDIA/NIM/Models/LLM-Models/upstage/upstage.md
+          - Retrieval Models:
+            - baai: NVIDIA/NIM/Models/Retrieval-Models/baai.md
+            - nvidia: NVIDIA/NIM/Models/Retrieval-Models/nvidia.md
+            - snowflake: NVIDIA/NIM/Models/Retrieval-Models/snowflake.md
+          - Visual Models:
+            - briaai: NVIDIA/NIM/Models/Visual-Models/briaai.md
+            - nvidia: NVIDIA/NIM/Models/Visual-Models/nvidia.md
+            - stabilityai: NVIDIA/NIM/Models/Visual-Models/stabilityai.md
+          - Multimodal Models:
+            - adept: NVIDIA/NIM/Models/Multimodal-Models/adept.md
+            - google: NVIDIA/NIM/Models/Multimodal-Models/google.md
+            - liuhaotian: NVIDIA/NIM/Models/Multimodal-Models/liuhaotian.md
+            - microsoft: NVIDIA/NIM/Models/Multimodal-Models/microsoft.md
+            - nvidia: NVIDIA/NIM/Models/Multimodal-Models/nvidia.md
+          - Healthcare Models:
+            - deepmind: NVIDIA/NIM/Models/Healthcare-Models/deepmind.md
+            - ipd: NVIDIA/NIM/Models/Healthcare-Models/ipd.md
+            - meta: NVIDIA/NIM/Models/Healthcare-Models/meta.md
+            - mit: NVIDIA/NIM/Models/Healthcare-Models/mit.md
+            - nvidia: NVIDIA/NIM/Models/Healthcare-Models/nvidia.md
+          - Route Optimization Models:
+            - nvidia: NVIDIA/NIM/Models/Route-Optimization-Models/nvidia.md
+          - Climate Simulation Models:
+            - nvidia: NVIDIA/NIM/Models/Route-Climate-Simulation-Models/nvidia.md
       - Supervised:
           - Supervised Overview: AIML/Supervised/Supervised-overview.md
           - Regression:
