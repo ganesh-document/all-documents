@@ -1,7 +1,7 @@
 site_name: All the documents
-site_url: https://ganesh-document.github.io/all-documents
-repo_url: https://github.com/ganesh-document/all-documents
-edit_uri: /tree/main/all-documents
+site_url: https: // ganesh-document.github.io/all-documents
+repo_url: https: // github.com/ganesh-document/all-documents
+edit_uri: / tree/main/all-documents
 repo_name: Ganesh All Documents
 site_author: Ganesh Kinkar Giri
 site_description: Ganesh all git docs
@@ -10,80 +10,80 @@ use_directory_urls: True
 theme:
     name: material
 nav:
-   - Overview: 
-     - Documents:
-       - Documents details: Documentsdetails.md
-   - AIML:
-      - Overview: AIML/aiml-overview.md
-      - NVIDIA:
-        - NIM:
-          - Code Generation: NVIDIA/NIM/Code-Generation.md
-          - Digital Twin: NVIDIA/NIM/digital_twin.md
-          - DNA Sequencing: NVIDIA/NIM/dna_sequencing.md
-          - Drug Discovery: NVIDIA/NIM/drug_discovery.md
-          - Image Classification: NVIDIA/NIM/image_classification.md
-          - Image Generation: NVIDIA/NIM/image_generation.md
-          - Image To 360: NVIDIA/NIM/image_to_360.md
-          - Image To Embedding: NVIDIA/NIM/image_to_embedding.md
-          - Image To Text: NVIDIA/NIM/image_to_text.md
-          - Medical Imaging: NVIDIA/NIM/medical_imaging.md
-          - Object Detect: NVIDIA/NIM/object_detect.md
-          - Optical Character Recognition: NVIDIA/NIM/optical_character_recog.md
-          - Retrieval Augmented Generation: NVIDIA/NIM/rag.md
-          - Speech To Animation: NVIDIA/NIM/speech_to_animation.md
-          - Speech To Text: NVIDIA/NIM/speech_to_text.md
-          - Synthetic Data Generation: NVIDIA/NIM/sdg.md
-          - Text Translation: NVIDIA/NIM/text_translation.md
-          - Text To 360: NVIDIA/NIM/text_to_360.md
-          - Text To Embedding: NVIDIA/NIM/text_to_embedding.md
-          - Text To Image: NVIDIA/NIM/text_to_image.md
-          - Text To Speech: NVIDIA/NIM/text_to_speech.md
-          - Weather Simulation: NVIDIA/NIM/weather_simulation.md
-      - Supervised:
-          - Supervised Overview: AIML/Supervised/Supervised-overview.md
-          - Regression:
-            - Linear Regression: AIML/Supervised/Linear-Regression.md
-            - Decision Tree: AIML/Supervised/Decision-Tree.md
-            - Random Forest: AIML/Supervised/Random-Forest.md
-            - SVM: AIML/Supervised/SVM.md
-            - Naive Bayes: AIML/Supervised/Naive-Bayes.md
-            - Gradient Boosting: AIML/Supervised/Gradient-Boosting.md
-          - Classification:
-            - Classification Overview: AIML/Supervised/Classification-overview.md
-            - Logistic Regression: AIML/Supervised/Logistic-Regression.md
-            - KNN: AIML/Supervised/KNN.md
-      - Unsupervised: 
+    - Overview:
+        - Documents:
+            - Documents details: Documentsdetails.md
+    - AIML:
+        - Overview: AIML/aiml-overview.md
+        - NVIDIA:
+            - NIM:
+                - Code Generation: NVIDIA/NIM/Code-Generation.md
+                - Digital Twin: NVIDIA/NIM/digital_twin.md
+                - DNA Sequencing: NVIDIA/NIM/dna_sequencing.md
+                - Drug Discovery: NVIDIA/NIM/drug_discovery.md
+                - Image Classification: NVIDIA/NIM/image_classification.md
+                - Image Generation: NVIDIA/NIM/image_generation.md
+                - Image To 360: NVIDIA/NIM/image_to_360.md
+                - Image To Embedding: NVIDIA/NIM/image_to_embedding.md
+                - Image To Text: NVIDIA/NIM/image_to_text.md
+                - Medical Imaging: NVIDIA/NIM/medical_imaging.md
+                - Object Detect: NVIDIA/NIM/object_detect.md
+                - Optical Character Recognition: NVIDIA/NIM/optical_character_recog.md
+                - Retrieval Augmented Generation: NVIDIA/NIM/rag.md
+                - Speech To Animation: NVIDIA/NIM/speech_to_animation.md
+                - Speech To Text: NVIDIA/NIM/speech_to_text.md
+                - Synthetic Data Generation: NVIDIA/NIM/sdg.md
+                - Text Translation: NVIDIA/NIM/text_translation.md
+                - Text To 360: NVIDIA/NIM/text_to_360.md
+                - Text To Embedding: NVIDIA/NIM/text_to_embedding.md
+                - Text To Image: NVIDIA/NIM/text_to_image.md
+                - Text To Speech: NVIDIA/NIM/text_to_speech.md
+                - Weather Simulation: NVIDIA/NIM/weather_simulation.md
+        - Supervised:
+            - Supervised Overview: AIML/Supervised/Supervised-overview.md
+            - Regression:
+                - Linear Regression: AIML/Supervised/Linear-Regression.md
+                - Decision Tree: AIML/Supervised/Decision-Tree.md
+                - Random Forest: AIML/Supervised/Random-Forest.md
+                - SVM: AIML/Supervised/SVM.md
+                - Naive Bayes: AIML/Supervised/Naive-Bayes.md
+                - Gradient Boosting: AIML/Supervised/Gradient-Boosting.md
+            - Classification:
+                - Classification Overview: AIML/Supervised/Classification-overview.md
+                - Logistic Regression: AIML/Supervised/Logistic-Regression.md
+                - KNN: AIML/Supervised/KNN.md
+        - Unsupervised:
             - Unsupervised Overview: AIML/Unsupervised/Unsupervised-overview.md
             - K-means: AIML/Unsupervised/K-means.md
             - PCA: AIML/Unsupervised/PCA.md
             - SOM: AIML/Unsupervised/SOM.md
             - ARIMA: AIML/Unsupervised/ARIMA.md
             - SARIMA: AIML/Unsupervised/SARIMA.md
-      - Deep Learning:
-        - Deep Learning Overview: AIML/DeepLearning/DeepLearning-overview.md
-        - Deep Learning Algorithms: AIML/DeepLearning/DeepLearning-algorithms.md
-        - Keras: AIML/DeepLearning/Keras.md
-        - Tensorflow: AIML/DeepLearning/Tensorflow.md
-        - Pytorch: AIML/DeepLearning/Pytorch.md
-        - LSTM: AIML/DeepLearning/LSTM.md
-        - Autoencoder: AIML/DeepLearning/Autoencoder.md
-        - Reinforcement Learning: AIML/DeepLearning/Reinforcement-Learning.md
-        - NLP: AIML/DeepLearning/NLP.md
-        - BERT: AIML/DeepLearning/BERT.md
-        - GPT: AIML/DeepLearning/GPT.md
-      - RAG:
-        - Vector Database: AIML/RAG/vector_database.md
-        - Retrieval augmented generation: AIML/RAG/Retrieval_augmented_generation.md
+        - Deep Learning:
+            - Deep Learning Overview: AIML/DeepLearning/DeepLearning-overview.md
+            - Deep Learning Algorithms: AIML/DeepLearning/DeepLearning-algorithms.md
+            - Keras: AIML/DeepLearning/Keras.md
+            - Tensorflow: AIML/DeepLearning/Tensorflow.md
+            - Pytorch: AIML/DeepLearning/Pytorch.md
+            - LSTM: AIML/DeepLearning/LSTM.md
+            - Autoencoder: AIML/DeepLearning/Autoencoder.md
+            - Reinforcement Learning: AIML/DeepLearning/Reinforcement-Learning.md
+            - NLP: AIML/DeepLearning/NLP.md
+            - BERT: AIML/DeepLearning/BERT.md
+            - GPT: AIML/DeepLearning/GPT.md
+        - RAG:
+            - Vector Database: AIML/RAG/vector_database.md
+            - Retrieval augmented generation: AIML/RAG/Retrieval_augmented_generation.md
 
-#theme: readthedocs
+# theme: readthedocs
 theme:
-    #name: material
+    # name: material
     name: readthedocs
-    #features:
+    # features:
     #    - toc.integrate
     #    - navigation.indexes
     #    - content.tabs.link
-    #icon:
+    # icon:
     #    repo: fontawesome/brands/github-alt
 
 extra_css: [css/extra.css]
@@ -91,7 +91,7 @@ markdown_extensions:
     - toc:
         toc_depth: 3
         permalink: "#"
-    - tables        
+    - tables
 use_directory_urls: false
 plugins:
     - search
